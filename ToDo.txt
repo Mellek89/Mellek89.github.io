@@ -1,0 +1,8 @@
+
+Wochenmarkt Donnerstag im Kalender anzeigen
+
+inaktive tage auch als events im kalender anzeigen.
+
+
+
+
