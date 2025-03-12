@@ -1,0 +1,174 @@
+[
+    {"month":  "Februar",
+    
+    "events" : 
+    [
+      "Fasnachtsmarkt<br/> Mannheim"
+      
+    ] ,
+    
+   
+    "Fasnachtsmarkt<br/> Mannheim": [
+      "27.2",
+      "4.3"
+    ]
+  
+    },
+
+  {
+  "month": "März",
+    
+    "events" : [
+      "Fasnachtsmarkt<br/>Mannheim",
+      "Schriesheim<br/>Mathaisemarkt",
+      "Idsteiner<br/>Frühlingsmarkt",
+      "Durlacher<br/>Faschingsumzug"
+     
+    ] ,
+    
+    "Fasnachtsmarkt<br/>Mannheim": [
+              "01.3",       
+              "04.3"
+  ],
+    "Schriesheim<br/>Mathaisemarkt": [
+      "07.3",
+      "16.5"
+    ],
+
+    "Idsteiner<br/>Frühlingsmarkt": [
+      "22.3",
+      "23.3"
+    ],
+
+    "Durlacher<br/>Faschingsumzug": [
+      "02.3"      
+    ]
+  },
+
+{
+"month":"April",
+  
+"events": 
+[ "Blütenfest Güls",
+  "Speyerer<br/>Frühjahrsmesse",
+"Schriesheim<br/>Mathaisemarkt",
+ "Mannheimer<br/>Maimess"
+],
+"Speyerer<br/>Frühjahrsmesse":
+["4.4",
+"21.4"],
+"Schriesheim<br/>Mathaisemarkt": [
+  "7.3",
+  "16.5"
+],
+"Mannheimer<br/>Maimess":
+["26.4",
+ "11.5"],
+"Blütenfest Güls":
+["30.4",
+"4.5"]
+},
+{"month":"Mai",
+
+"events":[ 
+"Blütenfest Güls",
+"Schriesheim<br/>Mathaisemarkt",
+"Mannheimer<br/>Maimess",
+"Lahneck Live<br/>Kulturfestival"
+
+
+],
+
+"Blütenfest Güls":
+["30.4",
+"4.5"],
+"Mannheimer<br/>Maimess":
+["26.4",
+ "11.5"],
+ "Schriesheim<br/>Mathaisemarkt": [
+  "7.3",
+  "16.5"
+],
+ "Lahneck Live<br/>Kulturfestival":
+ ["23.5",
+"25.5"]
+},
+{"month":"Juni",
+"events":[
+  "Ballonfestival<br/>Bonn",
+  "Europäischer<br/> Keramikmarkt<br/>Höhr-Grenzhausen",
+  "Wein- und <br/>Heimatfest Kattenes"
+],
+"Ballonfestival<br/>Bonn":
+["6.6",
+"9.6"],
+ "Europäischer<br/> Keramikmarkt<br/>Höhr-Grenzhausen":
+["14.6",
+"15.6"],
+"Wein- und Heimatfest<br/>Kattenes":
+["20.6",
+"23.6"]
+},
+{"month":"Juli",
+"events":[
+  "Andernach<br/>schmeckt",
+  "Wein- und Heimatfest<br/>Löf"
+],
+"Andernach<br/>schmeckt":
+["7.7"],
+"Wein- und Heimatfest<br/>Löf":
+["11.7",
+"14.7"]
+},
+{
+  "month":"August",
+  "events":[
+   "Weinfest<br/>Dieblich",
+   "Moselfest<br/>Winningen"
+  ],
+  "Weinfest<br/>Dieblich":
+  ["22.8",
+   "24.8"],
+   "Moselfest<br/>Winningen":
+  ["29.8",
+   "7.9"]
+},
+{
+  "month":"September",
+  "events":[
+    "Moselfest<br/>Winningen",
+    "Schängelmarkt<br/>Koblenz"
+  ],
+  "Moselfest<br/>Winningen":
+  ["29.8",
+   "7.9"],
+   "Schängelmarkt<br/>Koblenz":
+   ["13.9",
+   "15.9"
+   ]
+},
+{
+  "month":"Oktober",
+  "events":[
+    "Idsteiner<br/>Herbstmarkt",
+    "Oktobermarkt in<br/>Montabaur"
+
+  ],
+  "Idsteiner<br/>Herbstmarkt":
+  ["11.10",
+  "12.10"],
+  "Oktobermarkt in<br/>Montabaur":
+  ["26.10"]
+},
+{
+  "month":"November",
+  "events":[
+    "Katharinenmarkt"
+  ],
+  "Katharinenmarkt":
+  ["8.11"]
+}
+
+]
+ 
+ 
