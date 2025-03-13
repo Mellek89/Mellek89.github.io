@@ -363,6 +363,7 @@ table tr:last-child td:last-child {
         grid-template-columns: repeat(1, 1fr);
         grid-auto-rows: minmax(100px, 20px);
         background-color: black;
+        overflow: hidden;
         grid-template-areas: 
         
         "header"
