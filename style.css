@@ -351,15 +351,18 @@ table tr:last-child td:last-child {
   border-bottom-right-radius: 0.5rem;
 }*/
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
 
         .main{
           margin-top: 0%;
           
         }
         .container {
+          width: 100%; /* Make sure content takes the full width */
+          padding: 10px;
         grid-template-columns: repeat(1, 1fr);
         grid-auto-rows: minmax(100px, 20px);
+        background-color: black;
         grid-template-areas: 
         
         "header"
