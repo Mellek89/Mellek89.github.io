@@ -529,6 +529,9 @@ table tr:last-child td:last-child {
         max-width: 85%;
 
       }
+      header .icons span:hover{
+        background: yellow;
+      }
       .calendar .days li{
         cursor:default;
       }
