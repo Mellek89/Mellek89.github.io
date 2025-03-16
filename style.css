@@ -23,6 +23,8 @@ body{
   background-color: aliceblue;
   grid-template-areas: "header header header header header header header header header"
                         "main main main main main main main main main"
+                        "footer footer footer footer footer footer footer footer footer"
+                        "footer footer footer footer footer footer footer footer footer"
                         "footer footer footer footer footer footer footer footer footer";
   
 }
@@ -96,7 +98,7 @@ grid-column: 3/4;
 
 nav li a{
   text-decoration:none;
-  color: yellow;
+  color: #ffeb3b;
  
 }
 nav li a:hover{
@@ -146,7 +148,7 @@ border-radius: 10px;
   padding: 25px 30px 10px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    background-color: yellow;
+    background-color: #ffeb3b;
     border-radius: 10px;
     margin: 0%;
 
@@ -174,6 +176,9 @@ grid-column: 3/4;
 	margin-top: 25px;
 }
 
+.days li.circle{
+  color: #F0FFFF;
+  }
 .days li.active{
 color: #fff;
 }
@@ -204,8 +209,11 @@ li.circle::before {
 
 
 .days li.circle::before{	
-	border-color: yellow;
-  background-color: yellow;
+	/*border-color: #F6F3BE;
+  background-color: #F0E801;*/
+  background-color: black;
+  border-width: 0.3em;
+  border-color: #F0E801;
 }
 
 .days li:hover::before{
@@ -238,7 +246,7 @@ header .chooseItem{
   grid-column: 2/3;
   background-color: black;
   top:35%;
-  border: 2px solid yellow;
+  border: 2px solid #F0E801;
   border-radius: 10px;
  width: 25%;
  right: 19%;
@@ -251,7 +259,7 @@ header .chooseItem{
  .slideshowHeadline{ 
   position: absolute;
   color: #F0FFFF;
-  font-size: 250%;
+  font-size: 200%;
   left: 56%;
   top: 18%;
           
@@ -530,7 +538,7 @@ table tr:last-child td:last-child {
 
       }
       .calendar header .icons span:hover{
-        background: yellow;
+        background: #F0E801;
       }
       .calendar .days li{
         cursor:default;
@@ -582,7 +590,7 @@ table tr:last-child td:last-child {
         {
           position: absolute;
           left: 22%;
-          font-size: 250%;
+          font-size: 200%;
           top:2%;
         }
        
