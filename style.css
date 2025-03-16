@@ -217,7 +217,7 @@ li.circle::before {
 	/*border-color: #F6F3BE;
   background-color: #F0E801;*/
   background-color: black;
-  
+  width: 10%;
   border-color: #F0E801;
 }
 
@@ -547,6 +547,10 @@ table tr:last-child td:last-child {
       }
       .calendar .days li{
         cursor:default;
+      }
+      .calendar .days li::before {
+        height: 30px;
+        width: 30px;
       }
       .days li:hover::before{
         background-color: transparent; /* Remove hover effect */
