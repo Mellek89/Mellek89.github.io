@@ -150,7 +150,7 @@ color: #F0FFFF;
   position: relative;
   padding: 25px 30px 10px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     background-color: #ffeb3b;
     border-radius: 10px;
     margin: 0%;
@@ -538,8 +538,13 @@ table tr:last-child td:last-child {
         max-width: 85%;
 
       }
+      .calendar header{
+       
+        padding: 10px 20px 10px;
+      }
       .calendar header .icons span:hover{
         background: #F0E801;
+        
       }
       .calendar .days li{
         cursor:default;
