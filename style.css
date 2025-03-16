@@ -411,6 +411,7 @@ table tr:last-child td:last-child {
           display: grid;
           row-gap: 20%;
           top: 5%;
+          left: 5%;
           
           
         }
