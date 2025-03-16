@@ -273,7 +273,7 @@ const renderEvents = () => {
 		if (months[currMonth] == c[y].month){
 		 	actualEvents = c[y].events;
 			 singleEvent +=`<span class="slideEvents" id="${actualEvents[0]}">${actualEvents[0]}</span>`
-			  slideMonths.innerHTML = `Veranstaltungen für ${months[currMonth]}`
+			  slideMonths.innerHTML = `Veranstaltungen für ${months[currMonth] } ${currYear}`
 		}
 		
 	} 
@@ -327,6 +327,7 @@ prevNextSlideshow.forEach(slide => {
 		showEvents();
 			
 	});
+	
 	
 })
 
