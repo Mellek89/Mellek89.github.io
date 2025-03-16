@@ -133,14 +133,14 @@ header .icons span:hover{
 position: relative;
 padding: 10px;
 max-width: 600px;
-background-color: black;
+background-color: #F0FFFF;
 left: 7%;
 top: 60px;
 grid-column: 1/2;
 border-radius: 10px;
 border-width: 1em;
 border: 2px solid #ffeb3b;
-color: #F0FFFF;
+color: black;
 /*margin: 0%;*/
 
 
@@ -178,7 +178,7 @@ grid-column: 3/4;
 	z-index: 1;
 	cursor: pointer;
 	margin-top: 25px;
-  color: #F0FFFF;
+  
 }
 
 .days li.circle{
