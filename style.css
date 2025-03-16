@@ -569,13 +569,13 @@ table tr:last-child td:last-child {
         max-height: 20%;
         cursor: default;
         font-size: 120%;
+       
 
        }
     
        .slideEventcontainer {
        
         left: 15%;
-        padding: 1em;
         top: 5%;
         width: 50%;
         
@@ -585,7 +585,7 @@ table tr:last-child td:last-child {
         position: absolute;
         grid-column: 1/2;
        left: 7%;
-       height: 20%;
+       height: 21%;
        width: 85%; 
        }
        .slideshowHeadline
@@ -601,7 +601,7 @@ table tr:last-child td:last-child {
         z-index: 1;
         top:-10%;
        font-size: 10%;
-       left: 4%;
+       left: 20%;
        
         
        }
