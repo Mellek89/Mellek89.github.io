@@ -133,11 +133,14 @@ header .icons span:hover{
 position: relative;
 padding: 10px;
 max-width: 600px;
-background-color: #F0FFFF;
+background-color: black;
 left: 7%;
 top: 60px;
 grid-column: 1/2;
 border-radius: 10px;
+border-width: 1em;
+border: 2px solid #ffeb3b;
+color: #F0FFFF;
 /*margin: 0%;*/
 
 
@@ -151,6 +154,7 @@ border-radius: 10px;
     background-color: #ffeb3b;
     border-radius: 10px;
     margin: 0%;
+    color: black;
 
 }
 .calendar header .icons{
@@ -174,6 +178,7 @@ grid-column: 3/4;
 	z-index: 1;
 	cursor: pointer;
 	margin-top: 25px;
+  color: #F0FFFF;
 }
 
 .days li.circle{
