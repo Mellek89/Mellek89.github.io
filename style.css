@@ -135,7 +135,7 @@ padding: 10px;
 max-width: 600px;
 background-color: black;
 left: 7%;
-top: 60px;
+
 grid-column: 1/2;
 border-radius: 10px;
 border-width: 1em;
@@ -176,7 +176,7 @@ grid-column: 3/4;
 }
 .calendar .days li{
 	z-index: 1;
-	cursor: pointer;
+	
 	margin-top: 25px;
   
 }
@@ -214,16 +214,11 @@ li.circle::before {
 
 
 .days li.circle::before{	
-	/*border-color: #F6F3BE;
-  background-color: #F0E801;*/
   background-color: black;
  
   border-color: #F0E801;
 }
 
-.days li:hover::before{
-	background: #f2f2f2;
-}
 .inactive{
 	color: #666;
 	}
@@ -250,7 +245,7 @@ header .chooseItem{
   position: absolute; 
   grid-column: 2/3;
   background-color: black;
-  top:35%;
+ top: 20%;
   border: 2px solid #F0E801;
   border-radius: 10px;
  width: 25%;
@@ -262,11 +257,11 @@ header .chooseItem{
  padding: 5%;
  }
  .slideshowHeadline{ 
-  position: absolute;
+  position: relative;
   color: #F0FFFF;
   font-size: 200%;
   left: 56%;
-  top: 18%;
+  
           
   }
 
