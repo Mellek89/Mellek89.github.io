@@ -15,6 +15,7 @@ let eventsInput = document.querySelector(".slideEventcontainer");
 let numberOfSlides = document.querySelector(".numberOfSlide");
 //var displayTable = $("#tableEvents").css('display');
 let slideMonths = document.querySelector(".slideshowHeadline")
+let SlideCounter = 0;
 let datesOfEvents = []; 
 let eventId = ""; 
 let dayOfEvent = null;
@@ -225,19 +226,24 @@ prevNextIcon.forEach(icon => {
 
 const renderEvents = () => {	
 	let singleEvent = "";
-
+	let slideCounter = 0;
 	var object = getData().then((c)=> {
-			
+		
 	for (let y=0; y<c.length;y++){
 		if (months[currMonth] == c[y].month){
 		 	actualEvents = c[y].events;
+			
 			 singleEvent +=`<span class="slideEvents" id="${actualEvents[0]}">${actualEvents[0]}</span>`
-			  slideMonths.innerHTML = `Veranstaltungen für ${months[currMonth] } ${currYear}`
+			  slideMonths.innerHTML = `Veranstaltungen für ${months[currMonth] } ${currYear}`	
 		}
 		
 	} 
 	actualEvents.push( "Ehrenbreitsteiner<br>Wochenmarkt");
-	actualEvents.push( "Wochenmarkt<br/>Donnerstag");
+	actualEvents.push( "Wochenmarkt<br/>Donnerstag");	
+	let sizeOfNumbers = actualEvents.length ;
+	SlideCounter = sizeOfNumbers;
+	numberOfSlides.innerHTML = SlideCounter;
+
 
 	for (let i = 0; i<actualEvents.length; i++){
 	if(eventId ==`${actualEvents[i]}`){
@@ -248,31 +254,26 @@ const renderEvents = () => {
 		eventsInput.innerHTML = singleEvent;		
 		eSelector = document.querySelectorAll('.slideEvents');	
 	}
-}
-
-	
+}	
 	showEvents();	
 		
 	})	  
 	
 }
 renderEvents();
+
 let currentSlide = "";
 let counter = 0;
-let slideNumbers = 5;
-
 
 prevNextSlideshow.forEach(slide => {
-	numberOfSlides.innerHTML = slideNumbers;
+	
 	slide.addEventListener("click", () => {
-	
-		let singleEvent = "";
-	
 		
-		currentSlide = slide.id === "slidePrev" ? (counter-- , slideNumbers++)  : (counter++ , slideNumbers--) ;
-		console.log(slideNumbers);
+		let singleEvent = "";
+		currentSlide = slide.id === "slidePrev" ? (counter-- , SlideCounter++)  : (counter++ , SlideCounter--) ;
+		console.log(counter);
 
-			if (counter == actualEvents.length ){
+			if (counter == actualEvents.length  ){
 				counter = 0;
 			}
 			if (counter < 0){
@@ -281,9 +282,22 @@ prevNextSlideshow.forEach(slide => {
 
 		singleEvent+=`<span class="slideEvents" id="${actualEvents[counter]}">${actualEvents[counter]}</span>`
 		
-		numberOfSlides.innerHTML = slideNumbers;
-		console.log(slideNumbers);
-		eventsInput.innerHTML = singleEvent;
+
+		if(SlideCounter <= actualEvents.length  && SlideCounter>0){
+			numberOfSlides.innerHTML = SlideCounter;
+			eventsInput.innerHTML = singleEvent;
+		}else if(SlideCounter> actualEvents.length){
+			SlideCounter = 1;
+			numberOfSlides.innerHTML = SlideCounter;
+			eventsInput.innerHTML = singleEvent;
+		
+		}else{
+			SlideCounter= actualEvents.length  ;
+			numberOfSlides.innerHTML = SlideCounter;
+			eventsInput.innerHTML = singleEvent;
+		}
+		
+
 		eSelector = document.querySelectorAll('.slideEvents');	
 
 		showEvents();
