@@ -141,7 +141,7 @@ border-radius: 10px;
 border-width: 1em;
 border: 2px solid #ffeb3b;
 color: #F0FFFF;
-/*margin: 0%;*/
+
 
 
 }
@@ -575,8 +575,6 @@ table tr:last-child td:last-child {
         max-height: 20%;
         cursor: default;
         font-size: 120%;
-       
-
        }
     
        .slideEventcontainer {
@@ -617,14 +615,19 @@ table tr:last-child td:last-child {
      
         #slideNext{
         position: relative;
-        left:61%;
+        left:60%;
         
 
        }
        #slidePrev{
         position: relative;
         left: 60%;
-       
+       }
+       #numberOfSlide{
+        position: relative;
+        left: 60%;
+        font-size: 1.45rem;
+        top:-4px
         
        }
    
