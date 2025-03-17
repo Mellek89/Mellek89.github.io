@@ -240,8 +240,8 @@ const renderEvents = () => {
 	} 
 	actualEvents.push( "Ehrenbreitsteiner<br>Wochenmarkt");
 	actualEvents.push( "Wochenmarkt<br/>Donnerstag");	
-	let sizeOfNumbers = actualEvents.length ;
-	SlideCounter = sizeOfNumbers;
+	SlideCounter = 1 ;
+	
 	numberOfSlides.innerHTML = SlideCounter;
 
 
@@ -270,7 +270,7 @@ prevNextSlideshow.forEach(slide => {
 	slide.addEventListener("click", () => {
 		
 		let singleEvent = "";
-		currentSlide = slide.id === "slidePrev" ? (counter-- , SlideCounter++)  : (counter++ , SlideCounter--) ;
+		currentSlide = slide.id === "slidePrev" ? (counter-- , SlideCounter--)  : (counter++ , SlideCounter++) ;
 		console.log(counter);
 
 			if (counter == actualEvents.length  ){
