@@ -12,6 +12,7 @@ let daysTag = document.querySelector(".days");
 let prevNextIcon = document.querySelectorAll(".icons span");
 let daysInput = document.querySelector(".days ").children;
 let eventsInput = document.querySelector(".slideEventcontainer");
+let numberOfSlides = document.querySelector(".numberOfSlide");
 //var displayTable = $("#tableEvents").css('display');
 let slideMonths = document.querySelector(".slideshowHeadline")
 let datesOfEvents = []; 
@@ -134,48 +135,6 @@ const renderCalender = () => {
 	recurringdaysOfCurrentMonth.length = 0;
 	
 }
-
-/*const showDefaultEvents = ()=>{
-	daysOfEvents.length = 0;
-	datesOfEvents.length = 0;
-	
-	
-	var jSObject = getData().then((c) =>{	
-		for (let y=0; y<c.length;y++){
-			if (months[currMonth] == c[y].month){
-				 actualEvents = c[y].events;	 
-			}
-			eventId = actualEvents[0];	
-			for (let key in c[y] ){
-											
-				if (key == [eventId]){
-					datesOfEvents = c[y][key];	
-				}
-			}
-				
-																																								
-		for(let z=0 ;z<datesOfEvents.length; z++){
-										
-			let days = datesOfEvents[z].split(".");
-			let day = days[0];
-		    day = +day; //convert String into Number
-			let month = days[1];
-			month = +month;
-			daysOfEvents.push(day,month);						
-										
-			}	
-			
-
-		} 
-		renderCalender();
-
-		});	
-	
-	}
-
-	showDefaultEvents();*/
-
-
 
 const showEvents = ()=>{
 		
@@ -300,16 +259,18 @@ const renderEvents = () => {
 renderEvents();
 let currentSlide = "";
 let counter = 0;
+let slideNumbers = 5;
+
 
 prevNextSlideshow.forEach(slide => {
-
+	numberOfSlides.innerHTML = slideNumbers;
 	slide.addEventListener("click", () => {
 	
 		let singleEvent = "";
 	
-
-		currentSlide = slide.id === "slidePrev" ? counter--  : counter++ ;
 		
+		currentSlide = slide.id === "slidePrev" ? (counter-- , slideNumbers++)  : (counter++ , slideNumbers--) ;
+		console.log(slideNumbers);
 
 			if (counter == actualEvents.length ){
 				counter = 0;
@@ -320,7 +281,8 @@ prevNextSlideshow.forEach(slide => {
 
 		singleEvent+=`<span class="slideEvents" id="${actualEvents[counter]}">${actualEvents[counter]}</span>`
 		
-		
+		numberOfSlides.innerHTML = slideNumbers;
+		console.log(slideNumbers);
 		eventsInput.innerHTML = singleEvent;
 		eSelector = document.querySelectorAll('.slideEvents');	
 
