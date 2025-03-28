@@ -252,7 +252,7 @@ header .chooseItem{
 
 }
 .slideshow{
-  
+  display: none;
   position: absolute; 
   grid-column: 2/3;
   background-color: black;
@@ -271,7 +271,9 @@ header .chooseItem{
   position: relative;
   color: #F0FFFF;
   font-size: 200%;
-  left: 56%;
+  left: 80%;
+  
+  
   
           
   }
@@ -311,23 +313,36 @@ header .chooseItem{
   
  }
  .dropdown{
-  display: none;
+  
   position: relative;
   grid-column: 2/3;
   cursor: pointer;
+  background-color: black;
+  top: 200%;
+  border-radius: 10px;
+  width: 25%;
+  color: #F0FFFF;
+  padding: 5%;
  }
+
 .dropdown-menu{
- background-color: #F0E801;
  display: none;
  position: absolute;
  min-width: 160px;
  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
  z-index: 1;
- border-radius: 5px;
+ border: 2px solid #F0E801;
+ border-radius: 10px;
+  width: 25%;
+  right: 19%;
+  color: #F0FFFF;
+  padding: 5%;
 }
 .dropdown-toggle{
-  background-color: #F0E801;
-  border-radius: 5px;
+ background-color: black;
+ position: relative;
+ right: 75%;
+
 }
 
  .events {
