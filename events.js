@@ -149,12 +149,7 @@ const renderCalender = () => {
 			
 
 		}
-		/*if((inactiveLastDays < daysOfEvents[0] || inactiveLastDays >= lastDateOfMonth )
-					&& (currMonth < daysOfEvents[3]-1 && currMonth > daysOfEvents[1]-1 )){
-					liTag += `<li id = ${inactiveLastDays} class=" circleInactive"> ${inactiveLastDays} </li>`;
-				}else if(currMonth < daysOfEvents[3] && currMonth > daysOfEvents[1]-1  && inactiveLastDays > daysOfEvents[3]
-					&& inactiveLastDays>= daysOfEvents[0]
-		*/
+
 					
 	for (let i =lastDayOfMonth; i < 6; i++){
 
@@ -226,7 +221,7 @@ const showEvents = ()=>{
 			});	
 			
 
-			if(e.innerHTML == "Ehrenbreitsteiner<br>Wochenmarkt"){
+			if(e.innerHTML == "Ehrenbreitsteiner<br>Wochenmarkt<br>"){
 				eventId = e.innerHTML;
 				dropdownHeader.innerHTML = eventId;
 				dateOfRecurringEvents();
@@ -330,7 +325,7 @@ function showDropdownMenu(){
 
 		let singleEvent = "";
 		for (let i = 0; i<actualEvents.length; i++){
-			singleEvent+=`<span class="dropdown-item" id="${actualEvents[i]}">${actualEvents[i]}</span></br>`
+			singleEvent+=`<span class="dropdown-item" id="${actualEvents[i]}">${actualEvents[i]}</span></br></br>`
 			dropdownList.innerHTML = singleEvent;
 		}
 		eSelector  = document.querySelectorAll(".dropdown-menu span")
