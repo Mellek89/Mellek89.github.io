@@ -10,9 +10,11 @@ currDay = date.getDay();
 const currentDate = document.querySelector(".current-date");
 let daysTag = document.querySelector(".days");
 let prevNextIcon = document.querySelectorAll(".icons span");
+let dropdownItems = document.querySelectorAll(".dropdown-menu span");
 let daysInput = document.querySelector(".days ").children;
 let eventsInput = document.querySelector(".slideEventcontainer");
 let numberOfSlides = document.querySelector(".numberOfSlide");
+let dropdownList = document.querySelector(".dropdown-menu");
 //var displayTable = $("#tableEvents").css('display');
 let slideMonths = document.querySelector(".slideshowHeadline")
 let SlideCounter = 0;
@@ -26,6 +28,8 @@ let eSelector = [];
 let keyValueOfEvents = [];
 let recurringdaysOfCurrentMonth = [];
 let prevNextSlideshow = document.querySelectorAll(".slideshowIcons span");
+let dropdownHeader = document.getElementById("dropdownMenu");
+
 
 var endOfEvent= null;
 
@@ -60,13 +64,32 @@ const renderCalender = () => {
 	
 	
 	let liTag = "";
-	
-	
 
 	for (let i = firstDateOfMonth; i > 0; i--){ // creating li of last days of prev month
-			
-		liTag += `<li class="inactive">${lasttDateOfLastMonth -i +1}</li>`;
-	}
+		
+				
+			let isToday = i === date.getDate() && currMonth === new Date().getMonth() && currYear === new Date().getFullYear() ? "inactive" : "";				
+			let inactiveLastDays = lasttDateOfLastMonth -i +1;
+	
+			if (eventId!=""){
+			//same event in multiple months
+
+				if((inactiveLastDays < daysOfEvents[0] ||inactiveLastDays >= lastDateOfMonth ) && (currMonth < daysOfEvents[3]-1 && currMonth > daysOfEvents[1]-1 )){
+					liTag += `<li id = ${inactiveLastDays} class=" circleInactive"> ${inactiveLastDays} </li>`;
+				}else if(currMonth < daysOfEvents[3] && currMonth > daysOfEvents[1]-1  && inactiveLastDays > daysOfEvents[3]
+					&& inactiveLastDays>= daysOfEvents[0]
+				){
+					liTag += `<li id = ${inactiveLastDays} class=" circleInactive"> ${inactiveLastDays} </li>`;
+				}
+				else{
+					liTag += `<li class="inactive">${lasttDateOfLastMonth -i +1}</li>`;
+				}
+									
+				}else
+
+				liTag += `<li class="inactive">${lasttDateOfLastMonth -i +1}</li>`;
+				}	
+		
 	
 		
 	for (let i = 1; i<=lastDateOfMonth; i++){
@@ -120,20 +143,34 @@ const renderCalender = () => {
 			let isToday = i === date.getDate() && currMonth === new Date().getMonth() && currYear === new Date().getFullYear() ? "active" : "";
 									
 			liTag += `<li id = ${i} class="${isToday}"> ${i} </li>`;
+			
 			}
+			
 
 		}
-		
 					
-	for (let i =lastDayOfMonth; i < 6; i++){
-			
-		liTag += `<li class="inactive">${i-lastDayOfMonth +1}</li>`;
-	}
+	/*for (let i =lastDayOfMonth; i < 6; i++){
+
+		let inactiveFirstDays = i-lastDayOfMonth +1;	
+
+		if (eventId!=""){
+			if (inactiveFirstDays < lastDateOfMonth && currMonth == daysOfEvents[1]-1 ){
+				console.log(inactiveFirstDays);
+				liTag += `<li id = ${inactiveFirstDays} class="circleInactive"> ${inactiveFirstDays} </li>`;
+			}else{
+				liTag += `<li class="inactive">${inactiveFirstDays}</li>`;
+			}
+		
+		}else{
+			liTag += `<li class="inactive">${inactiveFirstDays}</li>`;
+		}
+	}*/
 	
 	currentDate.innerText = `${months[currMonth]} ${currYear}`;
 	
 	daysTag.innerHTML = liTag;
 	recurringdaysOfCurrentMonth.length = 0;
+	
 	
 }
 
@@ -155,34 +192,35 @@ const showEvents = ()=>{
 								
 								if(e.id == a[i].events[y]){
 									eventId = a[i].events[y];
-									
+									dropdownHeader.innerHTML = eventId;
 										for (let key in a[i] ){
 											
 											if (key == [eventId]){
 												datesOfEvents = a[i][key];	
 											}
 										}	
-																																								
-										for(let z=0 ;z<datesOfEvents.length; z++){
-											
-											let days = datesOfEvents[z].split(".");
-											let day = days[0];
-											day = +day; //convert String into Number
-											let month = days[1];
-											month = +month;
-											daysOfEvents.push(day,month);
-											
-										}																										
+																																																																												
 								}
 							}
 					}
-				}renderCalender(); 
+				}
+				for(let z=0 ;z<datesOfEvents.length; z++){
+											
+					let days = datesOfEvents[z].split(".");
+					let day = days[0];
+					day = +day; //convert String into Number
+					let month = days[1];
+					month = +month;
+					daysOfEvents.push(day,month);
+				}
+				renderCalender(); 
 								
 			});	
 			
 
 			if(e.innerHTML == "Ehrenbreitsteiner<br>Wochenmarkt"){
 				eventId = e.innerHTML;
+				dropdownHeader.innerHTML = eventId;
 				dateOfRecurringEvents();
 				
 				}
@@ -219,6 +257,8 @@ prevNextIcon.forEach(icon => {
 		renderEvents();
 		showEvents();
 		renderCalender();
+		//if bedingung für eventId Löschen!!!
+		
 		
     });
 });
@@ -260,7 +300,37 @@ const renderEvents = () => {
 	})	  
 	
 }
+
+
+	
+let dropdown = document.getElementById("dropdown");
+	dropdown.addEventListener("click", () => {
+		
+		showDropdownMenu();
+		let dropdownMenuStyle = document.getElementById("dropdown-menu");
+		if (dropdownMenuStyle.style.display === "block") {
+			dropdownMenuStyle.style.display = "none";
+		} else {
+			dropdownMenuStyle.style.display = "block";
+		}
+	});
+	
+
 renderEvents();
+
+function showDropdownMenu(){
+
+		let singleEvent = "";
+		for (let i = 0; i<actualEvents.length; i++){
+			singleEvent+=`<span class="dropdown-item" id="${actualEvents[i]}">${actualEvents[i]}</span></br>`
+			dropdownList.innerHTML = singleEvent;
+		}
+		eSelector  = document.querySelectorAll(".dropdown-menu span")
+		showEvents();
+	
+};
+
+
 
 let currentSlide = "";
 let counter = 0;
