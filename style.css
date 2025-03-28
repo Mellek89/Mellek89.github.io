@@ -184,9 +184,13 @@ grid-column: 3/4;
 .days li.circle{
   color: #F0FFFF;
   }
+  .days li.circleInactive{
+    color:  #666;
+    }
 .days li.active{
 color: #fff;
 }
+
 .days li.active::before{
 	background: red
 	
@@ -209,14 +213,20 @@ color: #fff;
 li.circle::before {
   border: 2px solid;
   border-radius: 50%;
-
 }
-
 
 .days li.circle::before{	
   background-color: black;
- 
   border-color: #F0E801;
+}
+li.circleInactive::before {
+  border: 2px solid;
+  border-radius: 50%;
+}
+
+.days li.circleInactive::before{	
+  background-color: black;
+  border-color: #ffeb3b;
 }
 
 .inactive{
@@ -242,6 +252,7 @@ header .chooseItem{
 
 }
 .slideshow{
+  display: none;
   position: absolute; 
   grid-column: 2/3;
   background-color: black;
@@ -299,6 +310,26 @@ header .chooseItem{
   
   
  }
+ .dropdown{
+  
+  position: relative;
+  grid-column: 2/3;
+  cursor: pointer;
+ }
+.dropdown-menu{
+ background-color: #F0E801;
+ display: none;
+ position: absolute;
+ min-width: 160px;
+ box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+ z-index: 1;
+ border-radius: 5px;
+}
+.dropdown-toggle{
+  background-color: #F0E801;
+  border-radius: 5px;
+}
+
  .events {
   
   display: grid;
@@ -630,9 +661,10 @@ table tr:last-child td:last-child {
         top:-4px
         
        }
-   
-   
-      
+
+    
+
+ 
       
        
   }
