@@ -252,7 +252,7 @@ header .chooseItem{
 
 }
 .slideshow{
-  display: none;
+  
   position: absolute; 
   grid-column: 2/3;
   background-color: black;
@@ -311,7 +311,7 @@ header .chooseItem{
   
  }
  .dropdown{
-  
+  display: none;
   position: relative;
   grid-column: 2/3;
   cursor: pointer;
