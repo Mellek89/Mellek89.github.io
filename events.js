@@ -74,7 +74,8 @@ const renderCalender = () => {
 			if (eventId!=""){
 			//same event in multiple months
 
-				if((inactiveLastDays < daysOfEvents[0] ||inactiveLastDays >= lastDateOfMonth ) && (currMonth < daysOfEvents[3]-1 && currMonth > daysOfEvents[1]-1 )){
+				if((inactiveLastDays < daysOfEvents[0] || inactiveLastDays >= lastDateOfMonth )
+					&& (currMonth < daysOfEvents[3]-1 && currMonth > daysOfEvents[1]-1 )){
 					liTag += `<li id = ${inactiveLastDays} class=" circleInactive"> ${inactiveLastDays} </li>`;
 				}else if(currMonth < daysOfEvents[3] && currMonth > daysOfEvents[1]-1  && inactiveLastDays > daysOfEvents[3]
 					&& inactiveLastDays>= daysOfEvents[0]
@@ -148,14 +149,21 @@ const renderCalender = () => {
 			
 
 		}
+		/*if((inactiveLastDays < daysOfEvents[0] || inactiveLastDays >= lastDateOfMonth )
+					&& (currMonth < daysOfEvents[3]-1 && currMonth > daysOfEvents[1]-1 )){
+					liTag += `<li id = ${inactiveLastDays} class=" circleInactive"> ${inactiveLastDays} </li>`;
+				}else if(currMonth < daysOfEvents[3] && currMonth > daysOfEvents[1]-1  && inactiveLastDays > daysOfEvents[3]
+					&& inactiveLastDays>= daysOfEvents[0]
+		*/
 					
-	/*for (let i =lastDayOfMonth; i < 6; i++){
+	for (let i =lastDayOfMonth; i < 6; i++){
 
 		let inactiveFirstDays = i-lastDayOfMonth +1;	
 
 		if (eventId!=""){
-			if (inactiveFirstDays < lastDateOfMonth && currMonth == daysOfEvents[1]-1 ){
-				console.log(inactiveFirstDays);
+			if ((inactiveFirstDays <= lastDateOfMonth )
+				&& (currMonth < daysOfEvents[3]-1 && currMonth >= daysOfEvents[1]-1 )){
+				
 				liTag += `<li id = ${inactiveFirstDays} class="circleInactive"> ${inactiveFirstDays} </li>`;
 			}else{
 				liTag += `<li class="inactive">${inactiveFirstDays}</li>`;
@@ -164,7 +172,7 @@ const renderCalender = () => {
 		}else{
 			liTag += `<li class="inactive">${inactiveFirstDays}</li>`;
 		}
-	}*/
+	}
 	
 	currentDate.innerText = `${months[currMonth]} ${currYear}`;
 	
