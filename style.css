@@ -652,7 +652,7 @@ table tr:last-child td:last-child {
           position: absolute;
           left: 22%;
           font-size: 200%;
-          top:10%;
+          top:7%;
           z-index: 1;
          
         }
@@ -687,19 +687,18 @@ table tr:last-child td:last-child {
         top:-4px
         
        }
-       .logo{
+      .logo{
         position: relative;
         width: 10%;
-        height: 270%;
-        grid-column: 1/2;
+        top: -180%;
         left: 8% ;
-        top: -400%;
+       
         z-index: 3;
        }
        .dropdown {
         position: relative;
         grid-column: 1/2;
-        left: 45%;
+        left: 55%;
         top: 80%;
         z-index: 0;
         
