@@ -438,7 +438,8 @@ table tr:last-child td:last-child {
         }
        .container .header{
         position: relative;
-        z-index: 3;
+        z-index: 2;
+        height: 60%;
        }
         .container .header .nav .menu{
           list-style: none;
@@ -649,10 +650,10 @@ table tr:last-child td:last-child {
        .slideshowHeadline
         {
           position: absolute;
-         
           left: 22%;
           font-size: 200%;
-          top:2%;
+          top:10%;
+          z-index: 1;
          
         }
        
