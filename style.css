@@ -323,7 +323,10 @@ header .chooseItem{
   width: 25%;
   color: #F0FFFF;
   padding: 5%;
+  
  }
+ 
+ 
 
 .dropdown-menu{
  display: none;
