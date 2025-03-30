@@ -676,6 +676,41 @@ table tr:last-child td:last-child {
         top:-4px
         
        }
+       .dropdown {
+        position: relative;
+        grid-column: 1/2;
+        left: 55%;
+        top: 80%;
+        
+        
+       }
+       /*.dropdown.show .dropdown-toggle {
+        position: fixed; /* Use fixed positioning 
+        top: 50%;  Center vertically 
+        left: 50%; * Center horizontally 
+        transform: translate(-50%, -50%);  Adjust to truly center the element */
+      
+       .dropdown-toggle{
+        font-size: 150%;
+        position: relative;
+        right: 110%;
+        top: 10%;
+       }
+       .dropdown-menu{
+        width: 200%;
+        text-align: center;
+        position: absolute;
+        top: -70%;
+
+       }
+       .dropdown-menu span{
+        font-size: 100%;
+        line-height: 0.1em;
+        
+       }
+       .line-break {
+        margin-bottom: 5%;
+       }
 
     
 
