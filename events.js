@@ -305,24 +305,20 @@ const renderEvents = () => {
 }
 
 
-function toggleDropdown() {
-	const dropdown = document.querySelector('.dropdown');
-	dropdown.classList.toggle('show');
-  }
 let dropdown = document.getElementById("dropdown");
+let dropdownMenu = document.getElementById("dropdownMenu");
 	dropdown.addEventListener("click", () => {
 		
 		showDropdownMenu();
 		let dropdownMenuStyle = document.getElementById("dropdown-menu");
 		if (dropdownMenuStyle.style.display === "block") {
 			dropdownMenuStyle.style.display = "none";
-			toggleDropdown();
+			dropdownMenu.style.display = "block";
 		} else {
 			dropdownMenuStyle.style.display = "block";
+			dropdownMenu.style.display = "none";
 		}
 	});
-	
-
 renderEvents();
 
 function showDropdownMenu(){
@@ -336,6 +332,22 @@ function showDropdownMenu(){
 		showEvents();
 	
 };
+
+let switchView = document.getElementById("logo");
+
+switchView.addEventListener("click", () =>{
+	let slideshow = document.getElementById("slideshow");
+	if(dropdown.style.display === "block"){
+		dropdown.style.display = "none";
+		slideshow.style.display = "block";
+
+	}else{
+		dropdown.style.display ="block";
+		slideshow.style.display = "none";
+
+	}
+
+})
 
 
 
