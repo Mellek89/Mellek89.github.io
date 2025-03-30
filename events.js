@@ -305,7 +305,10 @@ const renderEvents = () => {
 }
 
 
-	
+function toggleDropdown() {
+	const dropdown = document.querySelector('.dropdown');
+	dropdown.classList.toggle('show');
+  }
 let dropdown = document.getElementById("dropdown");
 	dropdown.addEventListener("click", () => {
 		
@@ -313,6 +316,7 @@ let dropdown = document.getElementById("dropdown");
 		let dropdownMenuStyle = document.getElementById("dropdown-menu");
 		if (dropdownMenuStyle.style.display === "block") {
 			dropdownMenuStyle.style.display = "none";
+			toggleDropdown();
 		} else {
 			dropdownMenuStyle.style.display = "block";
 		}
@@ -325,7 +329,7 @@ function showDropdownMenu(){
 
 		let singleEvent = "";
 		for (let i = 0; i<actualEvents.length; i++){
-			singleEvent+=`<span class="dropdown-item" id="${actualEvents[i]}">${actualEvents[i]}</span></br></br>`
+			singleEvent+=`<span class="dropdown-item" id="${actualEvents[i]}">${actualEvents[i]}</span> <br class="line-break">`
 			dropdownList.innerHTML = singleEvent;
 		}
 		eSelector  = document.querySelectorAll(".dropdown-menu span")
