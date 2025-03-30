@@ -436,10 +436,14 @@ table tr:last-child td:last-child {
         "footer  "
         
         }
-       
+       .container .header{
+        position: relative;
+        z-index: 3;
+       }
         .container .header .nav .menu{
           list-style: none;
           max-height: 300px;
+        
           
         }
         header .icons span{
@@ -455,7 +459,7 @@ table tr:last-child td:last-child {
           row-gap: 20%;
           top: 5%;
           left: 5%;
-          z-index: 4;
+         
           
           
         }
@@ -481,9 +485,11 @@ table tr:last-child td:last-child {
         }
       
         .menu  .uns {
+          position: relative;
           grid-column: 2/3;
           grid-row: 4/5;
           font-size: 150%;
+          
         }
          .menu .news{
           grid-column: 2/3;
@@ -581,7 +587,7 @@ table tr:last-child td:last-child {
         position: relative;
         top: 45%;
         max-width: 85%;
-        z-index: 3;
+        z-index: 2;
         
 
       }
@@ -694,7 +700,7 @@ table tr:last-child td:last-child {
         grid-column: 1/2;
         left: 45%;
         top: 80%;
-        z-index: 1;
+        z-index: 0;
         
         
        }      
