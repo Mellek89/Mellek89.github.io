@@ -321,7 +321,7 @@ let calenderView = document.getElementById("calendar")
 			dropdownMenu.style.display = "none";
 		}
 
-		if (window.matchMedia("(max-width: 768px)").matches) {
+		if (window.matchMedia("(max-width: 900px)").matches) {
 			if (dropdownMenuStyle.style.display ==="none"){
 				calenderView.style.top = "-6%"
 			}else{
