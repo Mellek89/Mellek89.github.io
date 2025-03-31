@@ -307,6 +307,7 @@ const renderEvents = () => {
 
 let dropdown = document.getElementById("dropdown");
 let dropdownMenu = document.getElementById("dropdownMenu");
+let calenderView = document.getElementById("calendar")
 	dropdown.addEventListener("click", () => {
 		
 		showDropdownMenu();
@@ -314,10 +315,17 @@ let dropdownMenu = document.getElementById("dropdownMenu");
 		if (dropdownMenuStyle.style.display === "block") {
 			dropdownMenuStyle.style.display = "none";
 			dropdownMenu.style.display = "block";
+		
 		} else {
 			dropdownMenuStyle.style.display = "block";
 			dropdownMenu.style.display = "none";
 		}
+		if (dropdownMenuStyle.style.display ==="none"){
+			calenderView.style.top = "-6%"
+		}else{
+			calenderView.style.top = "50%"
+		}
+	
 	});
 renderEvents();
 
