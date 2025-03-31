@@ -637,7 +637,7 @@ table tr:last-child td:last-child {
        .slideEventcontainer {
        
         left: 15%;
-        top: 5%;
+        top: 20%;
         width: 50%;
         z-index: 1; 
           
@@ -648,14 +648,15 @@ table tr:last-child td:last-child {
        left: 7%;
        height: 21%;
        width: 85%;
+       top: 30%
        
        }
        .slideshowHeadline
         {
-          position: absolute;
-          left: 22%;
+          position: ;
+          left: 6%;
           font-size: 200%;
-          top:7%;
+          
           z-index: 1;
          
         }
@@ -702,7 +703,7 @@ table tr:last-child td:last-child {
         position: relative;
         grid-column: 1/2;
         left: 55%;
-        top: 80%;
+        top: 45%;
         z-index: 0;
         
         
@@ -710,7 +711,7 @@ table tr:last-child td:last-child {
        .dropdown-toggle{
         font-size: 150%;
         position: relative;
-        right: 110%;
+        right: 200%;
         top: 10%;
         
        }
@@ -727,6 +728,7 @@ table tr:last-child td:last-child {
         position: relative;
         font-size: 100%;
         line-height: 0.1em;
+        
         
        
         
