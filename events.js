@@ -353,6 +353,7 @@ switchView.addEventListener("click", () =>{
 
 	if(dropdownSwitch.style.display === "block"){
 		dropdownSwitch.style.display = "none";
+		dropdownMenu.style.display = "none";
 		slideshow.style.display = "block";
 		calenderView.style.top = "50%";
 
