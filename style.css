@@ -653,7 +653,7 @@ table tr:last-child td:last-child {
        }
        .slideshowHeadline
         {
-          position: ;
+          position: relative;
           left: 6%;
           font-size: 200%;
           
@@ -705,6 +705,7 @@ table tr:last-child td:last-child {
         left: 55%;
         top: 45%;
         z-index: 0;
+        display: block;
         
         
        }      

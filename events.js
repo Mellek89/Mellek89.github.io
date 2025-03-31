@@ -281,7 +281,7 @@ const renderEvents = () => {
 		}
 		
 	} 
-	actualEvents.push( "Ehrenbreitsteiner<br>Wochenmarkt");
+	actualEvents.push( "Ehrenbreitsteiner<br>Wochenmarkt<br>");
 	actualEvents.push( "Wochenmarkt<br/>Donnerstag");	
 	SlideCounter = 1 ;
 	
@@ -334,15 +334,18 @@ function showDropdownMenu(){
 };
 
 let switchView = document.getElementById("logo");
-
+let slideshow = document.getElementById("slideshow");
+let dropdownSwitch = document.getElementById("dropdown");
+dropdownSwitch.style.display = "block";
+slideshow.style.display = "none";
 switchView.addEventListener("click", () =>{
-	let slideshow = document.getElementById("slideshow");
-	if(dropdown.style.display === "block"){
-		dropdown.style.display = "none";
+
+	if(dropdownSwitch.style.display === "block"){
+		dropdownSwitch.style.display = "none";
 		slideshow.style.display = "block";
 
 	}else{
-		dropdown.style.display ="block";
+		dropdownSwitch.style.display ="block";
 		slideshow.style.display = "none";
 
 	}
