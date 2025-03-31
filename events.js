@@ -321,13 +321,13 @@ let calenderView = document.getElementById("calendar")
 			dropdownMenu.style.display = "none";
 		}
 
-		if (window.matchMedia("(max-width: 900px)").matches) {
+		//if (window.matchMedia("(max-width: 900px)").matches) {
 			if (dropdownMenuStyle.style.display ==="none"){
 				calenderView.style.top = "-6%"
 			}else{
 				calenderView.style.top = "50%"
 			}
-		}
+		//}
 	
 	});
 renderEvents();
@@ -359,6 +359,10 @@ switchView.addEventListener("click", () =>{
 		dropdownSwitch.style.display ="block";
 		slideshow.style.display = "none";
 
+	}
+
+	if (slideshow.style.display = "block"){
+		calenderView.style.top = "50%";
 	}
 
 })
