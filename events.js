@@ -221,7 +221,7 @@ const showEvents = ()=>{
 			});	
 			
 
-			if(e.innerHTML == "Ehrenbreitsteiner<br>Wochenmarkt<br>"){
+			if(e.innerHTML == "Ehrenbreitsteiner<br>Wochenmarkt"){
 				eventId = e.innerHTML;
 				dropdownHeader.innerHTML = eventId;
 				dateOfRecurringEvents();
@@ -281,7 +281,7 @@ const renderEvents = () => {
 		}
 		
 	} 
-	actualEvents.push( "Ehrenbreitsteiner<br>Wochenmarkt<br>");
+	actualEvents.push( "Ehrenbreitsteiner<br>Wochenmarkt");
 	actualEvents.push( "Wochenmarkt<br/>Donnerstag");	
 	SlideCounter = 1 ;
 	
