@@ -354,6 +354,7 @@ switchView.addEventListener("click", () =>{
 	if(dropdownSwitch.style.display === "block"){
 		dropdownSwitch.style.display = "none";
 		slideshow.style.display = "block";
+		calenderView.style.top = "50%";
 
 	}else{
 		dropdownSwitch.style.display ="block";
@@ -361,9 +362,7 @@ switchView.addEventListener("click", () =>{
 
 	}
 
-	if (slideshow.style.display = "block"){
-		calenderView.style.top = "50%";
-	}
+	
 
 })
 
