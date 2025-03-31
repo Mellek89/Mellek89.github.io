@@ -589,7 +589,7 @@ table tr:last-child td:last-child {
 
       .calendar{
         position: relative;
-        top: 45%;
+        top: 25%;
         max-width: 85%;
         z-index: 1;
         
@@ -703,7 +703,7 @@ table tr:last-child td:last-child {
         position: relative;
         grid-column: 1/2;
         left: 55%;
-        top: 45%;
+        top: 15%;
         z-index: 0;
         display: block;
         
