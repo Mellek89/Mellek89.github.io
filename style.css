@@ -694,8 +694,8 @@ table tr:last-child td:last-child {
       .logo{
         position: relative;
         width: 10%;
-        top: -180%;
-        left: 8% ;
+        top: -200%;
+        left: 13% ;
        
         z-index: 3;
        }
