@@ -260,9 +260,7 @@ prevNextIcon.forEach(icon => {
 		renderEvents();
 		showEvents();
 		renderCalender();
-		//if bedingung für eventId Löschen!!!
-		
-		
+			
     });
 });
 
@@ -325,7 +323,7 @@ let calenderView = document.getElementById("calendar")
 			if (dropdownMenuStyle.style.display ==="none"){
 				calenderView.style.top = "-6%"
 			}else{
-				calenderView.style.top = "50%"
+				calenderView.style.top = "28%"
 			}
 		//}
 	
