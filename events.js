@@ -349,23 +349,25 @@ dropdownSwitch.style.display = "block";
 slideshow.style.display = "none";
 switchView.addEventListener("click", () =>{
 
-	if(dropdownSwitch.style.display === "block"){
+	if(dropdown.style.display === "block"){
 		dropdownSwitch.style.display = "none";
 		dropdownMenu.style.display = "none";
 		slideshow.style.display = "block";
 		calenderView.style.top = "28%";
 
-	}else{
-		dropdownSwitch.style.display ="block";
+	}else if(slideshow.style.display === "block"){
+		dropdown.style.display = "block"
+		dropdownMenu.style.display = "block";
 		slideshow.style.display = "none";
+		calenderView.style.top = "2%";
+	}else{
+		dropdown.style.display ="block";
+		slideshow.style.display = "none";
+		calenderView.style.top = "2%";
 
 	}
 
-	
-
 })
-
-
 
 let currentSlide = "";
 let counter = 0;

@@ -648,7 +648,8 @@ table tr:last-child td:last-child {
        left: 7%;
        height: 21%;
        width: 85%;
-       top: 30%
+       top: 30%;
+       z-index: 1;
        
        }
        .slideshowHeadline
