@@ -704,7 +704,7 @@ table tr:last-child td:last-child {
         grid-column: 1/2;
         left: 55%;
         top: -10%;
-        z-index: 0;
+        z-index: 1;
         display: block;
         
         
