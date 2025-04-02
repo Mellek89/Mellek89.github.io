@@ -60,16 +60,12 @@ display: grid;
   display: grid;
 }
 
-.logo{
-  display: inline-block;
-  color: white;
-  font-size: 60px;
-  margin-left: 10px;
-}
+
 .menu{
 
 position: relative;
 left: 40px;
+top: 50%;
 }
 .menu .home{
  grid-column: 1/2; 
@@ -81,6 +77,19 @@ grid-column: 2/3;
 .menu .langos{
 grid-column: 3/4;
 }
+.menu .logo{
+  position: relative;
+  z-index: 3;
+  top: -50%;
+ }
+ .logoImg{
+    position: relative;
+    width: 60%;
+    left: 13% ;
+    z-index: 3;
+    
+   
+ }
 
 .menu .uns {
   grid-column: 5/6;
@@ -90,6 +99,32 @@ grid-column: 3/4;
 }
 .menu .kontakt{
   grid-column: 7/8;
+}
+
+.germany{
+  grid-column: 2/3;
+  position: relative;
+  fill: rgb(116, 225, 116);
+  width: 820px;
+  height: 792.66785px;
+  top: 50%;
+  
+}
+.BW{
+  fill:  black;
+ 
+  position: relative;
+  font-weight:700;
+  text-anchor:middle;
+  transform: translate(204px, 671px);
+}
+.RP{
+  fill:  black;
+ 
+  position: relative;
+  font-weight:700;
+  text-anchor:middle;
+  transform: translate(102px, 555px);
 }
  /* Nav menu */
 .side-menu {
@@ -272,10 +307,8 @@ header .chooseItem{
   color: #F0FFFF;
   font-size: 200%;
   left: 80%;
-  
-  
-  
-          
+  top: 90%;
+           
   }
 
  .slideEvents{
@@ -586,6 +619,13 @@ table tr:last-child td:last-child {
       body:has(.side-menu:checked) {
       overflow: hidden;
       }
+      .germany{
+        position: relative;
+        top:-30%;
+        left: 10%;
+        
+      }
+        
 
       .calendar{
         position: relative;

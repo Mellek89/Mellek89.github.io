@@ -281,12 +281,12 @@ const renderEvents = () => {
 	} 
 	actualEvents.push( "Ehrenbreitsteiner<br>Wochenmarkt");
 	actualEvents.push( "Wochenmarkt<br/>Donnerstag");	
-	SlideCounter = 1 ;
+	//SlideCounter = 1 ;
 	
-	numberOfSlides.innerHTML = SlideCounter;
+	//numberOfSlides.innerHTML = SlideCounter;
 
 
-	for (let i = 0; i<actualEvents.length; i++){
+	/*for (let i = 0; i<actualEvents.length; i++){
 	if(eventId ==`${actualEvents[i]}`){
 		console.log(eventId);
 		 singleEvent =`<span class="slideEvents" id="${eventId}">${eventId}</span>`
@@ -295,7 +295,7 @@ const renderEvents = () => {
 		eventsInput.innerHTML = singleEvent;		
 		eSelector = document.querySelectorAll('.slideEvents');	
 	}
-}	
+}*/	
 	showEvents();	
 		
 	})	  
@@ -342,7 +342,7 @@ function showDropdownMenu(){
 	
 };
 
-let switchView = document.getElementById("logo");
+/*let switchView = document.getElementById("logo");
 let slideshow = document.getElementById("slideshow");
 let dropdownSwitch = document.getElementById("dropdown");
 dropdownSwitch.style.display = "block";
@@ -412,7 +412,7 @@ prevNextSlideshow.forEach(slide => {
 	});
 	
 	
-})
+})*/
 
 
 const dateOfRecurringEvents = () =>{
