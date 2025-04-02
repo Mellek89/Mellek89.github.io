@@ -540,7 +540,7 @@ table tr:last-child td:last-child {
         }
         .menu  .logo{
           grid-column: 2/3;
-         
+         display: none;
         }
      
 
@@ -732,12 +732,11 @@ table tr:last-child td:last-child {
         top:-4px
         
        }
-      .logo{
+      .logoMobil{
         position: relative;
-        width: 20%;
-        top: -150%;
+        width: 25%;
+        top: -290%;
         left: 13% ;
-       
         z-index: 3;
        }
        .dropdown {
