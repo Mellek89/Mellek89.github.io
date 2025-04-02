@@ -100,6 +100,9 @@ grid-column: 3/4;
 .menu .kontakt{
   grid-column: 7/8;
 }
+.logoMobil{
+  display: none;
+}
 
 .germany{
   grid-column: 2/3;
@@ -107,7 +110,7 @@ grid-column: 3/4;
   fill: rgb(116, 225, 116);
   width: 820px;
   height: 792.66785px;
-  top: 50%;
+ 
   
 }
 .BW{
@@ -132,6 +135,11 @@ grid-column: 3/4;
   font-weight:700;
   text-anchor:middle;
   transform: translate(102px, 400px);
+}
+.Bonn{
+  position: relative;
+  transform: translate(83px, 455px);
+  fill: black;
 }
  /* Nav menu */
 .side-menu {
