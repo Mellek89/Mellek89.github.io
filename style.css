@@ -697,8 +697,8 @@ table tr:last-child td:last-child {
           position: relative;
           left: 6%;
           font-size: 200%;
-          
           z-index: 1;
+          top: 1%;
          
         }
        
@@ -765,6 +765,7 @@ table tr:last-child td:last-child {
         top: -50%;
         display: none;
        left: -180%;
+      
         
 
        }
