@@ -126,6 +126,13 @@ grid-column: 3/4;
   text-anchor:middle;
   transform: translate(102px, 555px);
 }
+.NF{
+  fill:  black;
+  position: relative;
+  font-weight:700;
+  text-anchor:middle;
+  transform: translate(102px, 400px);
+}
  /* Nav menu */
 .side-menu {
   display: none;
