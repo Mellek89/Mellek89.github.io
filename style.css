@@ -160,11 +160,11 @@ grid-column: 3/4;
   fill: black;
 }
 .HRegion{
-  position: relative;
+  position: fixed;
   color: #F0E801;
   grid-column: 2/3;
   grid-row: 1/2;
-  top: 90%;
+ left: 20%;
 
 }
  /* Nav menu */
@@ -669,7 +669,7 @@ table tr:last-child td:last-child {
       .HRegion{
        position: relative;
         top: -50%;
-        left: 7%;
+        left: 4%;
       
       }
         
