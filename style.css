@@ -28,11 +28,6 @@ body{
   "header header header header header header header header header"
                         "main main main main main main main main main"
                         "main main main main main main main main main"
-                        "main main main main main main main main main"
-                        "main main main main main main main main main"
-                        "main main main main main main main main main"
-                        "main main main main main main main main main"
-                        
                         "footer footer footer footer footer footer footer footer footer"
                         "footer footer footer footer footer footer footer footer footer"
                         "footer footer footer footer footer footer footer footer footer";
@@ -493,9 +488,9 @@ table tr:last-child td:last-child {
           width: 100%; /* Make sure content takes the full width */
          
         grid-template-columns: repeat(1, 1fr);
-        grid-auto-rows: minmax(100px, 20px);
+       /* grid-auto-rows: minmax(100px, 20px);*/
         background-color: black;
-        /*overflow: hidden;*/
+        overflow: hidden;
         grid-template-areas: 
         
         "header"
