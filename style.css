@@ -666,7 +666,7 @@ table tr:last-child td:last-child {
         position: relative;
         left: 10%;
         grid-row: 1/2;
-        top:-10%
+        top:-15%
         
       }
       .HRegion{
