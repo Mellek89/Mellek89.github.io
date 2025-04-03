@@ -303,7 +303,7 @@ li.circleInactive::before {
 .inactive{
 	color: #666;
 	}
-  .container .main .events{
+.container .main .events{
   grid-column: 2/3;
 }
 header .chooseItem{
@@ -319,8 +319,6 @@ header .chooseItem{
   position: absolute;
   top:15%;
   left:18%;
-  
-
 }
 .slideshow{
   display: none;
@@ -340,7 +338,7 @@ header .chooseItem{
  }
  .slideshowHeadline{ 
   position: relative;
-  color: #F0FFFF;
+  color: #ffeb3b;
   font-size: 200%;
   left: 80%;
   top: 90%;
