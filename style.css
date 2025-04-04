@@ -19,19 +19,17 @@ body{
   display: grid;
   width: 100%;
   grid-template-columns: repeat(9, 1fr);
- /* grid-auto-rows: minmax(100px, auto);*/
- grid-template-rows: repeat(3, 1fr);
-
-  background-color: aliceblue;
+ grid-auto-rows: minmax(100px, auto);
+background-color: black;
+  
   grid-template-areas: 
   "header header header header header header header header header"
-  "header header header header header header header header header"
-  "header header header header header header header header header"
+  "main main main main main main main main main"
+  "main main main main main main main main main"
   "main main main main main main main main main"
   "main main main main main main main main main"
   "footer footer footer footer footer footer footer footer footer"
-  "footer footer footer footer footer footer footer footer footer"
-   "footer footer footer footer footer footer footer footer footer";
+  
   
 }
 
@@ -43,15 +41,14 @@ body{
   position: sticky;
   top: 0%;
   width: 100%;
-  
-
+  height: 50%;
 
 }
 .container .main{
 grid-area: main;
 background-color: black;
 display: grid;
-height: 100%;
+
 }
 .container .footer {
  position: relative;
@@ -140,7 +137,7 @@ grid-column: 3/4;
   position: relative;
   font-weight:700;
   text-anchor:middle;
-  transform: translate(102px, 555px);
+  transform: translate(102px, 560px);
 }
 .NF{
   fill:  black;
@@ -152,6 +149,38 @@ grid-column: 3/4;
 .Bonn{
   position: relative;
   transform: translate(83px, 455px);
+  fill: black;
+}
+.Bruchsal{
+  position: relative;
+  transform: translate(208px, 612px);
+  fill: black;
+}
+.Karlsruhe{
+  position: relative;
+  transform: translate(185px, 633px);
+  fill: black; 
+}
+.Ettlingen{
+  position: relative;
+  transform: translate(190px, 644px);
+  fill: black; 
+
+}
+.Rastatt{
+  position: relative;
+  transform: translate(170px, 654px);
+  fill: black; 
+
+}
+.Bretten{
+  position: relative;
+  transform: translate(210px, 625px);
+  fill: black; 
+}
+.Mainz{
+  position: relative;
+  transform: translate(120px, 545px);
   fill: black;
 }
 .HRegion{
@@ -201,12 +230,11 @@ header .icons span:hover{
 }
 
 .calendar{
-position: relative;
+position: absolute;
 padding: 10px;
 max-width: 600px;
 background-color: black;
 left: 7%;
-
 grid-column: 1/2;
 border-radius: 10px;
 border-width: 1em;
@@ -341,7 +369,7 @@ header .chooseItem{
   color: #ffeb3b;
   font-size: 200%;
   left: 80%;
-  top: 90%;
+  
            
   }
 
@@ -385,7 +413,7 @@ header .chooseItem{
   grid-column: 2/3;
   cursor: pointer;
   background-color: black;
-  top: 200%;
+  top: 50%;
   border-radius: 10px;
   width: 25%;
   color: #F0FFFF;
@@ -393,8 +421,6 @@ header .chooseItem{
   
  }
  
- 
-
 .dropdown-menu{
  display: none;
  position: absolute;
