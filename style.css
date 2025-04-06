@@ -725,7 +725,7 @@ table tr:last-child td:last-child {
         grid-row: 2/3;
         position: relative; 
         
-        transform: translate(-90px, -150px);
+        transform: translate(-80px, -150px);
         
       }
       .mittelrhein2{
@@ -733,7 +733,7 @@ table tr:last-child td:last-child {
         grid-row: 2/3;;
         position: relative;
         fill:  rgb(68, 193, 68);
-        transform: translate(-50px, 11px);
+        transform: translate(-60px, 11px);
       
       }
         
