@@ -733,12 +733,12 @@ table tr:last-child td:last-child {
         grid-row: 2/3;;
         position: relative;
         fill:  rgb(68, 193, 68);
-        transform: translate(-12px, 11px);
+        transform: translate(-10px, 11px);
         
       }
   .circle{
     position: relative;
-    transform: translate(2px, 3px);
+    transform: translate(0px, 3px);
   }
         
 
