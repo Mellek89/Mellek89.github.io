@@ -736,6 +736,14 @@ table tr:last-child td:last-child {
         transform: translate(-20px, 12px);
         
       }
+      .mittelrhein{
+        grid-column: 2/3;
+        grid-row: 2/3;
+        position: relative;
+        fill:  rgb(152, 196, 73);
+        transform: translate(233px, 436px)
+ 
+      }
   .circle{
     position: relative;
     transform: translate(px, 3px);
