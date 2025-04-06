@@ -716,7 +716,7 @@ table tr:last-child td:last-child {
       .HRegion{
        position: relative;
        top:1%;
-        left: -10%;
+        left: 10%;
       grid-row: 1/2;
       
       }
