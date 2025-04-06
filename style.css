@@ -178,7 +178,7 @@ grid-column: 3/4;
   position: relative;
   transform: translate(225px, 420px);
   fill: black; 
-  z-index: 2;
+  
 }
 .Ettlingen{
   position: relative;
@@ -734,8 +734,12 @@ table tr:last-child td:last-child {
         position: relative;
         fill:  rgb(68, 193, 68);
         transform: translate(-12px, 11px);
-      
+        
       }
+  .circle{
+    position: relative;
+    transform: translate(2px, 3px);
+  }
         
 
       .calendar{
