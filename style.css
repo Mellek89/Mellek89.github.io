@@ -725,14 +725,14 @@ table tr:last-child td:last-child {
         grid-row: 2/3;
         position: relative; 
         
-        transform: translate(-120px, -150px);
+        transform: translate(-120px, -190px);
         
       }
       .mittelrhein2{
         grid-column: 2/3;
         grid-row: 2/3;;
         position: relative;
-        fill:  rgb(68, 193, 68);
+        fill:  rgb(152, 196, 73);
         transform: translate(-20px, 12px);
         
       }
