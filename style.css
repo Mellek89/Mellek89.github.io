@@ -135,11 +135,11 @@ grid-column: 3/4;
 }
 
 .BW{
-  fill:  rgb(55, 190, 55);
-  transform :scale(2);
+  fill: black; 
   position: relative;
-  font-weight:700;
+ 
   text-anchor:middle;
+  transform: translate(192px, 707px);
   
  
 }
