@@ -15,12 +15,20 @@ body{
   
   
 }
+
 .container{
+  background-image: url('./images/Lango_laenge_Home.png');
+  background-size: cover;       /* Bild auf gesamte Fläche anpassen */
+  background-repeat: no-repeat; /* Kein Wiederholen des Bildes */
+  background-position: center;  /* Bild zentrieren */
+  min-height: 100vh;            /* Höhe des Viewports */
+  color: white;                 /* Text besser lesbar bei dunklem Bild */
+  padding: 2rem;
   display: grid;
   width: 100%;
   grid-template-columns: repeat(9, 1fr);
  grid-auto-rows: minmax(100px, auto);
-background-color: black;
+
   
   grid-template-areas: 
   "header header header header header header header header header"
@@ -39,7 +47,7 @@ background-color: black;
   display: grid;
   grid-area: header;
 	font-size: 1.45rem;
-  background-color: black;
+
   position: sticky;
   top: 0%;
   width: 100%;
@@ -48,7 +56,7 @@ background-color: black;
 }
 .container .main{
 grid-area: main;
-background-color: black;
+
 display: grid;
 
 }
@@ -57,7 +65,7 @@ display: grid;
  bottom: 0px;
   left: 0px;
   grid-area: footer;
-  background-color: black;
+ 
   
 }
 
@@ -67,14 +75,16 @@ display: grid;
 }
 
 .nav{
-  position: relative;
+  position: sticky;
   grid-row: 1/2;
+  
 }
 .menu{
 
 position: relative;
 left: 40px;
 top: 50%;
+
 
 }
 .menu .home{
@@ -114,103 +124,7 @@ grid-column: 3/4;
 .logoMobil{
   display: none;
 }
-.germany2{
-  grid-column: 2/3;
-  grid-row: 2/3;;
-  position: relative;
-  fill: #ffeb3b;
-  width: 800px;
-  height: 850px; 
-  
-  transform: translate(83px, -5px);
-  
-}
-.mittelrhein2{
-  grid-column: 2/3;
-  grid-row: 2/3;;
-  position: relative;
-  fill:  rgb(68, 193, 68);
-  transform: translate(-19px, 11px);
 
-}
-
-.BW{
-  fill: black; 
-  position: relative;
- 
-  text-anchor:middle;
-  transform: translate(192px, 707px);
-  
- 
-}
-.RP{
-  fill:  rgb(55, 190, 55);
-  position: relative;
-  font-weight:700;
-  text-anchor:middle;
-  transform :scale(2);
-}
-.NW{
-  fill:  rgb(55, 190, 55);
-  position: relative;
-  font-weight:700;
-  text-anchor:middle;
-  transform :scale(2);
-}
-.HE{
-  fill:  rgb(55, 190, 55);
-  position: relative;
-  font-weight:700;
-  text-anchor:middle;
-  transform :scale(2);
-}
-.Bonn{
-  position: relative;
-  transform: translate(83px, 455px);
-  fill: black;
-}
-.Bruchsal{
-  position: relative;
-  transform: translate(208px, 612px);
-  fill: black;
-}
-.Karlsruhe{
-  position: relative;
-  transform: translate(225px, 409px);
-  fill: black; 
-  
-}
-.Ettlingen{
-  position: relative;
-  transform: translate(190px, 644px);
-  fill: black; 
-
-}
-.Rastatt{
-  position: relative;
-  transform: translate(170px, 654px);
-  fill: black; 
-
-}
-.Bretten{
-  position: relative;
-  transform: translate(210px, 625px);
-  fill: black; 
-}
-.Mainz{
-  position: relative;
-  transform: translate(120px, 545px);
-  fill: black;
-}
-.HRegion{
-  position: fixed;
-  color: #F0E801;
-  grid-column: 2/3;
-  grid-row: 1/2;
- left: 40%;
- z-index: 2;
-
-}
  /* Nav menu */
 .side-menu {
   display: none;
@@ -225,7 +139,49 @@ nav li a:hover{
   color: aliceblue;
   transition: 0.7s;
 }
+.custom-select .region-display{
+  position: relative;
+  grid-column: 2/3;
+  color: #ffeb3b;
+  padding: 10px;
+  left: 50%;
+  
+ 
+  
+}
 
+.custom-select {
+  position: absolute;
+  width: 200px;
+ 
+  
+}
+
+
+
+.options {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 10; 
+  display: none;
+  
+  color: #ffeb3b;
+}
+
+.options label {
+  display: block;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.custom-select.open .options {
+  display: block;
+}
+
+input[type="radio"] {
+  margin-right: 8px;
+}
 
 header .current-date{ 
 	font-size: 1.45rem;
@@ -250,10 +206,10 @@ header .icons span:hover{
 }
 
 .calendar{
-position: absolute;
+position: relative;
 padding: 10px;
 max-width: 600px;
-background-color: black;
+background-color: rgba(12, 12, 12, 0.466); /* 0.5 = 50% transparent */
 left: 7%;
 grid-column: 1/2;
 border-radius: 10px;
@@ -304,14 +260,18 @@ grid-column: 3/4;
   color: #F0FFFF;
   }
   .days li.circleInactive{
-    color:  #666;
+    color:  #5c5b5b;
+    
     }
 .days li.active{
 color: #fff;
 }
 
 .days li.active::before{
-	background: red
+	/*background: #e94417;*/
+  border: 2px solid;
+  border-radius: 50%;
+  border-color: #e94417;
 	
 }
 .calendar ul li{
@@ -335,21 +295,22 @@ li.circle::before {
 }
 
 .days li.circle::before{	
-  background-color: black;
+  
   border-color: #F0E801;
 }
+
 li.circleInactive::before {
   border: 2px solid;
   border-radius: 50%;
 }
 
 .days li.circleInactive::before{	
-  background-color: black;
+ 
   border-color: #ffeb3b;
 }
 
 .inactive{
-	color: #666;
+  color:  #5c5b5b;
 	}
 .container .main .events{
   grid-column: 2/3;
@@ -388,7 +349,7 @@ header .chooseItem{
   position: relative;
   color: #ffeb3b;
   font-size: 200%;
-  left: 80%;
+  left: 65%;
   
            
   }
@@ -432,7 +393,7 @@ header .chooseItem{
   position: relative;
   grid-column: 2/3;
   cursor: pointer;
-  background-color: black;
+  
   top: 50%;
   border-radius: 10px;
   width: 25%;
@@ -455,7 +416,7 @@ header .chooseItem{
   padding: 5%;
 }
 .dropdown-toggle{
- background-color: black;
+
  position: relative;
  right: 75%;
 
@@ -554,16 +515,14 @@ table tr:last-child td:last-child {
         position: relative;
         z-index: 2;
         height: 20%;
-        background-color: black;
+        /*background-color: black;*/
        }
        .container .main{
         position: relative;
         display: grid;
-        background-color: black;
+        /*background-color: black;*/
        }
-       .container .footer{
-        background-color: black;
-       }
+     
         .container .header .nav .menu{
           list-style: none;
           max-height: 300px;
@@ -583,9 +542,8 @@ table tr:last-child td:last-child {
           row-gap: 18%;
           top: 5%;
           left: 5%;
-         
-          
-          
+          z-index: 3;
+  
         }
      
         .menu  .home{
@@ -637,18 +595,45 @@ table tr:last-child td:last-child {
           
         } 
       .nav{
-       
         width: 100%;
         height: 100%;
         position: fixed;
-        background-color: black;
         overflow: hidden;
         max-height: 0;
         transition: max-height .4s ease-out;
         z-index: 2;
-      
-        
 
+      }
+      .custom-select {
+        position: relative;
+        width: 200px;
+        user-select: none;
+        z-index: 1;
+      }
+      
+      
+      
+      .options {
+        position: absolute;
+        left: 0;
+        right: 0;
+        display: none;
+        color: #ffeb3b;
+        
+      }
+      
+      .options label {
+        display: block;
+        padding: 10px;
+        cursor: pointer;
+      }
+      
+      .custom-select.open .options {
+        display: block;
+      }
+      
+      input[type="radio"] {
+        margin-right: 8px;
       }
    
       /* Menu Icon */
@@ -706,44 +691,7 @@ table tr:last-child td:last-child {
       body:has(.side-menu:checked) {
       overflow: hidden;
       }
-      .germany{
-        position: relative;
-        left: 10%;
-        grid-row: 1/2;
-        top:-15%
-        
-      }
-      .HRegion{
-       position: relative;
-       top:1%;
-        left: 3%;
-      grid-row: 1/2;
-      
-      }
-      .germany2{
-        grid-column: 2/3;
-        grid-row: 2/3;
-        position: relative; 
-        
-        transform: translate(-120px, -190px);
-        
-      }
-      .mittelrhein2{
-        grid-column: 2/3;
-        grid-row: 2/3;;
-        position: relative;
-        fill:  rgb(152, 196, 73);
-        transform: translate(-20px, 12px);
-        
-      }
-      .mittelrhein{
-        grid-column: 2/3;
-        grid-row: 2/3;
-        position: relative;
-        fill:  rgb(152, 196, 73);
-        transform: translate(253px, 436px)
  
-      }
   .circle{
     position: relative;
     transform: translate(px, 3px);
@@ -780,10 +728,7 @@ table tr:last-child td:last-child {
       .days li.active{
         color: #fff;
         }
-        .days li.active::before{
-          background: red
-          
-        }
+    
       .span{
         grid-column: 1/2;
       }
