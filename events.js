@@ -320,13 +320,11 @@ let calenderView = document.getElementById("calendar")
 			dropdownMenu.style.display = "none";
 		}
 
-		//if (window.matchMedia("(max-width: 900px)").matches) {
 			if (dropdownMenuStyle.style.display ==="none"){
-				calenderView.style.top = "-6%"
+				calenderView.style.top = "-20%"
 			}else{
 				calenderView.style.top = "28%"
 			}
-		//}
 	
 	});
 renderEvents();
