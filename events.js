@@ -341,7 +341,22 @@ function showDropdownMenu(){
 		//eSelector  = document.querySelectorAll(".dropdown-menu span")
 		showEvents();
 	
+
 }
+
+const checkbox = document.getElementById('side-menu');
+const menu = document.getElementById('nav');
+const main = document.getElementById('main')
+
+checkbox.addEventListener('change', () => {
+  if (checkbox.checked) {
+    // Wenn gecheckt → Menü einblenden
+    main.style.display = 'none';
+  } else {
+    // Wenn NICHT gecheckt → Menü ausblenden
+    main.style.display = 'block';
+  }
+});
 
 
 const dateOfRecurringEvents = () =>{
