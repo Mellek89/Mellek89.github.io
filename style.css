@@ -704,7 +704,7 @@ table tr:last-child td:last-child {
       .calendar{
         position: relative;
         top: 0.5%;
-        max-width: 85%;
+        max-width: 100%;
         z-index: 1;
         
 
