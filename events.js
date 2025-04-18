@@ -344,16 +344,11 @@ function showDropdownMenu(){
 
 const checkbox = document.getElementById('side-menu');
 const menu = document.getElementById('nav');
-const main = document.getElementById('main')
+const main = document.getElementById('main');
 
-checkbox.addEventListener('change', () => {
-  if (checkbox.checked) {
-    // Wenn gecheckt → Menü einblenden
-    main.style.display = 'none';
-  } else {
-    // Wenn NICHT gecheckt → Menü ausblenden
-    main.style.display = 'block';
-  }
+
+checkbox.addEventListener('click', () => {
+  main.classList.toggle('hidden', checkbox.checked);
 });
 
 
