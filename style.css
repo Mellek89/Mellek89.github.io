@@ -429,9 +429,6 @@ display: inline-block;
  padding-bottom: 2px;
  
 }
-.dropdown-item{
-  border-bottom: 1px solid #08A741;
-}
 
  .events {
   
@@ -806,7 +803,7 @@ table tr:last-child td:last-child {
         z-index: 3;
         top: -130%;
         left: 30%;
-        border-bottom: 1px solid #08A741; 
+       
         
        }
        .dropdown {
