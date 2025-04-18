@@ -151,14 +151,15 @@ nav li a:hover{
   display: block;
   color: #ffeb3b;
   grid-column: 2/3;
-  
+  left: 2%;
   font-size: 170%;
+  top: 10%;
   
 }
 
 .regionOptions {
   position: relative;
-  left: 0;
+  left: 2%;
   right: 0;
   z-index: 10; 
   display: block;
@@ -418,8 +419,12 @@ header .chooseItem{
 display: inline-block; 
  position: relative;
  right: 75%;
- width: 400%;
+ width: 120%;
  color: #ffeb3b; 
+ border-bottom: 1px solid #ffeb3b;
+
+ padding-bottom: 2px;
+ 
 }
 
  .events {
@@ -810,6 +815,8 @@ table tr:last-child td:last-child {
         font-size: 150%;
         position: relative;
         right: 200%;
+        width: 330%;
+        top: -50%;
        
         
         
