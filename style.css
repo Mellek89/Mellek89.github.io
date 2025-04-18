@@ -601,7 +601,8 @@ table tr:last-child td:last-child {
       }
       .region-select {
         position: relative;
-        top: 1%;
+        top: 10%;
+        left: 10%;
  
       }
       
@@ -613,6 +614,7 @@ table tr:last-child td:last-child {
         right: 0;
         display: block;
         color: #ffeb3b;
+        top: 10%;
         
         
       }
@@ -785,7 +787,7 @@ table tr:last-child td:last-child {
       .logoMobil{
         display: block;
         position: relative;
-        width:  40%;
+        width:  50%;
         z-index: 3;
         top: -100%;
         left: 30%;
