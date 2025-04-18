@@ -415,10 +415,11 @@ header .chooseItem{
   padding: 5%;
 }
 .dropdown-toggle{
-
+  display: inline-block; 
  position: relative;
  right: 75%;
-
+ width: 400%;
+color: #ffeb3b;
 }
 
  .events {
