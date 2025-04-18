@@ -146,21 +146,20 @@ nav li a:hover{
   display: block;
   color: #ffeb3b;
   grid-column: 2/3;
-  top: 10%;
+  
   font-size: 170%;
   
 }
 
 .regionOptions {
-  position: absolute;
+  position: relative;
   left: 0;
   right: 0;
   z-index: 10; 
   display: block;
   font-size: 80%;
   color: #ffeb3b;
-  top: 30%;
-  top: 20%;
+ 
 }
 a.minimal-link {
   color: #ffeb3b;
@@ -610,12 +609,12 @@ table tr:last-child td:last-child {
       
       
       .regionOptions {
-        position: absolute;
+        position: relative;
         left: 0;
         right: 0;
         display: block;
         color: #ffeb3b;
-        top: 20%;
+        top: 15%;
         
         
       }
