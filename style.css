@@ -139,49 +139,42 @@ nav li a:hover{
   color: aliceblue;
   transition: 0.7s;
 }
-.custom-select .region-display{
+
+.region-select {
   position: relative;
-  grid-column: 2/3;
+  width: 300px;
+  display: block;
   color: #ffeb3b;
-  padding: 10px;
-  left: 50%;
-  
- 
-  
-}
-
-.custom-select {
-  position: absolute;
-  width: 200px;
- 
+  grid-column: 2/3;
+  top: 20%;
+  font-size: 170%;
   
 }
 
-
-
-.options {
+.regionOptions {
   position: absolute;
   left: 0;
   right: 0;
   z-index: 10; 
-  display: none;
-  
+  display: block;
+  font-size: 80%;
   color: #ffeb3b;
+  top: 30%;
+}
+a.minimal-link {
+  color: #ffeb3b;
+  text-decoration: none;
+  border-bottom: 1px solid red;
+  padding-bottom: 2px;
+  transition: all 0.2s ease;
 }
 
-.options label {
-  display: block;
-  padding: 10px;
-  cursor: pointer;
-}
 
-.custom-select.open .options {
-  display: block;
-}
 
-input[type="radio"] {
-  margin-right: 8px;
-}
+
+
+
+
 
 header .current-date{ 
 	font-size: 1.45rem;
@@ -540,7 +533,7 @@ table tr:last-child td:last-child {
          position: relative;
           display: grid;
           row-gap: 18%;
-          top: 5%;
+          top: 10%;
           left: 5%;
           
         
@@ -606,36 +599,22 @@ table tr:last-child td:last-child {
      
 
       }
-      .custom-select {
+      .region-select {
         position: relative;
-        width: 200px;
-        user-select: none;
-       
+        top: 1%;
+ 
       }
       
       
       
-      .options {
+      .regionOptions {
         position: absolute;
         left: 0;
         right: 0;
-        display: none;
+        display: block;
         color: #ffeb3b;
         
-      }
-      
-      .options label {
-        display: block;
-        padding: 10px;
-        cursor: pointer;
-      }
-      
-      .custom-select.open .options {
-        display: block;
-      }
-      
-      input[type="radio"] {
-        margin-right: 8px;
+        
       }
    
       /* Menu Icon */
@@ -804,11 +783,12 @@ table tr:last-child td:last-child {
         
        }
       .logoMobil{
+        display: block;
         position: relative;
-        width: 25%;
-        top: -290%;
-        left: 13% ;
+        width:  40%;
         z-index: 3;
+        top: -100%;
+        left: 30%;
        }
        .dropdown {
         position: relative;
