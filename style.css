@@ -146,7 +146,7 @@ nav li a:hover{
   display: block;
   color: #ffeb3b;
   grid-column: 2/3;
-  top: 20%;
+  top: 10%;
   font-size: 170%;
   
 }
@@ -160,6 +160,7 @@ nav li a:hover{
   font-size: 80%;
   color: #ffeb3b;
   top: 30%;
+  top: 20%;
 }
 a.minimal-link {
   color: #ffeb3b;
@@ -599,7 +600,7 @@ table tr:last-child td:last-child {
      
 
       }
-      .region-select {
+      .region-select{
         position: relative;
         top: 10%;
         left: 10%;
@@ -614,7 +615,7 @@ table tr:last-child td:last-child {
         right: 0;
         display: block;
         color: #ffeb3b;
-        top: 20%;
+        top: 200%;
         
         
       }
