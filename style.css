@@ -789,7 +789,7 @@ table tr:last-child td:last-child {
         position: relative;
         width:  50%;
         z-index: 3;
-        top: -100%;
+        top: -90%;
         left: 30%;
        }
        .dropdown {
