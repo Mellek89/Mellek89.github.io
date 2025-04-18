@@ -16,6 +16,11 @@ body{
   
 }
 
+/*.hidden {
+  display: none !important;
+}*/
+
+.container .main.hidden { display: none; }
 .container{
   background-image: url('./images/Lango_laenge_Home.png');
   background-size: cover;       /* Bild auf gesamte Fläche anpassen */
@@ -159,6 +164,7 @@ nav li a:hover{
   display: block;
   font-size: 80%;
   color: #ffeb3b;
+  top: 20%;
  
 }
 a.minimal-link {
@@ -477,11 +483,7 @@ table tr:last-child td:last-child {
 
 @media (max-width: 768px) {
 
-        .main{
-          margin-top: 0%;
-                   
-          
-        }
+      
         .container {
           width: 100%; /* Make sure content takes the full width */
          
@@ -515,6 +517,7 @@ table tr:last-child td:last-child {
         display: grid;
        
        }
+    
      
         .container .header .nav .menu{
           list-style: none;
@@ -833,7 +836,7 @@ table tr:last-child td:last-child {
        .line-break {
         margin-bottom: 2%;
        }
-
+     
     
 
  
