@@ -7,6 +7,7 @@
       
     ] ,
     
+    
    
     "Fasnachtsmarkt<br/>Mannheim": [
       "27.2",
@@ -167,8 +168,44 @@
   ],
   "Katharinenmarkt":
   ["8.11"]
+},
+{
+ "Oberrhein":
+ ["Fasnachtsmarkt<br/>Mannheim",
+  "Durlacher<br/>Faschingsumzug",
+  "Mannheimer<br/>Maimess",
+  "Speyerer<br/>Frühjahrsmesse",
+  "Schriesheim<br/>Mathaisemarkt",
+  "Mannheimer<br/>Maimess"
+  
+
+
+ ],
+ "Mittelrhein":
+ [
+  "Idsteiner<br/>Frühlingsmarkt",
+  "Blütenfest Güls",
+  "Lahneck Live<br/>Kulturfestival",
+  "Ballonfestival<br/>Bonn",
+  "Europäischer<br/> Keramikmarkt<br/>Höhr-Grenzhausen",
+  "Wein- und <br/>Heimatfest Kattenes",
+  "Andernach<br/>schmeckt",
+  "Wein- und Heimatfest<br/>Löf",
+  "Weinfest<br/>Dieblich",
+  "Moselfest<br/>Winningen",
+  "Moselfest<br/>Winningen",
+  "Schängelmarkt<br/>Koblenz",
+  "Idsteiner<br/>Herbstmarkt",
+  "Oktobermarkt in<br/>Montabaur",
+    "Katharinenmarkt"
+ ]
+
 }
+
 
 ]
  
  
+ 
+
+
