@@ -185,7 +185,7 @@ const renderCalender = () => {
 
 const showEvents = ()=>{
 	if(!(currMonth >= daysOfEvents[1]-1) || !(currMonth<= daysOfEvents[3]-1)){
-		dropdownHeader.innerHTML = "Wähle dein Event";
+		dropdownHeader.innerHTML = "Wähle deine Veranstaltung";
 	}else{
 		dropdownHeader.innerHTML = eventId;
 	}
