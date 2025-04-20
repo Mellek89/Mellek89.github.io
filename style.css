@@ -629,7 +629,8 @@ table tr:last-child td:last-child {
         right: 0;
         display: block;
         color: #ffeb3b;
-        top: 15%; 
+        top: 10%; 
+        left: 2%;
       }
    
       /* Menu Icon */
