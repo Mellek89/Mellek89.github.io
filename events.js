@@ -114,7 +114,7 @@ const renderCalender = () => {
 					}
 						
 						
-						//same event in multiple months
+						//same event in multiple months 
 						if(daysOfEvents[1]<daysOfEvents[3]){
 							
 							if((i>=daysOfEvents[0] && currMonth == daysOfEvents[1]-1) || ( i<=daysOfEvents[2] && currMonth == daysOfEvents[3]-1)
