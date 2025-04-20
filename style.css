@@ -807,7 +807,7 @@ table tr:last-child td:last-child {
         position: relative;
         width:  50%;
         z-index: 3;
-        top: -120%;
+        top: -100%;
         left: 30%;
        
        
