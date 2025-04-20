@@ -808,7 +808,7 @@ table tr:last-child td:last-child {
         width:  50%;
         z-index: 3;
         top: -100%;
-        left: 30%;
+        left: 24%;
        
        
         
@@ -816,7 +816,7 @@ table tr:last-child td:last-child {
        .dropdown {
         position: relative;
         grid-column: 1/2;
-        left: 52%;
+        left: 45%;
         top: -10%;
         z-index: 1;
         
