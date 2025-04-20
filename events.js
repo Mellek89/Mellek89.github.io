@@ -16,7 +16,7 @@ let eventsInput = document.querySelector(".slideEventcontainer");
 let numberOfSlides = document.querySelector(".numberOfSlide");
 let dropdownList = document.querySelector(".dropdown-menu");
 //var displayTable = $("#tableEvents").css('display');
-let slideMonths = document.querySelector(".slideshowHeadline")
+//let slideMonths = document.querySelector(".slideshowHeadline")
 let SlideCounter = 0;
 let datesOfEvents = []; 
 let eventId = ""; 
@@ -96,12 +96,12 @@ const renderCalender = () => {
 	for (let i = 1; i<=lastDateOfMonth; i++){
 					
 			if (eventId!=""){
-				
+			
 				
 						let isToday = i === date.getDate() && currMonth === new Date().getMonth() && currYear === new Date().getFullYear() ? "active" : "";	
 						
 						//recurring events
-					if(recurringdaysOfCurrentMonth.length != 0)
+					if(recurringdaysOfCurrentMonth.length != 0){
 						for (let z= 0; z< recurringdaysOfCurrentMonth.length;z++){
 
 							if(i == recurringdaysOfCurrentMonth[z] && z % 2 ==0 ){
@@ -110,7 +110,8 @@ const renderCalender = () => {
 								i++;
 							}
 							
-							}
+							}dropdownHeader.innerHTML = eventId;
+					}
 						
 						
 						//same event in multiple months
@@ -126,20 +127,25 @@ const renderCalender = () => {
 							}else{
 								liTag += `<li id = ${i} class="${isToday}"> ${i} </li>`;
 						}
+						
 
 						}  
 						
 						// one event in one Month
 						else if((i<=daysOfEvents[2] && i>=daysOfEvents[0]) && currMonth == daysOfEvents[1]-1){
 								liTag += `<li id = ${i} class="circle"> ${i} </li>`;
-						
+								
 						}else if(i== daysOfEvents[0] && daysOfEvents.length == 2 ){
 								liTag += `<li id = ${i} class="circle"> ${i} </li>`;
-						
+								
 						}else{
 								liTag += `<li id = ${i} class="${isToday}"> ${i} </li>`;
-							
-			}
+								
+						}
+
+			
+
+
 			}else{
 			let isToday = i === date.getDate() && currMonth === new Date().getMonth() && currYear === new Date().getFullYear() ? "active" : "";
 									
@@ -186,9 +192,7 @@ const showEvents = ()=>{
 	eSelector  = document.querySelectorAll(".dropdown-menu span");
 	eSelector.forEach( e => {
 		
-		e.addEventListener('click', () => {	
-		console.log(e);
-			console.log("Click funktioniert ✅");	
+		e.addEventListener('click', () => {		
 		
 		daysOfEvents.length = 0;
 		datesOfEvents.length = 0;
@@ -206,7 +210,6 @@ const showEvents = ()=>{
 								if(e.id == a[i].events[y]){
 									eventId = a[i].events[y];
 									
-									dropdownHeader.innerHTML = eventId;
 										for (let key in a[i] ){
 											
 											if (key == [eventId]){
@@ -226,7 +229,11 @@ const showEvents = ()=>{
 					let month = days[1];
 					month = +month;
 					daysOfEvents.push(day,month);
+					console.log(eventId);
+					dropdownHeader.innerHTML = eventId;
 				}
+
+
 				renderCalender(); 
 								
 			});	
@@ -259,14 +266,14 @@ const renderEvents = () => {
 		 	actualEvents = c[y].events;
 			
 			 singleEvent +=`<span class="slideEvents" id="${actualEvents[0]}">${actualEvents[0]}</span>`
-			  slideMonths.innerHTML = `Veranstaltungen für ${months[currMonth] } ${currYear}`	
+			  //slideMonths.innerHTML = `Veranstaltungen für ${months[currMonth] } ${currYear}`	
 		}
 		
 	} 
 	actualEvents.push( "Ehrenbreitsteiner<br>Wochenmarkt");
 	actualEvents.push( "Wochenmarkt<br/>Donnerstag");	
 		
-	})	  
+	});	  
 	
 }
 
@@ -292,7 +299,7 @@ prevNextIcon.forEach(icon => {
         }
         else{ //pass new date as date value
         	let date = new Date();
-			slideMonths.innerHTML = `Veranstaltungen für ${months[currMonth]}`;
+			//slideMonths.innerHTML = `Veranstaltungen für ${months[currMonth]}`;
         }    
 	
 		renderEvents();
@@ -303,7 +310,9 @@ prevNextIcon.forEach(icon => {
 	
 });
 
+/*document.addEventListener("DOMContentLoaded", function () {*/
 
+	
 let dropdown = document.getElementById("dropdown");
 let dropdownMenu = document.getElementById("dropdownMenu");
 let calenderView = document.getElementById("calendar")
@@ -313,7 +322,7 @@ let calenderView = document.getElementById("calendar")
 		let dropdownMenuStyle = document.getElementById("dropdown-menu");
 		if (dropdownMenuStyle.style.display === "block") {
 			dropdownMenuStyle.style.display = "none";
-			dropdownMenu.style.display = "block";
+			dropdownMenu.style.display = "inline-block";
 		
 		} else {
 			dropdownMenuStyle.style.display = "block";
@@ -353,6 +362,7 @@ checkbox.addEventListener('click', () => {
 
 
 const dateOfRecurringEvents = () =>{
+	console.log("dateOfRecurringEvents");
 	let liTag = "";
 	recurringdaysOfEvents.length = 0;
 	recurringdaysOfCurrentMonth.length = 0;
@@ -393,9 +403,10 @@ for (let i = 0; i< wednesdays.length; i++){
 		if((currMonth + 1 )== recurringdaysOfEvents[y] && (y-1) %2 == 0){
 			
 			recurringdaysOfCurrentMonth.push(recurringdaysOfEvents[y-1], currMonth + 1 );
-				console.log(recurringdaysOfCurrentMonth);
+				
 		}
 	}	
+	
 }
 renderCalender();
 
