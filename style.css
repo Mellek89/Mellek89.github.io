@@ -637,6 +637,9 @@ table tr:last-child td:last-child {
         position: relative;
         cursor: default;
         padding: 40px 20px; 
+        top: -40%;
+        left: 80%;
+        
       }
       /* Style label tag */
 
