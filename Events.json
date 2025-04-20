@@ -3,12 +3,12 @@
     
     "events" : 
     [
-      "Fasnachtsmarkt<br/> Mannheim"
+      "Fasnachtsmarkt<br/>Mannheim"
       
     ] ,
     
    
-    "Fasnachtsmarkt<br/> Mannheim": [
+    "Fasnachtsmarkt<br/>Mannheim": [
       "27.2",
       "4.3"
     ]
@@ -27,8 +27,8 @@
     ] ,
     
     "Fasnachtsmarkt<br/>Mannheim": [
-              "01.3",       
-              "04.3"
+               "27.2",
+                "4.3"
   ],
     "Schriesheim<br/>Mathaisemarkt": [
       "07.3",
@@ -105,7 +105,7 @@
  "Europäischer<br/> Keramikmarkt<br/>Höhr-Grenzhausen":
 ["14.6",
 "15.6"],
-"Wein- und Heimatfest<br/>Kattenes":
+"Wein- und <br/>Heimatfest Kattenes":
 ["20.6",
 "23.6"]
 },
