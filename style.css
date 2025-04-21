@@ -629,7 +629,7 @@ table tr:last-child td:last-child {
       .region-select{
         position: relative;
         top: -110%;
-        left: 20%;
+        
  
       }
      
@@ -841,10 +841,9 @@ table tr:last-child td:last-child {
        .dropdown {
         position: relative;
         grid-column: 1/2;
-       
+        left: 45%;
         top: -1%;
         z-index: 1;
-        color: #e94417;
         
        }      
        .dropdown-toggle{
