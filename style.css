@@ -629,7 +629,7 @@ table tr:last-child td:last-child {
       .region-select{
         position: relative;
         top: -110%;
-        
+        left: -20%;
  
       }
      
