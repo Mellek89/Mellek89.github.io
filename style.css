@@ -154,10 +154,8 @@ nav li a:hover{
   grid-column: 2/3;
   left: 2%;
   font-size: 170%;
-  top: -70%;
-  
-  
-  
+
+
 }
 
 .regionOptions {
@@ -213,7 +211,6 @@ position: relative;
 padding: 10px;
 max-width: 600px;
 background-color: rgba(12, 12, 12, 0.466); /* 0.5 = 50% transparent */
-right: 30%;
 grid-column: 2/3;
 border-radius: 10px;
 border-width: 1em;
@@ -398,10 +395,9 @@ header .chooseItem{
   grid-column: 2/3;
   cursor: pointer;
 
-  top: 50%;
   border-radius: 10px;
-  width: 25%;
-  
+  width: 40%;
+  left: 29%;
   padding: 5%;
   
  }
@@ -417,21 +413,24 @@ header .chooseItem{
   width: 25%;
   right: 19%;
   color: #F0FFFF;
-  
+ 
   padding: 5%;
 }
 .dropdown-toggle{
  display: inline-block; 
  position: relative;
  right: 75%;
-
  color: #ffeb3b; 
  border-bottom: 1px solid #08A741;
-
-
  padding-bottom: 2px;
  
 }
+.slogan{
+  position: relative;
+  grid-column: 2/3;
+  top: 10%;
+  left: 3%;
+ }
 
  .events {
   
