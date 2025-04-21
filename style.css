@@ -216,7 +216,7 @@ border-radius: 10px;
 border-width: 1em;
 border: 2px solid #ffeb3b;
 color: #F0FFFF;
-top: 10%;
+top: 3%;
 
 
 
@@ -394,7 +394,6 @@ header .chooseItem{
   position: relative;
   grid-column: 2/3;
   cursor: pointer;
-
   border-radius: 10px;
   width: 40%;
   left: 29%;
@@ -411,19 +410,21 @@ header .chooseItem{
  border: 2px solid #ffeb3b;;
  border-radius: 10px;
   width: 25%;
-  right: 19%;
+  right: -19%;
+  top: 180%;
   color: #F0FFFF;
  
   padding: 5%;
 }
 .dropdown-toggle{
+
  display: inline-block; 
  position: relative;
  right: 75%;
  color: #ffeb3b; 
  border-bottom: 1px solid #08A741;
  padding-bottom: 2px;
- 
+ font-size: 170%;
 }
 .slogan{
   position: relative;
@@ -827,17 +828,16 @@ table tr:last-child td:last-child {
        .dropdown-toggle{
         font-size: 130%;
         position: relative;
-        right: 200%;
-        width: 303%;
-        top: -10%;
+        
      
        }
        .dropdown-menu{
-        width: 340%;
+        width: 245%;
         text-align: center;
         position: absolute;
         display: none;
-        left: -180%;
+        top: 2%;
+        left: -104%;
        
        }
        .dropdown-menu span{
