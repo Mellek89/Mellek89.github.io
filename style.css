@@ -619,7 +619,7 @@ table tr:last-child td:last-child {
       }
       .region-select{
         position: relative;
-        top: 1%;
+        top: -70%;
         left: 10%;
  
       }
@@ -821,7 +821,8 @@ table tr:last-child td:last-child {
         position: relative;
         grid-column: 1/2;
         left: 45%;
-        top: -10%;
+        top: -7
+		10%;
         z-index: 1;
         
        }      
