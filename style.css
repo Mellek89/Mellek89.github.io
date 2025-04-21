@@ -628,8 +628,13 @@ table tr:last-child td:last-child {
       }
       .region-select{
         position: relative;
+<<<<<<< HEAD
         top: -110%;
         left: 20%;
+=======
+        top: -70%;
+        left: 10%;
+>>>>>>> refs/remotes/origin/main
  
       }
      
@@ -840,7 +845,7 @@ table tr:last-child td:last-child {
         position: relative;
         grid-column: 1/2;
         left: 45%;
-        top: -10%;
+        top: -1%;
         z-index: 1;
         
        }      
