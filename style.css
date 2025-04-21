@@ -841,9 +841,10 @@ table tr:last-child td:last-child {
        .dropdown {
         position: relative;
         grid-column: 1/2;
-        left: 25%;
+       
         top: -1%;
         z-index: 1;
+        color: #e94417;
         
        }      
        .dropdown-toggle{
