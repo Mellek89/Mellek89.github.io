@@ -152,7 +152,7 @@ nav li a:hover{
   display: block;
   color: #ffeb3b;
   grid-column: 2/3;
-  left: 2%;
+  left: 25%;
   font-size: 170%;
 
 
@@ -165,14 +165,14 @@ nav li a:hover{
   z-index: 10; 
   display: block;
   font-size: 80%;
-  color: #ffeb3b;
+  color: #F0FFFF;
   top: 20%;
  
 }
 a.minimal-link {
-  color: #ffeb3b;
+  
   text-decoration: none;
-  border-bottom: 1px solid #08A741; 
+  border-bottom: 1px solid #ffeb3b; 
   padding-bottom: 2px;
   transition: all 0.2s ease;
 }
@@ -429,8 +429,17 @@ header .chooseItem{
 .slogan{
   position: relative;
   grid-column: 2/3;
+  top: 25%;
+  left: 22%;
+  font-size: 150%;
+  color: #ffeb3b; 
+ }
+ .slogenBeschreibung{
+  position: relative;
+  grid-column: 2/3;
   top: 10%;
-  left: 3%;
+  left: 0%;
+  font-size: 120%;
  }
 
  .events {
@@ -619,8 +628,8 @@ table tr:last-child td:last-child {
       }
       .region-select{
         position: relative;
-        top: 1%;
-        left: 10%;
+        top: -110%;
+        left: 20%;
  
       }
      
@@ -629,7 +638,7 @@ table tr:last-child td:last-child {
         left: 0;
         right: 0;
         display: block;
-        color: #ffeb3b;
+        color: #F0FFFF;
         top: 10%; 
         left: 2%;
       }
@@ -816,6 +825,16 @@ table tr:last-child td:last-child {
         grid-column: 2/3;
         top: -20%;
         left: 10%;
+        
+       }
+       .slogenBeschreibung{
+        position: relative;
+        grid-column: 2/3;
+        top: -60%;
+        left: 1%;
+        font-size: 120%;
+        text-align: center;
+        line-height: 3;
        }
        .dropdown {
         position: relative;
