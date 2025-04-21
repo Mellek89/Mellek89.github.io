@@ -830,7 +830,7 @@ table tr:last-child td:last-child {
        .slogenBeschreibung{
         position: relative;
         grid-column: 2/3;
-        top: -60%;
+        top: -50%;
         left: 1%;
         font-size: 120%;
         text-align: center;
