@@ -826,6 +826,7 @@ table tr:last-child td:last-child {
         top: -20%;
         left: 10%;
         font-size: 140%; 
+        width: 100%;
         
        }
        .slogenBeschreibung{
