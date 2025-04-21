@@ -824,9 +824,9 @@ table tr:last-child td:last-child {
         position: relative;
         grid-column: 2/3;
         top: -20%;
-        left: 10%;
+        left: 3%;
         font-size: 140%; 
-        width: 110%; 
+        width: 110%;
         
        }
        .slogenBeschreibung{
