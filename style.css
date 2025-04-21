@@ -629,7 +629,7 @@ table tr:last-child td:last-child {
       .region-select{
         position: relative;
         top: -110%;
-        left: 25%;
+        left: 17%;
  
       }
      
@@ -824,7 +824,7 @@ table tr:last-child td:last-child {
         position: relative;
         grid-column: 2/3;
         top: -20%;
-        left: 5%;
+        left: 10%;
         font-size: 140%; 
         width: 110%; 
         
