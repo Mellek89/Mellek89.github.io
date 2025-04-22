@@ -10,7 +10,7 @@ currDay = date.getDay();
 const currentDate = document.querySelector(".current-date");
 let daysTag = document.querySelector(".days");
 let prevNextIcon = document.querySelectorAll(".icons span");
-let dropdownItems = document.querySelectorAll(".dropdown-menu span");
+//let dropdownItems = document.querySelectorAll(".dropdown-menu span");
 let daysInput = document.querySelector(".days ").children;
 let eventsInput = document.querySelector(".slideEventcontainer");
 let numberOfSlides = document.querySelector(".numberOfSlide");
@@ -29,6 +29,7 @@ let keyValueOfEvents = [];
 let recurringdaysOfCurrentMonth = [];
 let prevNextSlideshow = document.querySelectorAll(".slideshowIcons span");
 let dropdownHeader = document.getElementById("dropdownMenu");
+let eventData = [];
 
 
 var endOfEvent= null;
@@ -55,6 +56,29 @@ const months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "A
 				  }
 				  getData();
 				  
+			
+				  function getRegions(){
+					const params = new URLSearchParams(window.location.search);
+   					const region = params.get('region');
+					   if (region) {
+						fetch('Events.json')
+						.then(response => response.json())
+						.then(data => {
+							 eventData = data[10][region];
+							console.log(eventData);
+						});
+
+
+				
+					}
+					
+						
+					
+				  }
+	getRegions();
+			
+ 
+
 
 const renderCalender = () => {
 	let firstDateOfMonth = new Date(currYear, currMonth, 1).getDay(), //get first Day of Month
@@ -208,7 +232,9 @@ const showEvents = ()=>{
 							for (let y=0;y<a[i].events.length;y++){
 								
 								if(e.id == a[i].events[y]){
-									eventId = a[i].events[y];
+									//if(eventData.includes(e.id) ){
+									
+										eventId =a[i].events[y];
 									
 										for (let key in a[i] ){
 											
@@ -216,6 +242,7 @@ const showEvents = ()=>{
 												datesOfEvents = a[i][key];	
 											}
 										}	
+									
 																																																																												
 								}
 							}
@@ -326,14 +353,18 @@ let calenderView = document.getElementById("calendar")
 		
 		} else {
 			dropdownMenuStyle.style.display = "block";
+			if (window.innerWidth <= 768) {
 			dropdownMenu.style.display = "none";
+			}
 		}
-
+		if (window.innerWidth <= 768) {
 			if (dropdownMenuStyle.style.display ==="none"){
 				calenderView.style.top = "-20%"
 			}else{
 				calenderView.style.top = "28%"
 			}
+		}
+		
 	
 	});
 renderEvents();
@@ -342,10 +373,11 @@ function showDropdownMenu(){
 
 		let singleEvent = "";
 		for (let i = 0; i<actualEvents.length; i++){
+			if(eventData.includes(actualEvents[i]) ){
 			singleEvent+=`<span class="dropdown-item" id="${actualEvents[i]}">${actualEvents[i]}</span> <br class="line-break">`
 			dropdownList.innerHTML = singleEvent;
 		}
-		//eSelector  = document.querySelectorAll(".dropdown-menu span")
+	}
 		showEvents();
 	
 
