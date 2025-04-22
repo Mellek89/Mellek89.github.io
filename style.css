@@ -559,7 +559,7 @@ table tr:last-child td:last-child {
         .menu{
          position: absolute;
           display: grid;
-          row-gap: 18%;
+          row-gap: 16%;
           top: 25%;
           left: 15%;
           
