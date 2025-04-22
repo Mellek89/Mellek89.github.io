@@ -631,6 +631,7 @@ table tr:last-child td:last-child {
         top: -110%;
         left: 15%;
         font-size: 150%;
+        text-align: center;
  
       }
      
@@ -642,6 +643,7 @@ table tr:last-child td:last-child {
         color: #F0FFFF;
         top: 10%; 
         left: 2%;
+        text-align: center;
       }
    
       /* Menu Icon */
