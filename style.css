@@ -559,7 +559,7 @@ table tr:last-child td:last-child {
         .menu{
          position: relative;
           display: grid;
-          row-gap: 12%;
+          row-gap: 10%;
           top: 10%;
           left: 5%;
           
@@ -629,7 +629,7 @@ table tr:last-child td:last-child {
       .region-select{
         position: relative;
         top: -110%;
-        
+        left: -5%;
         font-size: 150%;
         text-align: center;
  
