@@ -560,8 +560,8 @@ table tr:last-child td:last-child {
          position: absolute;
           display: grid;
           row-gap: 16%;
-          top: 25%;
-          left: 15%;
+          top: 15%;
+          left: 25%;
           
         
   
