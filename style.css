@@ -843,6 +843,9 @@ table tr:last-child td:last-child {
         line-height: 3;
         font-size: 100%;
        }
+       .strong{
+        font-weight: 50%;
+       }
 
        .dropdownText{
         position: relative;
