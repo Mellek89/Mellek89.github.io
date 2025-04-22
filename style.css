@@ -557,11 +557,11 @@ table tr:last-child td:last-child {
       
         
         .menu{
-         position: relative;
+         position: absolute;
           display: grid;
           row-gap: 18%;
           top: 13%;
-          left: 5%;
+          left: -5%;
           
         
   
@@ -652,7 +652,7 @@ table tr:last-child td:last-child {
         cursor: default;
         padding: 40px 20px; 
         top: -40%;
-        left: 70%;
+        left: 80%;
         
       }
       /* Style label tag */
