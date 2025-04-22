@@ -66,6 +66,7 @@ const months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "A
 						.then(data => {
 							 eventData = data[10][region];
 							console.log(eventData);
+							selectRegions(region);
 						});
 
 
@@ -293,7 +294,7 @@ const renderEvents = () => {
 		 	actualEvents = c[y].events;
 			
 			 singleEvent +=`<span class="slideEvents" id="${actualEvents[0]}">${actualEvents[0]}</span>`
-			  //slideMonths.innerHTML = `Veranstaltungen für ${months[currMonth] } ${currYear}`	
+			
 		}
 		
 	} 
@@ -302,6 +303,14 @@ const renderEvents = () => {
 		
 	});	  
 	
+}
+function selectRegions(regions) {
+	console.log(regions);
+	let dropdownText = "";
+	let region = document.getElementById("dropdownText");
+	dropdownText = `Wir sind in den nächsten Monaten viel unterwegs.
+	 Schauen Sie gerne bei einer der Veranstaltungen im ${regions} an unserem Langosstand vorbei.`
+	 region.innerHTML = dropdownText;
 }
 
 
