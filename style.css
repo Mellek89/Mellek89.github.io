@@ -113,9 +113,6 @@ grid-column: 3/4;
     width: 60%;
     left: 13% ;
     z-index: 3;
-    
-    
-   
  }
 
 .menu .uns {
@@ -154,8 +151,6 @@ nav li a:hover{
   grid-column: 2/3;
   left: 25%;
   font-size: 170%;
-
-
 }
 
 .regionOptions {
@@ -176,13 +171,6 @@ a.minimal-link {
   padding-bottom: 2px;
   transition: all 0.2s ease;
 }
-
-
-
-
-
-
-
 
 header .current-date{ 
 	font-size: 1.45rem;
@@ -389,6 +377,13 @@ header .chooseItem{
   
   
  }
+
+ .dropdownText{
+  position: relative;
+  grid-column: 2/3;
+  top: -35%;
+
+ }
  .dropdown{
   
   position: relative;
@@ -411,7 +406,7 @@ header .chooseItem{
  border-radius: 10px;
   width: 25%;
   right: -19%;
-  top: 180%;
+  top: 150%;
   color: #F0FFFF;
   border-bottom: 1px solid #ffeb3b;
  
@@ -426,8 +421,8 @@ header .chooseItem{
  display: inline-block; 
  position: relative;
  right: 75%;
- color: #F0FFFF; 
- border-bottom: 1px solid #ffeb3b;
+ color: #ffeb3b; 
+ border-bottom: 1px solid #F0FFFF;
  padding-bottom: 2px;
  font-size: 170%;
 }
@@ -843,11 +838,18 @@ table tr:last-child td:last-child {
         text-align: center;
         line-height: 3;
        }
+
+       .dropdownText{
+        position: relative;
+        grid-column: 1/2;
+        text-align: center;
+        line-height: 3;
+       }
        .dropdown {
         position: relative;
         grid-column: 1/2;
         left: 45%;
-        top: -1%;
+        top: -35%;
         z-index: 1;
         
        }      
