@@ -630,6 +630,7 @@ table tr:last-child td:last-child {
         position: relative;
         top: -110%;
         left: 10%;
+        font-size: 150%;
  
       }
      
