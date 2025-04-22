@@ -402,13 +402,13 @@ header .chooseItem{
  min-width: 160px;
  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
  z-index: 1;
- border: 2px solid #ffeb3b;
+ 
  border-radius: 10px;
   width: 25%;
   right: -19%;
   top: 150%;
   color: #F0FFFF;
-  border-bottom: 1px solid #ffeb3b;
+  
  
   padding: 5%;
 }
