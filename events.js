@@ -287,7 +287,7 @@ function getRegions(){
 			selectRegions(region);
 			// ✅ Sicherstellen, dass Events erst dann geladen und angezeigt werden
 			renderEvents().then( ()=> {
-				showDropdownMenu();
+				showDropdownMenu(); 
 
 			});			
 		});
