@@ -303,7 +303,7 @@ function selectRegions(regions) {
 	console.log(regions);
 	let dropdownText = "";
 	let region = document.getElementById("dropdownText");
-	dropdownText = `Wir sind in den nächsten Monaten viel unterwegs im <strong class="strong">${regions}</strong> .
+	dropdownText = `Wir sind in den nächsten Monaten viel unterwegs am <strong class="strong">${regions}</strong> .
 	 Schauen Sie gerne bei einer der Veranstaltungen  an unserem Langosstand vorbei.`
 	 region.innerHTML = dropdownText;
 }
