@@ -10,11 +10,10 @@ currDay = date.getDay();
 const currentDate = document.querySelector(".current-date");
 let daysTag = document.querySelector(".days");
 let prevNextIcon = document.querySelectorAll(".icons span");
-//let dropdownItems = document.querySelectorAll(".dropdown-menu span");
 let daysInput = document.querySelector(".days ").children;
 let eventsInput = document.querySelector(".slideEventcontainer");
 let numberOfSlides = document.querySelector(".numberOfSlide");
-let dropdownList = document.querySelector(".dropdown-menu");
+
 //var displayTable = $("#tableEvents").css('display');
 //let slideMonths = document.querySelector(".slideshowHeadline")
 let SlideCounter = 0;
@@ -55,30 +54,8 @@ const months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "A
 					
 				  }
 				  getData();
-				  
 			
-				  function getRegions(){
-					const params = new URLSearchParams(window.location.search);
-   					const region = params.get('region');
-					   if (region) {
-						fetch('Events.json')
-						.then(response => response.json())
-						.then(data => {
-							 eventData = data[10][region];
-							console.log(eventData);
-							selectRegions(region);
-						});
 
-
-				
-					}
-					
-						
-					
-				  }
-	getRegions();
-			
- 
 
 
 const renderCalender = () => {
@@ -209,12 +186,9 @@ const renderCalender = () => {
 }
 
 const showEvents = ()=>{
-	if(!(currMonth >= daysOfEvents[1]-1) || !(currMonth<= daysOfEvents[3]-1)){
-		dropdownHeader.innerHTML = "Wähle deine Veranstaltung";
-	}else{
-		dropdownHeader.innerHTML = eventId;
-	}
-	eSelector  = document.querySelectorAll(".dropdown-menu span");
+	
+	eSelector  = document.querySelectorAll(".dropdown-item");
+	
 	eSelector.forEach( e => {
 		
 		e.addEventListener('click', () => {		
@@ -233,7 +207,7 @@ const showEvents = ()=>{
 							for (let y=0;y<a[i].events.length;y++){
 								
 								if(e.id == a[i].events[y]){
-									//if(eventData.includes(e.id) ){
+									
 									
 										eventId =a[i].events[y];
 									
@@ -258,7 +232,7 @@ const showEvents = ()=>{
 					month = +month;
 					daysOfEvents.push(day,month);
 					console.log(eventId);
-					dropdownHeader.innerHTML = eventId;
+					
 				}
 
 
@@ -269,7 +243,7 @@ const showEvents = ()=>{
 
 			if(e.innerHTML == "Ehrenbreitsteiner<br>Wochenmarkt"){
 				eventId = e.innerHTML;
-				dropdownHeader.innerHTML = eventId;
+				
 				dateOfRecurringEvents();
 				
 				}
@@ -279,31 +253,52 @@ const showEvents = ()=>{
 	});
 	
 }
-					
 
+const renderEvents = async () => {	
 
-
-
-const renderEvents = () => {	
-	let singleEvent = "";
-	
-	var object = getData().then((c)=> {
+	let data = await getData();	
+	let dropdownList = document.querySelector(".dropdown-menu");
+	// Warte auf die getData() Funktion! getData() ist eine asynchrone Funktion!!!
+	var object = await getData().then((c)=> { // Warten auf die Rückgabe von getData()!
 		
 	for (let y=0; y<c.length;y++){
 		if (months[currMonth] == c[y].month){
-		 	actualEvents = c[y].events;
-			
-			 singleEvent +=`<span class="slideEvents" id="${actualEvents[0]}">${actualEvents[0]}</span>`
-			
+		 	actualEvents = c[y].events;		
 		}
 		
 	} 
 	actualEvents.push( "Ehrenbreitsteiner<br>Wochenmarkt");
 	actualEvents.push( "Wochenmarkt<br/>Donnerstag");	
-		
+	
+			
+	showEvents();
 	});	  
 	
 }
+function getRegions(){
+	const params = new URLSearchParams(window.location.search);
+	   const region = params.get('region');
+	   if (region) {
+		fetch('Events.json')
+		.then(response => response.json())
+		.then(data => {
+			 eventData = data[10][region];
+			
+			selectRegions(region);
+			// ✅ Sicherstellen, dass Events erst dann geladen und angezeigt werden
+			renderEvents().then( ()=> {
+				showDropdownMenu();
+
+			});			
+		});
+	} else{
+		console.warn("Keine Region angegeben.");
+	}
+		
+	
+  }
+getRegions();
+
 function selectRegions(regions) {
 	console.log(regions);
 	let dropdownText = "";
@@ -313,10 +308,32 @@ function selectRegions(regions) {
 	 region.innerHTML = dropdownText;
 }
 
+async function showDropdownMenu(){
+	let dropdownList = document.querySelector(".dropdown-menu");
+
+		let singleEvent = "";
+		for (let i = 0; i<actualEvents.length; i++){
+			if(eventData.includes(actualEvents[i]) ){
+			singleEvent+=`<span class="dropdown-item" id="${actualEvents[i]}">${actualEvents[i]}</span> <br class="line-break">`
+			
+		}
+	}
+	dropdownList.innerHTML = singleEvent;
+			
+	showEvents();
+
+}
+
+ 
+
+
 
 prevNextIcon.forEach(icon => {
 	
     icon.addEventListener("click", handleClick => {
+
+ 	showDropdownMenu();
+
 		recurringdaysOfCurrentMonth.length = 0;
 		if (daysOfEvents.length == 2){
 			daysOfEvents.length = 0;
@@ -335,7 +352,7 @@ prevNextIcon.forEach(icon => {
         }
         else{ //pass new date as date value
         	let date = new Date();
-			//slideMonths.innerHTML = `Veranstaltungen für ${months[currMonth]}`;
+			
         }    
 	
 		renderEvents();
@@ -346,51 +363,25 @@ prevNextIcon.forEach(icon => {
 	
 });
 
-/*document.addEventListener("DOMContentLoaded", function () {*/
+document.addEventListener("DOMContentLoaded", function () {
 
-	
-let dropdown = document.getElementById("dropdown");
-let dropdownMenu = document.getElementById("dropdownMenu");
+let dropdownMenu = document.querySelector(".dropdown-menu");
 let calenderView = document.getElementById("calendar")
-	dropdown.addEventListener("click", () => {
+	if (dropdownMenu.length > 0){
+		dropdownMenu.addEventListener("click", () => {
+			console.log(eventId + "has been clicked!");
+			showDropdownMenu();			
 		
-		showDropdownMenu();
-		let dropdownMenuStyle = document.getElementById("dropdown-menu");
-		if (dropdownMenuStyle.style.display === "block") {
-			dropdownMenuStyle.style.display = "none";
-			dropdownMenu.style.display = "inline-block";
-		
-		} else {
-			dropdownMenuStyle.style.display = "block";
-			if (window.innerWidth <= 768) {
-			dropdownMenu.style.display = "none";
-			}
-		}
-		if (window.innerWidth <= 768) {
-			if (dropdownMenuStyle.style.display ==="none"){
-				calenderView.style.top = "-20%"
-			}else{
-				calenderView.style.top = "3%"
-			}
-		}
-		
-	
-	});
+		});
+	} else {
+		// Kein <span> vorhanden
+		console.warn("Kein <span> in #dropdown-menu gefunden.");
+	  }
+});
+
 renderEvents();
 
-function showDropdownMenu(){
 
-		let singleEvent = "";
-		for (let i = 0; i<actualEvents.length; i++){
-			if(eventData.includes(actualEvents[i]) ){
-			singleEvent+=`<span class="dropdown-item" id="${actualEvents[i]}">${actualEvents[i]}</span> <br class="line-break">`
-			dropdownList.innerHTML = singleEvent;
-		}
-	}
-		showEvents();
-	
-
-}
 
 const checkbox = document.getElementById('side-menu');
 const menu = document.getElementById('nav');
