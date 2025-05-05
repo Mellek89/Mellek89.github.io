@@ -231,16 +231,12 @@ const showEvents = ()=>{
 					let month = days[1];
 					month = +month;
 					daysOfEvents.push(day,month);
-					console.log(eventId);
+					console.log("showEvents" +" "+ eventId);
 					
 				}
-
-
-				renderCalender(); 
-								
+				renderCalender(); 								
 			});	
 			
-
 			if(e.innerHTML == "Ehrenbreitsteiner<br>Wochenmarkt"){
 				eventId = e.innerHTML;
 				
@@ -332,7 +328,7 @@ prevNextIcon.forEach(icon => {
 	
     icon.addEventListener("click", handleClick => {
 
- 	showDropdownMenu();
+ 	
 
 		recurringdaysOfCurrentMonth.length = 0;
 		if (daysOfEvents.length == 2){
@@ -355,7 +351,9 @@ prevNextIcon.forEach(icon => {
 			
         }    
 	
+		
 		renderEvents();
+		showDropdownMenu();	
 		showEvents();
 		renderCalender();
 			
