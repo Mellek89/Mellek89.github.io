@@ -185,12 +185,12 @@ const renderCalender = () => {
 	
 }
 
-const showEvents = ()=>{
+async function showEvents  (){
 	
 	eSelector  = document.querySelectorAll(".dropdown-item");
-	
+	console.log("showEvents "+ eSelector);
 	eSelector.forEach( e => {
-		
+		console.log(e);
 		e.addEventListener('click', () => {		
 		
 		daysOfEvents.length = 0;
@@ -231,7 +231,7 @@ const showEvents = ()=>{
 					let month = days[1];
 					month = +month;
 					daysOfEvents.push(day,month);
-					console.log("showEvents" +" "+ eventId);
+					
 					
 				}
 				renderCalender(); 								
@@ -253,13 +253,13 @@ const showEvents = ()=>{
 const renderEvents = async () => {	
 
 	let data = await getData();	
-	let dropdownList = document.querySelector(".dropdown-menu");
+
 	// Warte auf die getData() Funktion! getData() ist eine asynchrone Funktion!!!
-	var object = await getData().then((c)=> { // Warten auf die Rückgabe von getData()!
+	//var object = await getData().then((c)=> { // Warten auf die Rückgabe von getData()!
 		
-	for (let y=0; y<c.length;y++){
-		if (months[currMonth] == c[y].month){
-		 	actualEvents = c[y].events;		
+	for (let y=0; y<data.length;y++){
+		if (months[currMonth] == data[y].month){
+		 	actualEvents = data[y].events;		
 		}
 		
 	} 
@@ -267,8 +267,8 @@ const renderEvents = async () => {
 	actualEvents.push( "Wochenmarkt<br/>Donnerstag");	
 	
 			
-	showEvents();
-	});	  
+	//showEvents();
+	//});	  
 	
 }
 function getRegions(){
@@ -296,7 +296,7 @@ function getRegions(){
 getRegions();
 
 function selectRegions(regions) {
-	console.log(regions);
+	
 	let dropdownText = "";
 	let region = document.getElementById("dropdownText");
 	dropdownText = `Wir sind in den nächsten Monaten viel unterwegs am <strong class="strong">${regions}</strong> .
@@ -312,11 +312,13 @@ async function showDropdownMenu(){
 			if(eventData.includes(actualEvents[i]) ){
 			singleEvent+=`<span class="dropdown-item" id="${actualEvents[i]}">${actualEvents[i]}</span> <br class="line-break">`
 			
+		}else{
+			console.warn("Kein <span> in #dropdown-menu gefunden.");
 		}
 	}
 	dropdownList.innerHTML = singleEvent;
 			
-	showEvents();
+	//showEvents();
 
 }
 
@@ -352,9 +354,14 @@ prevNextIcon.forEach(icon => {
         }    
 	
 		
-		renderEvents();
-		showDropdownMenu();	
-		showEvents();
+		renderEvents().then( ()=> {
+			showDropdownMenu(); 
+
+		});	
+		showDropdownMenu().then( ()=> {
+			showEvents();
+		});	
+		
 		renderCalender();
 			
     });
@@ -367,7 +374,7 @@ let dropdownMenu = document.querySelector(".dropdown-menu");
 let calenderView = document.getElementById("calendar")
 	if (dropdownMenu.length > 0){
 		dropdownMenu.addEventListener("click", () => {
-			console.log(eventId + "has been clicked!");
+			
 			showDropdownMenu();			
 		
 		});
@@ -392,7 +399,7 @@ checkbox.addEventListener('click', () => {
 
 
 const dateOfRecurringEvents = () =>{
-	console.log("dateOfRecurringEvents");
+	
 	let liTag = "";
 	recurringdaysOfEvents.length = 0;
 	recurringdaysOfCurrentMonth.length = 0;
