@@ -112,7 +112,7 @@ const renderCalender = () => {
 								i++;
 							}
 							
-							}dropdownHeader.innerHTML = eventId;
+							}
 					}
 						
 						
@@ -318,7 +318,7 @@ async function showDropdownMenu(){
 	}
 	dropdownList.innerHTML = singleEvent;
 			
-	//showEvents();
+	showEvents();
 
 }
 
