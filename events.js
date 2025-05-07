@@ -301,10 +301,13 @@ function selectRegions(regions) {
 }
 
 async function showDropdownMenu(){
+
+	
 	let dropdownList = document.querySelector(".dropdown-menu");
-	let dropdownID = document.getElementById("dropdown-menu");
-	const height = dropdownList.offsetHeight;
-	console.log('Height:', height);
+
+	
+
+
 		let singleEvent = "";
 		for (let i = 0; i<actualEvents.length; i++){
 			if(eventData.includes(actualEvents[i]) ){
@@ -315,6 +318,13 @@ async function showDropdownMenu(){
 		}
 	}
 	dropdownList.innerHTML = singleEvent;
+
+	// Wait one frame to allow layout update
+	await new Promise(requestAnimationFrame);
+
+	const height = dropdownList.getBoundingClientRect().height;
+	console.log('Height:', height);
+	
 
 	const calendar = document.querySelector(".calendar");
 	let positionOfCalendar = calendar.getBoundingClientRect();
@@ -328,10 +338,10 @@ async function showDropdownMenu(){
   	console.log("top= "+ percentTop);
 
 
-		if(height > 252){
+		if(height > 253){
 			newTop = 30;
 			console.log("Position of Calendar " + newTop + "%");
-		}else{
+		}else if (height < 253){
 			newTop = 20;
 			console.log("Position of Calendar " + newTop + "%");
 
