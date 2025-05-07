@@ -408,21 +408,15 @@ header .chooseItem{
   top: 150%;
   color: #F0FFFF;
   padding: 5%;
+  row-gap: 3%;
 }
 .dropdown-menu span{
   color: #F0FFFF;
   border-bottom: 1px solid #ffeb3b;
 }
-.dropdown-toggle{
-
- display: inline-block; 
- position: relative;
- right: 75%;
- color: #ffeb3b; 
- border-bottom: 1px solid #F0FFFF;
- padding-bottom: 2px;
- font-size: 170%;
-}
+.line-break {
+  margin-bottom: 7%;
+ }
 .slogan{
   position: relative;
   grid-column: 2/3;
@@ -856,17 +850,14 @@ table tr:last-child td:last-child {
         position: absolute;
         top: 8%;
         left: 25%;
+        width: 100%;
        }
        .dropdown-menu span{
         position: relative;
         font-size: 100%;
         line-height: 0.1em;
-        
-
        }
-       .line-break {
-        margin-bottom: 2%;
-       }
+     
      
     
 
