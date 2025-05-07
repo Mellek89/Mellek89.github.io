@@ -344,6 +344,9 @@ async function showDropdownMenu(){
 			newTop = 8;
 			console.log("Position of Calendar " + newTop + "%");
 
+		}else if (height > 252 && height <= 253){
+			newTop = 15;
+			console.log("Position of Calendar " + newTop + "%");
 		}
 		 // Apply style with !important to override CSS
 		 calendar.style.setProperty("position", "relative", "important");
