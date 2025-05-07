@@ -704,7 +704,7 @@ table tr:last-child td:last-child {
 
       .calendar{
         position: relative;
-        top: 1%;
+        top: 20%;
         max-width: 100%;
         z-index: 1;
         grid-column: 1/2;
@@ -856,6 +856,9 @@ table tr:last-child td:last-child {
         position: relative;
         font-size: 100%;
         line-height: 0.1em;
+       }
+       .line-break{
+        margin-bottom: 4%;
        }
      
      
