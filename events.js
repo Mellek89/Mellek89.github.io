@@ -237,7 +237,7 @@ async function showEvents  (){
 				renderCalender(); 								
 			});	
 			
-			if(e.innerHTML == "Ehrenbreitsteiner<br>Wochenmarkt"){
+			if(e.innerHTML == "Ehrenbreitsteiner<br>Wochenmarkt" || e.innerHTML == "Selters<br/>Wochenmarkt"){
 				eventId = e.innerHTML;
 				
 				dateOfRecurringEvents();
@@ -264,11 +264,7 @@ const renderEvents = async () => {
 		
 	} 
 	actualEvents.push( "Ehrenbreitsteiner<br>Wochenmarkt");
-	actualEvents.push( "Wochenmarkt<br/>Donnerstag");	
-	
-			
-	//showEvents();
-	//});	  
+	actualEvents.push( "Selters<br/>Wochenmarkt");	 
 	
 }
 function getRegions(){
@@ -317,7 +313,8 @@ async function showDropdownMenu(){
 		}
 	}
 	dropdownList.innerHTML = singleEvent;
-			
+	const height = dropdownList.offsetHeight;
+	console.log('Height:', height);	
 	showEvents();
 
 }
