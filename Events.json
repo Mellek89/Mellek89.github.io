@@ -97,13 +97,13 @@
 {"month":"Juni",
 "events":[
   "Ballonfestival<br/>Bonn",
-  "Europäischer<br/> Keramikmarkt<br/>Höhr-Grenzhausen",
+  "Europäischer Keramikmarkt<br/>Höhr-Grenzhausen",
   "Wein- und <br/>Heimatfest Kattenes"
 ],
 "Ballonfestival<br/>Bonn":
 ["6.6",
 "9.6"],
- "Europäischer<br/> Keramikmarkt<br/>Höhr-Grenzhausen":
+ "Europäischer Keramikmarkt<br/>Höhr-Grenzhausen":
 ["14.6",
 "15.6"],
 "Wein- und <br/>Heimatfest Kattenes":
@@ -197,7 +197,8 @@
   "Schängelmarkt<br/>Koblenz",
   "Idsteiner<br/>Herbstmarkt",
   "Oktobermarkt in<br/>Montabaur",
-    "Katharinenmarkt"
+    "Katharinenmarkt",
+    "Ehrenbreitsteiner<br>Wochenmarkt"
  ]
 
 }
