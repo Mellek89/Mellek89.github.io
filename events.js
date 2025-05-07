@@ -302,12 +302,10 @@ function selectRegions(regions) {
 
 async function showDropdownMenu(){
 
+
 	
 	let dropdownList = document.querySelector(".dropdown-menu");
-
 	
-
-
 		let singleEvent = "";
 		for (let i = 0; i<actualEvents.length; i++){
 			if(eventData.includes(actualEvents[i]) ){
@@ -341,8 +339,9 @@ async function showDropdownMenu(){
 		if(height > 253){
 			newTop = 30;
 			console.log("Position of Calendar " + newTop + "%");
-		}else if (height < 253){
-			newTop = 15;
+		}
+		else if (height > 157 && height <= 252){
+			newTop = 8;
 			console.log("Position of Calendar " + newTop + "%");
 
 		}
