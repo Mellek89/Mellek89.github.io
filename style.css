@@ -708,7 +708,7 @@ table tr:last-child td:last-child {
         max-width: 100%;
         z-index: 1;
         grid-column: 1/2;
-        left: 5%;
+        left: 2%;
         
 
       }
