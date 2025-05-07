@@ -181,16 +181,16 @@ const renderCalender = () => {
 	
 	daysTag.innerHTML = liTag;
 	recurringdaysOfCurrentMonth.length = 0;
-	
+
 	
 }
 
 async function showEvents  (){
 	
 	eSelector  = document.querySelectorAll(".dropdown-item");
-	console.log("showEvents "+ eSelector);
+	
 	eSelector.forEach( e => {
-		console.log(e);
+		
 		e.addEventListener('click', () => {		
 		
 		daysOfEvents.length = 0;
@@ -302,7 +302,9 @@ function selectRegions(regions) {
 
 async function showDropdownMenu(){
 	let dropdownList = document.querySelector(".dropdown-menu");
-
+	let dropdownID = document.getElementById("dropdown-menu");
+	const height = dropdownList.offsetHeight;
+	console.log('Height:', height);
 		let singleEvent = "";
 		for (let i = 0; i<actualEvents.length; i++){
 			if(eventData.includes(actualEvents[i]) ){
@@ -313,8 +315,31 @@ async function showDropdownMenu(){
 		}
 	}
 	dropdownList.innerHTML = singleEvent;
-	const height = dropdownList.offsetHeight;
-	console.log('Height:', height);	
+
+	const calendar = document.querySelector(".calendar");
+	let positionOfCalendar = calendar.getBoundingClientRect();
+	const percentTop = (positionOfCalendar.top / window.innerHeight) * 100;
+	const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+
+
+	if (isMobile) {
+		let newTop;
+  	console.log("top= "+ percentTop);
+
+
+		if(height > 252){
+			newTop = 30;
+			console.log("Position of Calendar " + newTop + "%");
+		}else{
+			newTop = 20;
+			console.log("Position of Calendar " + newTop + "%");
+
+		}
+		 // Apply style with !important to override CSS
+		 calendar.style.setProperty("position", "relative", "important");
+		 calendar.style.setProperty("top", newTop + "%", "important");
+	}
 	showEvents();
 
 }
