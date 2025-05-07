@@ -342,7 +342,7 @@ async function showDropdownMenu(){
 			newTop = 30;
 			console.log("Position of Calendar " + newTop + "%");
 		}else if (height < 253){
-			newTop = 20;
+			newTop = 15;
 			console.log("Position of Calendar " + newTop + "%");
 
 		}
