@@ -524,7 +524,7 @@ table tr:last-child td:last-child {
         position: relative;
         z-index: 2;
         height: 20%;
-        overflow: hidden;
+        overflow: visible;
        
       
        }
