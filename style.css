@@ -812,7 +812,8 @@ table tr:last-child td:last-child {
       .logoMobil{
         display: block;
         position: relative;
-        width:  50%;
+        max-width: 100%;
+        height: auto;
         z-index: 3;
         top: -100%;
         left: 24%;        
