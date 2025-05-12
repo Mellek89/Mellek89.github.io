@@ -524,7 +524,7 @@ table tr:last-child td:last-child {
         position: relative;
         z-index: 2;
         height: 20%;
-        overflow: visible;
+        overflow: hidden;
        
       
        }
@@ -555,7 +555,7 @@ table tr:last-child td:last-child {
           row-gap: 16%;
           top: 15%;
           left: 25%;
-          
+         
         
   
         }
@@ -616,6 +616,7 @@ table tr:last-child td:last-child {
         max-height: 0;
         transition: max-height .4s ease-out;
         z-index: 2;
+      
      
 
       }
