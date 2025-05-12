@@ -2,6 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
 *,
 *::before,
 *::after{margin: 0;
@@ -16,8 +20,6 @@ body{
 	align-items: flex-start;
 	justify-content: center;
 	min-height : 70vh;
-  
-  
 }
 
 /*.hidden {
@@ -26,7 +28,8 @@ body{
 
 .container .main.hidden { display: none; }
 .container{
-  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
   min-height: 100vh;
   background-image: url('./images/Lango_laenge_Home.png');
   background-size: cover;       /* Bild auf gesamte Fläche anpassen */
@@ -812,11 +815,13 @@ table tr:last-child td:last-child {
       .logoMobil{
         display: block;
         position: relative;
-        max-width: 50%;
-        height: auto;
+        width: 50%;
+        max-width: 200px;
+        margin: 0 auto;
+        position: relative;
         z-index: 3;
         top: -100%;
-        left: 24%;        
+               
        }
        .slogan{
         position: relative;
