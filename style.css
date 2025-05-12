@@ -612,8 +612,6 @@ table tr:last-child td:last-child {
       }
       .region-select{
         position: relative;
-        top: -110%;
-        left: -3%;
         font-size: 150%;
         text-align: center;
  
@@ -621,12 +619,9 @@ table tr:last-child td:last-child {
      
       .regionOptions {
         position: relative;
-        left: 0;
-        right: 0;
         display: block;
         color: #F0FFFF;
         top: 10%; 
-        left: 2%;
         text-align: center;
       }
    
@@ -805,16 +800,14 @@ table tr:last-child td:last-child {
         width: 50%;
         max-width: 200px;
         margin: 0 auto;
-        position: relative;
-        z-index: 3;
         top: -100%;
+        z-index: 3;
+        
                
        }
        .slogan{
         position: relative;
         grid-column: 2/3;
-        top: -20%;
-        left: 3%;
         font-size: 140%; 
         width: 110%;
         
@@ -823,12 +816,10 @@ table tr:last-child td:last-child {
        .slogenBeschreibung{
         position: relative;
         grid-column: 2/3;
-        top: -65%;
-        left: 1%;
         font-size: 120%;
         text-align: center;
         line-height: 3;
-        font-size: 100%;
+        
        }
        .strong{
         font-weight: 50%;
