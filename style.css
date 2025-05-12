@@ -26,19 +26,17 @@ body{
 
 .container .main.hidden { display: none; }
 .container{
+  width: 100%;
+  min-height: 100vh;
   background-image: url('./images/Lango_laenge_Home.png');
   background-size: cover;       /* Bild auf gesamte Fläche anpassen */
   background-repeat: no-repeat; /* Kein Wiederholen des Bildes */
   background-position: center;  /* Bild zentrieren */
-  min-height: 100vh;            /* Höhe des Viewports */
-  color: white;                 /* Text besser lesbar bei dunklem Bild */
-  padding: 2rem;
-  display: grid;
-  width: 100%;
+  display: grid;  
   grid-template-columns: repeat(9, 1fr);
- grid-auto-rows: minmax(100px, auto);
-
-  
+  grid-auto-rows: minmax(100px, auto);         /* Höhe des Viewports */
+  color: white;                 /* Text besser lesbar bei dunklem Bild */
+ 
   grid-template-areas: 
   "header header header header header header header header header"
   "main main main main main main main main main"
@@ -53,14 +51,20 @@ body{
 }
 
 .container .header {
-  display: grid;
+  position: relative;
+  /*display: grid;*/
   grid-area: header;
 	font-size: 1.45rem;
-
-  position: sticky;
+  /*position: sticky;*/
   top: 0%;
+  /*width: 100%;
+  height: 50%;*/
+  overflow: hidden;
+  padding: 2rem;
   width: 100%;
-  height: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
 }
 .container .main{
@@ -114,7 +118,8 @@ grid-column: 3/4;
  }
  .logoImg{
     position: relative;
-    width: 60%;
+   max-width: 150px;
+   height: auto;
     left: 13% ;
     z-index: 3;
  }
@@ -511,15 +516,6 @@ table tr:last-child td:last-child {
         grid-template-areas: 
         
         "header"
-        "header"
-        "main"
-        "main"
-        "main"
-        "main"
-        "main"
-        "main"
-        "main"
-        "main"
         "main"
         "footer  "
         
