@@ -797,11 +797,11 @@ table tr:last-child td:last-child {
       .logoMobil{
         display: block;
         position: absolute;
-        width: 50%;
+        width: 30%;
         max-width: 200px;
         top: -10%;
         z-index: 3;
-        margin-left: 10%;
+        margin-left: 20%;
         
                
        }
