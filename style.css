@@ -494,9 +494,9 @@ table tr:last-child td:last-child {
 
 @media (max-width: 768px) {
 
-  * {
+  /** {
     outline: 1px solid red;
-  }
+  }*/
         .container {
         width: 100%; /* Make sure content takes the full width */
          
