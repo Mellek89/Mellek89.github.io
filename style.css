@@ -699,6 +699,10 @@ table tr:last-child td:last-child {
       body:has(.side-menu:checked) {
       overflow: hidden;
       }
+      /* Hide logoMobil when side-menu is checked */
+        .side-menu:checked ~ .logoDiv {
+          display: none;
+        }
  
   .circle{
     position: relative;
@@ -810,7 +814,17 @@ table tr:last-child td:last-child {
         top:-4px
         
        }*/
-      .logoMobil{
+      .logoDiv{
+        display: block;
+        position: absolute;
+        max-width: 50px;
+        margin-top: -25%;
+        z-index: 3;
+        margin-left: 20%;
+        
+               
+       }
+       .logoMobil{
         display: block;
         position: absolute;
         max-width: 150px;
@@ -820,6 +834,7 @@ table tr:last-child td:last-child {
         
                
        }
+
        .slogan{
         position: relative;
         grid-column: 2/3;
