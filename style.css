@@ -615,7 +615,7 @@ table tr:last-child td:last-child {
         font-size: 150%;
         text-align: center;
         margin-top: 10%;
-        margin-left: -12%;
+        margin-left: -14%;
       }
      
       .regionOptions {
@@ -800,7 +800,7 @@ table tr:last-child td:last-child {
         display: block;
         position: absolute;
         max-width: 150px;
-        top: -10%;
+        margin-top: -25%;
         z-index: 3;
         margin-left: 20%;
         
