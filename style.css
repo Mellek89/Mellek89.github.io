@@ -86,7 +86,7 @@ display: grid;
 
 position: relative;
 margin-left: auto;
-top: 50%;
+
 
 
 }
@@ -539,16 +539,23 @@ table tr:last-child td:last-child {
         }
       
         
-        .menu{
+       /* .menu{
          position: absolute;
           display: grid;
           row-gap: 16%;
-          top: 15%;
+          margin-top: 30%;
           left: 25%;
-         
-        
-  
-        }
+        }*/
+        /* Navigation menu inside overlay */
+          .menu {
+            position: relative;
+            display: grid;
+            row-gap: 3rem; /* Use rem for better scalability */
+            margin-top: 4rem;
+            left: 0; /* Align to center with flex parent */
+            text-align: center;
+          }
+
      
         .menu  .home{
           grid-column: 2/3;
@@ -602,6 +609,7 @@ table tr:last-child td:last-child {
         width: 100%;
         height: 100%;
         position: fixed;
+         inset: 0; /* shorthand for top, right, bottom, left: 0 */
         overflow: hidden;
         max-height: 0;
         transition: max-height .4s ease-out;
@@ -610,6 +618,12 @@ table tr:last-child td:last-child {
      
 
       }
+     
+      /* Active class to slide nav into view */
+.nav.active {
+  transform: translateY(0);
+}
+
       .region-select{
         position: relative;
         font-size: 150%;
