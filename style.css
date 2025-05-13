@@ -614,7 +614,8 @@ table tr:last-child td:last-child {
         position: relative;
         font-size: 150%;
         text-align: center;
- 
+        margin-top: 10%;
+        margin-left: -12%;
       }
      
       .regionOptions {
@@ -623,6 +624,7 @@ table tr:last-child td:last-child {
         color: #F0FFFF;
         top: 10%; 
         text-align: center;
+       
       }
    
       /* Menu Icon */
@@ -809,8 +811,7 @@ table tr:last-child td:last-child {
         grid-column: 2/3;
         font-size: 140%; 
         width: auto; 
-       
-        margin-left: -5%;
+        margin-left: -10%;
         
         
        }
