@@ -808,9 +808,9 @@ table tr:last-child td:last-child {
         position: relative;
         grid-column: 2/3;
         font-size: 140%; 
-        width: auto;
-        margin-right: 10%;
-        margin-left: 1%;
+        width: auto; 
+       
+        margin-left: -5%;
         
         
        }
