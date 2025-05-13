@@ -538,14 +538,19 @@ table tr:last-child td:last-child {
           cursor: default;
         }
       
-        
-       /* .menu{
-         position: absolute;
-          display: grid;
-          row-gap: 16%;
-          margin-top: 30%;
-          left: 25%;
-        }*/
+        .nav{
+          width: 100%;
+          height: 100%;
+          position: fixed;
+           inset: 0; /* shorthand for top, right, bottom, left: 0 */
+          overflow: hidden;
+          max-height: 0;
+          transition: max-height .4s ease-out;
+          z-index: 2;
+   
+       
+  
+        }
         /* Navigation menu inside overlay */
           .menu {
             position: relative;
@@ -554,6 +559,7 @@ table tr:last-child td:last-child {
             margin-top: 4rem;
             left: 0; /* Align to center with flex parent */
             text-align: center;
+            margin-right: 20%;
           }
 
      
@@ -605,19 +611,7 @@ table tr:last-child td:last-child {
           display: none;
           
         } 
-      .nav{
-        width: 100%;
-        height: 100%;
-        position: fixed;
-         inset: 0; /* shorthand for top, right, bottom, left: 0 */
-        overflow: hidden;
-        max-height: 0;
-        transition: max-height .4s ease-out;
-        z-index: 2;
-      
-     
 
-      }
      
       /* Active class to slide nav into view */
 .nav.active {
@@ -817,22 +811,15 @@ table tr:last-child td:last-child {
       .logoDiv{
         display: block;
         position: absolute;
-        max-width: 50px;
-        margin-top: -25%;
         z-index: 3;
-        margin-left: 20%;
+        margin-left: 30%;
         
                
        }
        .logoMobil{
         display: block;
         position: absolute;
-        max-width: 150px;
-        margin-top: -25%;
-        z-index: 3;
-        margin-left: 20%;
-        
-               
+        max-width: 150px;       
        }
 
        .slogan{
