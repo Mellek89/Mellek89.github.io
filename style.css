@@ -810,7 +810,8 @@ table tr:last-child td:last-child {
         grid-column: 2/3;
         font-size: 140%; 
         width: auto;
-        margin-right: 120px;
+        margin-right: 20%;
+        margin-left: 1%;
         
         
        }
@@ -820,7 +821,7 @@ table tr:last-child td:last-child {
         font-size: 120%;
         text-align: center;
         line-height: 3;
-        margin-right: 200px;
+        
         
        }
        .strong{
