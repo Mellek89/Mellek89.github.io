@@ -521,6 +521,7 @@ table tr:last-child td:last-child {
        .container .main{
         position: relative;
         display: grid;
+        margin-top: 10%;
        
        
        }
