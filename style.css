@@ -707,11 +707,12 @@ table tr:last-child td:last-child {
 
       .calendar{
         position: relative;
-        max-width: 100%;
+        max-width: 90%;
         z-index: 1;
         grid-column: 1/2;
-        left: 2%;
+        margin-left: 6%;
         margin-top: 35%;
+        margin-bottom: 10%;
         
 
       }
@@ -719,6 +720,7 @@ table tr:last-child td:last-child {
        
         padding: 10px 20px 10px;
       }
+      
       .calendar header .icons span:hover{
         background: #F0E801;
         
