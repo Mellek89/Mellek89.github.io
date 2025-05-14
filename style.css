@@ -3,12 +3,10 @@
 
 
 html, body {
-  max-width: 100%;
-  overflow-x: hidden;
+  overflow: auto;
+  min-height: 100%;
 }
-*,
-*::before,
-*::after{margin: 0;
+*{margin: 0;
   padding:0;
   box-sizing: border-box;
   font-family: 'Poppins', 'san-serifs'}
@@ -20,7 +18,6 @@ html, body {
 .container .main.hidden { display: none; }
 .container{
   max-width: 100%;
-  overflow: hidden;
   min-height: 100vh;
   background-image: url('./images/Lango_laenge_Home.png');
   background-size: cover;       /* Bild auf gesamte Fläche anpassen */
@@ -404,7 +401,6 @@ header .chooseItem{
  z-index: 1;
  border-radius: 10px;
   width: 25%;
-  top: 150%;
   color: #F0FFFF;
   padding: 5%;
   row-gap: 3%;
@@ -501,11 +497,18 @@ table tr:last-child td:last-child {
         width: 100%; /* Make sure content takes the full width */
          
         grid-template-columns: repeat(1, 1fr);
-        grid-auto-rows: minmax(100px, 20px);
+       
         
         grid-template-areas: 
         
         "header"
+        "main"
+        "main"
+        "main"
+        "main"
+        "main"
+        "main"
+        "main"
         "main"
         "footer  "
         
@@ -521,8 +524,6 @@ table tr:last-child td:last-child {
        .container .main{
         position: relative;
         display: grid;
-        margin-top: 10%;
-       
        
        }
     
@@ -710,17 +711,14 @@ table tr:last-child td:last-child {
         max-width: 90%;
         z-index: 1;
         grid-column: 1/2;
-        margin-left: 6%;
-        margin-top: 35%;
-        margin-bottom: 10%;
-        
+        margin-left: 6%;        
 
       }
       .calendar header{
        
         padding: 10px 20px 10px;
       }
-      
+
       .calendar header .icons span:hover{
         background: #F0E801;
         
@@ -856,9 +854,10 @@ table tr:last-child td:last-child {
     
        .dropdown-menu{
         text-align: center;
-        position: absolute;        
+        position: relative;        
         width: 100%;
-        margin-top: 8%;
+        grid-column: 1/2;
+        
        }
        .dropdown-menu span{
         position: relative;
