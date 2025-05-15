@@ -485,6 +485,7 @@ header .chooseItem{
   color:#F0FFFF;
   text-align: center;
   font-size: 120%;
+  padding: 1em;
 }
 /*==================================
     TIMELINE
@@ -611,6 +612,14 @@ header .chooseItem{
         border-bottom: 2px solid #ffeb3b; 
         
         }
+  
+        /*.mainUns{
+            background-image: url('./images/Bernd_Laenge.jpg');
+            background-size: 10%;
+            background-repeat: no-repeat;
+            background-position:  73% 50%;  
+            
+        }*/
    
 
 /*----------------------------------------------
