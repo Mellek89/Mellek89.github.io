@@ -871,7 +871,7 @@ table tr:last-child td:last-child {
         position: relative;
         display: block;
         color: #F0FFFF;
-        
+         margin-top: -25%;
         text-align: center;
        
       }
