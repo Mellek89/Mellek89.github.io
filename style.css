@@ -628,7 +628,7 @@ header .chooseItem{
     ----------------------------------------------*/
 
         .timeline-centered {
-            @extend .timeline-split;
+           
             @media (min-width: 992px) {
                 &,
                 .timeline-item,
