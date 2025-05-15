@@ -423,7 +423,7 @@ header .chooseItem{
  .slogenBeschreibung{
   position: relative;
   grid-column: 2/3;
-  top: 10%;
+  
   left: 0%;
   font-size: 120%;
  }
@@ -863,15 +863,15 @@ table tr:last-child td:last-child {
         position: relative;
         font-size: 150%;
         text-align: center;
-        margin-top: 10%;
         margin-left: -14%;
+        margin-top: -40%;
       }
      
       .regionOptions {
         position: relative;
         display: block;
         color: #F0FFFF;
-        top: 10%; 
+        
         text-align: center;
        
       }
@@ -1066,7 +1066,8 @@ table tr:last-child td:last-child {
         position: relative;
         grid-column: 2/3;
         font-size: 140%; 
-        width: auto; 
+        width: auto;
+        height: auto; 
         margin-left: -10%;
         
         
@@ -1077,6 +1078,7 @@ table tr:last-child td:last-child {
         font-size: 120%;
         text-align: center;
         line-height: 3;
+        margin-top: -20%;
         
         
        }
