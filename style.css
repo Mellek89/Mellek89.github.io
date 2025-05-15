@@ -484,7 +484,7 @@ header .chooseItem{
   position: relative;
   color:#F0FFFF;
   text-align: center;
-  font-size: 120%;
+  font-size: 100%;
   padding: 1em;
 }
 /*==================================
@@ -598,18 +598,19 @@ header .chooseItem{
         }
         .timeline-title {
          margin: 0; 
-        display: inline-block;  
-        border-bottom: 2px solid #ffeb3b; 
-        
+     
+       
         }
     }
     .timeline-info span{
                   color: #F0E801;
+                   font-size: 15px;
                 }
       .timeline-title {
         padding: 0.5em;
         display: inline-block;  
         border-bottom: 2px solid #ffeb3b; 
+         font-size: 25px;
         
         }
   
