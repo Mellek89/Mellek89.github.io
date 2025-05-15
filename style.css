@@ -478,6 +478,7 @@ header .chooseItem{
   position: relative;
   color: #ffeb3b;
   text-align: center;
+  font-size: 25px;
 
 }
 .zeitreise{
@@ -610,7 +611,7 @@ header .chooseItem{
         padding: 0.5em;
         display: inline-block;  
         border-bottom: 2px solid #ffeb3b; 
-         font-size: 25px;
+         font-size: 20px;
         
         }
   
