@@ -267,6 +267,10 @@ const renderEvents = async () => {
 	actualEvents.push( "Selters<br/>Wochenmarkt");	 
 	
 }
+function navigateToRegionDisplay(){
+window.location.href = "index.html#regionDisplay";
+
+}
 function getRegions(){
 	const params = new URLSearchParams(window.location.search);
 	   const region = params.get('region');
@@ -285,6 +289,7 @@ function getRegions(){
 		});
 	} else{
 		console.warn("Keine Region angegeben.");
+		navigateToRegionDisplay();
 	}
 		
 	
