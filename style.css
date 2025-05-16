@@ -780,7 +780,8 @@ table tr:last-child td:last-child {
         }
       
         .nav{
-          width: 100%;
+          display: flow-root;
+          width: auto;
           height: 100%;
           position: fixed;
            inset: 0; /* shorthand for top, right, bottom, left: 0 */
@@ -788,10 +789,9 @@ table tr:last-child td:last-child {
           max-height: 0;
           transition: max-height .4s ease-out;
           z-index: 2;
-   
-       
   
         }
+
         /* Navigation menu inside overlay */
           .menu {
             position: relative;
@@ -917,7 +917,7 @@ table tr:last-child td:last-child {
 
       /* Toggle menu icon */
       .side-menu:checked ~ nav{
-        max-height: 100%;
+        max-height: 100vh;
       }
       .side-menu:checked ~ .hamb .hamb-line {
         background: transparent;
