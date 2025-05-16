@@ -415,8 +415,8 @@ header .chooseItem{
 .slogan{
   position: relative;
   grid-column: 2/3;
-  top: 25%;
-  left: 22%;
+
+ margin-left:20%;
   font-size: 150%;
   color: #ffeb3b; 
  }
@@ -1068,7 +1068,7 @@ table tr:last-child td:last-child {
         font-size: 140%; 
         width: auto;
         height: auto; 
-        margin-left: -10%;
+       
         
         
        }
