@@ -733,7 +733,7 @@ table tr:last-child td:last-child {
     outline: 1px solid red;
   }*/
         .container {
-        width: 100%; /* Make sure content takes the full width */
+        width: 100vh; /* Make sure content takes the full width */
          
         grid-template-columns: repeat(1, 1fr);
        
