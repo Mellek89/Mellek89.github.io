@@ -484,7 +484,7 @@ let currentWednesday = new Date(Date.UTC(
     while (currentWednesday.getUTCFullYear() === 2025) {
 		if (dtfBerlin.format(currentWednesday) === 'Mittwoch') {
         wednesdays.push(new Date(currentWednesday));
-        currentWednesday.setDate(currentWednesday.getDate() + 7);
+        currentWednesday.setUTCDate(currentWednesday.getUTCDate() + 7);
     }
 }
 console.log("Lokalzeit:", currentWednesday.toString());
