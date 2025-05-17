@@ -443,45 +443,59 @@ const dateOfRecurringEvents = () =>{
 	recurringdaysOfEvents.length = 0;
 	recurringdaysOfCurrentMonth.length = 0;
 	const wednesdays = [];
-	const startDate = new Date(2025, 0, 1);
-	const berlinFormatter = new Intl.DateTimeFormat('de-DE', {
-			weekday: 'long',
-			year: 'numeric',
-			month: 'long',
-			day: 'numeric',
-			hour: 'numeric',
-			minute: 'numeric',
-			second: 'numeric',
-			timeZoneName: 'short',
-			timeZone: 'Europe/Berlin'
-			});
+	const startDate = new Date(Date.UTC(2025, 0, 1));
+	const showBerlin = date =>
+  new Intl.DateTimeFormat('de-DE', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    timeZone: 'Europe/Berlin',
+    timeZoneName: 'short'
+  }).format(date);
 
-	const dtf = new Intl.DateTimeFormat('de-DE', {
+	const dtfBerlin = new Intl.DateTimeFormat('de-DE', {
   weekday: 'long',
   timeZone: 'Europe/Berlin'
 });
 
-console.log(dtf); 
+
 // → "Mittwoch
 // Schleife: Finde ersten Mittwoch aus deutscher Sicht
 
 const tempDate = new Date(startDate); // Kopie
-while (dtf.format(tempDate) !== 'Mittwoch') {
+while (dtfBerlin.format(tempDate) !== 'Mittwoch') {
   tempDate.setDate(tempDate.getDate() + 1);
 }
 
 const firstWednesdayOfTheYear = new Date(tempDate);
 
-const newDateGermany = berlinFormatter.format(firstWednesdayOfTheYear);
+
 console.log(firstWednesdayOfTheYear);
-	let currentWednesday = new Date(firstWednesdayOfTheYear);
-    while (currentWednesday.getFullYear() === 2025) {
+	//let currentWednesday = new Date(firstWednesdayOfTheYear);
+let currentWednesday = new Date(Date.UTC(
+  firstWednesdayOfTheYear.getUTCFullYear(),
+  firstWednesdayOfTheYear.getUTCMonth(),
+  firstWednesdayOfTheYear.getUTCDate()
+));
+
+    while (currentWednesday.getUTCFullYear() === 2025) {
+		if (dtfBerlin.format(currentWednesday) === 'Mittwoch') {
         wednesdays.push(new Date(currentWednesday));
         currentWednesday.setDate(currentWednesday.getDate() + 7);
     }
-	console.log(currentWednesday);
-	console.log(wednesdays);
+}
+console.log("Lokalzeit:", currentWednesday.toString());
+console.log("UTC-Zeit:", currentWednesday.toISOString());
 
+const berlinFormat = new Intl.DateTimeFormat('de-DE', {
+  weekday: 'long',
+  timeZone: 'Europe/Berlin'
+}).format(currentWednesday);
+
+console.log("Berlin-Wochentag:", berlinFormat);
 
 for (let i = 0; i< wednesdays.length; i++){
 
