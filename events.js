@@ -464,11 +464,13 @@ const dateOfRecurringEvents = () =>{
 console.log(dtf); 
 // → "Mittwoch
 // Schleife: Finde ersten Mittwoch aus deutscher Sicht
-while (dtf.format(startDate) !== 'Mittwoch') {
-  startDate.setDate(startDate.getDate() + 1);
+
+const tempDate = new Date(startDate); // Kopie
+while (dtf.format(tempDate) !== 'Mittwoch') {
+  tempDate.setDate(tempDate.getDate() + 1);
 }
 
-const firstWednesdayOfTheYear = new Date(startDate);
+const firstWednesdayOfTheYear = new Date(tempDate);
 
 const newDateGermany = berlinFormatter.format(firstWednesdayOfTheYear);
 console.log(firstWednesdayOfTheYear);
@@ -478,6 +480,7 @@ console.log(firstWednesdayOfTheYear);
         currentWednesday.setDate(currentWednesday.getDate() + 7);
     }
 	console.log(currentWednesday);
+	console.log(wednesdays);
 
 
 for (let i = 0; i< wednesdays.length; i++){
