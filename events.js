@@ -444,18 +444,40 @@ const dateOfRecurringEvents = () =>{
 	recurringdaysOfCurrentMonth.length = 0;
 	const wednesdays = [];
 	const startDate = new Date(2025, 0, 1);
-	let firstWednesdayOfTheYear = startDate;
+	const berlinFormatter = new Intl.DateTimeFormat('de-DE', {
+			weekday: 'long',
+			year: 'numeric',
+			month: 'long',
+			day: 'numeric',
+			hour: 'numeric',
+			minute: 'numeric',
+			second: 'numeric',
+			timeZoneName: 'short',
+			timeZone: 'Europe/Berlin'
+			});
 
-	while (firstWednesdayOfTheYear.getDay() !== 3) {
-        firstWednesdayOfTheYear.setDate(firstWednesdayOfTheYear.getDate() + 1);
-    }
+	const dtf = new Intl.DateTimeFormat('de-DE', {
+  weekday: 'long',
+  timeZone: 'Europe/Berlin'
+});
 
+console.log(dtf); 
+// → "Mittwoch
+// Schleife: Finde ersten Mittwoch aus deutscher Sicht
+while (dtf.format(startDate) !== 'Mittwoch') {
+  startDate.setDate(startDate.getDate() + 1);
+}
+
+const firstWednesdayOfTheYear = new Date(startDate);
+
+const newDateGermany = berlinFormatter.format(firstWednesdayOfTheYear);
+console.log(firstWednesdayOfTheYear);
 	let currentWednesday = new Date(firstWednesdayOfTheYear);
     while (currentWednesday.getFullYear() === 2025) {
         wednesdays.push(new Date(currentWednesday));
         currentWednesday.setDate(currentWednesday.getDate() + 7);
     }
-	
+	console.log(currentWednesday);
 
 
 for (let i = 0; i< wednesdays.length; i++){
