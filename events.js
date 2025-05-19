@@ -329,7 +329,7 @@ function getRegions(){
 getRegions();
 
 function setActiveMarket(market) {
-  // Aktive Klasse setzen
+  // Aktive Klasse setzen  
   if (market === "Ehrenbreitsteiner-Wochenmarkt") {
     ehrenEl.classList.add("active");
     seltersEl.classList.remove("active");
