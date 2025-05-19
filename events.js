@@ -343,7 +343,7 @@ function setActiveMarket(market) {
  
 
 }
-function selectRegions(regions) {
+function selectRegions(regions) { 
 	
 	let dropdownText = "";
 	let region = document.getElementById("dropdownText");
