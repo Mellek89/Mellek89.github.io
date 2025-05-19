@@ -529,11 +529,11 @@ const dateOfRecurringEvents = () =>{
 
 	const tempDi = new Date(startDate); // Kopie
 
-	while (dtfBerlin.format(tempDi) !== 'Dienstag') {
+	while (dtfBerlin.format(tempDi) !== 'Donnerstag') {
 	tempDi.setDate(tempDi.getDate() + 1);
 	}
 
-	// Schleife: Finde ersten Mittwoch nach dem Dienstag
+	// Schleife: Finde ersten Mittwoch nach dem Donnerstag
 	const tempMi = new Date(tempDi); 
 	while (dtfBerlin.format(tempMi) !== 'Mittwoch') {
 	tempMi.setDate(tempMi.getDate() + 1);
@@ -562,7 +562,7 @@ const dateOfRecurringEvents = () =>{
         wednesdays.push(new Date(currentWednesday));
         
     	}
-		if(currentThuesday.getUTCFullYear() === 2025 && dtfBerlin.format(currentThuesday) === 'Dienstag'){
+		if(currentThuesday.getUTCFullYear() === 2025 && dtfBerlin.format(currentThuesday) === 'Donnerstag'){
 		thuesdays.push(new Date(currentThuesday));
         
 		}
