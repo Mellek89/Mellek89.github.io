@@ -21,14 +21,18 @@ let datesOfEvents = [];
 let eventId = ""; 
 let dayOfEvent = null;
 let daysOfEvents = [];
-let recurringdaysOfEvents = [];
+let recurringdWedsOfEvents = [];
+let recurringThuesOfEvents = [];
 let actualEvents = [];
 let eSelector = [];
 let keyValueOfEvents = [];
-let recurringdaysOfCurrentMonth = [];
+let recurringWedOfCurrentMonth= [];
+let recurringThuOfCurrentMonth= [];
 let prevNextSlideshow = document.querySelectorAll(".slideshowIcons span");
 let dropdownHeader = document.getElementById("dropdownMenu");
 let eventData = [];
+let ehrenEl ;
+let seltersEl ;
 
 
 var endOfEvent= null;
@@ -67,6 +71,9 @@ const renderCalender = () => {
 	
 	let liTag = "";
 
+	  // Vorbereitend: Wiederkehrende Events in Set packen
+  		const recurringDaysSet = new Set();
+
 	for (let i = firstDateOfMonth; i > 0; i--){ // creating li of last days of prev month
 		
 				
@@ -91,7 +98,7 @@ const renderCalender = () => {
 				}else
 
 				liTag += `<li class="inactive">${lasttDateOfLastMonth -i +1}</li>`;
-				}	
+	}	
 		
 	
 		
@@ -100,22 +107,40 @@ const renderCalender = () => {
 			if (eventId!=""){
 			
 				
-						let isToday = i === date.getDate() && currMonth === new Date().getMonth() && currYear === new Date().getFullYear() ? "active" : "";	
-						
-						//recurring events
-					if(recurringdaysOfCurrentMonth.length != 0){
-						for (let z= 0; z< recurringdaysOfCurrentMonth.length;z++){
+					let isToday = i === date.getDate() && currMonth === new Date().getMonth() && currYear === new Date().getFullYear() ? "active" : "";	
+					
+				//recurring events
 
-							if(i == recurringdaysOfCurrentMonth[z] && z % 2 ==0 ){
-								
-								liTag += `<li id = ${i} class="circle"> ${i} </li>`;	
-								i++;
-							}
-							
-							}
+					//if(recurringWedOfCurrentMonth.length != 0 || recurringThuOfCurrentMonth !=0){
+					if (ehrenEl) {
+						if (ehrenEl.classList.contains("active")) {
+							for (let z = 0; z < recurringWedOfCurrentMonth.length; z += 2) {
+								if (recurringWedOfCurrentMonth[z + 1] === currMonth + 1) {
+									recurringDaysSet.add(recurringWedOfCurrentMonth[z]);
+								} 
+							}		
+								//else if (recurringThuOfCurrentMonth[z + 1] === currMonth + 1) {
+						}else if (seltersEl.classList.contains("active")) {
+								for (let z = 0; z < recurringThuOfCurrentMonth.length; z += 2) {
+									if (recurringThuOfCurrentMonth[z + 1] === currMonth + 1) {
+									recurringDaysSet.add(recurringThuOfCurrentMonth[z]);
+									}
+							}	
+						}
 					}
-						
-						
+					
+			
+	
+
+				 	let className = isToday;
+					// Priorität 1: Wiederkehrende Events
+					if (recurringDaysSet.has(i)) {
+					className = "circle";
+					liTag += `<li id="${i}" class="${className}">${i}</li>`;
+					i++;
+					}	
+
+
 						//same event in multiple months 
 						if(daysOfEvents[1]<daysOfEvents[3]){
 							
@@ -140,7 +165,8 @@ const renderCalender = () => {
 						}else if(i== daysOfEvents[0] && daysOfEvents.length == 2 ){
 								liTag += `<li id = ${i} class="circle"> ${i} </li>`;
 								
-						}else{
+						}
+						else{
 								liTag += `<li id = ${i} class="${isToday}"> ${i} </li>`;
 								
 						}
@@ -156,7 +182,8 @@ const renderCalender = () => {
 			}
 			
 
-		}
+	}
+	
 
 					
 	for (let i =lastDayOfMonth; i < 6; i++){
@@ -180,7 +207,7 @@ const renderCalender = () => {
 	currentDate.innerText = `${months[currMonth]} ${currYear}`;
 	
 	daysTag.innerHTML = liTag;
-	recurringdaysOfCurrentMonth.length = 0;
+	recurringWedOfCurrentMonth.length = 0;
 
 	
 }
@@ -188,13 +215,15 @@ const renderCalender = () => {
 async function showEvents  (){
 	
 	eSelector  = document.querySelectorAll(".dropdown-item");
-	
+	let spanEl = document.querySelector("#dropdown-menu span");
+	let marketId = spanEl.id;
 	eSelector.forEach( e => {
 		
 		e.addEventListener('click', () => {		
 		
 		daysOfEvents.length = 0;
 		datesOfEvents.length = 0;
+		
 		
 		
 		var jSObject = getData().then((a) =>{	
@@ -210,7 +239,7 @@ async function showEvents  (){
 									
 									
 										eventId =a[i].events[y];
-									
+										
 										for (let key in a[i] ){
 											
 											if (key == [eventId]){
@@ -234,10 +263,13 @@ async function showEvents  (){
 					
 					
 				}
-				renderCalender(); 								
+				
+				renderCalender(); 	
+				let marketId = eventId;
+				setActiveMarket(marketId)							
 			});	
 			
-			if(e.innerHTML == "Ehrenbreitsteiner<br>Wochenmarkt" || e.innerHTML == "Selters<br/>Wochenmarkt"){
+			if(e.innerHTML == "Ehrenbreitsteiner<br>Wochenmarkt" || e.innerHTML == "Selters<br>Wochenmarkt"){
 				eventId = e.innerHTML;
 				
 				dateOfRecurringEvents();
@@ -264,7 +296,7 @@ const renderEvents = async () => {
 		
 	} 
 	actualEvents.push( "Ehrenbreitsteiner<br>Wochenmarkt");
-	actualEvents.push( "Selters<br/>Wochenmarkt");	 
+	actualEvents.push( "Selters<br>Wochenmarkt");	 
 	
 }
 function navigateToRegionDisplay(){
@@ -296,6 +328,21 @@ function getRegions(){
   }
 getRegions();
 
+function setActiveMarket(market) {
+  // Aktive Klasse setzen
+  if (market === "Ehrenbreitsteiner-Wochenmarkt") {
+    ehrenEl.classList.add("active");
+    seltersEl.classList.remove("active");
+  } else if(market === "Selters-Wochenmarkt") {
+    seltersEl.classList.add("active");
+    ehrenEl.classList.remove("active");
+  }else{
+	ehrenEl.classList.remove("active");
+	seltersEl.classList.remove("active");
+  }
+ 
+
+}
 function selectRegions(regions) {
 	
 	let dropdownText = "";
@@ -313,14 +360,42 @@ async function showDropdownMenu(){
 	
 		let singleEvent = "";
 		for (let i = 0; i<actualEvents.length; i++){
+
 			if(eventData.includes(actualEvents[i]) ){
-			singleEvent+=`<span class="dropdown-item" id="${actualEvents[i]}">${actualEvents[i]}</span> <br class="line-break">`
+				if(actualEvents[i] == "Ehrenbreitsteiner<br>Wochenmarkt"){
+						singleEvent+=`<span class="dropdown-item" id="Ehrenbreitsteiner-Wochenmarkt">${actualEvents[i]}</span> <br class="line-break">`
+				
+					}else if(actualEvents[i] == "Selters<br>Wochenmarkt"){
+
+						singleEvent+=`<span class="dropdown-item" id="Selters-Wochenmarkt">${actualEvents[i]}</span> <br class="line-break">`
+					}else{
+						singleEvent+=`<span class="dropdown-item" id="${actualEvents[i]}">  ${actualEvents[i]}</span> <br class="line-break">`}
+				
 			
 		}else{
 			console.warn("Kein <span> in #dropdown-menu gefunden.");
 		}
 	}
+
+
 	dropdownList.innerHTML = singleEvent;
+
+ // Jetzt die Event-Listener für die dynamisch erstellten Elemente hinzufügen
+	ehrenEl = document.getElementById("Ehrenbreitsteiner-Wochenmarkt");
+    seltersEl = document.getElementById("Selters-Wochenmarkt");
+		if (ehrenEl && seltersEl) {
+			ehrenEl.addEventListener("click", () => {
+				setActiveMarket("Ehrenbreitsteiner-Wochenmarkt");
+			});
+
+			seltersEl.addEventListener("click", () => {
+				setActiveMarket("Selters-Wochenmarkt");
+			});
+			}
+		else {
+			
+			console.warn("Kein Dropdown-Menü gefunden.");
+		}
 
 	// Wait one frame to allow layout update
 	await new Promise(requestAnimationFrame);
@@ -371,7 +446,7 @@ prevNextIcon.forEach(icon => {
 
  	
 
-		recurringdaysOfCurrentMonth.length = 0;
+		//recurringdaysOfCurrentMonth.length = 0;
 		if (daysOfEvents.length == 2){
 			daysOfEvents.length = 0;
 		}
@@ -439,63 +514,63 @@ checkbox.addEventListener('click', () => {
 
 const dateOfRecurringEvents = () =>{
 	
-	let liTag = "";
-	recurringdaysOfEvents.length = 0;
-	recurringdaysOfCurrentMonth.length = 0;
+	recurringdWedsOfEvents.length = 0;
+	recurringThuesOfEvents.length = 0;
+	recurringWedOfCurrentMonth.length = 0;
 	const wednesdays = [];
+	const thuesdays = [];
+	
 	const startDate = new Date(Date.UTC(2025, 0, 1));
-	const showBerlin = date =>
-  new Intl.DateTimeFormat('de-DE', {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
-    timeZone: 'Europe/Berlin',
-    timeZoneName: 'short'
-  }).format(date);
 
 	const dtfBerlin = new Intl.DateTimeFormat('de-DE', {
-  weekday: 'long',
-  timeZone: 'Europe/Berlin'
-});
+	weekday: 'long',
+	timeZone: 'Europe/Berlin'
+	});
+
+	const tempDi = new Date(startDate); // Kopie
+
+	while (dtfBerlin.format(tempDi) !== 'Dienstag') {
+	tempDi.setDate(tempDi.getDate() + 1);
+	}
+
+	// Schleife: Finde ersten Mittwoch nach dem Dienstag
+	const tempMi = new Date(tempDi); 
+	while (dtfBerlin.format(tempMi) !== 'Mittwoch') {
+	tempMi.setDate(tempMi.getDate() + 1);
+	}
+
+	const firstThuesdayOfTheYear = new Date(tempDi);
+	const firstWednesdayOfTheYear = new Date(tempMi);
 
 
-// → "Mittwoch
-// Schleife: Finde ersten Mittwoch aus deutscher Sicht
+	let currentWednesday = new Date(Date.UTC(
+	firstWednesdayOfTheYear.getUTCFullYear(),
+	firstWednesdayOfTheYear.getUTCMonth(),
+	firstWednesdayOfTheYear.getUTCDate()
+	));
 
-const tempDate = new Date(startDate); // Kopie
-while (dtfBerlin.format(tempDate) !== 'Mittwoch') {
-  tempDate.setDate(tempDate.getDate() + 1);
-}
+	let currentThuesday = new Date(Date.UTC(
+	firstThuesdayOfTheYear.getUTCFullYear(),
+	firstThuesdayOfTheYear.getUTCMonth(),
+	firstThuesdayOfTheYear.getUTCDate()
+	));
 
-const firstWednesdayOfTheYear = new Date(tempDate);
+    while (currentWednesday.getUTCFullYear() === 2025 
+		|| currentThuesday.getUTCFullYear() === 2025) {
 
-
-console.log(firstWednesdayOfTheYear);
-	//let currentWednesday = new Date(firstWednesdayOfTheYear);
-let currentWednesday = new Date(Date.UTC(
-  firstWednesdayOfTheYear.getUTCFullYear(),
-  firstWednesdayOfTheYear.getUTCMonth(),
-  firstWednesdayOfTheYear.getUTCDate()
-));
-
-    while (currentWednesday.getUTCFullYear() === 2025) {
-		if (dtfBerlin.format(currentWednesday) === 'Mittwoch') {
+		if (currentWednesday.getUTCFullYear() === 2025 && dtfBerlin.format(currentWednesday) === 'Mittwoch') {
         wednesdays.push(new Date(currentWednesday));
-        currentWednesday.setUTCDate(currentWednesday.getUTCDate() + 7);
-    }
-}
-console.log("Lokalzeit:", currentWednesday.toString());
-console.log("UTC-Zeit:", currentWednesday.toISOString());
+        
+    	}
+		if(currentThuesday.getUTCFullYear() === 2025 && dtfBerlin.format(currentThuesday) === 'Dienstag'){
+		thuesdays.push(new Date(currentThuesday));
+        
+		}
+		
+		currentWednesday.setUTCDate(currentWednesday.getUTCDate() + 7);
+		currentThuesday.setUTCDate(currentThuesday.getUTCDate() + 7);
+	}
 
-const berlinFormat = new Intl.DateTimeFormat('de-DE', {
-  weekday: 'long',
-  timeZone: 'Europe/Berlin'
-}).format(currentWednesday);
-
-console.log("Berlin-Wochentag:", berlinFormat);
 
 for (let i = 0; i< wednesdays.length; i++){
 
@@ -508,21 +583,48 @@ for (let i = 0; i< wednesdays.length; i++){
 		day = +day; //convert String into Number
 	let month = partsWe[1];
 		month = +month;
-		recurringdaysOfEvents.push(day,month);
+		recurringdWedsOfEvents.push(day,month);
 
 		
 	}
 
-	for (let y = 1; y<=recurringdaysOfEvents.length; y++){	
+for (let i = 0; i< thuesdays.length; i++){
 
-		if((currMonth + 1 )== recurringdaysOfEvents[y] && (y-1) %2 == 0){
+	const thu = thuesdays[i];
+	const th = thu.toISOString().split('T')[0];
+
+	const partsTh = th.split("-");
+
+	let day = partsTh[2];
+		day = +day; //convert String into Number
+	let month = partsTh[1];
+		month = +month;
+		recurringThuesOfEvents.push(day,month);
+
+		
+	}
+
+	for (let y = 1; y<=recurringdWedsOfEvents.length; y++){	
+
+		if((currMonth + 1 )== recurringdWedsOfEvents[y] && (y-1) %2 == 0){
 			
-			recurringdaysOfCurrentMonth.push(recurringdaysOfEvents[y-1], currMonth + 1 );
+			recurringWedOfCurrentMonth.push(recurringdWedsOfEvents[y-1], currMonth + 1 );
 				
 		}
 	}	
+	for (let y = 1; y<=recurringThuesOfEvents.length; y++){	
+
+		if((currMonth + 1 )== recurringThuesOfEvents[y] && (y-1) %2 == 0){
+			
+			recurringThuOfCurrentMonth.push(recurringThuesOfEvents[y-1], currMonth + 1 );
+				
+		}
+	}	
+	console.log("Alle Mittwoche in 2025:", wednesdays);
+console.log("Alle Dienstage in 2025:", thuesdays);
+console.log("Mi im aktuellen Monat:", recurringWedOfCurrentMonth);
+console.log("Di im aktuellen Monat:", recurringThuOfCurrentMonth);
 	
 }
 renderCalender();
-
 
