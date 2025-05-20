@@ -926,11 +926,11 @@ table tr:last-child td:last-child {
 
 
 }
-.Wagen1978Span svg{
+.Wagen1978Span img{
   position: relative;
   grid-column: 1/2;
  padding: 0;
- margin-left: 10%;
+ margin-left: 5%;
 
 
 }
