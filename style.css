@@ -931,7 +931,7 @@ table tr:last-child td:last-child {
   grid-column: 1/2;
  padding: 0;
  margin-left: 0%;
- margin-top: -35%;
+ margin-top: -25%;
 
 
 }
@@ -939,10 +939,19 @@ table tr:last-child td:last-child {
   position: relative;
   grid-column: 1/2;
   text-align: center;
-  margin-top: -45%;
-  
-  
+  margin-top: -20%;
+  padding: 1em;
 
+}
+.imGepäck{
+  color: #F0E801;
+  position: relative;
+  margin-left: 30%;
+}
+.ersterWagen{
+  position: relative;
+  margin-top: -50%;
+  text-align: center;
 }
     
 
