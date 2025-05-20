@@ -894,7 +894,7 @@ table tr:last-child td:last-child {
        .dropdown-menu{
        
         position: absolute;        
-        margin-top: 15%;
+       
        
         grid-column: 1/2;
        
