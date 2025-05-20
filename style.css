@@ -392,7 +392,6 @@ padding: 1em;
  z-index: 1;
 color: #F0FFFF;
 margin-left: 35%;
-margin-top: 10%;
 
  
 }
@@ -895,9 +894,11 @@ table tr:last-child td:last-child {
        .dropdown-menu{
        
         position: absolute;        
-        margin-top: 65%;
+        margin-top: 75%;
         margin-bottom: 50%;
         grid-column: 1/2;
+       
+
         
        }
        .dropdown-menu span{
