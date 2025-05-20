@@ -931,6 +931,7 @@ table tr:last-child td:last-child {
   grid-column: 1/2;
  padding: 0;
  margin-left: 0%;
+ margin-top: -35%;
 
 
 }
@@ -938,7 +939,8 @@ table tr:last-child td:last-child {
   position: relative;
   grid-column: 1/2;
   text-align: center;
-  margin-top: -140%;
+  margin-top: -45%;
+  
   
 
 }
