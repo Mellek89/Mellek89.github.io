@@ -942,7 +942,8 @@ table tr:last-child td:last-child {
 .imGepäck{
   color: #F0E801;
   position: relative;
-  margin-left: 30%;
+  margin-left: 25%;
+  font-size: 20px;
 }
 .ersterWagen{
   position: relative;
