@@ -895,8 +895,9 @@ table tr:last-child td:last-child {
        
         position: absolute;        
        
-       margin-top: 80%;
+       margin-top: 40%;
         grid-column: 1/2;
+         line-height: 2;
        
 
         
