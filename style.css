@@ -888,7 +888,7 @@ table tr:last-child td:last-child {
         position: relative;
         grid-column: 1/2;
         text-align: center;
-        line-height: 3;
+        line-height: 2;
        }      
     
        .dropdown-menu{
