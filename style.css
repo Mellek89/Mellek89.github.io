@@ -968,7 +968,7 @@ table tr:last-child td:last-child {
   position: relative;
   grid-column: 1/2;
   padding: 0;
-  max-width: 510px;
+  max-width: 500px;
   margin-top: -50%;
   margin-left: -6%;
   
