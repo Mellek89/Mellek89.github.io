@@ -518,6 +518,10 @@ margin-left: 20%;
   position: relative;
   text-align: center;
 }
+.Wagen1984Span {
+  position: relative;
+  padding: 0;
+}
 
 /*table tr:first-child th:first-child {
   border-top-left-radius: 0.5rem;
@@ -537,6 +541,12 @@ table tr:last-child td:last-child {
    *{
     outline: 1px solid red;
   }
+html, body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
   *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -965,10 +975,7 @@ table tr:last-child td:last-child {
    margin-right: 13%;
    padding: 0.5em;
 }
-.Wagen1984Span{
-  position: relative;
-  
-}
+
 .Wagen1984Span img{
   position: relative;
   grid-column: 1/2;
