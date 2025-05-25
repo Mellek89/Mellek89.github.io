@@ -537,6 +537,9 @@ table tr:last-child td:last-child {
    /**{
     outline: 1px solid red;
   }*/
+  *, *::before, *::after {
+  box-sizing: border-box;
+}
         .container {
         /*width: 100vh;  Make sure content takes the full width */
          
