@@ -953,6 +953,7 @@ table tr:last-child td:last-child {
   position: relative;
   margin-left: 20%;
   font-size: 20px;
+  color:red;
 }
 .ersterWagen{
   position: relative;
