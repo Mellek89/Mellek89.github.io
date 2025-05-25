@@ -534,9 +534,9 @@ table tr:last-child td:last-child {
 
 @media (max-width: 768px) {
 
-   /**{
+   *{
     outline: 1px solid red;
-  }*/
+  }
   *, *::before, *::after {
   box-sizing: border-box;
 }
