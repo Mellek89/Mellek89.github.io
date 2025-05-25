@@ -937,7 +937,7 @@ table tr:last-child td:last-child {
  padding: 0;
  margin-left: 0%;
  margin-top: -25%;
- max-width: 450px;
+ max-width: 400px;
 }
 .Wagen1978Text{
   position: relative;
@@ -968,7 +968,7 @@ table tr:last-child td:last-child {
   position: relative;
   grid-column: 1/2;
   padding: 0;
-  max-width: 500px;
+  max-width: 450px;
   margin-top: -50%;
   margin-left: -6%;
   
