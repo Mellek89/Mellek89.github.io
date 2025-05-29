@@ -938,67 +938,11 @@ img {
         margin-bottom: 4%;
        }
      /******Ueber Uns**************/
- /* .Geschichte{
-  position: relative;
-  grid-template-columns: repeat(1, 1fr);
- 
+.unterstrichen{
+  border-bottom: 1px solid #ffeb3b; 
+  padding-bottom: 1.5em;
+  display: inline-block;
 }
-
-.Wagen1978Span{
-  position: relative;
-  grid-column: 1/2;
-  padding: 0;
-}
-.Wagen1978Span img{
-  position: relative;
-  grid-column: 1/2;
- padding: 0;
- margin-left: 0%;
- margin-top: -25%;
- max-width: 300px;
- 
-}
-.Wagen1978Text{
-  position: relative;
-  grid-column: 1/2;
-  text-align: center;
-  margin-top: -20%;
-  padding: 2em;
-
-}
-.imGepäck{
-  color: #F0E801;
-  position: relative;
-  margin-left: 20%;
-  font-size: 20px;
-  
-}
-.ersterWagen{
-  position: relative;
-  margin-top: -50%;
-  text-align: center;
-   margin-right: 13%;
-   padding: 0.5em;
-}
-
-.Wagen1984Span img{
-  position: relative;
-  grid-column: 1/2;
-  padding: 0;
-  max-width: 400px;
-  margin-top: -50%;
-  margin-left: -6%;
-  
-  
-  
-}
-.Wagen1984{
-  position: relative;
-  text-align: center;
-  margin-left: -6;
-  margin-right: 12%;
-  
-}*/
 p,
  .Wagen1978Span img,
   .Wagen1984Span img {
