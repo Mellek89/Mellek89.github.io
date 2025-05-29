@@ -940,7 +940,7 @@ img {
      /******Ueber Uns**************/
 .unterstrichen{
   border-bottom: 1px solid #ffeb3b; 
-  padding-bottom: 1.5em;
+  padding-bottom: 1em;
   display: inline-block;
 }
 p,
@@ -957,9 +957,9 @@ p,
   }
 
    .Wagen1984Span img {
-    width: 110%;
-    margin-right: 1em;
-      
+    width: 120%;
+    margin-left: -2em;
+     max-width: 650px
    }
 
   .Wagen1978Text,
