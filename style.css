@@ -1007,7 +1007,9 @@ img {
     max-width: 600px;
     margin: 0 auto;
     display: block;
-    margin-top: 1em;
+  
+    margin-top: 0;
+
   }
 
   .Wagen1978Text,
@@ -1017,15 +1019,21 @@ img {
     padding: 1em;
     text-align: center;
     max-width: 700px;
+    padding-top: 0.5em;
+    
+   
   }
 
   .Wagen1978Span,
   .Wagen1984Span {
     display: block;
-    padding: 0;
+     text-align: center;
     margin: 0 auto;
   
   }
+  .Wagen1978Span img + .Wagen1978Text {
+  margin-top: 0.25em;
+}
 
   .Geschichte {
     padding: 1em;
@@ -1033,6 +1041,10 @@ img {
   grid-template-columns: 1fr;
   justify-items: center;
 
+  }
+   .Wagen1978Block,
+  .Wagen1984Block {
+    grid-column: span 2;
   }
     
 
