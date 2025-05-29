@@ -538,9 +538,9 @@ table tr:last-child td:last-child {
 
 @media (max-width: 768px) {
 
-   *{
+ /*  *{
     outline: 1px solid red;
-  }
+  }*/
 html, body {
   overflow-x: hidden;
   margin: 0;
