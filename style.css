@@ -546,6 +546,12 @@ html, body {
   margin: 0;
   padding: 0;
 }
+/* Responsive Bilddarstellung */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 
   *, *::before, *::after {
   box-sizing: border-box;
@@ -933,7 +939,7 @@ html, body {
         margin-bottom: 4%;
        }
      /******Ueber Uns**************/
-  .Geschichte{
+ /* .Geschichte{
   position: relative;
   grid-template-columns: repeat(1, 1fr);
  
@@ -993,7 +999,41 @@ html, body {
   margin-left: -6;
   margin-right: 12%;
   
-}
+}*/
+
+ .Wagen1978Span img,
+  .Wagen1984Span img {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    display: block;
+    margin-top: 1em;
+  }
+
+  .Wagen1978Text,
+  .ersterWagen,
+  .Wagen1984 {
+    margin: 0em auto;
+    padding: 1em;
+    text-align: center;
+    max-width: 700px;
+  }
+
+  .Wagen1978Span,
+  .Wagen1984Span {
+    display: block;
+    padding: 0;
+    margin: 0 auto;
+  
+  }
+
+  .Geschichte {
+    padding: 1em;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+
+  }
     
 
  
