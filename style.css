@@ -978,7 +978,8 @@ p,
   }
 
   .Wagen1978Span,
-  .Wagen1984Span {
+  .Wagen1984Span,
+  .HolzhütteSpan {
     display: block;
      text-align: center;
     margin: 0 auto;
