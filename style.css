@@ -948,7 +948,8 @@ p,
  .Wagen1978Span img,
   .Wagen1984Span img,
   .HolzhütteSpan img,
-  .SpeyerSpan img {
+  .SpeyerSpan img,
+  .ShoppegässleSpan img {
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
@@ -969,7 +970,8 @@ p,
   .ersterWagen,
   .Wagen1984,
   .Holzhütte,
-  .Speyer {
+  .Speyer,
+  .Shoppegässle {
     margin: 0em auto;
     padding-top: 1em;
     padding-bottom: 1em;
@@ -983,7 +985,8 @@ p,
   .Wagen1978Span,
   .Wagen1984Span,
   .HolzhütteSpan,
-  .SpeyerSpan {
+  .SpeyerSpan,
+  .ShoppegässleSpan {
     display: block;
     text-align: center;
     margin: 0 auto;
@@ -1005,7 +1008,8 @@ p,
    .Wagen1978Block,
   .Wagen1984Block,
   .HolzhütteBlock,
-  .SpeyerBlock {
+  .SpeyerBlock,
+  .ShoppegässleBlock {
     grid-column: span 2;
   }
     
