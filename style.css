@@ -401,7 +401,7 @@ margin-left: 35%;
   
 }
 .line-break {
-  margin-bottom: 7%;
+  margin-bottom: 10%;
  }
 .slogan{
   position: relative;
@@ -922,7 +922,7 @@ img {
        .dropdown-menu{
        
         position: absolute;        
-       margin-top: 65%;
+       margin-top: 55%;
         grid-column: 1/2;
        }
        .dropdown-menu span{
@@ -933,11 +933,11 @@ img {
        .dropdown-item{
         position: relative;
         text-decoration: none; 
-        margin-bottom: 4px;
+        
 
        }
        .line-break{
-        margin-bottom: 4%;
+        margin-bottom: 8%;
        }
      /******Ueber Uns**************/
 .unterstrichen{
