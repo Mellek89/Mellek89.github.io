@@ -215,15 +215,26 @@ const renderCalender = () => {
 async function showEvents  (){
 	
 	eSelector  = document.querySelectorAll(".dropdown-item");
-	let spanEl = document.querySelector("#dropdown-menu span");
-	let marketId = spanEl.id;
+	
 	eSelector.forEach( e => {
 		
 		e.addEventListener('click', () => {		
 		
 		daysOfEvents.length = 0;
 		datesOfEvents.length = 0;
+
+		eSelector.forEach(el => {
+			if (el !== e) {
+				el.style.color = 'rgb(240, 255, 255)';           // helle Farbe
+				el.style.borderBottom = '1px solid rgb(255, 235, 59)'; // kein sichtbarer Rahmen
+			}	
+	});
+
 		
+		// 2. Wenn Farbe NICHT #F0FFFF, dann auf #F0FFFF setzen
+				e.style.color = 'rgb(255, 235, 59)';
+				e.style.borderBottom = ' 1px solid rgb(240, 255, 255)';
+			
 		
 		
 		var jSObject = getData().then((a) =>{	
