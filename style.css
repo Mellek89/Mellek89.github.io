@@ -403,6 +403,10 @@ margin-left: 35%;
 .line-break {
   margin-bottom: 10%;
  }
+ .error{
+  position: relative;
+  text-align: center;
+ }
 .slogan{
   position: relative;
   grid-column: 2/3;
@@ -939,6 +943,7 @@ img {
        .line-break{
         margin-bottom: 8%;
        }
+
      /******Ueber Uns**************/
 .unterstrichen{
   border-bottom: 1px solid #ffeb3b; 

@@ -83,8 +83,8 @@ const renderCalender = () => {
 			if (eventId!=""){
 			//same event in multiple months
 
-				if((inactiveLastDays < daysOfEvents[0] || inactiveLastDays >= lastDateOfMonth )
-					&& (currMonth < daysOfEvents[3]-1 && currMonth > daysOfEvents[1]-1 )){
+				if((inactiveLastDays <= daysOfEvents[0] || inactiveLastDays >= lastDateOfMonth )
+					&& (currMonth < daysOfEvents[3] && currMonth >= daysOfEvents[1] )){
 					liTag += `<li id = ${inactiveLastDays} class=" circleInactive"> ${inactiveLastDays} </li>`;
 				}else if(currMonth < daysOfEvents[3] && currMonth > daysOfEvents[1]-1  && inactiveLastDays > daysOfEvents[3]
 					&& inactiveLastDays>= daysOfEvents[0]
@@ -228,7 +228,7 @@ async function showEvents  (){
 				el.style.color = 'rgb(240, 255, 255)';           // helle Farbe
 				el.style.borderBottom = '1px solid rgb(255, 235, 59)'; // kein sichtbarer Rahmen
 			}	
-	});
+		});
 
 		
 		// 2. Wenn Farbe NICHT #F0FFFF, dann auf #F0FFFF setzen
@@ -290,25 +290,43 @@ async function showEvents  (){
 				
 		});
 	});
-	
+	actualEvents = '';
 }
 
 const renderEvents = async () => {	
 
 	let data = await getData();	
-
+	let found = false;
 	// Warte auf die getData() Funktion! getData() ist eine asynchrone Funktion!!!
 	//var object = await getData().then((c)=> { // Warten auf die Rückgabe von getData()!
-		
+	
 	for (let y=0; y<data.length;y++){
 		if (months[currMonth] == data[y].month){
-		 	actualEvents = data[y].events;		
+		 	actualEvents = data[y].events;
+		if (!actualEvents || actualEvents.length === 0) {
+			console.error('Keine Events für diesen Monat gefunden.');
+			}
+			found = true;
+			break; // Schleife beenden, da passender Monat gefunden		
 		}
 		
 	} 
+	if (!found) {
+  showError("Für diesen Monat gibt es keine Veranstaltungen.");
+} else if (!actualEvents || actualEvents.length === 0) {
+  showError("Keine Veranstaltungen für diesen Monat gefunden.");
+}else{
+	showError("");
+
+}
 	actualEvents.push( "Ehrenbreitsteiner<br>Wochenmarkt");
 	actualEvents.push( "Selters<br>Wochenmarkt");	 
 	
+}
+function showError(msg) {
+  const box = document.getElementById('error-box');
+  box.textContent = msg;
+  box.style.display = 'block';
 }
 function navigateToRegionDisplay(){
 window.location.href = "index.html#regionDisplay";
@@ -488,6 +506,7 @@ prevNextIcon.forEach(icon => {
 		});	
 		
 		renderCalender();
+		
 			
     });
 	
