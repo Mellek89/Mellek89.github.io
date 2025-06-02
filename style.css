@@ -951,7 +951,9 @@ p,
   .SpeyerSpan img,
   .ShoppegässleSpan img,
   .DMSpan img,
-  .EUSpan img {
+  .EUSpan img,
+  .EttlingenWeihnachtsmarktSpan img,
+  .KarlsruheWeihnachtsmarktSpan img {
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
@@ -978,7 +980,9 @@ p,
   .Speyer,
   .Shoppegässle,
   .DM,
-  .EU {
+  .EU,
+  .EttlingenWeihnachtsmarkt,
+  .KarlsruheWeihnachtsmarkt {
     margin: 0em auto;
     padding-top: 1em;
     padding-bottom: 1em;
@@ -995,7 +999,9 @@ p,
   .SpeyerSpan,
   .ShoppegässleSpan,
   .DMSpan,
-  .EUSpan {
+  .EUSpan,
+  .EttlingenWeihnachtsmarktSpan,
+  .KarlsruheWeihnachtsmarktSpan {
     display: block;
     text-align: center;
     margin: 0 auto;
@@ -1020,7 +1026,9 @@ p,
   .SpeyerBlock,
   .ShoppegässleBlock,
   .DMBlock,
-  .EUBlock {
+  .EUBlock,
+  .EttlingenWeihnachtsmarktBlock,
+  .KarlsruheWeihnachtsmarktBlock {
     grid-column: span 2;
   }
     
