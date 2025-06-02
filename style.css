@@ -398,6 +398,7 @@ margin-left: 35%;
 .dropdown-menu span{
   color: #F0FFFF;
   border-bottom: 1px solid #ffeb3b;
+  
 }
 .line-break {
   margin-bottom: 7%;
@@ -921,18 +922,19 @@ img {
        .dropdown-menu{
        
         position: absolute;        
-       
        margin-top: 65%;
         grid-column: 1/2;
-         line-height: 2;
-       
-
-        
        }
        .dropdown-menu span{
         position: relative;
         font-size: 100%;
-        line-height: 0.1em;
+       
+       }
+       .dropdown-item{
+        position: relative;
+        text-decoration: none; 
+        margin-bottom: 4px;
+
        }
        .line-break{
         margin-bottom: 4%;
@@ -953,7 +955,8 @@ p,
   .DMSpan img,
   .EUSpan img,
   .EttlingenWeihnachtsmarktSpan img,
-  .KarlsruheWeihnachtsmarktSpan img {
+  .KarlsruheWeihnachtsmarktSpan img,
+  .HexenhausSpan img {
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
@@ -982,7 +985,8 @@ p,
   .DM,
   .EU,
   .EttlingenWeihnachtsmarkt,
-  .KarlsruheWeihnachtsmarkt {
+  .KarlsruheWeihnachtsmarkt,
+  .Hexenhaus {
     margin: 0em auto;
     padding-top: 1em;
     padding-bottom: 1em;
@@ -992,6 +996,7 @@ p,
   .Wagen1978Text{
     margin-top: 0;
   }
+  
 
   .Wagen1978Span,
   .Wagen1984Span,
@@ -1001,7 +1006,8 @@ p,
   .DMSpan,
   .EUSpan,
   .EttlingenWeihnachtsmarktSpan,
-  .KarlsruheWeihnachtsmarktSpan {
+  .KarlsruheWeihnachtsmarktSpan,
+  .HexenhausSpan {
     display: block;
     text-align: center;
     margin: 0 auto;
@@ -1028,7 +1034,8 @@ p,
   .DMBlock,
   .EUBlock,
   .EttlingenWeihnachtsmarktBlock,
-  .KarlsruheWeihnachtsmarktBlock {
+  .KarlsruheWeihnachtsmarktBlock,
+  .Hexenhaus {
     grid-column: span 2;
   }
     
