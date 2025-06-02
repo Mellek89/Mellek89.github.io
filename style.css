@@ -955,8 +955,7 @@ p,
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
-    display: block;
-    
+    display: block;  
     margin-top: 1em;
    margin-bottom: 1em;
 
@@ -966,6 +965,10 @@ p,
     width: 120%;
     margin-left: -2em;
      max-width: 650px
+   }
+   .HolzhütteSpan img{
+    width: 120%;
+    margin-left: -2em;
    }
 
   .Wagen1978Text,
