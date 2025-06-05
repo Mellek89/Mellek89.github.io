@@ -613,7 +613,7 @@ margin-left: 35%;
   grid-column: 1 / -1; /* volle Breite */
   text-align: center;
   }
-  .Wagen1978Text span{
+  .Wagen1978Text {
     margin-top: 0;
      grid-column: 1 / -1;
      padding: 3em;
