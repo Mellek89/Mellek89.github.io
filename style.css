@@ -601,15 +601,9 @@ margin-left: 35%;
   .Hänger {
   margin: 0em auto;
   max-width: 700px;
-  grid-column: 1 / -1; /* volle Breite */
+
   text-align: center;
   }
-  .Wagen1978Text {
-    margin-top: 0;
-    
-    
-  }
-  
 
   .Wagen1978Span,
   .Wagen1984Span,
