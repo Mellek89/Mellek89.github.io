@@ -1,6 +1,6 @@
 /* import Google Fonts Poppins*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-  /**{
+ /* *{
     outline: 1px solid red;
   }*/
 
@@ -465,9 +465,6 @@ margin-left: 35%;
 .slideshow-container {
   position: relative;
   max-width: 800px;
-  margin: 2rem auto;
-
-  padding: 1em;
   border-radius: 10px;
   color: white;
 }
@@ -532,6 +529,7 @@ margin-left: 35%;
   color: #ffeb3b;
   text-align: center;
   font-size: 25px;
+ 
 
 }
 
