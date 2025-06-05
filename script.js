@@ -1,4 +1,5 @@
 console.log("script");
+ let currentSlide = 0;
 document.addEventListener('DOMContentLoaded', () => {
     const checkbox = document.getElementById('side-menu');
     const menu = document.getElementById('nav');
@@ -9,46 +10,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
                 
-function initSlideshow() {
-  const slides = document.querySelectorAll('.Geschichte .slide');
-  let currentIndex = 0;
-  let interval;
+ document.addEventListener("DOMContentLoaded", () => {
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".slide");
+    const prevBtn = document.querySelector(".uns_prev");
+    const nextBtn = document.querySelector(".uns_next");
 
-  function showSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.classList.toggle('active', i === index);
-    });
-  }
-
-  function startSlideshow() {
-    showSlide(currentIndex);
-    interval = setInterval(() => {
-      currentIndex = (currentIndex + 1) % slides.length;
-      showSlide(currentIndex);
-    }, 6000); // alle 6 Sekunden wechseln
-  }
-
-  function stopSlideshow() {
-    clearInterval(interval);
-    slides.forEach(slide => slide.classList.add('active'));
-  }
-
-  // Initial check
-  if(window.innerWidth >= 768){
-    startSlideshow();
-  } else {
-    stopSlideshow();
-  }
-
-  // Auf Fenstergröße reagieren
-  window.addEventListener('resize', () => {
-    if(window.innerWidth >= 768){
-      if(!interval) startSlideshow();
-    } else {
-      stopSlideshow();
-      interval = null;
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === index);
+      });
     }
-  });
-}
 
-document.addEventListener('DOMContentLoaded', initSlideshow);
+    function changeSlide(direction) {
+      currentSlide += direction;
+      if (currentSlide >= slides.length) currentSlide = 0;
+      if (currentSlide < 0) currentSlide = slides.length - 1;
+      showSlide(currentSlide);
+    }
+
+    // Initial anzeigen
+    showSlide(currentSlide);
+
+    // Event-Listener
+    prevBtn.addEventListener("click", () => changeSlide(-1));
+    nextBtn.addEventListener("click", () => changeSlide(1));
+  });
+
+
