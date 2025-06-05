@@ -458,20 +458,10 @@ margin-left: 35%;
   left: 15%;
  }
 
- .slideshowIcons span{ 
-	height: 38px;
-	width: 38px;
-	color: aliceblue;
-	font-size: 1.9rem;
-	margin: 0 1px;
-	cursor: pointer;
-	text-align: center;
-	line-height: 38px;
-	border-radius: 50%;
-    
-}
+
 
 /*Ueber Uns*/
+
 .slideshow-container {
   position: relative;
   max-width: 800px;
@@ -484,7 +474,7 @@ margin-left: 35%;
 
 .slide {
   display: none;
-  text-align: center;
+  
 }
 
 .slide img {
@@ -616,8 +606,7 @@ margin-left: 35%;
   }
   .Wagen1978Text {
     margin-top: 0;
-     grid-column: 1 / -1;
-     padding: 3em;
+   
     
   }
   
