@@ -523,15 +523,7 @@ margin-left: 35%;
   right: 10px;
     top: 50%
 }
-/* Slideshow Grund: alle slides verstecken 
-.Geschichte .slide {
-  display: none;
-}
 
-/* aktive Slide anzeigen 
-.Geschichte .slide.active {
-  display: block;
-}
 
 /* Mobile: Alle sichtbar */
 @media (max-width: 767px) {
@@ -621,11 +613,11 @@ margin-left: 35%;
   grid-column: 1 / -1; /* volle Breite */
   text-align: center;
   }
-  .Wagen1978Text{
+  .Wagen1978Text span{
     margin-top: 0;
      grid-column: 1 / -1;
-     padding: 5em;
-     text-align: center;
+     padding: 3em;
+    
   }
   
 
