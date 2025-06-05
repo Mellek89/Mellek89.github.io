@@ -1,6 +1,8 @@
 /* import Google Fonts Poppins*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-
+  /**{
+    outline: 1px solid red;
+  }*/
 
 html, body {
   overflow: auto;
@@ -18,6 +20,7 @@ html, body {
 .container .main.hidden { display: none; }
 .container{
   max-width: 100%;
+  
   min-height: 100vh;
   background-image: url('./images/Lango_laenge_Home.png');
   background-size: cover;       /* Bild auf gesamte Fläche anpassen */
@@ -42,14 +45,14 @@ html, body {
 }
 
 .container .header {
-  position: relative;
+ 
   display: grid;
   grid-area: header;
 	font-size: 1.45rem;
   /*position: sticky;*/
   top: 0%;
   width: 100%;
-  height: 50%;
+  min-height: 100px; /* oder was zu deinem Layout passt */
   overflow: hidden;
   padding: 2rem;
   align-items: center;
@@ -61,7 +64,7 @@ display: grid;
 
 }
 .container .footer {
- position: relative;
+
  bottom: 0px;
   left: 0px;
   grid-area: footer;
@@ -469,6 +472,23 @@ margin-left: 35%;
 }
 
 /*Ueber Uns*/
+
+/* Slideshow Grund: alle slides verstecken */
+.Geschichte .slide {
+  display: none;
+}
+
+/* aktive Slide anzeigen */
+.Geschichte .slide.active {
+  display: block;
+}
+
+/* Mobile: Alle sichtbar */
+@media (max-width: 767px) {
+  .Geschichte .slide {
+    display: block !important;
+  }
+}
 .hUns{
   position: relative;
   color: #ffeb3b;
@@ -476,56 +496,105 @@ margin-left: 35%;
   font-size: 25px;
 
 }
-.zeitreise{
-  position: relative;
-  color:#F0FFFF;
-  text-align: center;
-  font-size: 120%;
-  padding: 1em;
-  
-}
 
-.Geschichte{
-  position: relative;
+  .Geschichte {
+    padding: 1em;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: minmax(100px, auto);  
-  margin-top: 10%;
+  margin-top: 0;
+  }
+  .unterstrichen{
+  border-bottom: 1px solid #ffeb3b; 
+  padding-bottom: 2em;
+  display: inline-block;
  
-}
-
-.Wagen1978Span{
-  position: relative;
-   grid-column: 1/2;;
-}
-.Wagen1978Span img{
-  position: relative;
-margin-left: 20%;
-  width: 700px;     /* Passe die Größe hier an */
-  height: auto;
-  max-width: 100%;
-  display: block;
   
- 
 }
-.Wagen1978Text{
-  position: relative;
-  grid-column: 2/3;
+  .Wagen1978Block,
+  .Wagen1984Block,
+  .HolzhütteBlock,
+  .SpeyerBlock,
+  .ShoppegässleBlock,
+  .DMBlock,
+  .EUBlock,
+  .EttlingenWeihnachtsmarktBlock,
+  .KarlsruheWeihnachtsmarktBlock,
+  .HexenhausBlock,
+  .HängerBlock {
+    display: grid;
+    grid-template-columns: 1fr ;
+    grid-template-rows: auto auto; /* Text oben, Bild unten */
+      text-align: center; /* <-- vertikal mittig ausrichten */
+     gap: 1em;
+     margin-bottom: 2em;
+  }
+
+
+ .Wagen1978Span img,
+  .Wagen1984Span img,
+  .HolzhütteSpan img,
+  .SpeyerSpan img,
+  .ShoppegässleSpan img,
+  .DMSpan img,
+  .EUSpan img,
+  .EttlingenWeihnachtsmarktSpan img,
+  .KarlsruheWeihnachtsmarktSpan img,
+  .HexenhausSpan img,
+  .HängerSpan img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    margin: 0 auto;
+    display: block;  
+  
+
+  }
+
+  .ersterWagen,
+  .Wagen1984,
+  .Holzhütte,
+  .Speyer,
+  .Shoppegässle,
+  .DM,
+  .EU,
+  .EttlingenWeihnachtsmarkt,
+  .KarlsruheWeihnachtsmarkt,
+  .Hexenhaus,
+  .Hänger {
+  margin: 0em auto;
+  max-width: 700px;
+  grid-column: 1 / -1; /* volle Breite */
+  text-align: center;
+  }
+  .Wagen1978Text{
+    margin-top: 0;
+     grid-column: 1 / -1;
+     padding: 5em;
+     text-align: center;
+  }
+  
+
+  .Wagen1978Span,
+  .Wagen1984Span,
+  .HolzhütteSpan,
+  .SpeyerSpan,
+  .ShoppegässleSpan,
+  .DMSpan,
+  .EUSpan,
+  .EttlingenWeihnachtsmarktSpan,
+  .KarlsruheWeihnachtsmarktSpan,
+  .HexenhausSpan,
+  .HängerSpan {
+   display: block;
+  text-align: center;
+  grid-column: 1 / -1;
+  margin: 0 auto;
  
 
-}
-.Wagen1984Span img{
-  position: relative;
-  padding: 0;
-}
-.Wagen1984{
-  position: relative;
-  text-align: center;
-}
-.Wagen1984Span {
-  position: relative;
-  padding: 0;
-}
+  
+  }
+
+
+
 
 /*table tr:first-child th:first-child {
   border-top-left-radius: 0.5rem;
@@ -542,9 +611,7 @@ table tr:last-child td:last-child {
 
 @media (max-width: 768px) {
 
-  /**{
-    outline: 1px solid red;
-  }*/
+
 html, body {
   overflow-x: hidden;
   margin: 0;
@@ -961,7 +1028,8 @@ p,
   .EUSpan img,
   .EttlingenWeihnachtsmarktSpan img,
   .KarlsruheWeihnachtsmarktSpan img,
-  .HexenhausSpan img {
+  .HexenhausSpan img,
+  .HängerSpan img {
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
@@ -991,7 +1059,8 @@ p,
   .EU,
   .EttlingenWeihnachtsmarkt,
   .KarlsruheWeihnachtsmarkt,
-  .Hexenhaus {
+  .Hexenhaus,
+  .Hänger {
     margin: 0em auto;
     padding-top: 1em;
     padding-bottom: 1em;
@@ -1012,7 +1081,8 @@ p,
   .EUSpan,
   .EttlingenWeihnachtsmarktSpan,
   .KarlsruheWeihnachtsmarktSpan,
-  .HexenhausSpan {
+  .HexenhausSpan,
+  .HängerSpan {
     display: block;
     text-align: center;
     margin: 0 auto;
@@ -1040,7 +1110,8 @@ p,
   .EUBlock,
   .EttlingenWeihnachtsmarktBlock,
   .KarlsruheWeihnachtsmarktBlock,
-  .Hexenhaus {
+  .HexenhausBlock,
+  .HängerBlock {
     grid-column: span 2;
   }
     
