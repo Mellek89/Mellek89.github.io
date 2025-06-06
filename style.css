@@ -112,9 +112,9 @@ grid-column: 3/4;
     position: relative;
    max-width: 200px;
    height: auto;
-    left: 13% ;
+    left: 15% ;
     z-index: 3;
-    margin-top: 10%;
+ 
  }
 
 .menu .uns {
@@ -478,7 +478,8 @@ color: #F0FFFF;
   max-width: 800px;
   border-radius: 10px;
   color: white;
-  grid-column: 2/3;
+  grid-column: 2/4;
+  margin-left: 10%;
 }
 
 .slide {
@@ -542,8 +543,9 @@ color: #F0FFFF;
   color: #ffeb3b;
   text-align: center;
   font-size: 30px;
-  grid-column: 2/3 ;
+  grid-column: 2/4 ;
   margin-bottom: 2em;
+  margin-left: -5%;
 
 }
 
