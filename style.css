@@ -150,14 +150,14 @@ nav li a:hover{
   width: 300px;
   display: block;
   color: #ffeb3b;
-  grid-column: 2/3;
-  left: 25%;
+  grid-column: 2/4;
+  margin-left: 35%;
   font-size: 170%;
 }
 
 .regionOptions {
   position: relative;
-  left: 2%;
+  margin-left: 25%;
   right: 0;
   z-index: 10; 
   display: block;
@@ -207,8 +207,8 @@ border-radius: 10px;
 border-width: 1em;
 border: 2px solid #ffeb3b;
 color: #F0FFFF;
-margin-left: 30%;
-margin-top: 10%;
+margin-left: 45%;
+margin-top: 18%;
 margin-bottom: 20%;
 
 
@@ -423,15 +423,15 @@ color: #F0FFFF;
  }
 .slogan{
   position: relative;
-  grid-column: 2/3;
+  grid-column: 2/4;
 
- margin-left:20%;
+  margin-left: 30%;
   font-size: 150%;
   color: #ffeb3b; 
  }
  .slogenBeschreibung{
   position: relative;
-  grid-column: 2/3;
+  grid-column: 2/4;
   
   left: 0%;
   font-size: 120%;
