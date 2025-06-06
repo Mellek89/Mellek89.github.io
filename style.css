@@ -989,8 +989,13 @@ img {
 
 .hUns{
 
-  margin-bottom: 1em;
+margin-bottom: 1em;
+margin-left: 2%;
 font-size: 25px;
+}
+.slideshow-container {
+ 
+  margin-left: 1%;
 }
 .unterstrichen{
   border-bottom: 1px solid #ffeb3b; 
