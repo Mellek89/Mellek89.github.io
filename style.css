@@ -795,7 +795,7 @@ img {
         position: relative;
         font-size: 150%;
         text-align: center;
-        margin-left: -14%;
+        margin-left: 14%; 
         margin-top: -55%;
       }
      
