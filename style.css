@@ -795,7 +795,7 @@ img {
         position: relative;
         font-size: 150%;
         text-align: center;
-        margin-left: 14%; 
+        margin-left: 10%; 
         margin-top: -55%;
       }
      
@@ -805,6 +805,7 @@ img {
         color: #F0FFFF;
          margin-top: -25%;
         text-align: center;
+        margin-left: 15%;
        
       }
    
