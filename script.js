@@ -12,12 +12,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-document.querySelectorAll('#nav a').forEach(link => {
+/*document.querySelectorAll('#nav a').forEach(link => {
   link.addEventListener('click', () => {
     checkbox.checked = false;
     main.classList.remove('hidden');
   });
-});
+});*/
 
                 
  document.addEventListener("DOMContentLoaded", () => {
