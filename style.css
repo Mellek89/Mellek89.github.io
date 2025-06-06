@@ -1149,10 +1149,12 @@ p,
 .GelbTreuetaler{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+    margin-top: -110%;
 }
 .RotTreuetaler{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  margin-top: -80%;
 }
 .talerGrün{
   grid-column: 1/2;
