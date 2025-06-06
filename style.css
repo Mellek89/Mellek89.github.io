@@ -932,12 +932,12 @@ img {
 
        .slogan{
         position: relative;
-        grid-column: 2/3;
+        
         font-size: 140%; 
         width: auto;
         height: auto; 
        text-align: center;
-       margin-right: 20%;
+      
         
         
        }
