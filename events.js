@@ -530,6 +530,16 @@ let calenderView = document.getElementById("calendar")
 
 renderEvents();
 
+const checkbox = document.getElementById('side-menu');
+const menu = document.getElementById('nav');
+const main = document.getElementById('main');
+
+checkbox.addEventListener('click', () => {
+
+  main.classList.toggle('hidden', checkbox.checked);
+  main.classList.remove("open");
+
+});
 const dateOfRecurringEvents = () =>{
 	
 	recurringdWedsOfEvents.length = 0;
