@@ -39,7 +39,7 @@ var endOfEvent= null;
 
 const months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September",
 				"Oktober", "November", "Dezember"]
-
+console.log("events.js");
 		async function getData() {
 					const url = "./Events.json";
 					try {
@@ -529,19 +529,6 @@ let calenderView = document.getElementById("calendar")
 });
 
 renderEvents();
-
-
-
-const checkbox = document.getElementById('side-menu');
-const menu = document.getElementById('nav');
-const main = document.getElementById('main');
-
-
-checkbox.addEventListener('click', () => {
-  main.classList.toggle('hidden', checkbox.checked);
-  main.classList.remove("open");
-});
-
 
 const dateOfRecurringEvents = () =>{
 	

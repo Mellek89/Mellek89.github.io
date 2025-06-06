@@ -2,13 +2,23 @@ console.log("script");
  let currentSlide = 0;
 document.addEventListener('DOMContentLoaded', () => {
     const checkbox = document.getElementById('side-menu');
-    const menu = document.getElementById('nav');
+    
     const main = document.getElementById('main');
-                
+         
+  checkbox.checked = false;
+  main.classList.remove('hidden');
     checkbox.addEventListener('click', () => {
          main.classList.toggle('hidden', checkbox.checked);
     });
 });
+
+document.querySelectorAll('#nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    checkbox.checked = false;
+    main.classList.remove('hidden');
+  });
+});
+
                 
  document.addEventListener("DOMContentLoaded", () => {
     let currentSlide = 0;
@@ -33,8 +43,11 @@ document.addEventListener('DOMContentLoaded', () => {
     showSlide(currentSlide);
 
     // Event-Listener
+    if(prevBtn != null){
     prevBtn.addEventListener("click", () => changeSlide(-1));
     nextBtn.addEventListener("click", () => changeSlide(1));
+    }
   });
+
 
 
