@@ -937,7 +937,7 @@ img {
         width: auto;
         height: auto; 
        text-align: center;
-      
+      margin-left: 15%;
         
         
        }
@@ -948,6 +948,8 @@ img {
         text-align: center;
         line-height: 3;
         margin-top: -55%;
+        margin-left:10%;
+        
         
         
        }
