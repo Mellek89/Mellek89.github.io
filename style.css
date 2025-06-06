@@ -1,8 +1,8 @@
 /* import Google Fonts Poppins*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-/*  *{
+ *{
     outline: 1px solid red;
-  }*/
+  }
 
 html, body {
   overflow: auto;
@@ -643,7 +643,42 @@ color: #F0FFFF;
 
   
   }
+/*********Langos****/
+.Treuetaler{
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+.talerGrün{
+  grid-column: 1/2;
+  margin-left: 70%;
+  margin-top: 10%;
+}
+.talerRot{
+  grid-column: 2/3;
+}
+.talerRot{
+  grid-column: 3/4;
+}
+.emailGrün{
+ grid-column: 2/3;
+ grid-row: 1/2;
+ margin-top: 23%;
+}
+#taler {
+  width: 100px;
+  height: 100px;
+  display: block;
+ 
+  transform-style: preserve-3d;
+}
+@keyframes drehen {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+}
 
+#taler {
+  animation: drehen 2s linear infinite;
+}
 
 @media (max-width: 768px) {
 
@@ -1107,21 +1142,51 @@ p,
     grid-column: span 2;
   }
 /*********Langos****/
-#taler {
-  width: 100px;
-  height: 100px;
-  display: block;
-  margin: 50px auto;
-  transform-style: preserve-3d;
+.GrünTreuetaler{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
-@keyframes drehen {
-  0% { transform: rotateY(0deg); }
-  100% { transform: rotateY(360deg); }
+.GelbTreuetaler{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.RotTreuetaler{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.talerGrün{
+  grid-column: 1/2;
+  margin-left: 30%;
+   grid-row: 1/2;
+}
+.talerRot{
+  grid-column: 1/2;
+   grid-row: 2/3;
+   margin-left: 30%;
+
+}
+.talerGelb{
+  grid-column: 1/2;
+   grid-row: 2/3;
+   margin-left: 30%;
+}
+.emailGrün{
+ grid-column: 2/3;
+ grid-row: 1/2;
+ margin-top: 30%;
+
+}
+.emailRot{
+ grid-column: 2/3;
+ grid-row: 2/3;
+}
+.emailGelb{
+ grid-column: 2/3;
+ grid-row: 2/3;
+
+
 }
 
-#taler {
-  animation: drehen 2s linear infinite;
-}
  
       
        
