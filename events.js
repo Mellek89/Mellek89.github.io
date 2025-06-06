@@ -539,6 +539,7 @@ const main = document.getElementById('main');
 
 checkbox.addEventListener('click', () => {
   main.classList.toggle('hidden', checkbox.checked);
+  main.classList.remove("open");
 });
 
 
@@ -657,4 +658,6 @@ console.log("Di im aktuellen Monat:", recurringThuOfCurrentMonth);
 	
 }
 renderCalender();
+
+
 
