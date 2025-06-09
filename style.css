@@ -1146,17 +1146,26 @@ p,
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
+.GrünTreuetalerJens{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
 .GelbTreuetaler{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-    margin-top: -110%;
+
 }
 .RotTreuetaler{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  margin-top: -80%;
+  
 }
 .talerGrün{
+  grid-column: 1/2;
+  margin-left: 30%;
+   grid-row: 1/2;
+}
+.talerGrünJens{
   grid-column: 1/2;
   margin-left: 30%;
    grid-row: 1/2;
@@ -1173,6 +1182,12 @@ p,
    margin-left: 30%;
 }
 .emailGrün{
+ grid-column: 2/3;
+ grid-row: 1/2;
+ margin-top: 37%;
+
+}
+.emailGrünJens{
  grid-column: 2/3;
  grid-row: 1/2;
  margin-top: 37%;
