@@ -664,6 +664,7 @@ color: #F0FFFF;
   
   border-radius: 6px;
 }
+
 /* E-Mail-Text */
 .emailGrün,
 .emailRot,
@@ -1160,13 +1161,24 @@ p,
   }
 /*********Langos****/
 
- .GrünTreuetaler,
-  .RotTreuetaler,
-  .GelbTreuetaler,
-  .GrünTreuetalerJens {
-    flex-direction: column;
-    text-align: center;
-  }
+.talerGrün,
+.talerRot,
+.talerGelb,
+.talerGrünJens{
+  margin-left:10%;
+}
+.emailGrün{
+  margin-left: 15%;
+  margin-right: 24%;
+}
+
+.emailRot,
+.emailGelb,
+.emailGrünJens{
+  margin-right: 30%;
+  margin-top:13%;
+}
+  
 
     
        
