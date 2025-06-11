@@ -1220,14 +1220,17 @@ p,
   grid-column:1/2 ;
   font-size: 18px;
   padding: 1em;
+ 
 }
 .langosGestapelt{
   padding: 1em;
   max-width: 400px;
 }
 .langosAngebot{
+  grid-column:1/2;
   z-index: 1;
-  padding: 1em;
+ 
+  
 }
 
 .tabelleAngebot{
