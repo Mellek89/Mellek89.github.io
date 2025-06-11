@@ -525,12 +525,19 @@ color: #F0FFFF;
     top: 70%
 }
 /*********Langos*********/
+.langosBeschreibung{
+  grid-column:2/4 ;
+  grid-row: 1/2;
+  
+  font-size: 18px;
+  text-align: center;
+}
 .tabelleAngebot{
   margin-bottom: 10%;
   margin-top: 10%;
   margin-left: 10%;
   grid-column: 2/4;
-  grid-row: 1/2;
+  grid-row: 2/3;
 }
 .imageTreuetaler{
   grid-column: 2/4;
@@ -538,8 +545,11 @@ color: #F0FFFF;
 
   margin-top: 10%;
 }
+.langosGestapelt{
+  max-width: 500px;
+}
 .langosTreuetaler{
-  grid-row: 2/4;
+  grid-row: 3/4;
  
 }
 .langosAngebot{
@@ -1206,6 +1216,19 @@ p,
     grid-column: span 2;
   }
 /*********Langos****/
+.langosBeschreibung{
+  grid-column:1/2 ;
+  font-size: 18px;
+  text-align: center;
+}
+.langosGestapelt{
+  padding: 1em;
+  max-width: 400px;
+}
+.langosAngebot{
+  z-index: 1;
+}
+
 .tabelleAngebot{
   grid-column: 1/2;
 }
