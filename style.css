@@ -1219,7 +1219,7 @@ p,
 .langosBeschreibung{
   grid-column:1/2 ;
   font-size: 18px;
-  text-align: center;
+  padding: 1em;
 }
 .langosGestapelt{
   padding: 1em;
