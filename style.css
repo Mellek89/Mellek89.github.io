@@ -532,6 +532,10 @@ color: #F0FFFF;
   font-size: 18px;
   text-align: center;
 }
+.zutaten{
+  color: #ffeb3b;
+  font-size: 1.5em;
+}
 .tabelleAngebot{
   margin-bottom: 10%;
   margin-top: 10%;
@@ -691,7 +695,7 @@ color: #F0FFFF;
 
   
   }
-/*********Langos****/
+/*********Über uns****/
 
 .hKontakt {
   grid-column: 1 / -1; /* oder span 4, wenn 4 Spalten */
