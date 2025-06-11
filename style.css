@@ -524,7 +524,45 @@ color: #F0FFFF;
   right: 10px;
     top: 70%
 }
+/*********Langos*********/
+.tabelleAngebot{
+  margin-bottom: 10%;
+  margin-top: 10%;
+  margin-left: 10%;
+  grid-column: 2/4;
+  grid-row: 1/2;
+}
+.imageTreuetaler{
+  grid-column: 2/4;
+  grid-row:4/5;
 
+  margin-top: 10%;
+}
+.langosTreuetaler{
+  grid-row: 2/4;
+ 
+}
+.langosAngebot{
+  display: grid;
+  grid-template-columns:repeat(4, 1fr); ;
+  grid-column: 2/4;
+  grid-row: 2/3;
+
+  
+}
+
+.treuetaler{
+  max-width: 500px;
+  
+}
+ table {
+      border-collapse: collapse;
+    }
+    th, td {
+      border: none;
+      padding: 8px;
+      text-align: left;
+    }
 
 /* Mobile: Alle sichtbar */
 @media (max-width: 767px) {
@@ -697,6 +735,14 @@ color: #F0FFFF;
 #taler {
   animation: drehen 2s linear infinite;
 }
+/********Langos********/
+
+.langosTreuetaler{
+ grid-column: 1 / -1; /* oder span 4, wenn 4 Spalten */
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
 
 @media (max-width: 768px) {
 
@@ -1160,7 +1206,32 @@ p,
     grid-column: span 2;
   }
 /*********Langos****/
-
+.tabelleAngebot{
+  grid-column: 1/2;
+}
+.langosTreuetaler{
+  padding: 1em;
+}
+.angebotLangos{
+  grid-column: 1/2;
+  margin-left: 1.5em;
+}
+.treuetaler{
+  max-width: 400px;
+}
+.imageTreuetaler{
+grid-column: 1/2;
+  margin-top: 10%;
+   margin-left: 1.5em;
+}
+ table {
+      border-collapse: collapse;
+    }
+    td {
+      border: none; /* Kein Rahmen */
+      padding: 8px;  /* Optional: Innenabstand */
+    }
+/****Ueber uns****/
 .talerGrün,
 .talerRot,
 .talerGelb,
