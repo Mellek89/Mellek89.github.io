@@ -25,21 +25,41 @@
     <div class="container">
       
         <header class="header">
-          <h1>Hier gibt es leckere Langos</h1>
+            <!--Hamburger Icon-->
+          <input class="side-menu" title="hamb" type="checkbox" id="side-menu"/>
+          <label class="hamb" id="hamb" for="side-menu"><span class="hamb-line"></span></label>
+          <div class="logoDiv" > <img src="./images/Lango-laenge-Logo.png" class="logoMobil"></div>
+          
+
+          <!--Menu-->
+          <nav class="nav" id="nav">
+            <ul class="menu" id="menu">
+             <li class="home"> <a  href="index.html">Home</a></li>
+              <li class="events"><a  href="events.html">Events</a></li>
+              <li class="langos"><a  href="langos.html">Langos</a></li>
+              <li class="logo"> <img src="./images/Lango-laenge-Logo.png" class="logoImg"></li>
+
+              <li class="uns"><a href="uns.html">Über uns</a></li>
+              <li class="news" ><a  href="news.html">News</a></li>
+              <li class="kontakt"><a href="kontakt.html">Kontakt</a></li>
+            </ul>
+          </nav>
         </header>
         <main class="main">
-
-<img src="./images/GrünTreuetaler.png " id="taler" alt="Taler" class="taler" />
-
-<img src="./images/RotTreuetaler.png " id="taler" alt="Taler" class="taler" />
-
-<img src="./images/GelbTreuetaler.png " id="taler" alt="Taler" class="taler" />
-
+<p class="langosTreuetaler">
+Für unsere die treuesten Kunden gibt es unsere Treuetaler.<br>
+10 Taler = 1 LÄNGE Lango nach eurer Wahl. <br>
+Einfach bei der Bestellung nach den Talern fragen. An jeden unserer Wägen einlösbar, auch bunt gemischt.
+</p>
+<div class="angebotLangos">
+           <img src="./images/Treuetaler.png " id="treuetaler" alt="Taler" class="treuetaler" />
+ 
+          </div>
         </main>
-        <footer class="footer">Footer</footer>
+        <footer class="footer"></footer>
       
       
         
     </div>
-
+<script type= "module" src="script.js"></script>
   </body>
