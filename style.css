@@ -1270,11 +1270,11 @@ color: #F0FFFF;
 .zutaten{
   grid-column: 1/2;
    grid-row: 4/5;
-    margin-left: 20%;
+    margin-left: 15%;
   
 }
 table{
-  margin-left: 20%;
+  margin-left: 15%;
 }
 
 .tabelleAngebot{
