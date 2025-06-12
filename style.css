@@ -525,35 +525,43 @@ color: #F0FFFF;
     top: 70%
 }
 /*********Langos*********/
-.langosBeschreibung{
+.gönnDir{
   grid-column:2/4 ;
   grid-row: 1/2;
-  
+  margin-bottom: 10%;
+  margin-top: -15%;
   font-size: 18px;
   text-align: center;
+
 }
+.langosGestapelt{
+  max-width: 500px;
+   grid-row: 2/3;
+}
+
 .zutaten{
   color: #ffeb3b;
   font-size: 1.5em;
+   grid-row: 3/4;
+   grid-column: 2/4;
+   margin-left: 25%;
+   margin-bottom: 10%;
 }
 .tabelleAngebot{
   margin-bottom: 10%;
-  margin-top: 10%;
-  margin-left: 10%;
+  margin-left: 35%;
   grid-column: 2/4;
-  grid-row: 2/3;
+  grid-row: 3/4;
 }
 .imageTreuetaler{
   grid-column: 2/4;
   grid-row:4/5;
-
+margin-left: 22%;
   margin-top: 10%;
 }
-.langosGestapelt{
-  max-width: 500px;
-}
+
 .langosTreuetaler{
-  grid-row: 3/4;
+  grid-row: 4/5;
  
 }
 .langosAngebot{
@@ -1220,21 +1228,16 @@ p,
     grid-column: span 2;
   }
 /*********Langos****/
-.langosBeschreibung{
-  grid-column:1/2 ;
-  font-size: 16px;
-  padding: 2em;
- 
-}
-.langosGestapelt{
-  max-width: 300px;
-}
 .langosAngebot{
   grid-column:1/2;
   z-index: 1;
  
   
 }
+.langosGestapelt{
+  max-width: 300px;
+}
+
 
 .tabelleAngebot{
   grid-column: 1/2;
@@ -1247,13 +1250,15 @@ p,
   margin-left: 1.5em;
 }
 .treuetaler{
-  max-width: 400px;
+  max-width: 300px;
+ 
 }
 .imageTreuetaler{
 grid-column: 1/2;
   margin-top: 10%;
-   margin-left: 1.5em;
+  
    max-width: 100px;
+   grid-row: 5/5;
 }
  table {
       border-collapse: collapse;
