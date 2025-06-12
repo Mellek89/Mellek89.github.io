@@ -531,7 +531,7 @@ color: #F0FFFF;
   margin-bottom: 10%;
   margin-top: -15%;
   font-size: 18px;
-  text-align: center;
+ 
 
 }
 .langosGestapelt{
@@ -1231,33 +1231,49 @@ p,
 .langosAngebot{
   grid-column:1/2;
   z-index: 1;
- 
-  
+  padding: 2em;
 }
-.langosGestapelt{
-  max-width: 300px;
+.gönnDir{
+ grid-column: 1/2;
+margin-left: 10%;
+text-align: center;
+color: #ffeb3b;
+}
+.langKur{
+grid-column: 1/2;
+grid-row: 2/3;
+margin-left: 10%;
+text-align: center;
+color: #F0FFFF;
 }
 
+.langosGestapelt{
+  max-width: 300px;
+  grid-row: 3/4;
+  margin-left: 0;
+}
+.zutaten{
+  grid-column: 1/2;
+   grid-row: 4/5;
+   margin-left: 5em;
+}
 
 .tabelleAngebot{
   grid-column: 1/2;
+  grid-row: 5/6;
 }
+
 .langosTreuetaler{
-  padding: 1em;
-}
-.angebotLangos{
-  grid-column: 1/2;
-  margin-left: 1.5em;
+  grid-row: 6/7;
 }
 .treuetaler{
   max-width: 300px;
- 
 }
 .imageTreuetaler{
 grid-column: 1/2;
   margin-top: 10%;
    max-width: 100px;
-   grid-row: 5/5;
+   grid-row: 7/8;
    margin-left: 0;
 }
  table {
