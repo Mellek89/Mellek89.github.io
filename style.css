@@ -588,11 +588,17 @@ margin-left: 35%;
 }
  table {
       border-collapse: collapse;
+      
     }
     th, td {
       border: none;
       padding: 8px;
       text-align: left;
+      
+    }
+    th{
+       border-bottom: 1px solid #ffeb3b;
+      
     }
 
 /* Mobile: Alle sichtbar */
@@ -1264,7 +1270,11 @@ color: #F0FFFF;
 .zutaten{
   grid-column: 1/2;
    grid-row: 4/5;
+    margin-left: 25%;
   
+}
+table{
+  margin-left: 25%;
 }
 
 .tabelleAngebot{
