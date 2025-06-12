@@ -1256,9 +1256,9 @@ p,
 .imageTreuetaler{
 grid-column: 1/2;
   margin-top: 10%;
-  
    max-width: 100px;
    grid-row: 5/5;
+   margin-left: 0;
 }
  table {
       border-collapse: collapse;
