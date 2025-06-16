@@ -1271,7 +1271,7 @@ text-align: center;
 .langKur{
 grid-column: 1/2;
 grid-row: 2/3;
-
+margin-left: 0;
 text-align: center;
 color: #F0FFFF;
 }
@@ -1279,12 +1279,13 @@ color: #F0FFFF;
 .langosGestapelt{
   max-width: 300px;
   grid-row: 3/4;
+  margin-left: 0;
 
 }
 .zutaten{
   grid-column: 1/2;
    grid-row: 4/5;
-    margin-left: 15%;
+    margin-left: 0;
   
 }
 .tabelleAngebot{
