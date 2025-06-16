@@ -651,9 +651,10 @@ font-size: 1.2em;
   grid-column: 2/3 ;
 }
  .Wagen1978Text{
-    margin-top: 0;  
+    margin-top: 0; 
+    margin-bottom: 3em; 
    text-align:inherit;
-    font-size: 18px;
+    font-size: 1.1em;
   }
   .Wagen1978Block,
   .Wagen1984Block,
@@ -738,6 +739,7 @@ font-size: 1.2em;
   grid-column: 1 / -1; /* oder span 4, wenn 4 Spalten */
   text-align: center;
   margin-bottom: 1rem;
+  font-size: 1.2em;
 }
 
 .GrünTreuetaler,
