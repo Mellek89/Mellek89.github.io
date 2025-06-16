@@ -1120,12 +1120,13 @@ img {
         position: absolute;        
         grid-row: 2/3;
         grid-column: 1/2;
-        margin-left: 30%;
-        margin-top: 1em;
+        margin-left: 6.5em
+        margin-top: 0.1em;
        }
        .dropdown-menu span{
         position: relative;
-        font-size: 100%;
+        font-size: 1.2em;
+       
        
        }
        .dropdown-item{
