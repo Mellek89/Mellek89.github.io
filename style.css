@@ -1260,7 +1260,7 @@ p,
 .langosAngebot{
   grid-column:1/2;
   z-index: 1;
-  padding: 2em;
+  padding: 2.5em;
 }
 .gönnDir{
  grid-column: 1/2;
