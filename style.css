@@ -1310,7 +1310,9 @@ grid-column: 1/2;
    margin-left: 0;
 }
  table {
+  grid-column: 1/2;
       border-collapse: collapse;
+      margin: 0;
     }
     td {
       border: none; /* Kein Rahmen */
