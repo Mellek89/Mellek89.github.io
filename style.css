@@ -1271,7 +1271,7 @@ text-align: center;
 .langKur{
 grid-column: 1/2;
 grid-row: 2/3;
-margin-left: 10%;
+
 text-align: center;
 color: #F0FFFF;
 }
@@ -1287,8 +1287,6 @@ color: #F0FFFF;
     margin-left: 15%;
   
 }
-
-
 .tabelleAngebot{
   grid-column: 1/2;
   grid-row: 5/6;
