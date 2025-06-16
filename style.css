@@ -739,7 +739,7 @@ font-size: 1.2em;
    grid-column: 1 / -1; /* oder span 4, wenn 4 Spalten */ 
    text-align: center;
    font-size: 1.5em;
-   margin-top: 1,5em;
+   margin-top: 1.5em;
 }
 .KontaktText{
   padding: 1em;
@@ -772,7 +772,7 @@ font-size: 1.2em;
 .emailRot,
 .emailGelb,
 .emailGrünJens {
-  font-size: 1rem;
+  font-size: 1.1rem;
   text-align: right;
 }
 
