@@ -1259,9 +1259,10 @@ p,
 /*********Langos****/
 .langosAngebot{
   grid-column:1/2;
+  grid-row:1/2;
   z-index: 1;
   padding: 1em;
-  margin-left: 5%;
+  margin-left: 7%;
 }
 .gönnDir{
  grid-column: 1/2;
