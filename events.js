@@ -392,13 +392,13 @@ async function showDropdownMenu(){
 
 			if(eventData.includes(actualEvents[i]) ){
 				if(actualEvents[i] == "Ehrenbreitsteiner<br>Wochenmarkt"){
-						singleEvent+=`<span class="dropdown-item" id="Ehrenbreitsteiner-Wochenmarkt">${actualEvents[i]}</span> <div class="line-break">`
+						singleEvent+=`<span class="dropdown-item" id="Ehrenbreitsteiner-Wochenmarkt">${actualEvents[i]}</span> <div class="line-break"></div>`
 				
 					}else if(actualEvents[i] == "Selters<br>Wochenmarkt"){
 
-						singleEvent+=`<span class="dropdown-item" id="Selters-Wochenmarkt">${actualEvents[i]}</span> <div class="line-break">`
+						singleEvent+=`<span class="dropdown-item" id="Selters-Wochenmarkt">${actualEvents[i]}</span> <div class="line-break"></div>`
 					}else{
-						singleEvent+=`<span class="dropdown-item" id="${actualEvents[i]}">  ${actualEvents[i]}</span> <div class="line-break">`}
+						singleEvent+=`<span class="dropdown-item" id="${actualEvents[i]}">  ${actualEvents[i]}</span> <div class="line-break"></div>`}
 				
 			
 		}else{
