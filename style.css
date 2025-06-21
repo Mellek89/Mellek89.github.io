@@ -1365,7 +1365,10 @@ grid-column: 1/2;
   @media (min-width: 768px) and (max-width: 1024px) {
 /****Home*****/
 .logoDiv{
-  margin-left: 35%;
+  margin-left: 40%;
+}
+.region-select{
+  margin-top: -65%;
 }
    
 }
