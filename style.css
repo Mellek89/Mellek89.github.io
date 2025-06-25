@@ -960,13 +960,14 @@ img {
         text-align: center;
         margin-left: 10%; 
         margin-top: -55%;
+        
       }
      
       .regionOptions {
         position: relative;
         display: block;
         color: #F0FFFF;
-         margin-top: -25%;
+       margin-top: 20%;
         text-align: center;
          margin-left: 0; 
        
