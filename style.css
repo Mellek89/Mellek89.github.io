@@ -857,7 +857,8 @@ img {
        .container .main{
         position: relative;
         display: grid;
-         place-items: center;/*grid-template-columns: repeat(1, 1fr);*/
+        place-items: center;
+        grid-template-columns: repeat(1, 1fr);
        }
       
     
