@@ -74,6 +74,7 @@ img {
         
         }
        .container .header{
+           place-items: center; /* zentriert horizontal & vertikal */
         position: relative;
         z-index: 2;
         height: 20%;
@@ -307,6 +308,7 @@ margin-bottom: 20%;
 
 .calendar header{
   position: relative;
+
   padding: 25px 30px 10px;
     display: grid;
     grid-template-columns: 1fr;
@@ -417,14 +419,15 @@ header .chooseItem{
         display: block;
         position: absolute;
         z-index: 3;
-        margin-left: 30%;
+          margin-top: 110px; 
+        
         
                
        }
        .logoMobil{
         display: block;
-        position: absolute;
-        max-width: 150px;       
+        max-width: 150px; 
+           
        }
 
        .slogan{
