@@ -493,7 +493,95 @@ color: #F0FFFF;
   position: relative;
   text-align: center;
  }
-    
+    /*********Langos*********/
+.gönnDir{
+color: #ffeb3b;
+font-size: 1.5em;
+text-align: center;
+
+}
+.langKur{
+grid-row: 2/3;
+text-align: center;
+color: #F0FFFF;
+font-size: 1.2em;
+}
+.langosGestapelt{
+  max-width: 300px;
+  grid-row: 3/4;
+ margin-left: 15%;
+}
+
+.zutaten{
+  color: #ffeb3b;
+  font-size: 1.5em;
+   grid-row: 4/5;
+   grid-column: 2/3;
+   text-align: center;
+
+   margin-bottom: 10%;
+}
+.tabelleAngebot{
+  margin-bottom: 10%;
+  grid-column: 2/3;
+  grid-row: 5/6;
+  margin-left: 60px;
+}
+.treue{
+   font-size: 1.5em;
+   text-align: center;
+   color: #ffeb3b;
+}
+.treuetaler{
+  max-width: 300px;
+}
+.langosTreuetaler{
+  text-align: center;
+}
+.imageTreuetaler{
+
+   margin-top: 10%;
+   max-width: 100px;
+   grid-row: 8/9;
+   margin-left: 10%;
+}
+
+table {
+      border-collapse: collapse;
+      border-bottom: 1px solid #ffeb3b;
+    }
+    th, td {
+      position: relative;
+      border: none;
+      padding: 8px;
+      font-size: 1.1em;
+ 
+    }
+    th{
+       border-bottom: 1px solid #ffeb3b;
+       font-size: 1.2em;
+      
+    }
+
+.langosTreuetaler{
+  grid-row: 7/8;
+ font-size: 1.2em;
+
+ padding-bottom: 1em;
+}
+
+.imageTreuetaler{
+  grid-column: 2/3;
+  margin-top: 10%;
+    grid-row: 8/9;
+}
+
+.langosAngebot{
+padding: 5%; 
+}
+
+
+ 
 
      /******Ueber Uns**************/
 
@@ -613,73 +701,9 @@ p,
   .HängerBlock {
     grid-column: span 2;
   }
-/*********Langos****/
-.langosAngebot{
-  grid-column: 1/-1;
-  grid-row:1/2;
-  z-index: 1;
-  padding: 1em;
-  margin-left: 7%;
-}
-.gönnDir{
- grid-column: 1/2;
-margin: 0;
-text-align: center;
 
 
-}
-.langKur{
-grid-column: 1/2;
-grid-row: 2/3;
-margin-left: 0;
-text-align: center;
-color: #F0FFFF;
-}
 
-.langosGestapelt{
-  max-width: 300px;
-  grid-row: 3/4;
-  margin-left: 0;
-
-}
-.zutaten{
-  grid-column: 1/2;
-   grid-row: 4/5;
-    margin-left: 0;
-  
-}
-.tabelleAngebot{
-  grid-column: 1/2;
-  grid-row: 5/6;
-  margin-left: 5%;
-}
-.treue{
-  grid-row: 6/7;
-  grid-column: 1/2;
-}
-.langosTreuetaler{
-  grid-row: 7/8;
-  margin-left: -3%;
-}
-.treuetaler{
-  max-width: 300px;
-}
-.imageTreuetaler{
-grid-column: 1/2;
-  margin-top: 10%;
-   max-width: 100px;
-   grid-row: 8/9;
-   margin-left: 0;
-}
- table {
-  grid-column: 1/2;
-      border-collapse: collapse;
-      margin: 0;
-    }
-    td {
-      border: none; /* Kein Rahmen */
-      padding: 8px;  /* Optional: Innenabstand */
-    }
 /****Ueber uns****/
 .talerGrün,
 .talerRot,
@@ -1054,96 +1078,8 @@ header .icons span:hover{
   right: 10px;
     top: 70%
 }
-/*********Langos*********/
-.gönnDir{
-  
-grid-column: 1/4;
 
-color: #ffeb3b;
-margin-top: -10%;
-font-size: 1.5em;
-text-align: center;
-}
-.langKur{
-grid-column: 1/-1;
-grid-row: 2/3;
-text-align: center;
-color: #F0FFFF;
-font-size: 1.2em;
-}
-.langosGestapelt{
-  max-width: 500px;
-  grid-column: 1/3;
-   grid-row: 3/4;
-   margin-left: 35%;
-}
 
-.zutaten{
-  color: #ffeb3b;
-  font-size: 1.5em;
-   grid-row: 4/5;
-   grid-column: 2/3;
-   text-align: center;
-
-   margin-bottom: 10%;
-}
-.tabelleAngebot{
-  margin-bottom: 10%;
-  grid-column: 2/3;
-  grid-row: 5/6;
-  margin-left: 60px;
-}
-.treue{
-  grid-column: 2/3;
-  grid-row: 6/7;
-  text-align: center;
-  color: #ffeb3b;
-  font-size: 1.5em;
-  margin-bottom: 1em;
-}
-.langosTreuetaler{
-  grid-row: 7/8;
- font-size: 1.2em;
-
- padding-bottom: 1em;
-}
-
-.imageTreuetaler{
-  grid-column: 2/3;
-  margin-top: 10%;
-    grid-row: 8/9;
-}
-
-.langosAngebot{
-  display: grid;
-  /*grid-template-columns:repeat(3, 1fr); */
-  grid-column: 2/4;
-  grid-row: 2/3;  
-}
-
-.treuetaler{
-  max-width: 500px;
-  
-}
- table {
-      border-collapse: collapse;
-      border-bottom: 1px solid #ffeb3b;
-    }
-    th, td {
-      position: relative;
-      border: none;
-      padding: 8px;
-      text-align: left;
-      font-size: 1.1em;
-     padding-left:50px;
-      
-      
-    }
-    th{
-       border-bottom: 1px solid #ffeb3b;
-       font-size: 1.2em;
-      
-    }
 
 /* Mobile: Alle sichtbar */
 @media (max-width: 1024px) {
