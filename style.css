@@ -191,15 +191,18 @@ img {
 }
 
       .region-select{
-        position: relative;
-        font-size: 120%;
-        text-align: center;
+      position: relative;
+        
+       text-align: center;
        color: #ffeb3b;
         
-        
+      }
+      .region-display{
+        font-size: 130%;
       }
       .regionOptions{
         margin-top: 10%;
+          font-size: 120%;
       }
      
       .regionOptions a{
@@ -605,13 +608,15 @@ grid-column: 1/2;
   margin-top:13%;
 }     
 @media (max-width: 767px) {
- /******/
+ /*Home*/
+
 }
 
 
 @media (min-width: 768px) and (max-width: 1024px) {
 
-/***********/
+/*Home*/
+ 
 
 
 
@@ -747,9 +752,10 @@ grid-column: 4;
   width: 300px;
   display: block;
   grid-column: 1/4;
-  margin-left: 18%;
-  font-size: 170%;
+  margin-left: 15%;
+
 }
+
 
 .regionOptions {
   position: relative;
@@ -757,7 +763,7 @@ grid-column: 4;
   right: 0;
   z-index: 10; 
   display: block;
-  font-size: 80%;
+
   top: 20%;
  
 }
@@ -1013,9 +1019,9 @@ color: #F0FFFF;
 .slogan{
   position: relative;
   grid-column: 2/4;
-
-  margin-left: 165px;
-  font-size: 150%;
+  margin-left: 15%;
+  margin-bottom: 5%;
+  font-size: 160%;
   
  }
  .slogenBeschreibung{
@@ -1024,6 +1030,7 @@ color: #F0FFFF;
   margin-left: 50px;
   left: 0%;
   font-size: 120%;
+    margin-bottom: 5%;
  }
 
  .events {
