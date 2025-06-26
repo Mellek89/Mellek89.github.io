@@ -171,7 +171,7 @@ img {
         }
         .menu  .logo{
          
-         display: block;
+         display: none;
        
         }
  
@@ -697,14 +697,15 @@ grid-column: 1/2;
   margin-top:13%;
 }     
 @media (max-width: 767px) {
- /*Home*/
+ /*Home Menu*/
 
 }
 
 
 @media (min-width: 768px) and (max-width: 1024px) {
 
-/*Home*/
+ /*Home Menu*/
+
  
 
 
@@ -801,6 +802,7 @@ grid-column: 4;
  
 }
 .menu .logo{
+  display: block;
   position: relative;
   grid-column: 6;
   z-index: 3;
