@@ -74,7 +74,7 @@ img {
         
         }
        .container .header{
-           place-items: center; /* zentriert horizontal & vertikal */
+      place-items: center; /* zentriert horizontal & vertikal */
         position: relative;
         z-index: 2;
         height: 20%;
@@ -86,6 +86,7 @@ img {
        }
        .container .main{
         position: relative;
+          place-items: center; /* zentriert horizontal & vertikal */
         display: grid ; 
         place-items: center;
         grid-template-columns: repeat(1, 1fr);
@@ -437,7 +438,7 @@ header .chooseItem{
         width: auto;
         height: auto; 
        text-align: center;
-      margin-left: 10%;
+     
         
         
        }
@@ -472,7 +473,7 @@ header .chooseItem{
  z-index: 1;
 color: #F0FFFF;
  grid-row: 2;
- margin-left: 20%;
+ 
 
  
 }
