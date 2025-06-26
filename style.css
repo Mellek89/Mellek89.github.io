@@ -17,7 +17,7 @@ html, body {
   display: none !important;
 }*/
 
-.container .main.hidden { display: none; }
+
 .container{
   max-width: 100%;
   
@@ -30,7 +30,588 @@ html, body {
   grid-template-columns: repeat(9, 1fr);
   grid-auto-rows: minmax(100px, auto);         /* Höhe des Viewports */
   color: white;                 /* Text besser lesbar bei dunklem Bild */
+}
+  *, *::before, *::after {
+  box-sizing: border-box;
+}
+ /* Nav menu */
+.side-menu {
+  display: none;
+ } 
+ .container .main.hidden { display: none; }
+
+html, body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+/* Responsive Bilddarstellung */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+        .container {
+        /*width: 100vh;  Make sure content takes the full width */
+         
+        grid-template-columns: repeat(1, 1fr);
+       
+        
+        grid-template-areas: 
+        
+        "header"
+        "main"
+        "main"
+        "main"
+        "main"
+        "main"
+        "main"
+        "main"
+        "main"
+        "footer  "
+        
+        }
+       .container .header{
+        position: relative;
+        z-index: 2;
+        height: 20%;
+        overflow: visible;
+       display: grid ;
+       grid-template-columns: repeat(3,1fr) ;
+     
+      
+       }
+       .container .main{
+        position: relative;
+        display: grid ; 
+        place-items: center;
+        grid-template-columns: repeat(1, 1fr);
+       }
+      
+    
+     
+        .container .header .nav .menu{
+          list-style: none;
+          max-height: 300px;
+        
+          
+        }
+        header .icons span{
+          position: relative;
+          left: 20%;
+          cursor: default;
+        }
+      
+        .nav{
+          display: flow-root;
+          width: auto;
+          height: 100%;
+          position: fixed;
+           inset: 0; /* shorthand for top, right, bottom, left: 0 */
+          overflow: hidden;
+          max-height: 0;
+          transition: max-height .4s ease-out;
+          z-index: 2;
+  
+        }
+
+        /* Navigation menu inside overlay */
+          .menu {
+            position: relative;
+            display: grid;
+            row-gap: 3rem; /* Use rem for better scalability */
+            margin-top: 4rem;
+            left: 0; /* Align to center with flex parent */
+            text-align: center;
+            margin-right: 20%;
+          }
+
+     
+        .menu  .home{
+         
+          grid-row: 1/2;
+          font-size: 150%;
+          
+        }
+        .menu  .events{ 
+        
+       
+        grid-row: 2/3;
+        font-size: 150%;
+        
+        }
+        .menu  .langos{
+       
+        grid-row: 3/4;
+        font-size: 150%;
+        
+        }
+
+      
+        .menu  .uns {
+          position: relative;
+          
+          grid-row: 4/5;
+          font-size: 150%;
+          
+        }
+         .menu .news{
+          
+          grid-row: 5/6;
+          font-size: 150%;
+        }
+        .menu  .kontakt{
+         
+          grid-row: 6/7;
+          font-size: 150%;
+        }
+        .menu  .logo{
+         
+         display: block;
+       
+        }
  
+       nav li a{
+      text-decoration:none;
+      color: #ffeb3b;
+    
+    }
+        nav li a:hover{
+          color: aliceblue;
+          transition: 0.7s;
+        }
+  
+
+     
+      /* Active class to slide nav into view */
+.nav.active {
+  transform: translateY(0);
+}
+
+      .region-select{
+        position: relative;
+        font-size: 150%;
+        text-align: center;
+        margin-left: 10%; 
+        
+        
+      }
+     
+      .regionOptions {
+        position: relative;
+        display: block;
+        color: #F0FFFF;
+       margin-top: 20%;
+        text-align: center;
+         margin-left: 0; 
+       
+      }
+   
+      /* Menu Icon */
+      .hamb{ 
+        position: relative;
+        cursor: default;
+        padding: 40px 20px; 
+        grid-column: 4; 
+        
+        
+      }
+      /* Style label tag */
+
+      .hamb-line {
+        background: white;
+        display: block;
+        height: 2px;
+        position: relative;
+        width: 24px; 
+        z-index: 3; /* Set z-index to keep the icon at the top position */
+
+      }
+      /* Style span tag */
+
+      .hamb-line::before,
+      .hamb-line::after{
+          background: white;
+          content: '';
+          display: block;
+          height: 100%;
+          position: absolute;
+          /*transition: all .2s ease-out;*/
+          width: 100%;
+      }
+      .hamb-line::before{
+          top: 5px;
+      }
+      .hamb-line::after{
+          top: -5px;
+      }
+
+      /* Toggle menu icon */
+      .side-menu:checked ~ nav{
+        max-height: 100vh;
+      }
+      .side-menu:checked ~ .hamb .hamb-line {
+        background: transparent;
+      }
+      .side-menu:checked ~ .hamb .hamb-line::before {
+        transform: rotate(-45deg);
+        top:0;
+      }
+      .side-menu:checked ~ .hamb .hamb-line::after {
+        transform: rotate(45deg);
+        top:0;
+      }
+
+      body:has(.side-menu:checked) {
+      overflow: hidden;
+      }
+      /* Hide logoMobil when side-menu is checked */
+        .side-menu:checked ~ .logoDiv {
+          display: none;
+        }
+ 
+  .circle{
+    position: relative;
+    transform: translate(px, 3px);
+  }
+        
+
+      .calendar{
+        position: relative;
+        max-width: 90%;
+        z-index: 1;
+        grid-column: 1/-1;
+        max-width:  40em;
+        grid-row: 6/7;
+        margin: 0 auto;
+       
+         
+              
+
+      }
+      .calendar header{
+       
+        padding: 10px 20px 10px;
+      }
+
+      .calendar header .icons span:hover{
+        background: #F0E801;
+        
+      }
+      .calendar .days li{
+        cursor:default;
+      }
+      .calendar .days li::before {
+        height: 30px;
+        width: 30px;
+      }
+      .days li:hover::before{
+        background-color: transparent; /* Remove hover effect */
+        
+      }
+      .days li.active{
+        color: #fff;
+        }
+    
+      .span{
+        grid-column: 1/2;
+      }
+
+      .logoDiv{
+        display: block;
+        position: absolute;
+        z-index: 3;
+        margin-left: 30%;
+        
+               
+       }
+       .logoMobil{
+        display: block;
+        position: absolute;
+        max-width: 150px;       
+       }
+
+       .slogan{
+        position: relative;
+        color: #ffeb3b; 
+        font-size: 140%; 
+        width: auto;
+        height: auto; 
+       text-align: center;
+      margin-left: 10%;
+        
+        
+       }
+       .slogenBeschreibung{
+        position: relative;
+        
+        font-size: 120%;
+        text-align: center;
+        line-height: 3;
+    
+        /*margin-left:10%;*/
+        
+        
+        
+       }
+       .strong{
+        font-weight: 50%;
+       }
+
+       .dropdownText{
+        position: relative;
+       grid-column: 1/-1;
+        text-align: center;
+        line-height: 2;
+       }      
+    
+       .dropdown-menu{
+       
+        position: absolute;        
+        grid-row: 3/4;
+        
+        width: 20em;
+        margin: 0 auto;
+        margin-top: 1em;
+       }
+       .dropdown-menu span{
+        position: relative;
+        font-size: 1.1em;
+       
+       
+       }
+       .dropdown-item{
+        position: relative;
+        text-decoration: none; 
+        
+
+       }
+       .line-break{
+        margin-bottom: 8%;
+       }
+
+     /******Ueber Uns**************/
+
+.hUns{
+
+margin-bottom: 1em;
+margin-left: 2%;
+font-size: 25px;
+}
+.slideshow-container {
+ 
+  margin-left: 1%;
+}
+.unterstrichen{
+  border-bottom: 1px solid #ffeb3b; 
+  padding-bottom: 2em;
+  display: inline-block;
+  
+}
+p,
+ .Wagen1978Span img,
+  .Wagen1984Span img,
+  .HolzhütteSpan img,
+  .SpeyerSpan img,
+  .ShoppegässleSpan img,
+  .DMSpan img,
+  .EUSpan img,
+  .EttlingenWeihnachtsmarktSpan img,
+  .KarlsruheWeihnachtsmarktSpan img,
+  .HexenhausSpan img,
+  .HängerSpan img {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    display: block;  
+    margin-top: 1em;
+   margin-bottom: 1em;
+
+  }
+
+   .Wagen1984Span img {
+    width: 120%;
+    margin-left: -2em;
+     max-width: 650px
+   }
+   .HolzhütteSpan img{
+    width: 120%;
+    margin-left: -2em;
+   }
+
+  .Wagen1978Text,
+  .ersterWagen,
+  .Wagen1984,
+  .Holzhütte,
+  .Speyer,
+  .Shoppegässle,
+  .DM,
+  .EU,
+  .EttlingenWeihnachtsmarkt,
+  .KarlsruheWeihnachtsmarkt,
+  .Hexenhaus,
+  .Hänger {
+    margin: 0em auto;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    
+    max-width: 700px; 
+  }
+  .Wagen1978Text{
+    margin-top: 0;  
+    padding: 1em;
+  }
+  .EU{
+    text-align: center;
+  }
+  
+
+  .Wagen1978Span,
+  .Wagen1984Span,
+  .HolzhütteSpan,
+  .SpeyerSpan,
+  .ShoppegässleSpan,
+  .DMSpan,
+  .EUSpan,
+  .EttlingenWeihnachtsmarktSpan,
+  .KarlsruheWeihnachtsmarktSpan,
+  .HexenhausSpan,
+  .HängerSpan {
+    display: block;
+    
+    margin: 0 auto;
+  
+  }
+.Wagen1978Span img {
+  vertical-align: bottom; /* oder bottom, je nach Effekt */
+}
+
+
+  .Geschichte {
+    padding: 1em;
+  display: grid;
+  grid-template-columns: 1fr;
+  /*justify-items: center;*/
+  margin-top: 0;
+
+  }
+   .Wagen1978Block,
+  .Wagen1984Block,
+  .HolzhütteBlock,
+  .SpeyerBlock,
+  .ShoppegässleBlock,
+  .DMBlock,
+  .EUBlock,
+  .EttlingenWeihnachtsmarktBlock,
+  .KarlsruheWeihnachtsmarktBlock,
+  .HexenhausBlock,
+  .HängerBlock {
+    grid-column: span 2;
+  }
+/*********Langos****/
+.langosAngebot{
+  grid-column: 1/-1;
+  grid-row:1/2;
+  z-index: 1;
+  padding: 1em;
+  margin-left: 7%;
+}
+.gönnDir{
+ grid-column: 1/2;
+margin: 0;
+text-align: center;
+
+
+}
+.langKur{
+grid-column: 1/2;
+grid-row: 2/3;
+margin-left: 0;
+text-align: center;
+color: #F0FFFF;
+}
+
+.langosGestapelt{
+  max-width: 300px;
+  grid-row: 3/4;
+  margin-left: 0;
+
+}
+.zutaten{
+  grid-column: 1/2;
+   grid-row: 4/5;
+    margin-left: 0;
+  
+}
+.tabelleAngebot{
+  grid-column: 1/2;
+  grid-row: 5/6;
+  margin-left: 5%;
+}
+.treue{
+  grid-row: 6/7;
+  grid-column: 1/2;
+}
+.langosTreuetaler{
+  grid-row: 7/8;
+  margin-left: -3%;
+}
+.treuetaler{
+  max-width: 300px;
+}
+.imageTreuetaler{
+grid-column: 1/2;
+  margin-top: 10%;
+   max-width: 100px;
+   grid-row: 8/9;
+   margin-left: 0;
+}
+ table {
+  grid-column: 1/2;
+      border-collapse: collapse;
+      margin: 0;
+    }
+    td {
+      border: none; /* Kein Rahmen */
+      padding: 8px;  /* Optional: Innenabstand */
+    }
+/****Ueber uns****/
+.talerGrün,
+.talerRot,
+.talerGelb,
+.talerGrünJens{
+  margin-left:10%;
+}
+.emailGrün{
+  
+  margin-right: 24%;
+}
+
+.emailRot,
+.emailGelb,
+.emailGrünJens{
+  margin-right: 30%;
+  margin-top:13%;
+}     
+@media (max-width: 767px) {
+ /******/
+}
+
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+/***********/
+
+
+
+   
+}
+
+@media (min-width: 1025px) {
+
+ .container{
   grid-template-areas: 
   "header header header header header header header header header"
   "main main main main main main main main main"
@@ -48,12 +629,12 @@ html, body {
  
   display: grid;
   grid-area: header;
-	font-size: 1.45rem;
-  /*position: sticky;*/
+   grid-template-columns: 1fr auto; /* z. B. Logo | Menü */
+	
+  position: sticky;
   top: 0%;
   width: 100%;
   min-height: 100px; /* oder was zu deinem Layout passt */
-  overflow: hidden;
   padding: 2rem;
   align-items: center;
 
@@ -65,6 +646,7 @@ grid-template-columns: repeat(4, 1fr);
 grid-auto-rows: minmax(100px, auto);
 
 }
+ .container .main.hidden { display: none; }
 .container .footer {
 
  bottom: 0px;
@@ -75,76 +657,82 @@ grid-auto-rows: minmax(100px, auto);
 }
 
 .container .header .nav .menu{
-  list-style: none;
+  
   display: grid;
 }
 
 .nav{
+   display: block;
   position: relative;
-  grid-row: 1/2;
-  
-}
-.menu{
+  max-height: none;        /* <<< Wichtig! */
+  overflow: visible;       /* <<< Wichtig! */
+  inset: auto;             /* inset zurücksetzen */
+  height: auto;
+  width: 100%;
+  z-index: 3;              /* niedriger als Header-Inhalte */
+  grid-row: 1/2; 
 
+}
+.hamb, .side-menu {
+    display: none; /* <--- wichtig, um es sicher auszublenden */
+  }
+
+.menu{
 position: relative;
 margin-left: auto;
-
-
-
 }
 .menu .home{
- grid-column: 1/2; 
+ grid-column: 2; 
+ grid-row: 1/2;
  
-}
 
+}
 .menu .events{
-grid-column: 2/3;
+grid-column: 3;
+ grid-row: 1/2;
+
 }
 .menu .langos{
-grid-column: 3/4;
+grid-column: 4;
+ grid-row: 1/2;
+ 
 }
 .menu .logo{
   position: relative;
+  grid-column: 6;
   z-index: 3;
+   grid-row: 1/2;
   
  }
  .logoImg{
     position: relative;
    max-width: 200px;
    height: auto;
-    left: 15% ;
+  margin-top: -80px;
     z-index: 3;
+  grid-row: 1/2;
+  
  
  }
 
 .menu .uns {
-  grid-column: 5/6;
+  grid-column: 7;
+   grid-row: 1/2;
+  
 }
 .menu .news{
-  grid-column: 6/7;
+  grid-column: 8;
+   grid-row: 1/2;
+   
 }
 .menu .kontakt{
-  grid-column: 7/8;
+  grid-column: 9;
+   grid-row: 1/2;
+  
 }
 .logoMobil{
   display: none;
 }
-
- /* Nav menu */
-.side-menu {
-  display: none;
- } 
-
-nav li a{
-  text-decoration:none;
-  color: #ffeb3b;
- 
-}
-nav li a:hover{
-  color: aliceblue;
-  transition: 0.7s;
-}
-
 .region-select {
   position: relative;
   width: 300px;
@@ -427,7 +1015,7 @@ color: #F0FFFF;
 
   margin-left: 30%;
   font-size: 150%;
-  color: #ffeb3b; 
+  
  }
  .slogenBeschreibung{
   position: relative;
@@ -807,576 +1395,8 @@ font-size: 1.2em;
   margin-bottom: 1rem;
 }
 
-
-@media (max-width: 1024px) {
-
-
-html, body {
-  overflow-x: hidden;
-  margin: 0;
-  padding: 0;
-}
-/* Responsive Bilddarstellung */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
 }
 
-  *, *::before, *::after {
-  box-sizing: border-box;
-}
-        .container {
-        /*width: 100vh;  Make sure content takes the full width */
-         
-        grid-template-columns: repeat(1, 1fr);
-       
-        
-        grid-template-areas: 
-        
-        "header"
-        "main"
-        "main"
-        "main"
-        "main"
-        "main"
-        "main"
-        "main"
-        "main"
-        "footer  "
-        
-        }
-       .container .header{
-        position: relative;
-        z-index: 2;
-        height: 20%;
-        overflow: visible;
-       
-      
-       }
-       .container .main{
-        position: relative;
-        display: grid;
-        place-items: center;
-        grid-template-columns: repeat(1, 1fr);
-       }
-      
-    
-     
-        .container .header .nav .menu{
-          list-style: none;
-          max-height: 300px;
-        
-          
-        }
-        header .icons span{
-          position: relative;
-          left: 20%;
-          cursor: default;
-        }
-      
-        .nav{
-          display: flow-root;
-          width: auto;
-          height: 100%;
-          position: fixed;
-           inset: 0; /* shorthand for top, right, bottom, left: 0 */
-          overflow: hidden;
-          max-height: 0;
-          transition: max-height .4s ease-out;
-          z-index: 2;
-  
-        }
-
-        /* Navigation menu inside overlay */
-          .menu {
-            position: relative;
-            display: grid;
-            row-gap: 3rem; /* Use rem for better scalability */
-            margin-top: 4rem;
-            left: 0; /* Align to center with flex parent */
-            text-align: center;
-            margin-right: 20%;
-          }
-
-     
-        .menu  .home{
-          grid-column: 2/3;
-          grid-row: 1/2;
-          font-size: 150%;
-          
-        }
-        .menu  .events{ 
-        
-        grid-column: 2/3;
-        grid-row: 2/3;
-        font-size: 150%;
-        
-        }
-        .menu  .langos{
-        grid-column: 2/3;
-        grid-row: 3/4;
-        font-size: 150%;
-        
-        }
-      
-        .menu  .uns {
-          position: relative;
-          grid-column: 2/3;
-          grid-row: 4/5;
-          font-size: 150%;
-          
-        }
-         .menu .news{
-          grid-column: 2/3;
-          grid-row: 5/6;
-          font-size: 150%;
-        }
-        .menu  .kontakt{
-          grid-column: 2/3;
-          grid-row: 6/7;
-          font-size: 150%;
-        }
-        .menu  .logo{
-          grid-column: 2/3;
-         display: none;
-        }
-     
-
-        /* Nav menu */
-        .side-menu {
-          display: none;
-          
-        } 
-
-     
-      /* Active class to slide nav into view */
-.nav.active {
-  transform: translateY(0);
-}
-
-      .region-select{
-        position: relative;
-        font-size: 150%;
-        text-align: center;
-        margin-left: 10%; 
-        margin-top: -55%;
-        
-      }
-     
-      .regionOptions {
-        position: relative;
-        display: block;
-        color: #F0FFFF;
-       margin-top: 20%;
-        text-align: center;
-         margin-left: 0; 
-       
-      }
-   
-      /* Menu Icon */
-      .hamb{ 
-        position: relative;
-        cursor: default;
-        padding: 40px 20px; 
-        top: -40%;
-        margin-left: 80%;
-        
-      }
-      /* Style label tag */
-
-      .hamb-line {
-        background: white;
-        display: block;
-        height: 2px;
-        position: relative;
-        width: 24px; 
-        z-index: 3; /* Set z-index to keep the icon at the top position */
-
-      }
-      /* Style span tag */
-
-      .hamb-line::before,
-      .hamb-line::after{
-          background: white;
-          content: '';
-          display: block;
-          height: 100%;
-          position: absolute;
-          /*transition: all .2s ease-out;*/
-          width: 100%;
-      }
-      .hamb-line::before{
-          top: 5px;
-      }
-      .hamb-line::after{
-          top: -5px;
-      }
-
-      /* Toggle menu icon */
-      .side-menu:checked ~ nav{
-        max-height: 100vh;
-      }
-      .side-menu:checked ~ .hamb .hamb-line {
-        background: transparent;
-      }
-      .side-menu:checked ~ .hamb .hamb-line::before {
-        transform: rotate(-45deg);
-        top:0;
-      }
-      .side-menu:checked ~ .hamb .hamb-line::after {
-        transform: rotate(45deg);
-        top:0;
-      }
-
-      body:has(.side-menu:checked) {
-      overflow: hidden;
-      }
-      /* Hide logoMobil when side-menu is checked */
-        .side-menu:checked ~ .logoDiv {
-          display: none;
-        }
- 
-  .circle{
-    position: relative;
-    transform: translate(px, 3px);
-  }
-        
-
-      .calendar{
-        position: relative;
-        max-width: 90%;
-        z-index: 1;
-        grid-column: 1/-1;
-        max-width:  40em;
-        grid-row: 6/7;
-        margin: 0 auto;
-       
-         
-              
-
-      }
-      .calendar header{
-       
-        padding: 10px 20px 10px;
-      }
-
-      .calendar header .icons span:hover{
-        background: #F0E801;
-        
-      }
-      .calendar .days li{
-        cursor:default;
-      }
-      .calendar .days li::before {
-        height: 30px;
-        width: 30px;
-      }
-      .days li:hover::before{
-        background-color: transparent; /* Remove hover effect */
-        
-      }
-      .days li.active{
-        color: #fff;
-        }
-    
-      .span{
-        grid-column: 1/2;
-      }
-
-      .logoDiv{
-        display: block;
-        position: absolute;
-        z-index: 3;
-        margin-left: 30%;
-        
-               
-       }
-       .logoMobil{
-        display: block;
-        position: absolute;
-        max-width: 150px;       
-       }
-
-       .slogan{
-        position: relative;
-        
-        font-size: 140%; 
-        width: auto;
-        height: auto; 
-       text-align: center;
-      margin-left: 10%;
-        
-        
-       }
-       .slogenBeschreibung{
-        position: relative;
-        
-        font-size: 120%;
-        text-align: center;
-        line-height: 3;
-        margin-top: -50%;
-        /*margin-left:10%;*/
-        
-        
-        
-       }
-       .strong{
-        font-weight: 50%;
-       }
-
-       .dropdownText{
-        position: relative;
-       grid-column: 1/-1;
-        text-align: center;
-        line-height: 2;
-       }      
-    
-       .dropdown-menu{
-       
-        position: absolute;        
-        grid-row: 3/4;
-        
-        width: 20em;
-        margin: 0 auto;
-        margin-top: 1em;
-       }
-       .dropdown-menu span{
-        position: relative;
-        font-size: 1.1em;
-       
-       
-       }
-       .dropdown-item{
-        position: relative;
-        text-decoration: none; 
-        
-
-       }
-       .line-break{
-        margin-bottom: 8%;
-       }
-
-     /******Ueber Uns**************/
-
-.hUns{
-
-margin-bottom: 1em;
-margin-left: 2%;
-font-size: 25px;
-}
-.slideshow-container {
- 
-  margin-left: 1%;
-}
-.unterstrichen{
-  border-bottom: 1px solid #ffeb3b; 
-  padding-bottom: 2em;
-  display: inline-block;
-  
-}
-p,
- .Wagen1978Span img,
-  .Wagen1984Span img,
-  .HolzhütteSpan img,
-  .SpeyerSpan img,
-  .ShoppegässleSpan img,
-  .DMSpan img,
-  .EUSpan img,
-  .EttlingenWeihnachtsmarktSpan img,
-  .KarlsruheWeihnachtsmarktSpan img,
-  .HexenhausSpan img,
-  .HängerSpan img {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    display: block;  
-    margin-top: 1em;
-   margin-bottom: 1em;
-
-  }
-
-   .Wagen1984Span img {
-    width: 120%;
-    margin-left: -2em;
-     max-width: 650px
-   }
-   .HolzhütteSpan img{
-    width: 120%;
-    margin-left: -2em;
-   }
-
-  .Wagen1978Text,
-  .ersterWagen,
-  .Wagen1984,
-  .Holzhütte,
-  .Speyer,
-  .Shoppegässle,
-  .DM,
-  .EU,
-  .EttlingenWeihnachtsmarkt,
-  .KarlsruheWeihnachtsmarkt,
-  .Hexenhaus,
-  .Hänger {
-    margin: 0em auto;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    
-    max-width: 700px; 
-  }
-  .Wagen1978Text{
-    margin-top: 0;  
-    padding: 1em;
-  }
-  .EU{
-    text-align: center;
-  }
-  
-
-  .Wagen1978Span,
-  .Wagen1984Span,
-  .HolzhütteSpan,
-  .SpeyerSpan,
-  .ShoppegässleSpan,
-  .DMSpan,
-  .EUSpan,
-  .EttlingenWeihnachtsmarktSpan,
-  .KarlsruheWeihnachtsmarktSpan,
-  .HexenhausSpan,
-  .HängerSpan {
-    display: block;
-    
-    margin: 0 auto;
-  
-  }
-.Wagen1978Span img {
-  vertical-align: bottom; /* oder bottom, je nach Effekt */
-}
-
-
-  .Geschichte {
-    padding: 1em;
-  display: grid;
-  grid-template-columns: 1fr;
-  /*justify-items: center;*/
-  margin-top: 0;
-
-  }
-   .Wagen1978Block,
-  .Wagen1984Block,
-  .HolzhütteBlock,
-  .SpeyerBlock,
-  .ShoppegässleBlock,
-  .DMBlock,
-  .EUBlock,
-  .EttlingenWeihnachtsmarktBlock,
-  .KarlsruheWeihnachtsmarktBlock,
-  .HexenhausBlock,
-  .HängerBlock {
-    grid-column: span 2;
-  }
-/*********Langos****/
-.langosAngebot{
-  grid-column: 1/-1;
-  grid-row:1/2;
-  z-index: 1;
-  padding: 1em;
-  margin-left: 7%;
-}
-.gönnDir{
- grid-column: 1/2;
-margin: 0;
-text-align: center;
-
-
-}
-.langKur{
-grid-column: 1/2;
-grid-row: 2/3;
-margin-left: 0;
-text-align: center;
-color: #F0FFFF;
-}
-
-.langosGestapelt{
-  max-width: 300px;
-  grid-row: 3/4;
-  margin-left: 0;
-
-}
-.zutaten{
-  grid-column: 1/2;
-   grid-row: 4/5;
-    margin-left: 0;
-  
-}
-.tabelleAngebot{
-  grid-column: 1/2;
-  grid-row: 5/6;
-  margin-left: 5%;
-}
-.treue{
-  grid-row: 6/7;
-  grid-column: 1/2;
-}
-.langosTreuetaler{
-  grid-row: 7/8;
-  margin-left: -3%;
-}
-.treuetaler{
-  max-width: 300px;
-}
-.imageTreuetaler{
-grid-column: 1/2;
-  margin-top: 10%;
-   max-width: 100px;
-   grid-row: 8/9;
-   margin-left: 0;
-}
- table {
-  grid-column: 1/2;
-      border-collapse: collapse;
-      margin: 0;
-    }
-    td {
-      border: none; /* Kein Rahmen */
-      padding: 8px;  /* Optional: Innenabstand */
-    }
-/****Ueber uns****/
-.talerGrün,
-.talerRot,
-.talerGelb,
-.talerGrünJens{
-  margin-left:10%;
-}
-.emailGrün{
-  
-  margin-right: 24%;
-}
-
-.emailRot,
-.emailGelb,
-.emailGrünJens{
-  margin-right: 30%;
-  margin-top:13%;
-}
-  
-
-    
-       
-}
-
-
-  @media (min-width: 768px) and (max-width: 1024px) {
-/****Home*****/
-.logoDiv{
-  margin-left: 40%;
-}
-.region-select{
-  margin-top: -65%;
-}
-   
-}
 
 
 
