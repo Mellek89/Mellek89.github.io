@@ -316,6 +316,9 @@ margin-bottom: 20%;
     color: black;
 
 }
+.calendar header p{
+  font-size: 110%;
+}
 .calendar header .icons{
 grid-column: 3/4;
 
