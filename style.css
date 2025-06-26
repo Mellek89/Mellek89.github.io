@@ -298,7 +298,7 @@ border-radius: 10px;
 border-width: 1em;
 border: 2px solid #ffeb3b;
 color: #F0FFFF;
-margin-top: 50%;
+
 margin-bottom: 20%;
 
 
@@ -408,46 +408,7 @@ header .chooseItem{
   grid-column: 2/3;
   min-width: 87%;
 }
-      /*.calendar{
-        position: relative;
-        max-width: 90%;
-        z-index: 1;
-        grid-column: 1/-1;
-        max-width:  40em;
-        grid-row: 6/7;
-        margin: 0 auto;
-       
-         
-              
-
-      }
-      .calendar header{
-       
-        padding: 10px 20px 10px;
-      }
-
-      .calendar header .icons span:hover{
-        background: #F0E801;
-        
-      }
-      .calendar .days li{
-        cursor:default;
-      }
-      .calendar .days li::before {
-        height: 30px;
-        width: 30px;
-      }
-      .days li:hover::before{
-        background-color: transparent; /* Remove hover effect 
-        
-      }
-      .days li.active{
-        color: #fff;
-        }
-    
-      .span{
-        grid-column: 1/2;
-      }*/
+     
 
       .logoDiv{
         display: block;
@@ -490,37 +451,39 @@ header .chooseItem{
         font-weight: 50%;
        }
 
-       .dropdownText{
-        position: relative;
-       grid-column: 1/-1;
-        text-align: center;
-        line-height: 2;
-       }      
-    
-       .dropdown-menu{
-       
-        position: absolute;        
-        grid-row: 3/4;
-        
-        width: 20em;
-        margin: 0 auto;
-        margin-top: 1em;
-       }
-       .dropdown-menu span{
-        position: relative;
-        font-size: 1.1em;
-       
-       
-       }
-       .dropdown-item{
-        position: relative;
-        text-decoration: none; 
-        
+ .dropdownText{
+  position: relative;
+  grid-row: 1;
+  padding: 1em;
+  text-align: center;
+  font-size: 18px;
 
-       }
-       .line-break{
-        margin-bottom: 8%;
-       }
+ }
+ 
+.dropdown-menu{
+ display: block;
+ min-width: 160px;
+ z-index: 1;
+color: #F0FFFF;
+ grid-row: 2;
+
+ 
+}
+.dropdown-menu span{
+  color: #F0FFFF;
+  border-bottom: 1px solid #ffeb3b;
+  font-size: 18px;
+
+  
+}
+.line-break {
+  margin-bottom: 10%;
+ }
+ .error{
+  position: relative;
+  text-align: center;
+ }
+    
 
      /******Ueber Uns**************/
 
@@ -975,44 +938,6 @@ header .icons span:hover{
   
  }
 
- .dropdownText{
-  position: relative;
-  grid-column: 2/4;
-  grid-row: 1/2;
-  padding: 1em;
-  text-align: center;
-  font-size: 18px;
- 
-
- }
- 
-.dropdown-menu{
- display: block;
-margin-left: 20%;
-margin-top: 35%;
- min-width: 160px;
- z-index: 1;
-color: #F0FFFF;
-
- grid-column: 3/4;
- grid-row: 1/2;
-
- 
-}
-.dropdown-menu span{
-  color: #F0FFFF;
-  border-bottom: 1px solid #ffeb3b;
-    font-size: 18px;
-
-  
-}
-.line-break {
-  margin-bottom: 10%;
- }
- .error{
-  position: relative;
-  text-align: center;
- }
 .slogan{
   position: relative;
   grid-column: 2/4;
