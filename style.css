@@ -289,8 +289,126 @@ img {
     transform: translate(px, 3px);
   }
         
+.calendar{
+position: relative;
+padding: 10px;
+max-width: 600px;
+background-color: rgba(12, 12, 12, 0.466); /* 0.5 = 50% transparent */
+border-radius: 10px;
+border-width: 1em;
+border: 2px solid #ffeb3b;
+color: #F0FFFF;
+margin-top: 50%;
+margin-bottom: 20%;
 
-      .calendar{
+
+
+}
+
+.calendar header{
+  position: relative;
+  padding: 25px 30px 10px;
+    display: grid;
+    grid-template-columns: 1fr;
+    background-color: #ffeb3b;
+    border-radius: 10px;
+    margin: 0%;
+    color: black;
+
+}
+.calendar header .icons{
+grid-column: 3/4;
+
+}
+.calendar ul{
+	display:flex;
+	list-style: none;
+	flex-wrap: wrap;
+	text-align: center;
+  margin: 3%;
+
+}
+
+.calendar .weeks li {
+	font-weight: 500;
+
+}
+.calendar .days li{
+	z-index: 1;
+	
+	margin-top: 25px;
+  
+}
+
+.days li.circle{
+  color: #F0FFFF;
+  }
+  .days li.circleInactive{
+    color:  #5c5b5b;
+    
+    }
+.days li.active{
+color: #fff;
+}
+
+.days li.active::before{
+	/*background: #e94417;*/
+  border: 2px solid;
+  border-radius: 50%;
+  border-color: #e94417;
+	
+}
+.calendar ul li{
+	position: relative;
+	width: calc(100% /7);
+}
+.calendar .days li::before{
+	position: absolute;
+	content: "";
+	height: 40px;
+	width: 40px;
+	top: 50%;
+	left: 50%;
+	z-index:-1;
+	border-radius: 50%;
+	transform: translate(-50%, -50%);
+}
+li.circle::before {
+  border: 2px solid;
+  border-radius: 50%;
+}
+
+.days li.circle::before{	
+  
+  border-color: #ffeb3b;
+}
+
+li.circleInactive::before {
+  border: 2px solid;
+  border-radius: 50%;
+}
+
+.days li.circleInactive::before{	
+ 
+  border-color: #ffeb3b;
+}
+
+.inactive{
+  color:  #5c5b5b;
+	}
+.container .main .events{
+  grid-column: 2/3;
+}
+header .chooseItem{
+	font-size: 40px;
+	font-weight: 500;
+	position: relative;
+}
+.span{
+  grid-column: 2/3;
+  min-width: 87%;
+}
+      /*.calendar{
         position: relative;
         max-width: 90%;
         z-index: 1;
@@ -320,7 +438,7 @@ img {
         width: 30px;
       }
       .days li:hover::before{
-        background-color: transparent; /* Remove hover effect */
+        background-color: transparent; /* Remove hover effect 
         
       }
       .days li.active{
@@ -329,7 +447,7 @@ img {
     
       .span{
         grid-column: 1/2;
-      }
+      }*/
 
       .logoDiv{
         display: block;
@@ -791,128 +909,7 @@ header .icons span:hover{
   background: #f2f2f2
 }
 
-.calendar{
-position: relative;
-padding: 10px;
-max-width: 600px;
-background-color: rgba(12, 12, 12, 0.466); /* 0.5 = 50% transparent */
-grid-column: 1/3;
-grid-row: 1/2;
-border-radius: 10px;
-border-width: 1em;
-border: 2px solid #ffeb3b;
-color: #F0FFFF;
-margin-left: 45%;
-margin-top: 18%;
-margin-bottom: 20%;
 
-
-
-}
-
-.calendar header{
-  position: relative;
-  padding: 25px 30px 10px;
-    display: grid;
-    grid-template-columns: 1fr;
-    background-color: #ffeb3b;
-    border-radius: 10px;
-    margin: 0%;
-    color: black;
-
-}
-.calendar header .icons{
-grid-column: 3/4;
-
-}
-.calendar ul{
-	display:flex;
-	list-style: none;
-	flex-wrap: wrap;
-	text-align: center;
-  margin: 3%;
-
-}
-
-.calendar .weeks li {
-	font-weight: 500;
-
-}
-.calendar .days li{
-	z-index: 1;
-	
-	margin-top: 25px;
-  
-}
-
-.days li.circle{
-  color: #F0FFFF;
-  }
-  .days li.circleInactive{
-    color:  #5c5b5b;
-    
-    }
-.days li.active{
-color: #fff;
-}
-
-.days li.active::before{
-	/*background: #e94417;*/
-  border: 2px solid;
-  border-radius: 50%;
-  border-color: #e94417;
-	
-}
-.calendar ul li{
-	position: relative;
-	width: calc(100% /7);
-}
-.calendar .days li::before{
-	position: absolute;
-	content: "";
-	height: 40px;
-	width: 40px;
-	top: 50%;
-	left: 50%;
-	z-index:-1;
-	border-radius: 50%;
-	transform: translate(-50%, -50%);
-}
-li.circle::before {
-  border: 2px solid;
-  border-radius: 50%;
-}
-
-.days li.circle::before{	
-  
-  border-color: #ffeb3b;
-}
-
-li.circleInactive::before {
-  border: 2px solid;
-  border-radius: 50%;
-}
-
-.days li.circleInactive::before{	
- 
-  border-color: #ffeb3b;
-}
-
-.inactive{
-  color:  #5c5b5b;
-	}
-.container .main .events{
-  grid-column: 2/3;
-}
-header .chooseItem{
-	font-size: 40px;
-	font-weight: 500;
-	position: relative;
-}
-.span{
-  grid-column: 2/3;
-  min-width: 87%;
-}
 .slideEventcontainer{
   position: absolute;
   top:15%;
