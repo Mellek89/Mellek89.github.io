@@ -464,6 +464,7 @@ header .chooseItem{
   padding: 1em;
   text-align: center;
   font-size: 18px;
+  margin-bottom: 10%;
 
  }
  
@@ -473,6 +474,7 @@ header .chooseItem{
  z-index: 1;
 color: #F0FFFF;
  grid-row: 2;
+ margin-bottom: 10%;
  
 
  
