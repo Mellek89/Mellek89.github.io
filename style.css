@@ -466,13 +466,14 @@ header .chooseItem{
  z-index: 1;
 color: #F0FFFF;
  grid-row: 2;
+ margin-left: 20%;
 
  
 }
 .dropdown-menu span{
   color: #F0FFFF;
   border-bottom: 1px solid #ffeb3b;
-  font-size: 18px;
+  font-size: 110%;
 
   
 }
