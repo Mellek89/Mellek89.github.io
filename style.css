@@ -192,21 +192,30 @@ img {
 
       .region-select{
         position: relative;
-        font-size: 150%;
+        font-size: 120%;
         text-align: center;
-        margin-left: 10%; 
+       color: #ffeb3b;
         
         
       }
+      .regionOptions{
+        margin-top: 10%;
+      }
      
-      .regionOptions {
+      .regionOptions a{
         position: relative;
         display: block;
-        color: #F0FFFF;
-       margin-top: 20%;
+       color: #f2f2f2;
         text-align: center;
          margin-left: 0; 
        
+      }
+      a.minimal-link {
+        display: inline;
+        text-decoration: none;
+        border-bottom: 1px solid #ffeb3b; 
+        padding-bottom: 2px;
+        transition: all 0.2s ease;
       }
    
       /* Menu Icon */
@@ -737,30 +746,22 @@ grid-column: 4;
   position: relative;
   width: 300px;
   display: block;
-  color: #ffeb3b;
-  grid-column: 2/4;
-  margin-left: 35%;
+  grid-column: 1/4;
+  margin-left: 18%;
   font-size: 170%;
 }
 
 .regionOptions {
   position: relative;
-  margin-left: 25%;
+ color: #F0FFFF;
   right: 0;
   z-index: 10; 
   display: block;
   font-size: 80%;
-  color: #F0FFFF;
   top: 20%;
  
 }
-a.minimal-link {
-  
-  text-decoration: none;
-  border-bottom: 1px solid #ffeb3b; 
-  padding-bottom: 2px;
-  transition: all 0.2s ease;
-}
+
 
 header .current-date{ 
 	font-size: 1.45rem;
@@ -1013,14 +1014,14 @@ color: #F0FFFF;
   position: relative;
   grid-column: 2/4;
 
-  margin-left: 30%;
+  margin-left: 165px;
   font-size: 150%;
   
  }
  .slogenBeschreibung{
   position: relative;
   grid-column: 2/4;
-  
+  margin-left: 50px;
   left: 0%;
   font-size: 120%;
  }
