@@ -88,7 +88,7 @@ img {
         position: relative;
           place-items: center; /* zentriert horizontal & vertikal */
         display: grid ; 
-        place-items: center;
+      
         grid-template-columns: repeat(1, 1fr);
        }
       
@@ -870,19 +870,24 @@ grid-column: 4;
 }
 
 /***Home***/
+.mainContainer{
+  grid-column: 2/4;
+  display: grid;
+  place-items: center;
 
+}
 .slogan{
   position: relative;
-  grid-column: 2/4;
-  margin-left: 15%;
+ 
+
   margin-bottom: 5%;
   font-size: 160%;
   
  }
  .slogenBeschreibung{
   position: relative;
-  grid-column: 2/4;
-  margin-left: 50px;
+
+
   left: 0%;
   font-size: 120%;
     margin-bottom: 5%;
@@ -891,8 +896,8 @@ grid-column: 4;
   position: relative;
   width: 300px;
   display: block;
-  grid-column: 1/4;
-  margin-left: 15%;
+  
+
 
 }
 
@@ -909,7 +914,6 @@ grid-column: 4;
 }
 
 /**Events***/
-
 
 header .icons span:hover{
   background: #f2f2f2
