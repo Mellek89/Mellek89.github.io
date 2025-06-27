@@ -104,6 +104,7 @@ img {
           position: relative;
           left: 20%;
           cursor: default;
+          border-radius: 50%;
         }
       
         .nav{
@@ -867,6 +868,25 @@ grid-column: 4;
 .logoMobil{
   display: none;
 }
+
+/***Home***/
+
+.slogan{
+  position: relative;
+  grid-column: 2/4;
+  margin-left: 15%;
+  margin-bottom: 5%;
+  font-size: 160%;
+  
+ }
+ .slogenBeschreibung{
+  position: relative;
+  grid-column: 2/4;
+  margin-left: 50px;
+  left: 0%;
+  font-size: 120%;
+    margin-bottom: 5%;
+ }
 .region-select {
   position: relative;
   width: 300px;
@@ -888,29 +908,21 @@ grid-column: 4;
  
 }
 
+/**Events***/
 
-header .current-date{ 
-	font-size: 1.45rem;
-	font-weight: 500;
-}
-
-header .icons span{ 
-	height: 38px;
-	width: 38px;
-	color: black;
-	font-size: 1.9rem;
-	margin: 0 1px;
-	cursor: pointer;
-	text-align: center;
-	line-height: 38px;
-	border-radius: 50%;
-    
-}
 
 header .icons span:hover{
   background: #f2f2f2
 }
-
+.dropdownText{
+  grid-column: 2/4;
+}
+.calendar{
+  grid-column: 2;
+}
+.dropdown-menu{
+  grid-column: 3;
+}
 
 .slideEventcontainer{
   position: absolute;
@@ -977,22 +989,7 @@ header .icons span:hover{
   
  }
 
-.slogan{
-  position: relative;
-  grid-column: 2/4;
-  margin-left: 15%;
-  margin-bottom: 5%;
-  font-size: 160%;
-  
- }
- .slogenBeschreibung{
-  position: relative;
-  grid-column: 2/4;
-  margin-left: 50px;
-  left: 0%;
-  font-size: 120%;
-    margin-bottom: 5%;
- }
+
 
  .events {
   
