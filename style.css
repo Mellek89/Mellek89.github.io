@@ -786,15 +786,26 @@ p,
     
 }
 @media (max-width: 767px) {
+
  /*Home Menu*/
+
 
 }
 
 
 @media (min-width: 768px) and (max-width: 1024px) {
 
- /*Home Menu*/
+ /*Über uns*/
+ .Wagen1984Span,
+ .HolzhütteSpan,
+ .HexenhausSpan{
+  margin-left: 10%;
+ }
 
+ .KarlsruheWeihnachtsmarktSpan{
+  margin-left: -5%;
+
+ }
  
 
 
