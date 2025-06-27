@@ -778,6 +778,7 @@ p,
   padding: 1em;
    grid-column: 1 / -1; /* oder span 4, wenn 4 Spalten */ 
    text-align: center;
+   max-width: 100%;
 }
 .KontaktText span {
   font-size: 1.3em;
