@@ -80,7 +80,7 @@ img {
         height: 20%;
         overflow: visible;
        display: grid ;
-       grid-template-columns: repeat(3,1fr) ;
+       
      
       
        }
@@ -494,6 +494,13 @@ color: #F0FFFF;
   text-align: center;
  }
     /*********Langos*********/
+
+.langosAngebot{
+   display: grid ; 
+  place-items: center;   
+  padding: 5%; 
+}
+
 .gönnDir{
 color: #ffeb3b;
 font-size: 1.5em;
@@ -516,14 +523,11 @@ font-size: 1.2em;
   color: #ffeb3b;
   font-size: 1.5em;
    grid-row: 4/5;
-   grid-column: 2/3;
    text-align: center;
-
    margin-bottom: 10%;
 }
 .tabelleAngebot{
   margin-bottom: 10%;
-  grid-column: 2/3;
   grid-row: 5/6;
  
 }
@@ -541,7 +545,7 @@ font-size: 1.2em;
 .imageTreuetaler{
 
    margin-top: 10%;
-   max-width: 100px;
+
    grid-row: 8/9;
  
 }
@@ -570,15 +574,8 @@ table {
  padding-bottom: 1em;
 }
 
-.imageTreuetaler{
-  grid-column: 2/3;
-  margin-top: 10%;
-    grid-row: 8/9;
-}
 
-.langosAngebot{
-padding: 5%; 
-}
+
 
 
  
@@ -759,8 +756,7 @@ p,
  
   display: grid;
   grid-area: header;
-   grid-template-columns: 1fr auto; /* z. B. Logo | Menü */
-	
+grid-template-columns: 1fr auto 1fr; /* zentriert mittlere Spalte */
   position: sticky;
   top: 0%;
   width: 100%;
@@ -785,11 +781,12 @@ grid-auto-rows: minmax(100px, auto);
  
   
 }
-
-.container .header .nav .menu{
-  
-  display: grid;
+.container .header .nav {
+  grid-column: 1/4; /* ← mittlere Spalte */
+  justify-self: center; /* ← zentriert horizontal */
+  margin-left: 14%;
 }
+
 
 .nav{
    display: block;
@@ -799,7 +796,8 @@ grid-auto-rows: minmax(100px, auto);
   inset: auto;             /* inset zurücksetzen */
   height: auto;
   width: 100%;
-  z-index: 3;              /* niedriger als Header-Inhalte */
+  z-index: 3;   
+          /* niedriger als Header-Inhalte */
   grid-row: 1/2; 
 
 }
@@ -808,8 +806,10 @@ grid-auto-rows: minmax(100px, auto);
   }
 
 .menu{
-position: relative;
+/*position: relative;
 margin-left: auto;
+grid-column: 2/4;*/
+ justify-self: center;
 }
 .menu .home{
  grid-column: 2; 
@@ -1024,7 +1024,10 @@ header .icons span:hover{
  }
 
 
-
+/*Langos*/
+.langosAngebot{
+  grid-column: 2/4;
+}
 /*Ueber Uns*/
 
 .slideshow-container {
