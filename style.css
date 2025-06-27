@@ -320,7 +320,8 @@ margin-bottom: 20%;
 
 }
 .calendar header p{
-  font-size: 110%;
+  font-size: 120%;
+   font-weight: bold;
 }
 .calendar header .icons{
 grid-column: 3/4;
