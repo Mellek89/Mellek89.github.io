@@ -617,7 +617,8 @@ p,
   .EttlingenWeihnachtsmarktSpan img,
   .KarlsruheWeihnachtsmarktSpan img,
   .HexenhausSpan img,
-  .HängerSpan img {
+  .HängerSpan img,
+  .WagenJanSpan img {
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
@@ -648,7 +649,8 @@ p,
   .EttlingenWeihnachtsmarkt,
   .KarlsruheWeihnachtsmarkt,
   .Hexenhaus,
-  .Hänger {
+  .Hänger,
+  .WagenJan {
     margin: 0em auto;
     padding-top: 1em;
     padding-bottom: 1em;
@@ -674,7 +676,8 @@ p,
   .EttlingenWeihnachtsmarktSpan,
   .KarlsruheWeihnachtsmarktSpan,
   .HexenhausSpan,
-  .HängerSpan {
+  .HängerSpan,
+  .WagenJanSpan {
     display: block;
     
     margin: 0 auto;
