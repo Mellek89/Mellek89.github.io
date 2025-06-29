@@ -865,7 +865,7 @@ grid-auto-rows: minmax(100px, auto);
 .container .header .nav {
   grid-column: 1/4; /* ← mittlere Spalte */
   justify-self: center; /* ← zentriert horizontal */
-  margin-left: 14%;
+  
 }
 
 
