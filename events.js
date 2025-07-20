@@ -9,6 +9,7 @@ currDay = date.getDay();
 
 const currentDate = document.querySelector(".current-date");
 let daysTag = document.querySelector(".days");
+
 let prevNextIcon = document.querySelectorAll(".icons span");
 let daysInput = document.querySelector(".days ").children;
 let eventsInput = document.querySelector(".slideEventcontainer");
@@ -70,6 +71,8 @@ const renderCalender = () => {
 	
 	
 	let liTag = "";
+	
+
 
 	  // Vorbereitend: Wiederkehrende Events in Set packen
   		const recurringDaysSet = new Set();
@@ -80,7 +83,7 @@ const renderCalender = () => {
 			let isToday = i === date.getDate() && currMonth === new Date().getMonth() && currYear === new Date().getFullYear() ? "inactive" : "";				
 			let inactiveLastDays = lasttDateOfLastMonth -i +1;
 	
-			if (eventId!=""){
+			if (eventId!="" || window.location.pathname.endsWith("admin.html")){
 			//same event in multiple months
 
 				if((inactiveLastDays <= daysOfEvents[0] || inactiveLastDays >= lastDateOfMonth )
@@ -104,14 +107,14 @@ const renderCalender = () => {
 		
 	for (let i = 1; i<=lastDateOfMonth; i++){
 					
-			if (eventId!=""){
+			if (eventId!="" || window.location.pathname.endsWith("admin.html")){
 			
 				
 					let isToday = i === date.getDate() && currMonth === new Date().getMonth() && currYear === new Date().getFullYear() ? "active" : "";	
 					
 				//recurring events
 
-					//if(recurringWedOfCurrentMonth.length != 0 || recurringThuOfCurrentMonth !=0){
+					
 					if (ehrenEl) {
 						if (ehrenEl.classList.contains("active")) {
 							for (let z = 0; z < recurringWedOfCurrentMonth.length; z += 2) {
@@ -119,7 +122,7 @@ const renderCalender = () => {
 									recurringDaysSet.add(recurringWedOfCurrentMonth[z]);
 								} 
 							}		
-								//else if (recurringThuOfCurrentMonth[z + 1] === currMonth + 1) {
+							
 						}else if (seltersEl.classList.contains("active")) {
 								for (let z = 0; z < recurringThuOfCurrentMonth.length; z += 2) {
 									if (recurringThuOfCurrentMonth[z + 1] === currMonth + 1) {
@@ -157,8 +160,9 @@ const renderCalender = () => {
 						
 
 						}  
-						
+					
 						// one event in one Month
+						
 						else if((i<=daysOfEvents[2] && i>=daysOfEvents[0]) && currMonth == daysOfEvents[1]-1){
 								liTag += `<li id = ${i} class="circle"> ${i} </li>`;
 								
@@ -208,9 +212,116 @@ const renderCalender = () => {
 	
 	daysTag.innerHTML = liTag;
 	recurringWedOfCurrentMonth.length = 0;
+	liTag = "";
 
 	
 }
+//Variablen für Eventauswahl für admin
+const selectedDaysForEvent = [];
+let tmp = [];
+
+
+function chooseEvents (month){ // für admin
+	
+daysOfEvents.length=0;
+
+
+
+let listOfIDs = document.querySelectorAll('.days li' );
+
+
+listOfIDs.forEach(item => {
+	  
+		item.addEventListener('click', () => {
+			
+		
+			const id = parseInt(item.dataset.id || item.innerText);
+	 		const fullID = id +'.' +month;	
+
+				if (selectedDaysForEvent.length === 2 && !selectedDaysForEvent.includes(fullID)) {
+					
+					selectedDaysForEvent.length = 0;
+					daysOfEvents.length = 0;
+					renderCalender();
+					chooseEvents(currMonth); 
+					//return;  break, wait for new klick
+				}
+				if (selectedDaysForEvent.length === 2 && selectedDaysForEvent.includes(fullID)) {
+					selectedDaysForEvent.length=0;
+					daysOfEvents.length = 0;
+					renderCalender();
+					chooseEvents(currMonth); 
+				}
+
+// normale Auswahl
+  if (!selectedDaysForEvent.includes(fullID)) {
+    if (selectedDaysForEvent.length < 2) {
+      selectedDaysForEvent.push(fullID); 
+	  console.log("normale auswahl, sowohl ein als auch zwei einträge"+ selectedDaysForEvent);
+    }
+  } else {
+    selectedDaysForEvent.splice(selectedDaysForEvent.indexOf(selectedDaysForEvent[0]), 1);
+  }
+
+  console.log('Ausgewählte IDs:', selectedDaysForEvent);
+			if (selectedDaysForEvent.length<2 &&  !selectedDaysForEvent.includes(fullID)) {
+			console.log("Füge"+selectedDaysForEvent+"hinzu, wenn nur 1 Eintrag vorhanden!");
+			selectedDaysForEvent.push(fullID);
+			} 
+			
+				if (selectedDaysForEvent.length<=2){
+					for (let i = 0; i < selectedDaysForEvent.length; i++) {
+							
+						console.log("Eintrag 0 in Nummer umwandeln!")
+						let days = selectedDaysForEvent[i].split(".");
+								let day = days[0];
+								day = +day; //convert String into Number
+								month = +month;
+								tmp.push(day,month+1);
+					}
+								
+					}console.log('tmp:', tmp);
+
+				if(tmp.length!=0){
+					if((tmp[0]>tmp[2] && tmp[1]===tmp[3])||(tmp[1]>tmp[3])){
+						console.log("Werte tauschen "+selectedDaysForEvent);
+						console.log(selectedDaysForEvent[0]);
+						selectedDaysForEvent.push(selectedDaysForEvent[1],selectedDaysForEvent[0] );
+						selectedDaysForEvent.splice(0, 2);
+						 console.log("getauschte werte: "+selectedDaysForEvent);
+						tmp.length =0;
+						
+					}
+				}		
+					for(let i=0 ;i<selectedDaysForEvent.length; i++){
+						console.log("convert String into Number für selectedDaysForEvent"+selectedDaysForEvent)
+								let days = selectedDaysForEvent[i].split(".");
+								let day = days[0];
+								day = +day; //convert String into Number
+							
+								let month = days[1];
+								month = +month;
+								daysOfEvents.push(day,month+1);
+								console.log('Noch Mal:', daysOfEvents);
+						}
+							if( daysOfEvents.length<4){
+						renderCalender();
+						chooseEvents(currMonth);
+							}else if (daysOfEvents.length===4){
+								renderCalender();
+								tmp.length=0;
+								chooseEvents(currMonth);
+					
+							}
+				
+				
+					
+				});
+  });
+	
+
+}
+
 
 async function showEvents  (){
 	
@@ -263,6 +374,7 @@ async function showEvents  (){
 							}
 					}
 				}
+				
 				for(let z=0 ;z<datesOfEvents.length; z++){
 											
 					let days = datesOfEvents[z].split(".");
@@ -335,7 +447,9 @@ window.location.href = "index.html#regionDisplay";
 function getRegions(){
 	const params = new URLSearchParams(window.location.search);
 	   const region = params.get('region');
-	   if (region) {
+	   console.log("Region");
+	   if( !window.location.pathname.endsWith("admin.html")){
+	   if (region ) {
 		fetch('Events.json')
 		.then(response => response.json())
 		.then(data => {
@@ -352,6 +466,7 @@ function getRegions(){
 		console.warn("Keine Region angegeben.");
 		navigateToRegionDisplay();
 	}
+}
 		
 	
   }
@@ -383,8 +498,6 @@ function selectRegions(regions) {
 
 async function showDropdownMenu(){
 
-
-	
 	let dropdownList = document.querySelector(".dropdown-menu");
 	
 		let singleEvent = "";
@@ -495,40 +608,52 @@ prevNextIcon.forEach(icon => {
         	let date = new Date();
 			
         }    
-	
-		
-		renderEvents().then( ()=> {
-			showDropdownMenu(); 
+			renderCalender();
+		if( !window.location.pathname.endsWith("admin.html")){
+			renderEvents().then( ()=> {
+				showDropdownMenu(); 
 
-		});	
+			});	
+		
 		showDropdownMenu().then( ()=> {
 			showEvents();
 		});	
+	}else{
 		
 		renderCalender();
+		chooseEvents(currMonth);
+		
+		
+	}
+		
+		
 		
 			
     });
 	
 });
 
-document.addEventListener("DOMContentLoaded", function () {
+if( !window.location.pathname.endsWith("admin.html")){
+			document.addEventListener("DOMContentLoaded", function () {
 
-let dropdownMenu = document.querySelector(".dropdown-menu");
-let calenderView = document.getElementById("calendar")
-	if (dropdownMenu.length > 0){
-		dropdownMenu.addEventListener("click", () => {
-			
-			showDropdownMenu();			
+				let dropdownMenu = document.querySelector(".dropdown-menu");
+
+
+					if (dropdownMenu.length > 0){
+						dropdownMenu.addEventListener("click", () => {
+							
+							showDropdownMenu();			
+						
+						});
+					} else {
+						// Kein <span> vorhanden
+						console.warn("Kein <span> in #dropdown-menu gefunden.");
+					}
+			});
 		
-		});
-	} else {
-		// Kein <span> vorhanden
-		console.warn("Kein <span> in #dropdown-menu gefunden.");
-	  }
-});
 
-renderEvents();
+			renderEvents();
+}
 
 const checkbox = document.getElementById('side-menu');
 const menu = document.getElementById('nav');
@@ -655,6 +780,7 @@ console.log("Di im aktuellen Monat:", recurringThuOfCurrentMonth);
 	
 }
 renderCalender();
+chooseEvents(currMonth);
 
 
 
