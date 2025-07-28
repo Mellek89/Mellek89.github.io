@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Eventverwaltung</title>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/de.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+  <style>
+    body { font-family: sans-serif; padding: 20px; max-width: 800px; }
+    input, button, textarea, select { width: 100%; margin: 6px 0; padding: 8px; }
+    fieldset { margin-top: 20px; }
+    .inline { display: flex; gap: 10px; }
+    .inline input { flex: 1; }
+  </style>
+</head>
+<body>
+
+  <!--h1>🎯 Zeitraum anzeigen</h1>
+  <div class="inline">
+    <input type="text" id="startdatum" placeholder="Startdatum">
+    <input type="text" id="enddatum" placeholder="Enddatum">
+  </div>
+  <button onclick="zeigeZeitraum()">📅 Zeitraum anzeigen</button>
+  <div id="ausgabe" style="margin: 10px 0; font-weight: bold;"></div>
+
+  <hr /-->
+
+  <h2>🎉 Neue Events hinzufügen</h2>
+  <form id="eventForm">
+    <label>Eventname (mit &lt;br/&gt; für Umbruch):
+      <input type="text" id="eventname" required placeholder="z. B. Weinfest Dieblich">
+    </label>
+
+    <div class="inline">
+      <input type="text" id="startdatumEvent" placeholder="Startdatum">
+      <input type="text" id="enddatumEvent" placeholder="Enddatum">
+    </div>
+
+    <button type="button" onclick="addEvent()">➕ Event hinzufügen</button>
+  </form>
+
+  <fieldset>
+    <legend>✏️ Bestehende Events aktualisieren</legend>
+
+    <label>Monat auswählen:
+      <select id="monatSelect" onchange="populateEventSelect()">
+        <option value="">-- bitte wählen --</option>
+      </select>
+    </label>
+
+    <label>Event auswählen:
+      <select id="eventSelect"></select>
+    </label>
+
+    <label>Neue Termine (Mehrfachauswahl):
+      <input type="text" id="neueTermineKalender" placeholder="Neue Termine auswählen">
+    </label>
+
+    <label>Neuer Eventname (optional):
+      <input type="text" id="neuerEventname" placeholder="z. B. Neues Fest">
+    </label>
+
+    <button type="button" onclick="renameEvent()">✏️ Eventnamen ändern</button>
+    <button type="button" onclick="updateEvent()">🔁 Event-Termine aktualisieren</button>
+  </fieldset>
+
+  <button onclick="downloadJSON()">📥 JSON speichern</button>
+
+  <h3>📦 Vorschau:</h3>
+  <pre id="jsonPreview" style="background:#f0f0f0; padding:10px;"></pre>
+
+  <script>
+    const eventData = {};
+
+    flatpickr("#startdatum", { locale: "de", dateFormat: "d.m.Y" });
+    flatpickr("#enddatum", { locale: "de", dateFormat: "d.m.Y" });
+
+    flatpickr("#startdatumEvent", { locale: "de", dateFormat: "d.m.Y" });
+    flatpickr("#enddatumEvent", { locale: "de", dateFormat: "d.m.Y" });
+
+    flatpickr("#neueTermineKalender", {
+      locale: "de",
+      dateFormat: "d.m.Y",
+      mode: "multiple"
+    });
+
+    function zeigeZeitraum() {
+      const start = document.getElementById('startdatum').value;
+      const end = document.getElementById('enddatum').value;
+
+      const d1 = new Date(start.split('.').reverse().join('-'));
+      const d2 = new Date(end.split('.').reverse().join('-'));
+
+      if (d1 > d2) {
+        document.getElementById('ausgabe').innerText = "⚠️ Startdatum darf nicht nach Enddatum liegen.";
+      } else {
+        document.getElementById('ausgabe').innerText = `📆 Zeitraum: ${start} bis ${end}`;
+      }
+    }
+
+    function getMonatVonDatum(datumsString) {
+      const teile = datumsString.split('.');
+      const monatNummer = parseInt(teile[1], 10);
+      const monate = ["Januar", "Februar", "März", "April", "Mai", "Juni",
+                      "Juli", "August", "September", "Oktober", "November", "Dezember"];
+      return monate[monatNummer - 1];
+    }
+
+    function berechneDatumsliste(start, end) {
+      const list = [];
+      const current = new Date(start);
+      const endDate = new Date(end);
+      while (current <= endDate) {
+        const d = current.getDate().toString().padStart(2, '0');
+        const m = (current.getMonth() + 1).toString().padStart(2, '0');
+        const y = current.getFullYear();
+        list.push(`${d}.${m}.${y}`);
+        current.setDate(current.getDate() + 1);
+      }
+      return list;
+    }
+
+    function addEvent() {
+      const eventname = document.getElementById('eventname').value.trim();
+      const start = document.getElementById('startdatumEvent').value;
+      const end = document.getElementById('enddatumEvent').value;
+
+      if (!eventname || !start || !end) {
+        alert("Bitte Eventname, Start- und Enddatum angeben.");
+        return;
+      }
+
+      const startDate = new Date(start.split('.').reverse().join('-'));
+      const endDate = new Date(end.split('.').reverse().join('-'));
+
+      if (startDate > endDate) {
+        alert("Startdatum darf nicht nach dem Enddatum liegen.");
+        return;
+      }
+
+      const termine = berechneDatumsliste(startDate, endDate);
+      const monat = getMonatVonDatum(start);
+
+      if (!eventData[monat]) {
+        eventData[monat] = { month: monat, events: [] };
+        updateMonatSelect();
+      }
+
+      if (!eventData[monat].events.includes(eventname)) {
+        eventData[monat].events.push(eventname);
+        eventData[monat][eventname] = termine;
+      } else {
+        eventData[monat][eventname].push(...termine);
+        eventData[monat][eventname] = [...new Set(eventData[monat][eventname])];
+      }
+
+      document.getElementById('eventForm').reset();
+      updatePreview();
+    }
+
+    function updateMonatSelect() {
+      const select = document.getElementById('monatSelect');
+      select.innerHTML = `<option value="">-- bitte wählen --</option>`;
+      Object.keys(eventData).forEach(monat => {
+        const opt = document.createElement('option');
+        opt.value = monat;
+        opt.textContent = monat;
+        select.appendChild(opt);
+      });
+    }
+
+    function populateEventSelect() {
+      const monat = document.getElementById('monatSelect').value;
+      const eventSelect = document.getElementById('eventSelect');
+      eventSelect.innerHTML = `<option value="">-- bitte wählen --</option>`;
+      if (monat && eventData[monat]) {
+        eventData[monat].events.forEach(evt => {
+          const opt = document.createElement('option');
+          opt.value = evt;
+          opt.textContent = evt;
+          eventSelect.appendChild(opt);
+        });
+      }
+    }
+
+    function updateEvent() {
+      const monat = document.getElementById('monatSelect').value;
+      const eventname = document.getElementById('eventSelect').value;
+      const neueTermine = document.getElementById('neueTermineKalender').value.split(',').map(t => t.trim()).filter(Boolean);
+
+      if (!monat || !eventname || neueTermine.length === 0) {
+        alert("Bitte Monat, Event und neue Termine eingeben.");
+        return;
+      }
+
+      eventData[monat][eventname] = neueTermine;
+      alert("Termine aktualisiert.");
+      updatePreview();
+    }
+
+    function renameEvent() {
+      const monat = document.getElementById('monatSelect').value;
+      const alterName = document.getElementById('eventSelect').value;
+      const neuerName = document.getElementById('neuerEventname').value.trim();
+
+      if (!monat || !alterName || !neuerName) {
+        alert("Bitte Monat, alten Namen und neuen Namen eingeben.");
+        return;
+      }
+
+      if (eventData[monat][neuerName]) {
+        alert("Ein Event mit diesem Namen existiert bereits.");
+        return;
+      }
+
+      eventData[monat][neuerName] = eventData[monat][alterName];
+      delete eventData[monat][alterName];
+
+      const index = eventData[monat].events.indexOf(alterName);
+      if (index !== -1) {
+        eventData[monat].events[index] = neuerName;
+      }
+
+      alert("Eventname geändert.");
+      document.getElementById('neuerEventname').value = '';
+      populateEventSelect();
+      updatePreview();
+    }
+
+    function updatePreview() {
+      document.getElementById('jsonPreview').textContent = JSON.stringify(Object.values(eventData), null, 2);
+    }
+
+    function downloadJSON() {
+      const blob = new Blob([JSON.stringify(Object.values(eventData), null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'events.json';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+  </script>
+</body>
+</html>

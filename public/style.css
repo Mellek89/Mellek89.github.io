@@ -1,0 +1,1716 @@
+/* import Google Fonts Poppins*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+ /**{
+    outline: 1px solid red;
+  }*/
+
+html, body {
+  overflow: auto;
+  min-height: 100%;
+}
+*{margin: 0;
+  padding:0;
+  box-sizing: border-box;
+  font-family: 'Poppins', 'san-serifs'}
+
+/*.hidden {
+  display: none !important;
+}*/
+
+
+.container{
+  max-width: 100%;
+  
+  min-height: 100vh;
+  background-image: url('./images/Lango_laenge_Home.png');
+  background-size: cover;       /* Bild auf gesamte Fläche anpassen */
+  background-repeat: no-repeat; /* Kein Wiederholen des Bildes */
+  background-position: center;  /* Bild zentrieren */
+  display: grid;  
+  grid-template-columns: repeat(9, 1fr);
+  grid-auto-rows: minmax(100px, auto);         /* Höhe des Viewports */
+  color: white;                 /* Text besser lesbar bei dunklem Bild */
+}
+  *, *::before, *::after {
+  box-sizing: border-box;
+}
+ /* Nav menu */
+.side-menu {
+  display: none;
+ } 
+ .container .main.hidden { display: none; }
+
+html, body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+/* Responsive Bilddarstellung */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+        .container {
+        /*width: 100vh;  Make sure content takes the full width */
+         
+        grid-template-columns: repeat(1, 1fr);
+       
+        
+        grid-template-areas: 
+        
+        "header"
+        "main"
+        "main"
+        "main"
+        "main"
+        "main"
+        "main"
+        "main"
+        "main"
+        "footer  "
+        
+        }
+       .container .header{
+      place-items: center; /* zentriert horizontal & vertikal */
+        position: relative;
+        z-index: 2;
+        height: 20%;
+        overflow: visible;
+       display: grid ;
+       
+     
+      
+       }
+       .container .main{
+        position: relative;
+          place-items: center; /* zentriert horizontal & vertikal */
+        display: grid ; 
+      
+        grid-template-columns: repeat(1, 1fr);
+       }
+      
+    
+     
+        .container .header .nav .menu{
+          list-style: none;
+          max-height: 300px;
+        
+          
+        }
+        header .icons span{
+          position: relative;
+          left: 20%;
+          cursor: default;
+          border-radius: 50%;
+        }
+      
+        .nav{
+          display: flow-root;
+          width: auto;
+          height: 100%;
+          position: fixed;
+           inset: 0; /* shorthand for top, right, bottom, left: 0 */
+          overflow: hidden;
+          max-height: 0;
+          transition: max-height .4s ease-out;
+          z-index: 2;
+  
+        }
+
+        /* Navigation menu inside overlay */
+          .menu {
+            position: relative;
+            display: grid;
+            row-gap: 3rem; /* Use rem for better scalability */
+            margin-top: 4rem;
+            left: 0; /* Align to center with flex parent */
+            text-align: center;
+            font-weight: bold;
+            font-size: 150%;
+          
+          }
+
+     
+        .menu  .home{
+         
+          grid-row: 1/2;
+          
+          
+        }
+        .menu  .events{ 
+        
+       
+        grid-row: 2/3;
+      
+        
+        }
+        .menu  .langos{
+       
+        grid-row: 3/4;
+       
+        
+        }
+
+      
+        .menu  .uns {
+          position: relative;
+          
+          grid-row: 4/5;
+          
+          
+        }
+         .menu .news{
+          
+          grid-row: 5/6;
+         
+        }
+        .menu  .kontakt{
+         
+          grid-row: 6/7;
+          
+        }
+        .menu  .logo{
+         
+         display: none;
+       
+        }
+ 
+       nav li a{
+      text-decoration:none;
+      color: #ffeb3b;
+    
+    }
+        nav li a:hover{
+          color: aliceblue;
+          transition: 0.7s;
+        }
+  
+
+     
+      /* Active class to slide nav into view */
+.nav.active {
+  transform: translateY(0);
+}
+
+      .region-select{
+      position: relative;
+        
+       text-align: center;
+       color: #ffeb3b;
+        
+      }
+      .region-display{
+        font-size: 130%;
+      }
+      .regionOptions{
+        margin-top: 10%;
+          font-size: 120%;
+      }
+     
+      .regionOptions a{
+        position: relative;
+        display: block;
+       color: #f2f2f2;
+        text-align: center;
+         margin-left: 0; 
+       
+      }
+      a.minimal-link {
+        display: inline;
+        text-decoration: none;
+        border-bottom: 1px solid #ffeb3b; 
+        padding-bottom: 2px;
+        transition: all 0.2s ease;
+      }
+   
+      /* Menu Icon */
+      .hamb{ 
+        position: relative;
+        cursor: default;
+        padding: 40px 20px; 
+        grid-column: 4; 
+        
+        
+      }
+      /* Style label tag */
+
+      .hamb-line {
+        background: white;
+        display: block;
+        height: 2px;
+        position: relative;
+        width: 24px; 
+        z-index: 3; /* Set z-index to keep the icon at the top position */
+
+      }
+      /* Style span tag */
+
+      .hamb-line::before,
+      .hamb-line::after{
+          background: white;
+          content: '';
+          display: block;
+          height: 100%;
+          position: absolute;
+          /*transition: all .2s ease-out;*/
+          width: 100%;
+      }
+      .hamb-line::before{
+          top: 5px;
+      }
+      .hamb-line::after{
+          top: -5px;
+      }
+
+      /* Toggle menu icon */
+      .side-menu:checked ~ nav{
+        max-height: 100vh;
+      }
+      .side-menu:checked ~ .hamb .hamb-line {
+        background: transparent;
+      }
+      .side-menu:checked ~ .hamb .hamb-line::before {
+        transform: rotate(-45deg);
+        top:0;
+      }
+      .side-menu:checked ~ .hamb .hamb-line::after {
+        transform: rotate(45deg);
+        top:0;
+      }
+
+      body:has(.side-menu:checked) {
+      overflow: hidden;
+      }
+      /* Hide logoMobil when side-menu is checked */
+        .side-menu:checked ~ .logoDiv {
+          display: none;
+        }
+ 
+  .circle{
+    position: relative;
+    transform: translate(px, 3px);
+  }
+        
+.calendar{
+position: relative;
+padding: 10px;
+max-width: 600px;
+background-color: rgba(12, 12, 12, 0.466); /* 0.5 = 50% transparent */
+border-radius: 10px;
+border-width: 1em;
+border: 2px solid #ffeb3b;
+color: #F0FFFF;
+
+margin-bottom: 20%;
+
+
+
+}
+
+.calendar header{
+  position: relative;
+
+  padding: 25px 30px 10px;
+    display: grid;
+    grid-template-columns: 1fr;
+    background-color: #ffeb3b;
+    border-radius: 10px;
+    margin: 0%;
+    color: black;
+
+}
+.calendar header p{
+  font-size: 120%;
+   font-weight: bold;
+}
+.calendar header .icons{
+grid-column: 3/4;
+
+}
+.calendar ul{
+	display:flex;
+	list-style: none;
+	flex-wrap: wrap;
+	text-align: center;
+  margin: 3%;
+
+}
+
+.calendar .weeks li {
+	font-weight: 500;
+
+}
+.calendar .days li{
+	z-index: 1;
+	
+	margin-top: 25px;
+  
+}
+
+.days li.circle{
+  color: #F0FFFF;
+  }
+  .days li.circleInactive{
+    color:  #5c5b5b;
+    
+    }
+.days li.active{
+color: #fff;
+}
+
+.days li.active::before{
+	/*background: #e94417;*/
+  border: 2px solid;
+  border-radius: 50%;
+  border-color: #e94417;
+	
+}
+.calendar ul li{
+	position: relative;
+	width: calc(100% /7);
+}
+.calendar .days li::before{
+	position: absolute;
+	content: "";
+	height: 40px;
+	width: 40px;
+	top: 50%;
+	left: 50%;
+	z-index:-1;
+	border-radius: 50%;
+	transform: translate(-50%, -50%);
+}
+li.circle::before {
+  border: 2px solid;
+  border-radius: 50%;
+}
+
+.days li.circle::before{	
+  
+  border-color: #ffeb3b;
+}
+
+li.circleInactive::before {
+  border: 2px solid;
+  border-radius: 50%;
+}
+
+.days li.circleInactive::before{	
+ 
+  border-color: #ffeb3b;
+}
+
+.inactive{
+  color:  #5c5b5b;
+	}
+.container .main .events{
+  grid-column: 2/3;
+}
+header .chooseItem{
+	font-size: 40px;
+	font-weight: 500;
+	position: relative;
+}
+.span{
+  grid-column: 2/3;
+  min-width: 87%;
+}
+     
+
+      .logoDiv{
+        display: block;
+        position: absolute;
+        z-index: 3;
+          margin-top: 110px; 
+        
+        
+               
+       }
+       .logoMobil{
+        display: block;
+        max-width: 150px; 
+           
+       }
+
+       .slogan{
+        position: relative;
+        color: #ffeb3b; 
+        font-size: 140%; 
+        width: auto;
+        height: auto; 
+       text-align: center;
+     
+        
+        
+       }
+       .slogenBeschreibung{
+        position: relative;
+        
+        font-size: 120%;
+        text-align: center;
+        line-height: 3;
+    
+        /*margin-left:10%;*/
+        
+        
+        
+       }
+       .strong{
+        font-weight: 50%;
+       }
+
+ .dropdownText{
+  position: relative;
+  grid-row: 1;
+  padding: 1em;
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 10%;
+
+ }
+ 
+.dropdown-menu{
+ display: block;
+ min-width: 160px;
+ z-index: 1;
+color: #F0FFFF;
+ grid-row: 2;
+ margin-bottom: 10%;
+
+ text-align: center;
+ 
+
+ 
+}
+.dropdown-menu span{
+  color: #F0FFFF;
+  border-bottom: 1px solid #ffeb3b;
+  font-size: 110%;
+
+  
+}
+.line-break {
+  margin-bottom: 10%;
+ }
+ .error{
+  position: relative;
+  text-align: center;
+ }
+    /*********Langos*********/
+
+.langosAngebot{
+   display: grid ; 
+  place-items: center;   
+  padding: 5%; 
+}
+
+.gönnDir{
+color: #ffeb3b;
+font-size: 1.5em;
+text-align: center;
+
+}
+.langKur{
+grid-row: 2/3;
+text-align: center;
+color: #F0FFFF;
+font-size: 1.2em;
+}
+.langosGestapelt{
+  max-width: 300px;
+  grid-row: 3/4;
+ 
+}
+
+.zutaten{
+  color: #ffeb3b;
+  font-size: 1.5em;
+   grid-row: 4/5;
+   text-align: center;
+   margin-bottom: 10%;
+}
+.tabelleAngebot{
+  margin-bottom: 10%;
+  grid-row: 5/6;
+ 
+}
+.treue{
+   font-size: 1.5em;
+   text-align: center;
+   color: #ffeb3b;
+}
+.treuetaler{
+  max-width: 300px;
+}
+.langosTreuetaler{
+  text-align: center;
+}
+.imageTreuetaler{
+
+   margin-top: 10%;
+
+   grid-row: 8/9;
+ 
+}
+
+table {
+      border-collapse: collapse;
+      border-bottom: 1px solid #ffeb3b;
+    }
+    th, td {
+      position: relative;
+      border: none;
+      padding: 8px;
+      font-size: 1.1em;
+ 
+    }
+    th{
+       border-bottom: 1px solid #ffeb3b;
+       font-size: 1.2em;
+      
+    }
+
+.langosTreuetaler{
+  grid-row: 7/8;
+ font-size: 1.2em;
+
+ padding-bottom: 1em;
+}
+
+
+     /******Kontakt**************/
+
+
+
+  /******Ueber Uns**************/
+.uns_prev,
+.uns_next {
+  display: none;}
+.hUns{
+color: #ffeb3b;
+margin-top: 10%;
+margin-bottom: 2em;
+margin-left: 2%;
+font-size: 25px;
+}
+
+.slideshow-container {
+  margin-left: 1%;
+}
+.unterstrichen{
+  border-bottom: 1px solid #ffeb3b; 
+  padding-bottom: 2em;
+  display: inline-block;
+  
+}
+p,
+ .Wagen1978Span img,
+  .Wagen1984Span img,
+  .HolzhütteSpan img,
+  .SpeyerSpan img,
+  .ShoppegässleSpan img,
+  .DMSpan img,
+  .EUSpan img,
+  .EttlingenWeihnachtsmarktSpan img,
+  .KarlsruheWeihnachtsmarktSpan img,
+  .HexenhausSpan img,
+  .HängerSpan img,
+  .WagenJanSpan img {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    display: block;  
+    margin-top: 1em;
+   margin-bottom: 1em;
+
+  }
+
+   .Wagen1984Span img {
+    width: 120%;
+    margin-left: -2em;
+     max-width: 650px
+   }
+   .HolzhütteSpan img{
+    width: 120%;
+    margin-left: -2em;
+   }
+
+  .Wagen1978Text,
+  .ersterWagen,
+  .Wagen1984,
+  .Holzhütte,
+  .Speyer,
+  .Shoppegässle,
+  .DM,
+  .EU,
+  .EttlingenWeihnachtsmarkt,
+  .KarlsruheWeihnachtsmarkt,
+  .Hexenhaus,
+  .Hänger,
+  .WagenJan {
+    margin: 0em auto;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    text-align: center;
+    max-width: 700px; 
+  }
+  .Wagen1978Text{
+    margin-top: 0;  
+    padding: 1em;
+  }
+  .EU{
+    text-align: center;
+  }
+  
+
+  .Wagen1978Span,
+  .Wagen1984Span,
+  .HolzhütteSpan,
+  .SpeyerSpan,
+  .ShoppegässleSpan,
+  .DMSpan,
+  .EUSpan,
+  .EttlingenWeihnachtsmarktSpan,
+  .KarlsruheWeihnachtsmarktSpan,
+  .HexenhausSpan,
+  .HängerSpan,
+  .WagenJanSpan {
+    display: block;
+    
+    margin: 0 auto;
+  
+  }
+.Wagen1978Span img {
+  vertical-align: bottom; /* oder bottom, je nach Effekt */
+}
+
+
+  .Geschichte {
+    padding: 1em;
+  display: grid;
+  grid-template-columns: 1fr;
+  /*justify-items: center;*/
+  margin-top: 0;
+
+  }
+   .Wagen1978Block,
+  .Wagen1984Block,
+  .HolzhütteBlock,
+  .SpeyerBlock,
+  .ShoppegässleBlock,
+  .DMBlock,
+  .EUBlock,
+  .EttlingenWeihnachtsmarktBlock,
+  .KarlsruheWeihnachtsmarktBlock,
+  .HexenhausBlock,
+  .HängerBlock {
+    grid-column: span 2;
+  }
+
+
+
+/****Ueber uns****/
+
+
+
+.GrünTreuetaler,
+.RotTreuetaler,
+.GelbTreuetaler,
+.GrünTreuetalerJens {
+  grid-column: span 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  padding: 1rem;
+  
+  border-radius: 6px;
+}
+
+/* E-Mail-Text */
+.emailGrün a,
+.emailRot a,
+.emailGelb a,
+.emailGrünJens a{
+  font-size: 1.1rem;
+  text-align: right;
+  border-bottom: 1px solid #ffeb3b;
+  text-decoration: none;
+}
+
+/* Taler-Bild */
+.talerGrün,
+.talerRot,
+.talerGelb,
+.talerGrünJens {
+  width: 80px;     /* Größe anpassen */
+  height: auto;
+}
+#taler {
+  width: 100px;
+  height: 100px;
+  display: block;
+ 
+  transform-style: preserve-3d;
+}
+@keyframes drehen {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+}
+
+#taler {
+  animation: drehen 2s linear infinite;
+}
+
+
+
+
+
+
+.hKontakt{
+  color: #ffeb3b;
+   grid-column: 1 / -1; /* oder span 4, wenn 4 Spalten */ 
+   text-align: center;
+   font-size: 1.5em;
+   margin-top: 1.5em;
+}
+.KontaktText{
+  padding: 1em;
+   grid-column: 1 / -1; /* oder span 4, wenn 4 Spalten */ 
+   text-align: center;
+   max-width: 100%;
+}
+.KontaktText span {
+  font-size: 1.3em;  
+}
+
+
+/*****Create and update Events*****/
+
+
+@media (max-width: 767px) {
+
+ /*Home Menu*/
+
+
+}
+
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+ /*Über uns*/
+ .Wagen1984Span,
+ .HolzhütteSpan,
+ .HexenhausSpan{
+  margin-left: 10%;
+ }
+
+ .KarlsruheWeihnachtsmarktSpan{
+  margin-left: -5%;
+
+ }
+ .HängerSpan{
+    margin-left: 5%;
+ }
+ 
+
+
+
+   
+}
+
+@media (min-width: 1025px) {
+
+ .container{
+  grid-template-areas: 
+  "header header header header header header header header header"
+  "main main main main main main main main main"
+  "main main main main main main main main main"
+  "main main main main main main main main main"
+  "main main main main main main main main main"
+  "footer footer footer footer footer footer footer footer footer"
+  "footer footer footer footer footer footer footer footer footer"
+  "footer footer footer footer footer footer footer footer footer"
+  
+  
+}
+
+.container .header {
+ 
+  display: grid;
+  grid-area: header;
+grid-template-columns: 1fr auto 1fr; /* zentriert mittlere Spalte */
+  position: sticky;
+  top: 0%;
+  width: 100%;
+  min-height: 100px; /* oder was zu deinem Layout passt */
+  padding: 2rem;
+  align-items: center;
+
+}
+.container .main{
+grid-area: main;
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+grid-auto-rows: minmax(100px, auto);
+
+}
+ .container .main.hidden { display: none; }
+.container .footer {
+
+ bottom: 0px;
+  left: 0px;
+  grid-area: footer;
+ 
+  
+}
+.container .header .nav {
+  grid-column: 1/4; /* ← mittlere Spalte */
+  justify-self: center; /* ← zentriert horizontal */
+  
+}
+
+
+.nav{
+   display: block;
+  position: relative;
+  max-height: none;        /* <<< Wichtig! */
+  overflow: visible;       /* <<< Wichtig! */
+  inset: auto;             /* inset zurücksetzen */
+  height: auto;
+  width: 100%;
+  z-index: 3;   
+          /* niedriger als Header-Inhalte */
+  grid-row: 1/2; 
+
+}
+.hamb, .side-menu {
+    display: none; /* <--- wichtig, um es sicher auszublenden */
+  }
+
+.menu{
+/*position: relative;
+margin-left: auto;
+grid-column: 2/4;*/
+ justify-self: center;
+}
+.menu .home{
+ grid-column: 2; 
+ grid-row: 1/2;
+ 
+
+}
+.menu .events{
+grid-column: 3;
+ grid-row: 1/2;
+
+}
+.menu .langos{
+grid-column: 4;
+ grid-row: 1/2;
+ 
+}
+.menu .logo{
+  display: block;
+  position: relative;
+  grid-column: 6;
+  z-index: 3;
+   grid-row: 1/2;
+  
+ }
+ .logoImg{
+    position: relative;
+   max-width: 200px;
+   height: auto;
+  margin-top: -80px;
+    z-index: 3;
+  grid-row: 1/2;
+  
+ 
+ }
+
+.menu .uns {
+  grid-column: 7;
+   grid-row: 1/2;
+  
+}
+.menu .news{
+  grid-column: 8;
+   grid-row: 1/2;
+   
+}
+.menu .kontakt{
+  grid-column: 9;
+   grid-row: 1/2;
+  
+}
+.logoMobil{
+  display: none;
+}
+
+/***Home***/
+.mainContainer{
+  grid-column: 2/4;
+  display: grid;
+  place-items: center;
+
+}
+.slogan{
+  position: relative;
+ 
+
+  margin-bottom: 5%;
+  font-size: 160%;
+  
+ }
+ .slogenBeschreibung{
+  position: relative;
+
+
+  left: 0%;
+  font-size: 120%;
+    margin-bottom: 5%;
+ }
+.region-select {
+  position: relative;
+  width: 300px;
+  display: block;
+  
+
+
+}
+
+
+.regionOptions {
+  position: relative;
+ color: #F0FFFF;
+  right: 0;
+  z-index: 10; 
+  display: block;
+
+  top: 20%;
+ 
+}
+
+/**Events***/
+
+header .icons span:hover{
+  background: #f2f2f2
+}
+.dropdownText{
+  grid-column: 2/4;
+}
+.calendar{
+  grid-column: 2;
+}
+.dropdown-menu{
+  grid-column: 3;
+}
+
+.slideEventcontainer{
+  position: absolute;
+  top:15%;
+  left:18%;
+}
+.slideshow{
+  display: none;
+  position: absolute; 
+  grid-column: 2/3;
+  background-color: black;
+ top: 20%;
+  border: 2px solid #F0E801;
+  border-radius: 10px;
+ width: 25%;
+ right: 19%;
+ cursor: pointer;
+ color: #fff;
+ 
+ font-size: 20px;
+ padding: 5%;
+ }
+ .slideshowHeadline{ 
+  position: relative;
+  color: #ffeb3b;
+  font-size: 200%;
+  left: 65%;
+  
+           
+  }
+
+ .slideEvents{
+  position: absolute;
+  right: 2%;
+  display: inline-block;
+  position: relative;
+  width: 121%;
+  color: #fff;
+  padding: 5%;
+  font-size: 130%;
+
+  
+ }
+ .slideshowIcons{
+  position: absolute;
+  left: 15%;
+  z-index: 1;
+  top: 40%;
+ }
+
+ .slideshowIcons span{
+  cursor: default;
+  
+ }
+
+  #slideNext{
+  position: relative;
+  left: 270%;
+ }
+ #slidePrev{
+  position: relative;
+  right: 61%;
+  
+  
+ }
+
+
+
+ .events {
+  
+  display: grid;
+  
+ }
+ .eventDescription{
+  position: relative;
+  top: 5%;
+ }
+ .eventHeadingTop{
+  position: relative;
+  left: 22%;
+  font-size: 20px;
+ }
+ .eventHeadingBottom{
+  position: relative;
+  left: 20%;
+  font-size: 20px;
+  
+ }
+ .eventInformation{
+  position: relative;
+  left: 10%;
+ }
+ .line{
+  position: relative;
+  border-bottom: solid;
+  color: black;
+  width: 60%;
+  left: 15%;
+ }
+
+
+/*Langos*/
+.langosAngebot{
+  grid-column: 2/4;
+}
+/*Ueber Uns*/
+
+.slideshow-container {
+  position: relative;
+  max-width: 800px;
+  border-radius: 10px;
+  color: white;
+  grid-column: 2/4;
+  margin-left: 10%;
+}
+
+.slide {
+  display: none;
+  
+}
+
+.slide img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+  margin-bottom: 1em;
+}
+
+.slide.active {
+  display: block;
+}
+
+.uns_prev,
+.uns_next {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  width: auto;
+ 
+  color: white;
+  font-weight: bold;
+  font-size: 2em;
+  user-select: none;
+  
+  border-radius: 0.3em;
+  transform: translateY(-50%);
+}
+
+.uns_prev {
+  left: 10px;
+  top: 70%;
+ 
+}
+
+.uns_next {
+  right: 10px;
+    top: 70%
+}
+
+
+
+/* Mobile: Alle sichtbar */
+@media (max-width: 1024px) {
+  .Geschichte .slide {
+    display: block !important;
+  }
+   .Geschichte .uns_prev {
+    display: none !important;
+  }
+     .Geschichte .uns_next {
+    display: none !important;
+  }
+}
+.hUns{
+  position: relative;
+  color: #ffeb3b;
+  text-align: center;
+  font-size: 30px;
+  grid-column: 2/4 ;
+  margin-bottom: 2em;
+  margin-left: -5%;
+
+}
+
+  .Geschichte {
+  padding: 1em;
+  display: grid;
+  margin-top: 0;
+  }
+  .unterstrichen{
+  border-bottom: 1px solid #ffeb3b; 
+  padding-bottom: 2em;
+  display: inline-block;
+  text-align: center;
+  grid-column: 2/3 ;
+}
+ .Wagen1978Text{
+    margin-top: 0; 
+    margin-bottom: 3em; 
+   text-align:inherit;
+    font-size: 1.1em;
+  }
+  .Wagen1978Block,
+  .Wagen1984Block,
+  .HolzhütteBlock,
+  .SpeyerBlock,
+  .ShoppegässleBlock,
+  .DMBlock,
+  .EUBlock,
+  .EttlingenWeihnachtsmarktBlock,
+  .KarlsruheWeihnachtsmarktBlock,
+  .HexenhausBlock,
+  .HängerBlock {
+    display: grid;
+    grid-template-columns: 1fr ;
+    grid-template-rows: auto auto; /* Text oben, Bild unten */
+      text-align: center; /* <-- vertikal mittig ausrichten */
+     gap: 1em;
+     margin-bottom: 2em;
+  }
+
+
+ .Wagen1978Span img,
+  .Wagen1984Span img,
+  .HolzhütteSpan img,
+  .SpeyerSpan img,
+  .ShoppegässleSpan img,
+  .DMSpan img,
+  .EUSpan img,
+  .EttlingenWeihnachtsmarktSpan img,
+  .KarlsruheWeihnachtsmarktSpan img,
+  .HexenhausSpan img,
+  .HängerSpan img {
+   
+    max-width: 700px;
+    height: auto;
+    margin: 0 auto;
+    display: block;  
+  
+
+  }
+
+  .ersterWagen,
+  .Wagen1984,
+  .Holzhütte,
+  .Speyer,
+  .Shoppegässle,
+  .DM,
+  .EU,
+  .EttlingenWeihnachtsmarkt,
+  .KarlsruheWeihnachtsmarkt,
+  .Hexenhaus,
+  .Hänger {
+  margin: 0em auto;
+  max-width: 700px;
+ font-size: 15px;
+  text-align: center;
+  }
+
+  .Wagen1978Span,
+  .Wagen1984Span,
+  .HolzhütteSpan,
+  .SpeyerSpan,
+  .ShoppegässleSpan,
+  .DMSpan,
+  .EUSpan,
+  .EttlingenWeihnachtsmarktSpan,
+  .KarlsruheWeihnachtsmarktSpan,
+  .HexenhausSpan,
+  .HängerSpan {
+   display: block;
+  text-align: center;
+  grid-column: 1 / -1;
+  margin: 0 auto;
+  
+ 
+
+  
+  }
+
+
+
+/********Langos********/
+
+.langosTreuetaler{
+ grid-column: 1 / -1; /* oder span 4, wenn 4 Spalten */
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

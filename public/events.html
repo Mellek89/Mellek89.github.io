@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang = "en"  dir = "ltr">
+    
+<head>
+  <meta charset ="utf-8">
+  <meta content-type="application/javascript">
+  <!--meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, max-age=0"-->
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/Lango-laenge-Logo.png">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+  <link  rel="stylesheet"  href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"/>
+
+  <title>Index</title>
+  <link rel = "stylesheet" href="style.css"> 
+  <!--link rel = "stylesheet" href="events.css"--> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"
+   />
+  
+  <link rel="stylesheet" href ="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<script src="jquery-3.7.1.js"></script>  
+
+
+
+
+  </head>
+
+<body>
+  <div class="container">
+    <header class="header">
+     
+      <!--Hamburger Icon-->
+      <input class="side-menu" title="hamb" type="checkbox" id="side-menu"/>
+      <label class="hamb" id="hamb" for="side-menu"><span class="hamb-line"></span></label>
+      <div class="logoDiv" > <img src="./images/Lango-laenge-Logo.png" class="logoMobil" ></div>
+
+     
+      <!--Menu-->
+      <nav class="nav" id="nav">
+        <ul class="menu">
+         <li class="home"> <a  href="index.html">Home</a></li>
+          <li class="events"><a  href="events.html">Events</a></li>
+          <li class="langos"><a  href="langos.html">Langos</a></li>
+          <li class="logo"> <img src="./images/Lango-laenge-Logo.png" class="logoImg"></li>
+          <li class="uns"><a href="uns.html">Über uns</a></li>
+          <li class="news" ><a  href="news.html">News</a></li>
+          <li class="kontakt"><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </nav>
+
+
+    </header>
+    <!-- Main content -->
+    <main class="main" id="main">
+       
+       <p class="dropdownText" id="dropdownText"></p>
+      <div class="dropdown-menu" id="dropdown-menu">
+       
+       <span class="dropdown-item"id="dropdown-item"> </span>
+        
+      </div>
+   
+    <div class="error" id="error-box" style="display:none; color:red;"></div>
+      <div class="calendar" id="calendar">
+        
+        <header>
+          <p class="current-date"></p>
+        
+          <div class="icons">
+            <span id = "prev" class="material-symbols-rounded">chevron_left</span>
+            <span id = "next" class="material-symbols-rounded">chevron_right</span>
+          </div>
+          </header>
+        <ul class="weeks">
+          <li>So</li>
+          <li>Mo</li>
+          <li>Di</li>
+          <li>Mi</li>
+          <li>Do</li>
+         <li>Fr</li>
+          <li>Sa</li> 
+        </ul>
+        <ul class="days">
+
+          
+        </ul> 
+
+      </div>
+
+    
+     
+
+
+      <div class="itemSelector"> 
+        <legend class="formHeading" id ="formHeading"></legend>  
+        
+      </div>
+
+    
+    </main>
+
+
+    <footer class="footer">
+     
+
+    </footer>
+
+</div>
+<script type= "module" src="script.js" ></script>
+<script type= "module" src="events.js" ></script>
+
+
+
+</body>
