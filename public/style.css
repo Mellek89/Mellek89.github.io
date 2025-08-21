@@ -304,7 +304,7 @@ border-width: 1em;
 border: 2px solid #ffeb3b;
 color: #F0FFFF;
 
-margin-bottom: 20%;
+
 
 
 
@@ -789,14 +789,79 @@ p,
 
 
 /*****Create and update Events*****/
+.regionsAdmin{
+ font-size: 1.3em;
+    margin-top: -5%;
+    margin-bottom: 10%;
+
+}
+
+ input[type="radio"] {
+  
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  label {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  input[type="radio"]:checked + span {
+ 
+    color:#ffeb3b;
+        padding-bottom: 2px;
+        transition: all 0.2s ease;
+}
+
+
+
+
 
 
 @media (max-width: 767px) {
 
- /*Home Menu*/
+  .container .main {
+    display: grid;
+    grid-template-columns: 1fr; /* alles untereinander */
+    grid-auto-rows: auto;
+  }
 
-
+  .calendar,
+  .inputEvents,
+  .regionsAdmin,
+  .hAdmin {
+    grid-column: 1 / -1; /* gesamte Breite */
+  }
 }
+.calendar {
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto 20px auto;
+  }
+
+  .inputEvents {
+    width: 100% !important;
+    margin: 0 auto;
+  }
+
+  .hAdmin,
+  .regionsAdmin {
+    text-align: center;
+    width: 100%;
+  }
+
+
+
+
 
 
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -816,6 +881,7 @@ p,
     margin-left: 5%;
  }
  
+/*Admin stuff*/
 
 
 
@@ -1300,6 +1366,32 @@ header .icons span:hover{
 }
 
 }
+ /*AdminStuff*/
+
+
+ .regionsAdmin{
+ font-size: 1.3em;
+  margin-top: 0.5em;
+  grid-column: 1/5;
+  text-align: center;
+
+
+}
+.inputEvents {
+  grid-column: 3 / 5; /* Spalte 3 + 4 */
+  align-self: start; /* ebenfalls oben ausrichten */
+}
+.hAdmin{
+  grid-column: 1/5;
+  color: #ffeb3b;
+margin-top: 2em;
+margin-bottom: 2em;
+margin-left: 2%;
+font-size: 25px;
+  width: 100%;
+  text-align: center;
+}
+
 
 
 

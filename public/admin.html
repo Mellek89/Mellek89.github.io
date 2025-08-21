@@ -63,7 +63,17 @@
 
 
   <main class="main" id="main">
-  <h1 class="hUns">Termine eintragen</h1>
+    
+  <h1 class="hAdmin">Termine eintragen für</h1>
+<div class="regionsAdmin"> <label class="Mittelrhein"  style="display: flex; align-items: center; gap: 5px;">
+            <input type="radio" name="region" value="Mittelrhein" id="MittelrheinAdmin" autocomplete="off">
+           <span>Mittelrhein</span>
+          </label>
+          <label class="Oberrhein" style="display: flex; align-items: center; gap: 5px;">
+            <input type="radio" name="region" value="Oberrhein" class="Oberrhein" id="OberrheinAdmin" autocomplete="off">
+           <span>Oberrhein</span>
+          </label></div>
+  
   <div class="calendar" id="calendar">
         
         <header>
@@ -91,36 +101,28 @@
       </div>
 
 
+     <div class="inputEvents" style="width: 60%;" >
+    <div class="dropdown-menu" id="dropdown-menu">
+          <span class="dropdown-item"id="dropdown-item"></span>
+     </div>
+  <form id="zeitraumForm" class="zeitraumForm">
+    <div class="error" id="error-box" style="display:none; color:red;"></div>
+          <label><strong>Eventname :</strong>
+              <input type="text" id="eventname" required placeholder="z. B. Weihnachtsmarkt Durlach">
+              </label>                     
+              <div style="display: flex; gap: 20px; align-items: center;">
+        </div>
 
-            <div class="inputEvents">
-              <form id="zeitraumForm">
-              <label>Eventname (mit &lt;br/&gt; für Umbruch):
-                    <input type="text" id="eventname" required placeholder="z. B. Weinfest Dieblich">
-                    </label>                
-            
-                    <div style="display: flex; gap: 20px; align-items: center;">
-  <label style="display: flex; align-items: center; gap: 5px;">
-    <input type="radio" name="region" value="Mittelrhein" id="MittelrheinAdmin" required>
-    Mittelrhein
-  </label>
-  <label style="display: flex; align-items: center; gap: 5px;">
-    <input type="radio" name="region" value="Oberrhein" id="OberrheinAdmin">
-    Oberrhein
-  </label>
-  
-</div>
+        <div style="margin-top: 10px;">
+          <span class="eventTemp" id="eventTemp"><strong>Zeitraum:</strong></span><br><br>
+        </div>
 
-<div style="margin-top: 10px;">
-  <span class="eventTemp" id="eventTemp"><strong>Zeitraum:</strong></span>
-</div>
-<div>
-  <input type="checkbox" id="checkbox1" name="option1" value="value1" checked>
-    <label for="checkbox1">Wiederkehrendes Event</label>
-</div>
-
-
-                 <button type="submit">Vorschau anzeigen</button>
-             </form>
+          <label for="checkbox1" class="Wochenmarkt" style="display: flex; align-items: center;">
+            <strong>Wochenmarkt</strong>
+            <input type="checkbox" id="weekmarket" name="option1" value="value1" style="width: 20%;">
+            </label>
+          <button type="submit">Vorschau anzeigen</button>
+  </form>
             </div>
 
             <div id="ausgabe" style="margin-top: 20px;"></div>
@@ -135,7 +137,7 @@
         
     </div>
 
-<script type= "module" src="admin.js"></script>
+
 <script type= "module" src="events.js" ></script>
   </body>
     </header>
