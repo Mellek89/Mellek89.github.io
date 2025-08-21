@@ -19,30 +19,36 @@ let datesOfEvents = [];
 let eventId = ""; 
 let dayOfEvent = null;
 let daysOfEvents = [];
-let recurringdWedsOfEvents = [];
+let recurringDaysOfEvents = [];
 let recurringThuesOfEvents = [];
 let actualEvents = [];
 let eSelector = [];
 let keyValueOfEvents = [];
-let recurringWedOfCurrentMonth= [];
-let recurringThuOfCurrentMonth= [];
+let recurringEventsOfCurrentMonth=[];
+let recurringEvents=[];
+let recurringMarketDates = [];
+
 let prevNextSlideshow = document.querySelectorAll(".slideshowIcons span");
 let dropdownHeader = document.getElementById("dropdownMenu");
 let eventData = [];
-let listofevents =[];
-let listofRegion = {};
+
 let ehrenEl ;
 let seltersEl ;
 //Variablen für Eventauswahl für admin
+let listofevents =[];
+let listofRegion = {};
 const selectedDaysForEvent = [];
 let tmp = [];
+let formattedEventname = '';
+let region = '';
+
 
 
 var endOfEvent= null;
 
 const months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September",
 				"Oktober", "November", "Dezember"]
-console.log("events.js");
+
 		async function getData() {
 					const url = "/daten/events.json";
 					try {
@@ -115,28 +121,13 @@ const renderCalender = () => {
 			
 				
 					let isToday = i === date.getDate() && currMonth === new Date().getMonth() && currYear === new Date().getFullYear() ? "active" : "";	
-					
-				//recurring events
-
-					
-					if (ehrenEl) {
-						if (ehrenEl.classList.contains("active")) {
-							for (let z = 0; z < recurringWedOfCurrentMonth.length; z += 2) {
-								if (recurringWedOfCurrentMonth[z + 1] === currMonth + 1) {
-									recurringDaysSet.add(recurringWedOfCurrentMonth[z]);
+										
+				
+					for (let z = 0; z < recurringDaysOfEvents.length; z += 2) {
+								if (recurringDaysOfEvents[z + 1] === currMonth + 1) {
+									recurringDaysSet.add(recurringDaysOfEvents[z]);
 								} 
-							}		
-							
-						}else if (seltersEl.classList.contains("active")) {
-								for (let z = 0; z < recurringThuOfCurrentMonth.length; z += 2) {
-									if (recurringThuOfCurrentMonth[z + 1] === currMonth + 1) {
-									recurringDaysSet.add(recurringThuOfCurrentMonth[z]);
-									}
-							}	
-						}
-					}
-					
-			
+							}
 	
 
 				 	let className = isToday;
@@ -145,9 +136,8 @@ const renderCalender = () => {
 					className = "circle";
 					liTag += `<li id="${i}" class="${className}">${i}</li>`;
 					i++;
-					}	
-
-
+					}
+						
 						//same event in multiple months 
 						if(daysOfEvents[1]<daysOfEvents[3]){
 							
@@ -215,16 +205,22 @@ const renderCalender = () => {
 	currentDate.innerText = `${months[currMonth]} ${currYear}`;
 	
 	daysTag.innerHTML = liTag;
-	recurringWedOfCurrentMonth.length = 0;
+	recurringDaysOfEvents.length = 0;
 	liTag = "";
 
 	
 }
 
 
+function clearMessage() {
+  const ausgabe = document.getElementById('ausgabe');
+  if (ausgabe) {
+    ausgabe.innerHTML = "";
+  }
+}
 
 function chooseEvents (month){ // für admin
-	
+	clearMessage();
 daysOfEvents.length=0;
 
 let listOfIDs = document.querySelectorAll('.days li' );
@@ -260,7 +256,7 @@ listOfIDs.forEach(item => {
 									eventname: eventname,
 									selectedDaysForEvent
 									};	
-					console.log("selectedDaysForEvent:", selectedDaysForEvent);
+					
 					document.getElementById('eventTemp').innerHTML = 
   `<strong>Zeitraum:</strong> ${selectedDaysForEvent[0]}${selectedDaysForEvent.length > 1 ? ' - ' + selectedDaysForEvent[1] : ''} (${currYear})`;
 
@@ -272,7 +268,7 @@ listOfIDs.forEach(item => {
     selectedDaysForEvent.splice(selectedDaysForEvent.indexOf(selectedDaysForEvent[0]), 1);
   }
 
-  console.log('Ausgewählte IDs:', selectedDaysForEvent);
+  
 			if (selectedDaysForEvent.length<2 &&  !selectedDaysForEvent.includes(fullID)) {
 			console.log("Füge"+selectedDaysForEvent+"hinzu, wenn nur 1 Eintrag vorhanden!");
 			selectedDaysForEvent.push(fullID);
@@ -281,7 +277,7 @@ listOfIDs.forEach(item => {
 				if (selectedDaysForEvent.length<=2 && selectedDaysForEvent.includes(fullID)){
 					for (let i = 0; i < selectedDaysForEvent.length; i++) {
 							
-						console.log("Eintrag 0 in Nummer umwandeln!")
+					
 						let days = selectedDaysForEvent[i].split(".");
 								let day = days[0];
 								day = +day; //convert String into Number
@@ -305,7 +301,7 @@ listOfIDs.forEach(item => {
 					}
 				}		
 					for(let i=0 ;i<selectedDaysForEvent.length; i++){
-						console.log("convert String into Number für selectedDaysForEvent"+selectedDaysForEvent)
+						
 								let days = selectedDaysForEvent[i].split(".");
 								let day = days[0];
 								day = +day; //convert String into Number
@@ -313,7 +309,7 @@ listOfIDs.forEach(item => {
 								let month = days[1];
 								month = +month;
 								daysOfEvents.push(day,month);
-								console.log('Noch Mal:', daysOfEvents);
+							
 								
 						}
 							if( daysOfEvents.length<4){
@@ -334,7 +330,179 @@ listOfIDs.forEach(item => {
   
 
 }
- function speichernEvent(name, month,selectedDaysForEvent,region) {
+
+if (window.location.pathname.endsWith("admin.html")){
+	 // Formularauswertung
+    const mittelrhein = document.getElementById('MittelrheinAdmin');
+	const oberrhein = document.getElementById('OberrheinAdmin');
+
+document.getElementById('eventname').addEventListener('focus', () => {
+    clearMessage() ;
+});
+	
+
+function handleWeekmarkets(){
+	const weekmarket = document.getElementById("weekmarket");
+	const marketname = document.getElementById("eventname");
+	const mittelrhein = document.getElementById("MittelrheinAdmin");
+	const oberrhein = document.getElementById("OberrheinAdmin");
+	let name = "";
+	let region = "";
+
+	 if (!mittelrhein.checked && !oberrhein.checked) {
+        alert("Bitte eine Region auswählen.");
+        return;
+    }
+		if(weekmarket.checked){
+				name = marketname.value;
+				weekmarket.value = true;
+		}else{
+			name = marketname.value;
+				weekmarket.value = false;
+
+		}
+		if (mittelrhein.checked ) {   
+			region = mittelrhein.value;
+
+			}else if (oberrhein.checked ) {   
+			region = oberrhein.value;
+					
+		}
+		
+		 
+    if (typeof listofRegion === 'undefined') {
+        alert("Fehler: listofRegion ist nicht definiert!");
+        return;
+    }
+ // ✅ Initialisiere Regionseintrag, falls nicht vorhanden
+    if (!listofRegion[region]) {
+        listofRegion[region] = { regions: [] };
+    }
+
+		// Globale JSON-Datenstruktur (z.B. im Fenster oder in einem Modul definiert)
+    if (weekmarket.checked) {
+        // Wenn Wochenmarkt: In listofRegion einfügen
+        if (!listofRegion[region].regions.includes(name)) {
+            listofRegion[region].regions.push(name);
+        }
+    }
+
+    return {
+        name: name,
+        region: region,
+        isWeekly: weekmarket.checked
+    };
+		
+		
+
+	}
+async function ladeDatenFürRegion(region) {
+
+if (!region) {
+    console.warn("⚠️ Keine Region angegeben für ladeDatenFürRegion");
+    return;
+  }
+
+		 await loadRegionData();
+
+      if (!listofRegion) {
+        console.warn(`Region "${region}" nicht gefunden.`);
+      	
+        return;
+      }
+
+      renderEvents().then(() => {
+			const regionData = listofRegion[region];
+			if (!regionData) {
+			console.warn(`❌ Keine Daten für Region "${region}" gefunden.`);
+			showDropdownMenu(listofRegion,region); 
+			return;
+			}
+
+			console.log("🔎 Region übergeben:", region);
+			console.log("🔎 Daten für Region:", listofRegion[region]);
+
+			console.log("📤 Übergabe an Dropdown:", regionData);
+			showDropdownMenu(listofRegion,region); 
+
+       
+      });
+   
+} 
+	
+
+	oberrhein.addEventListener('change', async () => {
+	  if (oberrhein.checked ) {
+       	 region = oberrhein.value;
+		
+		  await ladeDatenFürRegion(region);
+      }
+	});
+	
+		mittelrhein.addEventListener('change', async () => {
+		if (mittelrhein.checked ) {   
+				 region = mittelrhein.value;
+				
+				 await ladeDatenFürRegion(region);
+			}
+		});
+
+      
+ document.getElementById('zeitraumForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+		handleStrings();
+      const eventname = document.getElementById('eventname').value.trim();
+	   let eventnametmp = eventname;
+	   eventnametmp= formattedEventname;
+	  
+	
+      if (!eventnametmp ) {
+        alert("Bitte alle Felder ausfüllen.");
+        return;
+      }
+    			// Vorschau anzeigen
+    const { name, region, isWeekly } = handleWeekmarkets();
+	const finalName =  eventnametmp;
+		document.getElementById('bestaetigung').innerHTML = `
+				<p> Ist folgendes korrekt?</p>
+				<ul>
+				<li><strong>Region:</strong> ${region}</li>
+				<li><strong>Event:</strong> ${eventnametmp}</li>
+				<li id="eventTemp">'<strong>Zeitraum:</strong> 
+					${selectedDaysForEvent[0]} 
+					${selectedDaysForEvent[1]+1 > 1 ? ' - ' + selectedDaysForEvent[1] : ''} 
+					(${currYear})
+				</li>
+				</ul>
+				<button id="saveBtn">✅ Speichern</button>
+				<button id="udBtn">📝Korregieren</button>
+				`; 
+				
+				console.log(selectedDaysForEvent);
+				const saveBtn= document.getElementById('saveBtn')
+				  saveBtn.addEventListener('click', function handler() {
+					
+					speichernEvent(finalName, currMonth, selectedDaysForEvent,region,isWeekly);
+					    // Events in Liste anzeigen
+  					ladeDatenFürRegion(region);
+					// Nur einmal ausführen: Eventlistener wieder entfernen
+					saveBtn.removeEventListener('click', handler);
+				});
+			
+
+
+    });
+
+}
+
+
+/*async function speichernEvent(name, month,selectedDaysForEvent,region,weekmarket) {
+	 console.log("📦 speichernEvent aufgerufen mit:", name, month, selectedDaysForEvent, region, weekmarket);
+if (weekmarket==true){
+
+	dateOfRecurringEvents(selectedDaysForEvent);
+
+}
 
  const monatName = getMonatsname(month + 1);	
  let monatObj = eventData.find(e => e.month === monatName);
@@ -350,35 +518,21 @@ listOfIDs.forEach(item => {
   eventData.push(monatObj);
 }
 
-
-
-     /* if (!eventData[month]) {
-        eventData[month] = {
-          month: getMonatsname(month+1), 
-		  region: region,
-          events: []
-        };
-		listofRegion[region]={
-			regions:[]
-		};
-
-      }*/
-
-     /* if (!eventData[month].events.includes(name)) {
-        eventData[month].events.push(name);
-		listofRegion[region].regions.push(name);
-
-		 }
-
-		// Termine-Array initialisieren (auch wenn name schon in events-Liste steht!)
-			if (!eventData[month][name]) {
-				eventData[month][name] = [];
-			}
-
-		 eventData[month][name].push(...events);
- 		 eventData[month][name] = [...new Set(eventData[month][name])];  */
+ 		 eventData[month][name] = [...new Set(eventData[month][name])]; 
+	if (!weekmarket) {
 		 if (!monatObj.events.includes(name)) {
 				monatObj.events.push(name);
+
+				
+				if (!monatObj[name]) {
+					monatObj[name] = [];
+				}
+				monatObj[name].push(...selectedDaysForEvent); // z. B. "23.7"
+			}
+		}
+		if (typeof listofRegion !== 'object' || listofRegion === null) {
+					listofRegion = {};
+					}
 
 				if (!listofRegion[region]) {
 					listofRegion[region] = { regions: [] };
@@ -387,43 +541,103 @@ listOfIDs.forEach(item => {
 				if (!listofRegion[region].regions.includes(name)) {
 					listofRegion[region].regions.push(name);
 				}
-				}
-				if (!monatObj[name]) {
-					monatObj[name] = [];
-				}
-				monatObj[name].push(...selectedDaysForEvent); // z. B. "23.7"
+				
 
 
       // Anzeige leeren
       document.getElementById('bestaetigung').innerHTML = '';
-      //document.getElementById('ausgabe').innerHTML = `<strong>🎉 Event gespeichert!</strong>`;
+      document.getElementById('ausgabe').innerHTML = `<strong>  ${name} gespeichert!</strong>`;
       document.getElementById('zeitraumForm').reset();
 
 const combinedData = {
   eventData: eventData,
   listofRegion: listofRegion
 };
-      // Vorschau aktualisieren
-      document.getElementById('jsonPreview').textContent = JSON.stringify(combinedData, null, 2);
+       try {
+    const response = await fetch('/save-event', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(combinedData)
+    });
 
-	  // ⬇⬇⬇⬇⬇ Speichern auf dem Server
-fetch('/save-event', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify(combinedData)  // nur den Teil senden, den dein Server erwartet
-})
-.then(response => response.json())
-.then(data => {
-  console.log('✅ Server-Antwort:', data.message);
-})
-.catch(error => {
-  console.error('❌ Fehler beim Speichern:', error);
-});
+    const data = await response.json();
+    console.log('✅ Server-Antwort:', data.message);
 
- window.location.href = `events.html?region=${encodeURIComponent(region)}`;
+
+  } catch (error) {
+    console.error('❌ Fehler beim Speichern:', error);
+  }
+}*/
+
+async function speichernEvent(name, month, selectedDaysForEvent, region, weekmarket) {
+    console.log("📦 speichernEvent aufgerufen mit:", name, month, selectedDaysForEvent, region, weekmarket);
+// 1️⃣ Vorher aktuelle Daten vom Server laden
+    const serverData = await getData();
+    eventData = serverData?.eventData || [];
+    listofRegion = serverData?.listofRegion || {};
+
+	 const monatName = getMonatsname(month + 1); // z. B. 7 -> "August"
+
+    // Falls Wochenmarkt: alle Termine erzeugen
+    // 2️⃣ Wochenmarkt
+    if (weekmarket === true) {
+        await dateOfRecurringEvents(selectedDaysForEvent[0], name);
+    } else {
+        // 3️⃣ Normale Events
+        let monatObj = eventData.find(e => e.month === monatName);
+        if (!monatObj) {
+            monatObj = { month: monatName, events: [] };
+            eventData.push(monatObj);
+        }
+        if (!monatObj.events.includes(name)) {
+            monatObj.events.push(name);
+        }
+        if (!monatObj[name]) {
+            monatObj[name] = [];
+        }
+        monatObj[name].push(...selectedDaysForEvent);
+        monatObj[name] = [...new Set(monatObj[name])];
+    }
+
+    // --- Regionenliste pflegen ---
+    if (typeof listofRegion !== 'object' || listofRegion === null) {
+        listofRegion = {};
+    }
+    if (!listofRegion[region]) {
+        listofRegion[region] = { regions: [] };
+    }
+    if (!listofRegion[region].regions.includes(name)) {
+        listofRegion[region].regions.push(name);
+    }
+
+    // Anzeige leeren
+    document.getElementById('bestaetigung').innerHTML = '';
+    document.getElementById('ausgabe').innerHTML = `<strong>${name} gespeichert!</strong>`;
+    document.getElementById('zeitraumForm').reset();
+
+    const combinedData = {
+        eventData: eventData,
+        listofRegion: listofRegion
+    };
+
+    try {
+        const response = await fetch('/save-event', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(combinedData)
+        });
+
+        const data = await response.json();
+        console.log('✅ Server-Antwort:', data.message);
+    } catch (error) {
+        console.error('❌ Fehler beim Speichern:', error);
+    }
 }
+
 
 
 function updateEvent(name, month, newDates, region) {
@@ -437,71 +651,48 @@ function updateEvent(name, month, newDates, region) {
 
   // Optional: Backend erneut speichern
   saveCombinedData();
+ 
 }
+function handleStrings(){
+
+		 let inputElement = document.getElementById("eventname");
+		 let string =  inputElement.value;
+		console.log(string);
+
+		if(string.length <= 20){
+			 console.log("Kurzer Text (<=20 Zeichen):", string);
+			  let formatted = string;
+			  formattedEventname= formatted;
+
+    } else {
+        // Suche das nächste Leerzeichen nach Position 20
+        let breakPoint = string.indexOf(" ", 20);
+
+        // Wenn kein Leerzeichen gefunden, dann ganzen String nehmen
+        if (breakPoint === -1) breakPoint = string.length;
+
+        // Füge Zeilenumbruch ein
+        let firstLine = string.slice(0, breakPoint);
+        let secondLine = string.slice(breakPoint + 1); // ohne Leerzeichen
+
+       let formatted = firstLine + "<br/>" + secondLine;
+       
+		formattedEventname= formatted;
+		
+    }
+		
+
+		
+	}
 
 
-	function getMonatsname(monatNummer) {
+
+
+function getMonatsname(monatNummer) {
   const formatter = new Intl.DateTimeFormat('de-DE', { month: 'long' });
   const date = new Date(2025, parseInt(monatNummer) - 1, 1);
   return formatter.format(date); // z. B. "März"
 }
-
-if (window.location.pathname.endsWith("admin.html")){
-	 // Formularauswertung
-    document.getElementById('zeitraumForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      const eventname = document.getElementById('eventname').value.trim();
-	  let region = '';
-     const mittelrhein = document.getElementById('MittelrheinAdmin');
-	 const oberrhein = document.getElementById('OberrheinAdmin');
-
-      if (!eventname ) {
-        alert("Bitte alle Felder ausfüllen.");
-        return;
-      }
-	  if (oberrhein.checked ) {
-       
-		 region = oberrhein.value;
-        
-      }
-if (mittelrhein.checked ) {
-        
-		 region = mittelrhein.value;
-        
-      }
-      
-
-    			// Vorschau anzeigen
-     
-		document.getElementById('bestaetigung').innerHTML = `
-				<p> Ist folgendes korrekt?</p>
-				<ul>
-				<li><strong>Region:</strong> ${region}</li>
-				<li><strong>Event:</strong> ${eventname}</li>
-				<li id="eventTemp">'<strong>Zeitraum:</strong> 
-					${selectedDaysForEvent[0]} 
-					${selectedDaysForEvent[1]+1 > 1 ? ' - ' + selectedDaysForEvent[1] : ''} 
-					(${currYear})
-				</li>
-				</ul>
-				<button id="saveBtn">✅ Speichern</button>
-				`; 
-				
-				console.log(selectedDaysForEvent);
-				const saveBtn= document.getElementById('saveBtn')
-				  saveBtn.addEventListener('click', function handler() {
-					speichernEvent(eventname, currMonth, selectedDaysForEvent,region);
-
-					// Nur einmal ausführen: Eventlistener wieder entfernen
-					saveBtn.removeEventListener('click', handler);
-				});
-			
-
-
-    });
-}
-
 
 
 
@@ -523,10 +714,6 @@ async function showEvents  (){
 			}	
 		});
 
-
-		
-
-		
 		// 2. Wenn Farbe NICHT #F0FFFF, dann auf #F0FFFF setzen
 				e.style.color = 'rgb(255, 235, 59)';
 				e.style.borderBottom = ' 1px solid rgb(240, 255, 255)';
@@ -575,52 +762,55 @@ async function showEvents  (){
 					
 				}
 				
-				renderCalender(); 	
-				let marketId = eventId;
-				setActiveMarket(marketId)							
+				renderCalender(); 					
 			});	
-			
-			if(e.innerHTML == "Ehrenbreitsteiner<br>Wochenmarkt" || e.innerHTML == "Selters<br>Wochenmarkt"){
-				eventId = e.innerHTML;
-				
-				dateOfRecurringEvents();
-				
-				}
+	
 					
 				
 		});
 	});
-//	actualEvents = '';
+
 }
 
 const renderEvents = async () => {	
 
 	let data = await getData();	
 	let found = false;
-	// Warte auf die getData() Funktion! getData() ist eine asynchrone Funktion!!!
-	//var object = await getData().then((c)=> { // Warten auf die Rückgabe von getData()!
-	
-	for (let y=0; y<data.eventData.length;y++){
+
+//  2. Vergleiche Markt-Namen aus listofRegion mit eventData
+for (const regionKey in data.listofRegion) {
+    const regionEntry = data.listofRegion[regionKey];
+
+    for (let i = 0; i < regionEntry.regions.length; i++) {
+        const marktName = regionEntry.regions[i];
+
+        const isInEvents = actualEvents.includes(marktName);
+        found = true;
+        console.log(`Region: ${regionKey}, Markt: ${marktName} → ${isInEvents ? '✅ in eventData' : '❌ NICHT in eventData'}`);
+    }
+}
+	 		
+	for (let y=0; y< data.eventData.length;y++){
 		if (months[currMonth] == data.eventData[y].month){
 		 	actualEvents = data.eventData[y].events;
+	
 		if (!actualEvents || actualEvents.length === 0) {
+
 			console.error('Keine Events für diesen Monat gefunden.');
 			}
 			found = true;
-			break; // Schleife beenden, da passender Monat gefunden		
-		}
+			break; 	
+		
+	}
 		
 	} 
 	if (!found) {
   showError("Für diesen Monat gibt es keine Veranstaltungen.");
-} else if (!actualEvents || actualEvents.length === 0) {
-  showError("Keine Veranstaltungen für diesen Monat gefunden.");
-}else{
+}else {
 	showError("");
-
 }
-	actualEvents.push( "Ehrenbreitsteiner<br>Wochenmarkt");
-	actualEvents.push( "Selters<br>Wochenmarkt");	 
+
+
 	showEvents();
 }
 function showError(msg) {
@@ -632,20 +822,17 @@ function navigateToRegionDisplay(){
 window.location.href = "index.html#regionDisplay";
 
 }
-function getRegions(){
+
+
+
+async function getRegions(){
 	const params = new URLSearchParams(window.location.search);
 	   const region = params.get('region');
 	   console.log(region);
-	   if( !window.location.pathname.endsWith("admin.html")){
+ 
 	   if (region ) {
-		fetch('daten/events.json')
-		.then(response => response.json())
-		.then(data => {
-			  listofRegion = data.listofRegion[region];
-			 
-			  listofevents = data.eventData;
-			
-			 if (!listofRegion) {
+			await loadRegionData();
+		 if (!listofRegion[region]) {
             console.warn(`Region "${region}" nicht gefunden.`);
             navigateToRegionDisplay();
             return;
@@ -653,20 +840,34 @@ function getRegions(){
 			selectRegions(region);
 			// ✅ Sicherstellen, dass Events erst dann geladen und angezeigt werden
 			renderEvents().then( ()=> {
-				showDropdownMenu(listofRegion); 
+				showDropdownMenu(listofRegion,region); 
 
-			});			
-		});
+			});	
+
+		
 	} else{
 		console.warn("Keine Region angegeben.");
-		navigateToRegionDisplay();
+		 navigateToRegionDisplay();
+            return;
+		
 	}
+}
+async function loadRegionData(){
+	try {
+	 const response = await fetch('daten/events.json');
+    const data = await response.json();
+    listofRegion = data.listofRegion; // komplette Liste speichern
+    listofevents = data.eventData;
+	 } catch (err) {
+        console.error("Fehler beim Laden der JSON-Daten:", err);
+    }
 }
 
 		
 	
-  }
-getRegions();
+if (!window.location.pathname.endsWith("admin.html")){	
+	getRegions();
+}
 
 function setActiveMarket(market) {
   // Aktive Klasse setzen  
@@ -702,42 +903,54 @@ function regionExistsInList(eventName,regionObj) {
     regionObj.regions.includes(eventName)
  
 }
-async function showDropdownMenu(){
-	
+async function showDropdownMenu(listofRegion,regionName){
 
+ if (typeof listofRegion !== 'object' || listofRegion === null || Array.isArray(listofRegion)) {
+        console.error("❌ Fehler: listofRegion ist kein gültiges Objekt:", listofRegion);
+		 alert(`⚠️ Für diese Region existiert noch kein Eintrag.`);
+        return;
+}
+	const regionData = listofRegion[regionName];
+
+   if (!regionData || !Array.isArray(regionData.regions)) {
+        console.warn(`⚠️ Region "${regionName}" enthält keine Events oder Wochenmärkte.`);
+        alert(`⚠️ Diese Region enthält keine Events oder Wochenmärkte.`);
+        return;
+    }
+
+     console.log(`✅ Region "${regionName}" enthält ${regionData.regions.length} Einträge:`, regionData.regions);
+
+	
 	let dropdownList = document.querySelector(".dropdown-menu");
 	
-	
-	
-	
 		let singleEvent = "";
-		for (let i = 0; i < actualEvents.length; i++) {
-			
-  let name = actualEvents[i];
+		 for (let name of actualEvents) {
 
- 
-  
+				const isInListEvents = eventExistsInList(name, listofevents);
+				const isInListRegions = regionExistsInList(name, regionData);
+				const isWochenmarkt = false;
 
-  const isInListEvents = eventExistsInList(name, listofevents);
-   const isInListRegions = regionExistsInList(name, listofRegion);
-  const isWochenmarkt = name === "Ehrenbreitsteiner<br>Wochenmarkt" || name === "Selters<br>Wochenmarkt";
+				console.log(`🔎 Prüfe Event: ${name}`); 
+				console.log("➡ in listofevents:", isInListEvents);
+				console.log("➡ in listofRegions:", isInListRegions);
+				console.log("➡ ist Wochenmarkt:", isWochenmarkt);
 
-  console.log(`🔎 Prüfe Event: ${name}`);
-  console.log("➡ in listofevents:", isInListEvents);
-  console.log("➡ in listofRegions:", isInListRegions);
-  console.log("➡ ist Wochenmarkt:", isWochenmarkt);
-
-  //console.log(listofRegions["Mittelrhein"].regions.includes("Andernach<br/>schmeckt"));
-
-  if ((isInListEvents || isWochenmarkt)&& isInListRegions) {
-    //let id = name.replace(/<br\s*\/?>/g, "-"); // Ersetze <br> durch -
-    singleEvent += `<span class="dropdown-item" id="${name}">${name}</span><div class="line-break"></div>`;
-  } else {
-    console.warn("Event nicht gefunden in listofevents:", name);
-  }
+			if ((isInListEvents || isWochenmarkt)&& isInListRegions) {
+				singleEvent += `<span class="dropdown-item" id="${name}">${name}</span><div class="line-break"></div>`;
+			} else {
+				console.warn("Event nicht gefunden in listofevents:", name);
+			}
 			
 } 
 
+
+   // --- Wochenmärkte der Region hinzufügen ---
+    for (const marktName of regionData.regions) {
+        if (!actualEvents.includes(marktName)) {
+            console.log(`➕ Füge Wochenmarkt hinzu: ${marktName}`);
+            singleEvent += `<span class="dropdown-item" id="${marktName}">${marktName}</span><div class="line-break"></div>`;
+        }
+    }
 
 
 	dropdownList.innerHTML = singleEvent;
@@ -805,6 +1018,7 @@ async function showDropdownMenu(){
 prevNextIcon.forEach(icon => {
 	
     icon.addEventListener("click", handleClick => {
+		clearMessage();
 
  	
 
@@ -829,7 +1043,7 @@ prevNextIcon.forEach(icon => {
 			
         }    
 			renderCalender();
-		if( !window.location.pathname.endsWith("admin.html")){
+		
 			renderEvents().then( ()=> {
 				showDropdownMenu(listofRegion); 
 
@@ -838,42 +1052,74 @@ prevNextIcon.forEach(icon => {
 		showDropdownMenu(listofRegion).then( ()=> {
 			showEvents();
 		});	
-	}else{
+	//}else{
 		
 		renderCalender();
 		chooseEvents(currMonth);
 		
-		
-	}
-		
-		
-		
-			
+	
     });
 	
 });
 
-if( !window.location.pathname.endsWith("admin.html")){
-			document.addEventListener("DOMContentLoaded", function () {
+
+
+
+
+document.addEventListener("DOMContentLoaded", async function () {
 
 				let dropdownMenu = document.querySelector(".dropdown-menu");
-
-
+				
 					if (dropdownMenu){
-						dropdownMenu.addEventListener("click", () => {
-							
-							showDropdownMenu();			
-						
-						});
-					} else {
-						// Kein <span> vorhanden
-						console.warn("Kein <span> in #dropdown-menu gefunden.");
-					}
-			});
-		
+						dropdownMenu.addEventListener("click", async() => {
+							let region = "";
+							if (window.location.pathname.endsWith("admin.html")){	
+								let mittelrhein = document.getElementById("MittelrheinAdmin");
+								let oberrhein = document.getElementById("OberrheinAdmin");
+								
+									if (mittelrhein.checked ) {   
+									region = mittelrhein.value;
 
-			renderEvents();
-}
+									}else if (oberrhein.checked ) {   
+									region = oberrhein.value;
+								
+							}else {
+									// hole die Region aus der URL
+									const params = new URLSearchParams(window.location.search);
+									region = params.get("region") || "";
+									}
+							if (!region) {
+								console.warn("⚠️ Keine Region ausgewählt oder gefunden.");
+								return;
+								}
+											
+						/*}else if (!window.location.pathname.endsWith("admin.html")){
+								getRegions();
+
+						}*/
+						try {
+      await loadRegionData();
+      console.log("ListOfEvents:", listofevents);
+
+      if (!listofRegion[region]) {
+        console.warn(`Region "${region}" nicht gefunden.`);
+        return;
+      }
+
+	  //await dateOfRecurringEvents();
+      await renderEvents();
+      await showDropdownMenu(listofRegion, region);
+    } catch (error) {
+      console.error("Fehler beim Laden der Region:", error);
+    }
+	}
+	});
+	}
+});
+  
+	
+renderEvents();
+   
 
 const checkbox = document.getElementById('side-menu');
 const menu = document.getElementById('nav');
@@ -885,120 +1131,88 @@ checkbox.addEventListener('click', () => {
   main.classList.remove("open");
 
 });
-const dateOfRecurringEvents = () =>{
-	
-	recurringdWedsOfEvents.length = 0;
-	recurringThuesOfEvents.length = 0;
-	recurringWedOfCurrentMonth.length = 0;
-	const wednesdays = [];
-	const thuesdays = [];
-	
-	const startDate = new Date(Date.UTC(2025, 0, 1));
 
-	const dtfBerlin = new Intl.DateTimeFormat('de-DE', {
-	weekday: 'long',
-	timeZone: 'Europe/Berlin'
-	});
+const dateOfRecurringEvents = async (startDateStr,eventName) => {
+	 const serverData = await getData();
+    eventData = serverData?.eventData || [];
+    listofRegion = serverData?.listofRegion || {};
+    recurringMarketDates.length = 0;
 
-	const tempDi = new Date(startDate); // Kopie
+    const [dayStr, monthStr] = startDateStr.split(".");
+    const day = parseInt(dayStr, 10);
+    const month = parseInt(monthStr, 10) - 1; // JS-Monate 0-11
 
-	while (dtfBerlin.format(tempDi) !== 'Donnerstag') {
-	tempDi.setDate(tempDi.getDate() + 1);
-	}
+  
+    // Startdatum erzeugen (UTC damit es sauber bleibt)
+    let currentUTCDate = new Date(Date.UTC(currYear, month, day));
 
-	// Schleife: Finde ersten Mittwoch nach dem Donnerstag
-	const tempMi = new Date(tempDi); 
-	while (dtfBerlin.format(tempMi) !== 'Mittwoch') {
-	tempMi.setDate(tempMi.getDate() + 1);
-	}
+    // Sicherstellen, dass es ein gültiges Datum ist
+    if (isNaN(currentUTCDate)) {
+        console.error("❌ Ungültiges Startdatum:", startDateStr);
+        return;
+    }
 
-	const firstThuesdayOfTheYear = new Date(tempDi);
-	const firstWednesdayOfTheYear = new Date(tempMi);
+    // Wochentag merken
+    const dtfBerlin = new Intl.DateTimeFormat('de-DE', {
+        weekday: 'long',
+        timeZone: 'Europe/Berlin'
+    });
+    const weekdayName = dtfBerlin.format(currentUTCDate);
+    console.log(`📅 Startdatum: ${startDateStr} (${weekdayName})`);
+
+    // --- Vorwärts durch Jahr gehen ---
+    let forward = new Date(currentUTCDate);
+    while (forward.getUTCFullYear() === currYear) {
+        recurringMarketDates.push(forward.toISOString().split("T")[0]);
+        forward.setUTCDate(forward.getUTCDate() + 7);
+    }
+
+    // --- Rückwärts durch Jahr gehen ---
+    let backward = new Date(currentUTCDate);
+    backward.setUTCDate(backward.getUTCDate() - 7);
+    while (backward.getUTCFullYear() === currYear) {
+        recurringMarketDates.push(backward.toISOString().split("T")[0]);
+        backward.setUTCDate(backward.getUTCDate() - 7);
+    }
+
+    // Sortieren
+    recurringMarketDates.sort((a, b) => new Date(a) - new Date(b));
+
+    // --- Pro Monat einsortieren ---
+    recurringMarketDates.forEach(dateISO => {
+        const dateObj = new Date(dateISO);
+        const monthName = dateObj.toLocaleString("de-DE", { month: "long" });
+        const day = dateObj.getUTCDate();
+        const monthNum = dateObj.getUTCMonth() + 1;
+        const formatted = `${day}.${monthNum}`;
+
+        // Monatseintrag finden oder anlegen
+        let monthEntry = eventData.find(e => e.month === monthName);
+        if (!monthEntry) {
+            monthEntry = { month: monthName, events: [] };
+            eventData.push(monthEntry);
+        }
+
+        // Eventnamen registrieren
+        if (!monthEntry.events.includes(eventName)) {
+            monthEntry.events.push(eventName);
+        }
+
+        // Datum hinzufügen
+        if (!monthEntry[eventName]) {
+            monthEntry[eventName] = [];
+        }
+        if (!monthEntry[eventName].includes(formatted)) {
+            monthEntry[eventName].push(formatted);
+        }
+    });
+
+    console.log("✅ Wochenmarkt eingetragen:", eventData);
+
+	renderCalender();
+};
 
 
-	let currentWednesday = new Date(Date.UTC(
-	firstWednesdayOfTheYear.getUTCFullYear(),
-	firstWednesdayOfTheYear.getUTCMonth(),
-	firstWednesdayOfTheYear.getUTCDate()
-	));
-
-	let currentThuesday = new Date(Date.UTC(
-	firstThuesdayOfTheYear.getUTCFullYear(),
-	firstThuesdayOfTheYear.getUTCMonth(),
-	firstThuesdayOfTheYear.getUTCDate()
-	));
-
-    while (currentWednesday.getUTCFullYear() === 2025 
-		|| currentThuesday.getUTCFullYear() === 2025) {
-
-		if (currentWednesday.getUTCFullYear() === 2025 && dtfBerlin.format(currentWednesday) === 'Mittwoch') {
-        wednesdays.push(new Date(currentWednesday));
-        
-    	}
-		if(currentThuesday.getUTCFullYear() === 2025 && dtfBerlin.format(currentThuesday) === 'Donnerstag'){
-		thuesdays.push(new Date(currentThuesday));
-        
-		}
-		
-		currentWednesday.setUTCDate(currentWednesday.getUTCDate() + 7);
-		currentThuesday.setUTCDate(currentThuesday.getUTCDate() + 7);
-	}
-
-
-for (let i = 0; i< wednesdays.length; i++){
-
-	const wed = wednesdays[i];
-	const we = wed.toISOString().split('T')[0];
-
-	const partsWe = we.split("-");
-
-	let day = partsWe[2];
-		day = +day; //convert String into Number
-	let month = partsWe[1];
-		month = +month;
-		recurringdWedsOfEvents.push(day,month);
-
-		
-	}
-
-for (let i = 0; i< thuesdays.length; i++){
-
-	const thu = thuesdays[i];
-	const th = thu.toISOString().split('T')[0];
-
-	const partsTh = th.split("-");
-
-	let day = partsTh[2];
-		day = +day; //convert String into Number
-	let month = partsTh[1];
-		month = +month;
-		recurringThuesOfEvents.push(day,month);
-
-		
-	}
-
-	for (let y = 1; y<=recurringdWedsOfEvents.length; y++){	
-
-		if((currMonth + 1 )== recurringdWedsOfEvents[y] && (y-1) %2 == 0){
-			
-			recurringWedOfCurrentMonth.push(recurringdWedsOfEvents[y-1], currMonth + 1 );
-				
-		}
-	}	
-	for (let y = 1; y<=recurringThuesOfEvents.length; y++){	
-
-		if((currMonth + 1 )== recurringThuesOfEvents[y] && (y-1) %2 == 0){
-			
-			recurringThuOfCurrentMonth.push(recurringThuesOfEvents[y-1], currMonth + 1 );
-				
-		}
-	}	
-	console.log("Alle Mittwoche in 2025:", wednesdays);
-console.log("Alle Dienstage in 2025:", thuesdays);
-console.log("Mi im aktuellen Monat:", recurringWedOfCurrentMonth);
-console.log("Di im aktuellen Monat:", recurringThuOfCurrentMonth);
-	
-}
 renderCalender();
 chooseEvents(currMonth);
 
