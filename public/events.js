@@ -73,7 +73,7 @@ const months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "A
 
 
 
-const renderCalender = () => {
+/*const renderCalendar = () => {
 	let firstDateOfMonth = new Date(currYear, currMonth, 1).getDay(), //get first Day of Month
 	lastDateOfMonth = new Date(currYear, currMonth + 1, 0).getDate(), //get last Date of Month
 	lastDayOfMonth = new Date(currYear, currMonth, lastDateOfMonth ).getDay(),//get last days of previous Month
@@ -123,20 +123,31 @@ const renderCalender = () => {
 					let isToday = i === date.getDate() && currMonth === new Date().getMonth() && currYear === new Date().getFullYear() ? "active" : "";	
 										
 				
-					for (let z = 0; z < recurringDaysOfEvents.length; z += 2) {
+					/*for (let z = 0; z < recurringDaysOfEvents.length; z += 2) {
 								if (recurringDaysOfEvents[z + 1] === currMonth + 1) {
 									recurringDaysSet.add(recurringDaysOfEvents[z]);
 								} 
 							}
+							for (const d of datesOfEvents) {
+  const [dayStr, monthStr] = d.split(".");
+  const day = parseInt(dayStr, 10);
+  const month = parseInt(monthStr, 10);
+  if (month === currMonth + 1) {
+    recurringDaysSet.add(day);
+  }
+}
 	
 
-				 	let className = isToday;
-					// Priorität 1: Wiederkehrende Events
-					if (recurringDaysSet.has(i)) {
-					className = "circle";
-					liTag += `<li id="${i}" class="${className}">${i}</li>`;
-					i++;
-					}
+				 	let className = "";
+if (i === date.getDate() && currMonth === new Date().getMonth() && currYear === new Date().getFullYear()) {
+  className = "active";
+}
+if (recurringDaysSet.has(i)) {
+  className += (className ? " " : "") + "circle";
+}
+
+liTag += `<li id="${i}" class="${className}">${i}</li>`;
+i++;
 						
 						//same event in multiple months 
 						if(daysOfEvents[1]<daysOfEvents[3]){
@@ -205,11 +216,195 @@ const renderCalender = () => {
 	currentDate.innerText = `${months[currMonth]} ${currYear}`;
 	
 	daysTag.innerHTML = liTag;
-	recurringDaysOfEvents.length = 0;
+	//recurringDaysOfEvents.length = 0;
 	liTag = "";
 
 	
+}*/
+let DaysSet; 
+
+// Globale Variablen für die Bereichsauswahl
+let selectedStart = null;
+let selectedEnd = null;
+let period = "";
+
+// Klick-Handler für Tage
+function onDayClick(day) {
+	eventId='';
+	recurringDaysOfEvents.length = 0;
+    if (!selectedStart|| selectedEnd) {
+        selectedStart = day; 
+		 selectedEnd = null;
+		  DaysSet = new Set([day]); 
+		 	
+		 period =   `<strong>Zeitraum:</strong> ${selectedStart}${selectedEnd != null ? ' - ' + selectedEnd : ''} . ${currMonth+1} (${currYear})`;
+		document.getElementById('eventTemp').innerHTML = period;
+     
+		      // Start setzen
+    } else if (!selectedEnd) {
+        selectedEnd = day;              // Ende setzen
+        if (selectedEnd < selectedStart) {
+            [selectedStart, selectedEnd] = [selectedEnd, selectedStart];
+        }
+		 period =   `<strong>Zeitraum:</strong> ${selectedStart}${selectedEnd != null ? ' - ' + selectedEnd : ''} . ${currMonth+1} (${currYear})`;
+		document.getElementById('eventTemp').innerHTML = period;
+        // Tage zwischen Start und Ende in DaysSet speichern
+        DaysSet = new Set();
+        for (let d = selectedStart; d <= selectedEnd; d++) {
+            DaysSet.add(d);
+        }
+    } else {
+        // Neue Auswahl starten
+        selectedStart = day;
+        selectedEnd = null;
+        DaysSet = new Set([day]);
+    }
+
+    renderCalendar(); // Kalender neu zeichnen
 }
+const renderCalendar = () => {
+    const firstDateOfMonth = new Date(currYear, currMonth, 1).getDay();
+    const lastDateOfMonth = new Date(currYear, currMonth + 1, 0).getDate();
+    const lastDayOfMonth = new Date(currYear, currMonth, lastDateOfMonth).getDay();
+    const lastDateOfLastMonth = new Date(currYear, currMonth, 0).getDate();
+
+    let liTag = "";
+	let startDayMarked = null; // merken, welcher Starttag war
+	if (selectedStart) {
+    startDayMarked = selectedStart;
+}
+     // Events Set vorbereiten
+    if (!DaysSet) {
+        DaysSet = new Set();
+    }
+
+ // 🔹 Falls wiederkehrende Events existieren → ins Set eintragen
+    if (recurringDaysOfEvents && recurringDaysOfEvents.length > 0) {
+        for (let i = 0; i < recurringDaysOfEvents.length; i += 2) {
+            const day = recurringDaysOfEvents[i];
+            const month = recurringDaysOfEvents[i + 1];
+
+            if (month === currMonth + 1) {
+                DaysSet.add(day);
+                if (!startDayMarked) {
+                    startDayMarked = day; // ersten Treffer als Start merken
+                }
+            }
+        }
+    }  
+
+if (eventId) {
+	startDayMarked= null;
+	if(DaysSet){  DaysSet = new Set();}
+    const monatObj = eventDataGlobal.find(m => m.month === months[currMonth]);
+
+if (monatObj) {
+    for (const eventName of monatObj.events) {
+		if (eventId == eventName){
+			const days = monatObj[eventName]; // z.B. ["5.9", "12.9"]
+			if (days && days.length === 2) {
+				const [dayStr1, monthStr1] = days[0].split(".");
+				const [dayStr2, monthStr2] = days[1].split(".");
+
+				let startDay = parseInt(dayStr1, 10);
+				let endDay   = parseInt(dayStr2, 10);
+				let month    = parseInt(monthStr1, 10);
+
+				if (month === currMonth + 1) {
+					if (endDay < startDay) [startDay, endDay] = [endDay, startDay];
+						startDayMarked = startDay; // Start speichern
+					for (let d = startDay; d <= endDay; d++) {
+						DaysSet.add(d);
+					}
+					startDayMarked = startDay; // ✅ Starttag speichern
+				}
+			} else if (days) {
+				// falls nur Einzeltage drin sind (wie "19.9", "26.9")
+				for (const d of days) {
+					const [dayStr, monthStr] = d.split(".");
+					const day = parseInt(dayStr, 10);
+					const month = parseInt(monthStr, 10);
+
+					if (month === currMonth + 1) {
+						DaysSet.add(day);
+						if (!startDayMarked) {
+							startDayMarked = day; // ersten Eintrag als Start speichern
+						}
+					}
+				}
+			}
+		}
+    }
+}
+ else {
+            // Einzeltage
+            for (const d of days) {
+                const [dayStr, monthStr] = d.split(".");
+                const day = parseInt(dayStr, 10);
+                const month = parseInt(monthStr, 10);
+					startDayMarked = day; // Start speichern
+                if (month === currMonth + 1) {
+                    DaysSet.add(day);
+                }
+            }
+        }												
+				
+}
+	
+    // Vortage des Vormonats
+    for (let i = firstDateOfMonth; i > 0; i--) {
+        const inactiveLastDays = lastDateOfLastMonth - i + 1;
+        liTag += `<li class="inactive">${inactiveLastDays}</li>`;
+    }
+
+    // Tage des aktuellen Monats
+
+	
+    for (let i = 1; i <= lastDateOfMonth; i++) {
+
+	
+        let className = "";
+			
+						
+
+        if (i === date.getDate() && currMonth === new Date().getMonth() && currYear === new Date().getFullYear()) {
+            className = "active";
+        }
+
+        if (DaysSet.has(i)) {
+            className += (className ? " " : "") + "circle";
+        }
+		// Starttag hervorheben
+        if (startDayMarked && i === startDayMarked) {
+            className += (className ? " " : "") + "circle";
+        }
+
+		// ✅ Starttag hervorheben, egal ob Bereich oder Einzeltag
+    if (startDayMarked === i) {
+        className += (className ? " " : "") + "circle";
+    }
+       liTag += `<li data-day="${i}" class="${className}">${i}</li>`;
+    }
+
+    // Resttage des Monats für Kalenderanzeige
+    for (let i = lastDayOfMonth + 1; i <= 6; i++) {
+        liTag += `<li class="inactive">${i - lastDayOfMonth}</li>`;
+    }
+
+    currentDate.innerText = `${months[currMonth]} ${currYear}`;
+    daysTag.innerHTML = liTag;
+	 // 🔹 Events für Klicks hinzufügen
+    document.querySelectorAll('.days li' ).forEach(li => {
+        li.addEventListener("click", () => {
+            const day = parseInt(li.dataset.day, 10);
+            onDayClick(day);
+        });
+    });
+};
+
+
+
+
 
 
 function clearMessage() {
@@ -219,117 +414,7 @@ function clearMessage() {
   }
 }
 
-function chooseEvents (month){ // für admin
-	clearMessage();
-daysOfEvents.length=0;
 
-let listOfIDs = document.querySelectorAll('.days li' );
-
-listOfIDs.forEach(item => {
-	  
-		item.addEventListener('click', () => {
-			
-			const id = parseInt(item.dataset.id || item.innerText);
-	 		const fullID = id +'.' +(month+1);	
-
-				if (selectedDaysForEvent.length === 2 && !selectedDaysForEvent.includes(fullID)) {
-					
-					selectedDaysForEvent.length = 0;
-					daysOfEvents.length = 0;
-					renderCalender();
-					chooseEvents(currMonth); 
-					//return;  break, wait for new klick
-				}
-				if (selectedDaysForEvent.length === 2 && selectedDaysForEvent.includes(fullID)) {
-					selectedDaysForEvent.length=0;
-					daysOfEvents.length = 0;
-					renderCalender();
-					chooseEvents(currMonth); 
-				}
-// normale Auswahl
-  if (!selectedDaysForEvent.includes(fullID)) {
-    if (selectedDaysForEvent.length < 2) {
-      selectedDaysForEvent.push(fullID); 
-
-	  // Daten zwischenspeichern für späteres Speichern
-							window._eventTemp = {
-									eventname: eventname,
-									selectedDaysForEvent
-									};	
-					
-					document.getElementById('eventTemp').innerHTML = 
-  `<strong>Zeitraum:</strong> ${selectedDaysForEvent[0]}${selectedDaysForEvent.length > 1 ? ' - ' + selectedDaysForEvent[1] : ''} (${currYear})`;
-
-					
-	
-					
-    }
-  } else {
-    selectedDaysForEvent.splice(selectedDaysForEvent.indexOf(selectedDaysForEvent[0]), 1);
-  }
-
-  
-			if (selectedDaysForEvent.length<2 &&  !selectedDaysForEvent.includes(fullID)) {
-			console.log("Füge"+selectedDaysForEvent+"hinzu, wenn nur 1 Eintrag vorhanden!");
-			selectedDaysForEvent.push(fullID);
-			} 
-			
-				if (selectedDaysForEvent.length<=2 && selectedDaysForEvent.includes(fullID)){
-					for (let i = 0; i < selectedDaysForEvent.length; i++) {
-							
-					
-						let days = selectedDaysForEvent[i].split(".");
-								let day = days[0];
-								day = +day; //convert String into Number
-								month = +month;
-						if (!tmp.includes(day)) {
-								tmp.push(day,month+1);
-						}
-					}
-								
-					}
-
-				if(tmp.length!=0){
-					if((tmp[0]>tmp[2] && tmp[1]===tmp[3])||(tmp[1]>tmp[3])){
-						console.log("Werte tauschen "+selectedDaysForEvent);
-						console.log(selectedDaysForEvent[0]);
-						selectedDaysForEvent.push(selectedDaysForEvent[1],selectedDaysForEvent[0] );
-						selectedDaysForEvent.splice(0, 2);
-						 console.log("getauschte werte: "+selectedDaysForEvent);
-						tmp.length =0;
-						
-					}
-				}		
-					for(let i=0 ;i<selectedDaysForEvent.length; i++){
-						
-								let days = selectedDaysForEvent[i].split(".");
-								let day = days[0];
-								day = +day; //convert String into Number
-							
-								let month = days[1];
-								month = +month;
-								daysOfEvents.push(day,month);
-							
-								
-						}
-							if( daysOfEvents.length<4){
-						renderCalender();
-						chooseEvents(currMonth);
-							}else if (daysOfEvents.length===4){
-								renderCalender();
-								tmp.length=0;
-								chooseEvents(currMonth);
-					
-							}
-				
-				
-					
-				});
-
-  });
-  
-
-}
 
 if (window.location.pathname.endsWith("admin.html")){
 	 // Formularauswertung
@@ -432,16 +517,31 @@ if (!region) {
 	
 
 	oberrhein.addEventListener('change', async () => {
-	  if (oberrhein.checked ) {
-       	 region = oberrhein.value;
 		
+	  if (oberrhein.checked ) {
+		DaysSet = new Set();
+		eventId = '';
+		selectedStart = null;
+		selectedEnd = null;
+		period = '';
+		 document.getElementById('eventTemp').innerHTML = period; // HTML leeren
+       	 region = oberrhein.value;
+		 renderCalendar();
 		  await ladeDatenFürRegion(region);
       }
 	});
 	
 		mittelrhein.addEventListener('change', async () => {
-		if (mittelrhein.checked ) {   
+		if (mittelrhein.checked ) {  
+			DaysSet = new Set();
+			eventId = '';
+			selectedStart = null;
+			selectedEnd = null;
+			period = '';
+			 document.getElementById('eventTemp').innerHTML = period; // HTML leeren
+			
 				 region = mittelrhein.value;
+				 renderCalendar();
 				
 				 await ladeDatenFürRegion(region);
 			}
@@ -469,9 +569,9 @@ if (!region) {
 				<li><strong>Region:</strong> ${region}</li>
 				<li><strong>Event:</strong> ${eventnametmp}</li>
 				<li id="eventTemp">'<strong>Zeitraum:</strong> 
-					${selectedDaysForEvent[0]} 
-					${selectedDaysForEvent[1]+1 > 1 ? ' - ' + selectedDaysForEvent[1] : ''} 
-					(${currYear})
+				
+					${selectedStart}${selectedEnd != null ? ' - ' + selectedEnd : ''} . ${currMonth} (${currYear})
+
 				</li>
 				</ul>
 				<button id="saveBtn">✅ Speichern</button>
@@ -480,11 +580,12 @@ if (!region) {
 				
 				console.log(selectedDaysForEvent);
 				const saveBtn= document.getElementById('saveBtn')
-				  saveBtn.addEventListener('click', function handler() {
+				  saveBtn.addEventListener('click', async function handler() {
 					
-					speichernEvent(finalName, currMonth, selectedDaysForEvent,region,isWeekly);
+					await speichernEvent(finalName, currMonth, region,isWeekly);
 					    // Events in Liste anzeigen
   					ladeDatenFürRegion(region);
+				
 					// Nur einmal ausführen: Eventlistener wieder entfernen
 					saveBtn.removeEventListener('click', handler);
 				});
@@ -496,83 +597,10 @@ if (!region) {
 }
 
 
-/*async function speichernEvent(name, month,selectedDaysForEvent,region,weekmarket) {
-	 console.log("📦 speichernEvent aufgerufen mit:", name, month, selectedDaysForEvent, region, weekmarket);
-if (weekmarket==true){
-
-	dateOfRecurringEvents(selectedDaysForEvent);
-
-}
-
- const monatName = getMonatsname(month + 1);	
- let monatObj = eventData.find(e => e.month === monatName);
-
- if (!monatObj) {
-  monatObj = {
-    month: monatName,
-    events: []
-  };
-  listofRegion[region]={
-			regions:[]
-			};
-  eventData.push(monatObj);
-}
-
- 		 eventData[month][name] = [...new Set(eventData[month][name])]; 
-	if (!weekmarket) {
-		 if (!monatObj.events.includes(name)) {
-				monatObj.events.push(name);
-
-				
-				if (!monatObj[name]) {
-					monatObj[name] = [];
-				}
-				monatObj[name].push(...selectedDaysForEvent); // z. B. "23.7"
-			}
-		}
-		if (typeof listofRegion !== 'object' || listofRegion === null) {
-					listofRegion = {};
-					}
-
-				if (!listofRegion[region]) {
-					listofRegion[region] = { regions: [] };
-				}
-
-				if (!listofRegion[region].regions.includes(name)) {
-					listofRegion[region].regions.push(name);
-				}
-				
 
 
-      // Anzeige leeren
-      document.getElementById('bestaetigung').innerHTML = '';
-      document.getElementById('ausgabe').innerHTML = `<strong>  ${name} gespeichert!</strong>`;
-      document.getElementById('zeitraumForm').reset();
-
-const combinedData = {
-  eventData: eventData,
-  listofRegion: listofRegion
-};
-       try {
-    const response = await fetch('/save-event', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(combinedData)
-    });
-
-    const data = await response.json();
-    console.log('✅ Server-Antwort:', data.message);
-
-
-  } catch (error) {
-    console.error('❌ Fehler beim Speichern:', error);
-  }
-}*/
-
-async function speichernEvent(name, month, selectedDaysForEvent, region, weekmarket) {
-    console.log("📦 speichernEvent aufgerufen mit:", name, month, selectedDaysForEvent, region, weekmarket);
+async function speichernEvent(name, month, region, weekmarket) {
+    console.log("📦 speichernEvent aufgerufen mit:", name, month, region, weekmarket);
 // 1️⃣ Vorher aktuelle Daten vom Server laden
     const serverData = await getData();
     eventData = serverData?.eventData || [];
@@ -580,10 +608,11 @@ async function speichernEvent(name, month, selectedDaysForEvent, region, weekmar
 
 	 const monatName = getMonatsname(month + 1); // z. B. 7 -> "August"
 
-    // Falls Wochenmarkt: alle Termine erzeugen
-    // 2️⃣ Wochenmarkt
-    if (weekmarket === true) {
-        await dateOfRecurringEvents(selectedDaysForEvent[0], name);
+    const selectedDaysForEvent = Array.from(DaysSet).map(d => `${d}.${month + 1}`);
+
+	   if (weekmarket === true) {
+    await dateOfRecurringEvents(name);
+
     } else {
         // 3️⃣ Normale Events
         let monatObj = eventData.find(e => e.month === monatName);
@@ -633,6 +662,10 @@ async function speichernEvent(name, month, selectedDaysForEvent, region, weekmar
 
         const data = await response.json();
         console.log('✅ Server-Antwort:', data.message);
+		getData();
+		
+		renderEvents();
+		
     } catch (error) {
         console.error('❌ Fehler beim Speichern:', error);
     }
@@ -657,10 +690,10 @@ function handleStrings(){
 
 		 let inputElement = document.getElementById("eventname");
 		 let string =  inputElement.value;
-		console.log(string);
+		
 
 		if(string.length <= 20){
-			 console.log("Kurzer Text (<=20 Zeichen):", string);
+			
 			  let formatted = string;
 			  formattedEventname= formatted;
 
@@ -696,7 +729,7 @@ function getMonatsname(monatNummer) {
 
 
 
-async function showEvents  (){
+/*async function showEvents  (){
 	
 	eSelector  = document.querySelectorAll(".dropdown-item");
 
@@ -735,7 +768,7 @@ async function showEvents  (){
 									
 									
 										eventId =a.eventData[key].events[y];
-										console.log("eventId:", eventId);
+										
 										for (let key1 in a.eventData[key] ){
 											
 											if (key1 == [eventId]){
@@ -762,7 +795,7 @@ async function showEvents  (){
 					
 				}
 				
-				renderCalender(); 					
+				renderCalendar(); 					
 			});	
 	
 					
@@ -770,13 +803,57 @@ async function showEvents  (){
 		});
 	});
 
+}*/
+
+let eventDataGlobal = []; // globale Variable
+
+
+async function showEvents(currMonth) {
+  const eSelector = document.querySelectorAll(".dropdown-item");
+
+  eSelector.forEach(e => {
+    e.addEventListener("click", async () => {
+      // Reset
+      eventId = "";
+      datesOfEvents.length = 0;
+
+      // Alle anderen zurücksetzen
+      eSelector.forEach(el => {
+        if (el !== e) {
+          el.style.color = "rgb(240, 255, 255)";
+          el.style.borderBottom = "1px solid rgb(255, 235, 59)";
+        }
+      });
+
+      // Aktuelles Element hervorheben
+      e.style.color = "rgb(255, 235, 59)";
+      e.style.borderBottom = "1px solid rgb(240, 255, 255)";
+
+      // Daten vom Server holen
+      const a = await getData();
+      eventDataGlobal = a.eventData;
+
+      const monatName = getMonatsname(currMonth + 1); // z. B. 7 → "August"
+      const monatObj = eventDataGlobal.find(m => m.month === monatName);
+
+      // EventId setzen und Termine speichern
+      if (monatObj && monatObj.events.includes(e.id)) {
+        eventId = e.id;
+        datesOfEvents = monatObj[e.id] || [];
+      }
+
+      renderCalendar(); // rendert nur die Termine des ausgewählten Events
+    });
+  });
 }
+
+
 
 const renderEvents = async () => {	
 
 	let data = await getData();	
 	let found = false;
-
+let  isInEvents = false;
 //  2. Vergleiche Markt-Namen aus listofRegion mit eventData
 for (const regionKey in data.listofRegion) {
     const regionEntry = data.listofRegion[regionKey];
@@ -784,9 +861,12 @@ for (const regionKey in data.listofRegion) {
     for (let i = 0; i < regionEntry.regions.length; i++) {
         const marktName = regionEntry.regions[i];
 
-        const isInEvents = actualEvents.includes(marktName);
+         isInEvents = actualEvents.includes(marktName);
+
         found = true;
-        console.log(`Region: ${regionKey}, Markt: ${marktName} → ${isInEvents ? '✅ in eventData' : '❌ NICHT in eventData'}`);
+		
+		
+       
     }
 }
 	 		
@@ -811,7 +891,8 @@ for (const regionKey in data.listofRegion) {
 }
 
 
-	showEvents();
+	showEvents(currMonth);
+	return {isInEvents: isInEvents};
 }
 function showError(msg) {
   const box = document.getElementById('error-box');
@@ -828,7 +909,7 @@ window.location.href = "index.html#regionDisplay";
 async function getRegions(){
 	const params = new URLSearchParams(window.location.search);
 	   const region = params.get('region');
-	   console.log(region);
+	  
  
 	   if (region ) {
 			await loadRegionData();
@@ -869,21 +950,7 @@ if (!window.location.pathname.endsWith("admin.html")){
 	getRegions();
 }
 
-function setActiveMarket(market) {
-  // Aktive Klasse setzen  
-  if (market === "Ehrenbreitsteiner<br>Wochenmarkt") {
-    ehrenEl.classList.add("active");
-    seltersEl.classList.remove("active");
-  } else if(market === "Selters<br>Wochenmarkt") {
-    seltersEl.classList.add("active");
-    ehrenEl.classList.remove("active");
-  }else{
-	ehrenEl.classList.remove("active");
-	seltersEl.classList.remove("active");
-  }
- 
 
-}
 function selectRegions(regions) { 
 	
 	let dropdownText = "";
@@ -918,65 +985,32 @@ async function showDropdownMenu(listofRegion,regionName){
         return;
     }
 
-     console.log(`✅ Region "${regionName}" enthält ${regionData.regions.length} Einträge:`, regionData.regions);
+  
 
 	
 	let dropdownList = document.querySelector(".dropdown-menu");
 	
 		let singleEvent = "";
-		 for (let name of actualEvents) {
-
-				const isInListEvents = eventExistsInList(name, listofevents);
-				const isInListRegions = regionExistsInList(name, regionData);
-				const isWochenmarkt = false;
-
-				console.log(`🔎 Prüfe Event: ${name}`); 
-				console.log("➡ in listofevents:", isInListEvents);
-				console.log("➡ in listofRegions:", isInListRegions);
-				console.log("➡ ist Wochenmarkt:", isWochenmarkt);
-
-			if ((isInListEvents || isWochenmarkt)&& isInListRegions) {
-				singleEvent += `<span class="dropdown-item" id="${name}">${name}</span><div class="line-break"></div>`;
-			} else {
-				console.warn("Event nicht gefunden in listofevents:", name);
-			}
-			
-} 
-
+		if(actualEvents.length != 0){
+		
 
    // --- Wochenmärkte der Region hinzufügen ---
     for (const marktName of regionData.regions) {
-        if (!actualEvents.includes(marktName)) {
+        if (actualEvents.includes(marktName)) {
             console.log(`➕ Füge Wochenmarkt hinzu: ${marktName}`);
             singleEvent += `<span class="dropdown-item" id="${marktName}">${marktName}</span><div class="line-break"></div>`;
         }
     }
+}
 
 
 	dropdownList.innerHTML = singleEvent;
 
- // Jetzt die Event-Listener für die dynamisch erstellten Elemente hinzufügen
-	ehrenEl = document.getElementById("Ehrenbreitsteiner<br>Wochenmarkt");
-    seltersEl = document.getElementById("Selters<br>Wochenmarkt");
-		if (ehrenEl && seltersEl) {
-			ehrenEl.addEventListener("click", () => {
-				setActiveMarket("Ehrenbreitsteiner<br>Wochenmarkt");
-			});
-
-			seltersEl.addEventListener("click", () => {
-				setActiveMarket("Selters<br>Wochenmarkt");
-			});
-			}
-		else {
-			
-			console.warn("Kein Dropdown-Menü gefunden.");
-		}
 
 	// Wait one frame to allow layout update
 	await new Promise(requestAnimationFrame);
 
 	const height = dropdownList.getBoundingClientRect().height;
-	console.log('Height:', height);
 	
 
 	const calendar = document.querySelector(".calendar");
@@ -988,9 +1022,7 @@ async function showDropdownMenu(listofRegion,regionName){
 
 	if (isMobile) {
 		let newTop;
-  	console.log("top= "+ percentTop);
-
-
+  
 		if(height > 253){
 			newTop = 10;
 			console.log("Position of Calendar " + newTop + "%");
@@ -1007,21 +1039,15 @@ async function showDropdownMenu(listofRegion,regionName){
 		 calendar.style.setProperty("position", "relative", "important");
 		 calendar.style.setProperty("top", newTop + "%", "important");
 	}
-	showEvents();
+	showEvents(currMonth);
 
 }
 
- 
-
-
-
 prevNextIcon.forEach(icon => {
 	
-    icon.addEventListener("click", handleClick => {
+    icon.addEventListener("click", async handleClick => {
+		 await loadRegionData();
 		clearMessage();
-
- 	
-
 		//recurringdaysOfCurrentMonth.length = 0;
 		if (daysOfEvents.length == 2){
 			daysOfEvents.length = 0;
@@ -1035,14 +1061,13 @@ prevNextIcon.forEach(icon => {
         currYear = date.getFullYear(), //updating current year with new date year 
         currMonth = date.getMonth(); //updating current month with new date month
 
-		
 
         }
         else{ //pass new date as date value
         	let date = new Date();
 			
         }    
-			renderCalender();
+			/*renderCalendar();
 		
 			renderEvents().then( ()=> {
 				showDropdownMenu(listofRegion); 
@@ -1050,12 +1075,16 @@ prevNextIcon.forEach(icon => {
 			});	
 		
 		showDropdownMenu(listofRegion).then( ()=> {
-			showEvents();
+			showEvents(currMonth);
 		});	
-	//}else{
+	//}else{*/
 		
-		renderCalender();
-		chooseEvents(currMonth);
+		renderCalendar();
+		//chooseEvents(currMonth);
+			renderEvents().then( ()=> {
+				showDropdownMenu(listofRegion,region); 
+
+			});	
 		
 	
     });
@@ -1092,22 +1121,16 @@ document.addEventListener("DOMContentLoaded", async function () {
 								console.warn("⚠️ Keine Region ausgewählt oder gefunden.");
 								return;
 								}
-											
-						/*}else if (!window.location.pathname.endsWith("admin.html")){
-								getRegions();
-
-						}*/
+					
 						try {
       await loadRegionData();
-      console.log("ListOfEvents:", listofevents);
-
+   
       if (!listofRegion[region]) {
         console.warn(`Region "${region}" nicht gefunden.`);
         return;
       }
 
-	  //await dateOfRecurringEvents();
-      await renderEvents();
+	    await renderEvents();
       await showDropdownMenu(listofRegion, region);
     } catch (error) {
       console.error("Fehler beim Laden der Region:", error);
@@ -1132,19 +1155,23 @@ checkbox.addEventListener('click', () => {
 
 });
 
-const dateOfRecurringEvents = async (startDateStr,eventName) => {
+const dateOfRecurringEvents = async (eventName) => {
 	 const serverData = await getData();
     eventData = serverData?.eventData || [];
     listofRegion = serverData?.listofRegion || {};
     recurringMarketDates.length = 0;
 
-    const [dayStr, monthStr] = startDateStr.split(".");
-    const day = parseInt(dayStr, 10);
-    const month = parseInt(monthStr, 10) - 1; // JS-Monate 0-11
+    // ✅ Starttag aus DaysSet ziehen
+    const firstDay = Math.min(...DaysSet); // kleinster Wert = Start
+    if (!firstDay) {
+        console.error("❌ Kein Starttag in DaysSet gefunden!");
+        return;
+    }
+    const month = currMonth;
 
   
     // Startdatum erzeugen (UTC damit es sauber bleibt)
-    let currentUTCDate = new Date(Date.UTC(currYear, month, day));
+    let currentUTCDate = new Date(Date.UTC(currYear, month, firstDay));
 
     // Sicherstellen, dass es ein gültiges Datum ist
     if (isNaN(currentUTCDate)) {
@@ -1158,7 +1185,7 @@ const dateOfRecurringEvents = async (startDateStr,eventName) => {
         timeZone: 'Europe/Berlin'
     });
     const weekdayName = dtfBerlin.format(currentUTCDate);
-    console.log(`📅 Startdatum: ${startDateStr} (${weekdayName})`);
+
 
     // --- Vorwärts durch Jahr gehen ---
     let forward = new Date(currentUTCDate);
@@ -1207,14 +1234,27 @@ const dateOfRecurringEvents = async (startDateStr,eventName) => {
         }
     });
 
-    console.log("✅ Wochenmarkt eingetragen:", eventData);
 
-	renderCalender();
+	for(let z=0 ;z<recurringMarketDates.length; z++){
+											
+					let days = recurringMarketDates[z].split("-");
+					let day = days[2];
+					day = +day; //convert String into Number
+					let month = days[1];
+					month = +month;
+				recurringDaysOfEvents.push(day,month);
+					
+					
+				}
+	
+
+  
+	renderCalendar();
 };
 
 
-renderCalender();
-chooseEvents(currMonth);
+renderCalendar();
+//chooseEvents(currMonth);
 
 
 

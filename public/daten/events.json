@@ -4,7 +4,8 @@
       "month": "Dezember",
       "events": [
         "halloWochenmarkt",
-        "halloWelt"
+        "jjjjjjjjjjjj",
+        "halloWochenmarktTT"
       ],
       "halloWochenmarkt": [
         "1.1",
@@ -14,7 +15,13 @@
         "24.12",
         "31.12"
       ],
-      "halloWelt": [
+      "jjjjjjjjjjjj": [
+        "6.12",
+        "13.12",
+        "20.12",
+        "27.12"
+      ],
+      "halloWochenmarktTT": [
         "2.12",
         "9.12",
         "16.12",
@@ -26,7 +33,8 @@
       "month": "Januar",
       "events": [
         "halloWochenmarkt",
-        "halloWelt"
+        "jjjjjjjjjjjj",
+        "halloWochenmarktTT"
       ],
       "halloWochenmarkt": [
         "8.1",
@@ -34,7 +42,14 @@
         "22.1",
         "29.1"
       ],
-      "halloWelt": [
+      "jjjjjjjjjjjj": [
+        "4.1",
+        "11.1",
+        "18.1",
+        "25.1",
+        "1.2"
+      ],
+      "halloWochenmarktTT": [
         "7.1",
         "14.1",
         "21.1",
@@ -45,7 +60,8 @@
       "month": "Februar",
       "events": [
         "halloWochenmarkt",
-        "halloWelt"
+        "jjjjjjjjjjjj",
+        "halloWochenmarktTT"
       ],
       "halloWochenmarkt": [
         "5.2",
@@ -53,7 +69,13 @@
         "19.2",
         "26.2"
       ],
-      "halloWelt": [
+      "jjjjjjjjjjjj": [
+        "8.2",
+        "15.2",
+        "22.2",
+        "1.3"
+      ],
+      "halloWochenmarktTT": [
         "4.2",
         "11.2",
         "18.2",
@@ -64,7 +86,8 @@
       "month": "März",
       "events": [
         "halloWochenmarkt",
-        "halloWelt"
+        "jjjjjjjjjjjj",
+        "halloWochenmarktTT"
       ],
       "halloWochenmarkt": [
         "5.3",
@@ -72,7 +95,13 @@
         "19.3",
         "26.3"
       ],
-      "halloWelt": [
+      "jjjjjjjjjjjj": [
+        "8.3",
+        "15.3",
+        "22.3",
+        "29.3"
+      ],
+      "halloWochenmarktTT": [
         "4.3",
         "11.3",
         "18.3",
@@ -84,7 +113,8 @@
       "month": "April",
       "events": [
         "halloWochenmarkt",
-        "halloWelt"
+        "jjjjjjjjjjjj",
+        "halloWochenmarktTT"
       ],
       "halloWochenmarkt": [
         "2.4",
@@ -93,7 +123,13 @@
         "23.4",
         "30.4"
       ],
-      "halloWelt": [
+      "jjjjjjjjjjjj": [
+        "5.4",
+        "12.4",
+        "19.4",
+        "26.4"
+      ],
+      "halloWochenmarktTT": [
         "8.4",
         "15.4",
         "22.4",
@@ -104,7 +140,8 @@
       "month": "Mai",
       "events": [
         "halloWochenmarkt",
-        "halloWelt"
+        "jjjjjjjjjjjj",
+        "halloWochenmarktTT"
       ],
       "halloWochenmarkt": [
         "7.5",
@@ -112,7 +149,14 @@
         "21.5",
         "28.5"
       ],
-      "halloWelt": [
+      "jjjjjjjjjjjj": [
+        "3.5",
+        "10.5",
+        "17.5",
+        "24.5",
+        "31.5"
+      ],
+      "halloWochenmarktTT": [
         "6.5",
         "13.5",
         "20.5",
@@ -123,7 +167,8 @@
       "month": "Juni",
       "events": [
         "halloWochenmarkt",
-        "halloWelt"
+        "jjjjjjjjjjjj",
+        "halloWochenmarktTT"
       ],
       "halloWochenmarkt": [
         "4.6",
@@ -131,7 +176,13 @@
         "18.6",
         "25.6"
       ],
-      "halloWelt": [
+      "jjjjjjjjjjjj": [
+        "7.6",
+        "14.6",
+        "21.6",
+        "28.6"
+      ],
+      "halloWochenmarktTT": [
         "3.6",
         "10.6",
         "17.6",
@@ -143,7 +194,8 @@
       "month": "Juli",
       "events": [
         "halloWochenmarkt",
-        "halloWelt"
+        "jjjjjjjjjjjj",
+        "halloWochenmarktTT"
       ],
       "halloWochenmarkt": [
         "2.7",
@@ -152,7 +204,13 @@
         "23.7",
         "30.7"
       ],
-      "halloWelt": [
+      "jjjjjjjjjjjj": [
+        "5.7",
+        "12.7",
+        "19.7",
+        "26.7"
+      ],
+      "halloWochenmarktTT": [
         "8.7",
         "15.7",
         "22.7",
@@ -163,26 +221,71 @@
       "month": "August",
       "events": [
         "halloWochenmarkt",
+        "ppp",
+        "jjjjjjjjjjjj",
+        "halloWochenmarktTT",
+        "ppph",
         "halloWelt"
       ],
       "halloWochenmarkt": [
         "6.8",
         "13.8",
         "20.8",
-        "27.8"
+        "27.8",
+        "26.8"
       ],
-      "halloWelt": [
+      "ppp": [
+        "6.8",
+        "7.8",
+        "8.8",
+        "9.8",
+        "10.8",
+        "11.8",
+        "12.8",
+        "13.8",
+        "14.8",
+        "15.8"
+      ],
+      "jjjjjjjjjjjj": [
+        "2.8",
+        "9.8",
+        "16.8",
+        "23.8",
+        "30.8"
+      ],
+      "halloWochenmarktTT": [
         "5.8",
         "12.8",
         "19.8",
         "26.8"
+      ],
+      "ppph": [
+        "20.8"
+      ],
+      "halloWelt": [
+        "7.8",
+        "8.8",
+        "9.8",
+        "10.8",
+        "11.8",
+        "12.8",
+        "13.8",
+        "14.8",
+        "15.8",
+        "16.8",
+        "17.8",
+        "18.8",
+        "19.8",
+        "20.8"
       ]
     },
     {
       "month": "September",
       "events": [
         "halloWochenmarkt",
-        "halloWelt"
+        "jjjjjjjjjjjj",
+        "halloWochenmarktTT",
+        "halloWochenmarktsept"
       ],
       "halloWochenmarkt": [
         "3.9",
@@ -191,19 +294,50 @@
         "24.9",
         "1.10"
       ],
-      "halloWelt": [
+      "jjjjjjjjjjjj": [
+        "6.9",
+        "13.9",
+        "20.9",
+        "27.9"
+      ],
+      "halloWochenmarktTT": [
         "2.9",
         "9.9",
         "16.9",
         "23.9",
         "30.9"
+      ],
+      "halloWochenmarktsept": [
+        "2.9",
+        "3.9",
+        "4.9",
+        "5.9",
+        "6.9",
+        "7.9",
+        "8.9",
+        "9.9",
+        "10.9",
+        "11.9",
+        "12.9",
+        "13.9",
+        "14.9",
+        "15.9",
+        "16.9",
+        "17.9",
+        "18.9",
+        "19.9",
+        "20.9",
+        "21.9",
+        "22.9",
+        "23.9"
       ]
     },
     {
       "month": "Oktober",
       "events": [
         "halloWochenmarkt",
-        "halloWelt"
+        "jjjjjjjjjjjj",
+        "halloWochenmarktTT"
       ],
       "halloWochenmarkt": [
         "8.10",
@@ -211,7 +345,14 @@
         "22.10",
         "29.10"
       ],
-      "halloWelt": [
+      "jjjjjjjjjjjj": [
+        "4.10",
+        "11.10",
+        "18.10",
+        "25.10",
+        "1.11"
+      ],
+      "halloWochenmarktTT": [
         "7.10",
         "14.10",
         "21.10",
@@ -222,7 +363,8 @@
       "month": "November",
       "events": [
         "halloWochenmarkt",
-        "halloWelt"
+        "jjjjjjjjjjjj",
+        "halloWochenmarktTT"
       ],
       "halloWochenmarkt": [
         "5.11",
@@ -230,7 +372,13 @@
         "19.11",
         "26.11"
       ],
-      "halloWelt": [
+      "jjjjjjjjjjjj": [
+        "8.11",
+        "15.11",
+        "22.11",
+        "29.11"
+      ],
+      "halloWochenmarktTT": [
         "4.11",
         "11.11",
         "18.11",
@@ -241,12 +389,18 @@
   "listofRegion": {
     "Mittelrhein": {
       "regions": [
-        "halloWochenmarkt"
+        "halloWochenmarkt",
+        "halloWochenmarktTT",
+        "ppp",
+        "ppph",
+        "halloWelt",
+        "halloWochenmarktsept"
       ]
     },
     "Oberrhein": {
       "regions": [
-        "halloWelt"
+        "ppp",
+        "jjjjjjjjjjjj"
       ]
     }
   }
