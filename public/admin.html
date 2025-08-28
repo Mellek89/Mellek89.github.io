@@ -73,8 +73,15 @@
             <input type="radio" name="region" value="Oberrhein" class="Oberrhein" id="OberrheinAdmin" autocomplete="off">
            <span>Oberrhein</span>
           </label></div>
-  
-  <div class="calendar" id="calendar">
+
+     <div class="inputEvents" style="width: 60%;" >
+    <div class="dropdown-menu" id="dropdown-menu">
+          <span class="dropdown-item"id="dropdown-item"></span>
+     </div>
+
+            </div>
+
+      <div class="calendar" id="calendar">
         
         <header>
           <p class="current-date"></p>
@@ -99,13 +106,7 @@
         </ul> 
 
       </div>
-
-
-     <div class="inputEvents" style="width: 60%;" >
-    <div class="dropdown-menu" id="dropdown-menu">
-          <span class="dropdown-item"id="dropdown-item"></span>
-     </div>
-  <form id="zeitraumForm" class="zeitraumForm">
+        <form id="zeitraumForm" class="zeitraumForm">
     <div class="error" id="error-box" style="display:none; color:red;"></div>
           <label><strong>Eventname :</strong>
               <input type="text" id="eventname" required placeholder="z. B. Weihnachtsmarkt Durlach">
@@ -123,7 +124,7 @@
             </label>
           <button type="submit">Vorschau anzeigen</button>
   </form>
-            </div>
+
 
             <div id="ausgabe" style="margin-top: 20px;"></div>
   <div id="bestaetigung" style="margin-top: 20px;"></div>

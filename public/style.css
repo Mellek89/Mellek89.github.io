@@ -833,31 +833,41 @@ p,
     display: grid;
     grid-template-columns: 1fr; /* alles untereinander */
     grid-auto-rows: auto;
+    justify-items: center;       /* Inhalte horizontal zentrieren */
+    text-align: center;       
   }
 
   .calendar,
   .inputEvents,
   .regionsAdmin,
   .hAdmin {
-    grid-column: 1 / -1; /* gesamte Breite */
+    grid-column: 1 / -1 !important;
+    width: 90% !important;      /* etwas kleiner als 100%, wirkt harmonischer */
+    margin: 0 auto 1em auto;    /* Abstand und zentriert */
   }
 }
 .calendar {
     max-width: 100%;
     width: 100%;
     margin: 0 auto 20px auto;
+    margin-bottom: 3em;
   }
 
   .inputEvents {
-    width: 100% !important;
-    margin: 0 auto;
+    width: 90% !important;
+    margin: 2em auto 1em auto;   
+  }
+.regionsAdmin {
+    display: flex;                 /* Flexbox benutzen */
+    flex-direction: column;        /* alles untereinander */
+    align-items: center;           /* horizontal mittig */
+    justify-content: center;       /* vertikal mittig (falls nötig) */
+    width: 100% !important;        /* volle Breite nutzen */
+    margin: 0 auto 1em auto !important;
+    text-align: center !important;
   }
 
-  .hAdmin,
-  .regionsAdmin {
-    text-align: center;
-    width: 100%;
-  }
+ 
 
 
 
@@ -908,7 +918,7 @@ p,
  
   display: grid;
   grid-area: header;
-grid-template-columns: 1fr auto 1fr; /* zentriert mittlere Spalte */
+  grid-template-columns: 1fr auto 1fr; /* zentriert mittlere Spalte */
   position: sticky;
   top: 0%;
   width: 100%;
