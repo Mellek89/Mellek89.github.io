@@ -303,6 +303,7 @@ border-radius: 10px;
 border-width: 1em;
 border: 2px solid #ffeb3b;
 color: #F0FFFF;
+margin-bottom: 2em;
 
 
 
@@ -822,7 +823,22 @@ p,
         transition: all 0.2s ease;
 }
 
+/*Admin stuff*/
+.zeitraumForm {
+  text-align: left;
+}
 
+.zeitraumForm label,
+.zeitraumForm span,
+.zeitraumForm input,
+.zeitraumForm button {
+
+  text-align: left;
+}
+.formContainer{
+  grid-column: 1 / -1 !important;
+ 
+}
 
 
 
@@ -845,7 +861,7 @@ p,
     width: 90% !important;      /* etwas kleiner als 100%, wirkt harmonischer */
     margin: 0 auto 1em auto;    /* Abstand und zentriert */
   }
-}
+
 .calendar {
     max-width: 100%;
     width: 100%;
@@ -855,7 +871,8 @@ p,
 
   .inputEvents {
     width: 90% !important;
-    margin: 2em auto 1em auto;   
+    margin: 0 auto 1em auto; 
+  margin-top: 3em  !important;
   }
 .regionsAdmin {
     display: flex;                 /* Flexbox benutzen */
@@ -867,36 +884,77 @@ p,
     text-align: center !important;
   }
 
- 
 
+  
+}
+
+
+
+ 
 
 
 
 
 
 @media (min-width: 768px) and (max-width: 1024px) {
+  .formContainer {
+    display: flex;              /* Flexbox aktivieren */
+    flex-direction: column;     /* Inhalte untereinander */
+    align-items: center;        /* horizontal zentrieren */
+    width: 100%;                /* volle Breite */
+    margin: 0 auto;             /* Container mittig */
+  }
 
- /*Über uns*/
- .Wagen1984Span,
- .HolzhütteSpan,
- .HexenhausSpan{
-  margin-left: 10%;
- }
+  .formContainer > div,
+  .formContainer > form {
+    width: 90%;                 /* einheitliche Breite */
+    margin-bottom: 1em;         /* Abstand zwischen Elementen */
+    text-align: center;         /* Inhalte mittig */
+  }
+}
+.inputEvents {
 
- .KarlsruheWeihnachtsmarktSpan{
-  margin-left: -5%;
+  align-self: center !important;
+  margin-top: 2em !important;
+  
+  
+}
+.eventname {
+  display: block;      /* sorgt dafür, dass der Text über dem Input steht */
+  text-align: left;    /* links ausrichten */
+  margin-bottom: 5px;
+  font-size: 1.2em;  /* etwas Abstand zum Feld */
+   border-bottom: 1px solid #F0E801;
+   padding-bottom: 2px;
+    display: inline-block;   /* nur so breit wie der Text */
 
- }
- .HängerSpan{
-    margin-left: 5%;
- }
- 
-/*Admin stuff*/
+}
+
+.eventTemp
+{
+    border-bottom: 1px solid #F0E801;
+    font-size: 1.2em; 
+    padding-bottom: 2px;
+    display: inline-block;   /* nur so breit wie der Text */
+
+}
+.weekmarket {
+    border-bottom: 1px solid #F0E801;
+    font-size: 1.2em; 
+    padding-bottom: 4px;
+    display: inline-flex;     /* Flexbox, aber nur so breit wie der Inhalt */
+    align-items: center;
+    gap: 2em;               /* Abstand zwischen Text und Checkbox */
+}
+.preview{
+  margin-top: 2em;
+}
+
 
 
 
    
-}
+
 
 @media (min-width: 1025px) {
 
@@ -974,25 +1032,25 @@ grid-column: 2/4;*/
  justify-self: center;
 }
 .menu .home{
- grid-column: 2; 
+
  grid-row: 1/2;
  
 
 }
 .menu .events{
-grid-column: 3;
+
  grid-row: 1/2;
 
 }
 .menu .langos{
-grid-column: 4;
+
  grid-row: 1/2;
  
 }
 .menu .logo{
   display: block;
   position: relative;
-  grid-column: 6;
+  grid-column: 5;
   z-index: 3;
    grid-row: 1/2;
   
@@ -1009,17 +1067,17 @@ grid-column: 4;
  }
 
 .menu .uns {
-  grid-column: 7;
+  grid-column: 6;
    grid-row: 1/2;
   
 }
 .menu .news{
-  grid-column: 8;
+  grid-column: 7;
    grid-row: 1/2;
    
 }
 .menu .kontakt{
-  grid-column: 9;
+  grid-column: 8;
    grid-row: 1/2;
   
 }
@@ -1244,6 +1302,18 @@ header .icons span:hover{
     top: 70%
 }
 
+/*Admin*/
+
+.formContainer {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr; /* links - mitte - rechts */
+  gap: 20px; /* Abstand zwischen den Spalten */
+  width: 80%;
+  margin: 0 auto; /* Container mittig */
+  align-items: start; /* Inhalte oben ausrichten */
+}
+
+
 
 
 /* Mobile: Alle sichtbar */
@@ -1388,15 +1458,19 @@ header .icons span:hover{
 
 }
 .inputEvents {
-  grid-column: 3 / 5; /* Spalte 3 + 4 */
+
   align-self: start; /* ebenfalls oben ausrichten */
+  margin-top: 7em;
+  
+  grid-column: 1;
 }
+
 .hAdmin{
   grid-column: 1/5;
   color: #ffeb3b;
 margin-top: 2em;
 margin-bottom: 2em;
-margin-left: 2%;
+
 font-size: 25px;
   width: 100%;
   text-align: center;
