@@ -83,7 +83,7 @@
       </div>
 
     </div>
-
+<div class="error" id="error-box" style="display:none; color:red;"></div>
       <div class="calendar" id="calendar">
         
         <header>
@@ -110,7 +110,7 @@
 
       </div>
         <form id="zeitraumForm" class="zeitraumForm">
-    <div class="error" id="error-box" style="display:none; color:red;"></div>
+    
          <label class="eventname" for="eventname"><strong>Eventname :</strong></label> 
               <input type="text" id="eventname" required placeholder="z. B. Weihnachtsmarkt Durlach">
                                   
@@ -129,6 +129,20 @@
           <button class="preview" type="submit">Vorschau anzeigen</button>
       </form>
     </div>
+
+    
+    <dialog id="confirmModal" class="rounded-xl p-4 shadow-lg">
+  <h3>Ist folgendes korrekt?</h3>
+  <ul>
+    <li><strong>Region:</strong> <span id="regionField"></span></li>
+    <li><strong>Event:</strong> <span id="eventField"></span></li>
+    <li><strong>Zeitraum:</strong> <span id="zeitraumField"></span></li>
+  </ul>
+  <div style="margin-top:1em; display:flex; gap:1em; justify-content:flex-end;">
+    <button id="saveBtn">✅ Ja, bitte speichern</button>
+    <button id="udBtn">📝 Nein, bitte korrigieren</button>
+  </div>
+</dialog>
 
 
             <div id="ausgabe" style="margin-top: 20px;"></div>
