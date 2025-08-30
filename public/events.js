@@ -563,23 +563,22 @@ if (!region) {
     			// Vorschau anzeigen
     const { name, region, isWeekly } = handleWeekmarkets();
 	const finalName =  eventnametmp;
-		document.getElementById('bestaetigung').innerHTML = `
-				<p> Ist folgendes korrekt?</p>
-				<ul>
-				<li><strong>Region:</strong> ${region}</li>
-				<li><strong>Event:</strong> ${eventnametmp}</li>
-				<li id="eventTemp">'<strong>Zeitraum:</strong> 
-				
-					${selectedStart}${selectedEnd != null ? ' - ' + selectedEnd : ''} . ${currMonth} (${currYear})
+		
+					const zeitraum = `${selectedStart}${selectedEnd != null ? ' - ' + selectedEnd : ''} . ${currMonth+1} (${currYear})`;
 
-				</li>
-				</ul>
-				<button id="saveBtn">✅ Speichern</button>
-				<button id="udBtn">📝Korregieren</button>
-				`; 
+					showConfirmation(region, eventnametmp, zeitraum, finalName, currMonth, currYear, isWeekly);
+
 				
-				console.log(selectedDaysForEvent);
-				const saveBtn= document.getElementById('saveBtn')
+				
+				const udBtn= document.getElementById('udBtn');
+				udBtn.addEventListener("click", () => {
+				if (udBtn.click){
+						return;
+					}
+				});
+					
+				
+				const saveBtn= document.getElementById('saveBtn');
 				  saveBtn.addEventListener('click', async function handler() {
 					
 					await speichernEvent(finalName, currMonth, region,isWeekly);
@@ -589,10 +588,41 @@ if (!region) {
 					// Nur einmal ausführen: Eventlistener wieder entfernen
 					saveBtn.removeEventListener('click', handler);
 				});
+				
 			
 
 
     });
+	function showConfirmation(region, eventName, zeitraum, finalName, currMonth, currYear, isWeekly) {
+    const modal = document.getElementById("confirmModal");
+    document.getElementById("regionField").textContent = region;
+    document.getElementById("eventField").textContent = eventName;
+    document.getElementById("zeitraumField").textContent = zeitraum;
+
+    // Modal öffnen
+    modal.showModal();
+
+    // Buttons
+    const saveBtn = document.getElementById('saveBtn');
+    const udBtn = document.getElementById('udBtn');
+
+    // Save
+    const saveHandler = async () => {
+      await speichernEvent(finalName, currMonth, region, isWeekly);
+      ladeDatenFürRegion(region);
+      modal.close();
+      saveBtn.removeEventListener("click", saveHandler);
+    };
+    saveBtn.addEventListener("click", saveHandler);
+
+    // Abbrechen
+    udBtn.onclick = () => {
+      modal.close();
+    };
+  }
+
+
+
 
 }
 
@@ -885,7 +915,7 @@ for (const regionKey in data.listofRegion) {
 		
 	} 
 	if (!found) {
-  showError("Für diesen Monat gibt es keine Veranstaltungen.");
+  showError("Für diesen Monat gibt es noch keine Veranstaltungen.");
 }else {
 	showError("");
 }
@@ -1067,20 +1097,10 @@ prevNextIcon.forEach(icon => {
         	let date = new Date();
 			
         }    
-			/*renderCalendar();
-		
-			renderEvents().then( ()=> {
-				showDropdownMenu(listofRegion); 
-
-			});	
-		
-		showDropdownMenu(listofRegion).then( ()=> {
-			showEvents(currMonth);
-		});	
-	//}else{*/
+			
 		
 		renderCalendar();
-		//chooseEvents(currMonth);
+		
 			renderEvents().then( ()=> {
 				showDropdownMenu(listofRegion,region); 
 
