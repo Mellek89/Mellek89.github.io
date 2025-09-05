@@ -2,36 +2,51 @@
 <html lang = "en"  dir = "ltr">
     
 <head>
-  <meta charset ="utf-8">
-  <meta content-type="text/html">
-  <!--meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, max-age=0"-->
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  
+  <!-- Cache deaktivieren -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, max-age=0">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
+
+  <!-- Content Security Policy -->
+<meta http-equiv="Content-Security-Policy" 
+      content="default-src 'self'; 
+               connect-src 'self'; 
+               style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://www.w3schools.com; 
+               font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://cdn.jsdelivr.net; 
+               script-src 'self' https://cdn.jsdelivr.net https://cdn.jsdelivr.net/npm 'unsafe-inline'; 
+               img-src 'self' data:;">
+  <title>Admin</title>
+
+  <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="./images/Lango-laenge-Logo.png">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
-  <link  rel="stylesheet"  href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"/>
- <link rel="stylesheet" href ="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-  <title>Index</title>
-  <link rel = "stylesheet" href="style.css"> 
+
+  <!-- Externe Styles -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Flatpickr CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+  <!-- Viewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-   <!-- Flatpickr CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
-    <!-- Flatpickr JS -->
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <!-- Externe Scripts -->
+  <script src="jquery-3.7.1.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/de.js"></script>
 
-    <!-- Deutsche Übersetzung -->
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/de.js"></script>
- 
-<script src="jquery-3.7.1.js"></script>  
-<!--script type= "module" src="script.js" async></script-->
+  <!-- Inline Styles für schnelle Layout-Anpassungen -->
   <style>
-  
     input, button, textarea, select { width: 100%; margin: 6px 0; padding: 8px; }
     fieldset { margin-top: 20px; }
-   
   </style>
-  </head>
+</head>
+
 
   <body>
 
@@ -79,7 +94,7 @@
 <div class="formContainer">
      <div class="inputEvents" style="width: 60%;" >
       <div class="dropdown-menu" id="dropdown-menu">
-          <span class="dropdown-item"id="dropdown-item"></span>
+          <span class="dropdown-item"></span>
       </div>
 
     </div>
@@ -128,10 +143,7 @@
             
           <button class="preview" type="submit">Vorschau anzeigen</button>
       </form>
-    </div>
-
-    
-    <dialog id="confirmModal" class="rounded-xl p-4 shadow-lg">
+  <dialog id="confirmModal"  class="modal">
   <h3>Ist folgendes korrekt?</h3>
   <ul>
     <li><strong>Region:</strong> <span id="regionField"></span></li>
@@ -139,11 +151,27 @@
     <li><strong>Zeitraum:</strong> <span id="zeitraumField"></span></li>
   </ul>
   <div style="margin-top:1em; display:flex; gap:1em; justify-content:flex-end;">
-    <button id="saveBtn">✅ Ja, bitte speichern</button>
-    <button id="udBtn">📝 Nein, bitte korrigieren</button>
+    <button id="saveBtn" class="saveBtn">Ja, bitte speichern</button>
+    <button id="udBtn" class="udBtn"> Nein, bitte korrigieren</button>
+  </div>
+</dialog>
+  <dialog id="confirmDeleteModal"  class="delModal">
+  <h3>Soll das Event wirklich gelöscht werden? ?</h3>
+  <ul>
+    <li><strong>Region:</strong> <span id="regionField"></span></li>
+    <li><strong>Event:</strong> <span id="eventField"></span></li>
+    <li><strong>Zeitraum:</strong> <span id="zeitraumField"></span></li>
+  </ul>
+  <div style="margin-top:1em; display:flex; gap:1em; justify-content:flex-end;">
+    <button id="delBtn" class="delBtn">Ja, bitte löschen</button>
+    <button id="cancel" class="cancel"> Nein, bitte abbrechen</button>
   </div>
 </dialog>
 
+    </div>
+
+
+    
 
             <div id="ausgabe" style="margin-top: 20px;"></div>
   <div id="bestaetigung" style="margin-top: 20px;"></div>

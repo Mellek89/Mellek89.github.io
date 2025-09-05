@@ -841,6 +841,43 @@ p,
  
 }
 
+ /* Modal Styling */
+  .modal::backdrop {
+    background: rgba(0, 0, 0, 0.5); /* dunkler Hintergrund */
+  }
+
+  #confirmModal {
+    border: none;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    width: 90%;       /* fast volle Breite auf Mobil */
+    max-width: 400px; /* begrenzt auf Desktop */
+    text-align: center;
+  }
+  #confirmModal ul {
+  list-style: none;  /* entfernt die Punkte */
+  padding: 0;        /* entfernt Einrückung */
+  margin: 0;         /* optional: Abstand oben/unten entfernen */
+}
+
+  .udBtn {
+    padding: 0.5em 1em;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    background-color: #f44336; color: white;
+  }
+
+  .saveBtn {
+    padding: 0.5em 1em;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    background-color: #4CAF50; color: white;
+  }
+
 
 
 
@@ -950,7 +987,28 @@ p,
 .preview{
   margin-top: 2em;
 }
+ #confirmModal {
+      width: 400px; /* feste Breite auf Desktop */
+      grid-column: 2;
+    }
+    dialog.modal {
+  border: none;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
 
+  /* Zentrierung */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+dialog.modal::backdrop {
+  background: rgba(0,0,0,0.5);
+}
 
 
 
