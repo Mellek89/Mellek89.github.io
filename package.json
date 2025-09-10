@@ -1,5 +1,34 @@
 {
+  "name": "langolaenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "admin.js",
+  "type": "commonjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
-    "rrule": "^2.8.1"
-  }
+    "body-parser": "^1.20.2",
+    
+    "express": "^5.1.0",
+    "finalhandler": "^2.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "rrule": "^2.8.1",
+    "send": "^0.18.0",
+    "serve-static": "^2.2.0"
+  },
+  "overrides": {
+    "debug": "^4.3.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mellek89/LangoLaengeHP.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mellek89/LangoLaengeHP/issues"
+  },
+  "homepage": "https://github.com/Mellek89/LangoLaengeHP#readme"
 }
