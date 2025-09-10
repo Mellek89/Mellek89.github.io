@@ -1,0 +1,37 @@
+[
+  {
+    "username": "admin",
+    "password": "admin123",  
+    "role": "admin"
+  },
+  {
+    "username": "Gernot",
+    "password": "GernotLänge",
+    "role": "user"
+  },
+   {
+    "username": "Uwe",
+    "password": "UweLänge",
+    "role": "user"
+  },
+   {
+    "username": "Jan",
+    "password": "JanLänge",
+    "role": "user"
+  },
+   {
+    "username": "Jens",
+    "password": "JensLänge",
+    "role": "user"
+  },
+   {
+    "username": "Antonia",
+    "password": "AntoniaLänge",
+    "role": "user"
+  },
+  {
+    "username": "Joy",
+    "password": "JoyLänge",
+    "role": "user"
+  }
+]

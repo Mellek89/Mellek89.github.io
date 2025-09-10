@@ -155,12 +155,16 @@
     <button id="udBtn" class="udBtn"> Nein, bitte korrigieren</button>
   </div>
 </dialog>
-  <dialog id="confirmDeleteModal"  class="delModal">
+
+
+  <dialog id="confirmDeleteModal"  class="modal">
   <h3>Soll das Event wirklich gelöscht werden? ?</h3>
   <ul>
-    <li><strong>Region:</strong> <span id="regionField"></span></li>
-    <li><strong>Event:</strong> <span id="eventField"></span></li>
-    <li><strong>Zeitraum:</strong> <span id="zeitraumField"></span></li>
+    <li><strong>Region:</strong> <span id="regionFieldForDel"></span></li>
+    <li><strong>Event:</strong> <span id="eventFieldForDel"></span></li>
+    <li><strong>Zeitraum:</strong> <span id="zeitraumFieldForDel"></span></li>
+    <li id="weekmarketForDel"><strong>Wochenmarkt</strong> <span ></span></li>
+    
   </ul>
   <div style="margin-top:1em; display:flex; gap:1em; justify-content:flex-end;">
     <button id="delBtn" class="delBtn">Ja, bitte löschen</button>

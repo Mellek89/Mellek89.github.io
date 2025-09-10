@@ -846,7 +846,8 @@ p,
     background: rgba(0, 0, 0, 0.5); /* dunkler Hintergrund */
   }
 
-  #confirmModal {
+  #confirmModal,
+  #confirmDeleteModal {
     border: none;
     border-radius: 1rem;
     padding: 1.5rem;
@@ -854,13 +855,16 @@ p,
     max-width: 400px; /* begrenzt auf Desktop */
     text-align: center;
   }
-  #confirmModal ul {
+  #confirmModal ul,
+  #confirmDeleteModal ul {
   list-style: none;  /* entfernt die Punkte */
   padding: 0;        /* entfernt Einrückung */
   margin: 0;         /* optional: Abstand oben/unten entfernen */
 }
 
-  .udBtn {
+  .udBtn,
+  .cancel
+   {
     padding: 0.5em 1em;
     border-radius: 0.5rem;
     border: none;
@@ -869,7 +873,8 @@ p,
     background-color: #f44336; color: white;
   }
 
-  .saveBtn {
+  .saveBtn,
+   .delBtn{
     padding: 0.5em 1em;
     border-radius: 0.5rem;
     border: none;
@@ -987,7 +992,8 @@ p,
 .preview{
   margin-top: 2em;
 }
- #confirmModal {
+ #confirmModal,
+ #confirmDeleteModal {
       width: 400px; /* feste Breite auf Desktop */
       grid-column: 2;
     }
