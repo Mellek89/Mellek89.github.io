@@ -221,17 +221,21 @@ app.get('/userDaten', authMiddleware("user"), (req, res) => {
         const rawData = fs.readFileSync(filePath, 'utf-8');
         const userData = JSON.parse(rawData);
 
-        // Optional: nur Daten des eingeloggten Users zurückgeben
+        /* Optional: nur Daten des eingeloggten Users zurückgeben
         const username = req.user.username;
         console.log(username);
          const filteredData = userData.find(u => u.username === username) || {};
 
         res.json(filteredData);
-        console.log(filteredData);
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ message: "Fehler beim Lesen der Datei" });
-    }
+        console.log(filteredData);*/
+
+         res.json(userData);  // alle Benutzer zurückgeben
+    console.log(userData);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Fehler beim Lesen der Datei" });
+  }
+   
 });
 app.post("/login", (req, res) => {
   const { username, password } = req.body;
