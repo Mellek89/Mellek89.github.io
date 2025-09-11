@@ -299,7 +299,7 @@ if (!region) {
       	
         return;
       }
-
+renderAdminDropdown();
       await renderEvents();
 			const regionData = listofRegionGlobal[region];
 			if (!regionData) {
@@ -861,7 +861,7 @@ function getMonatsname(monatNummer) {
 
 
 
-renderAdminDropdown();
+//renderAdminDropdown();
 initAdminDropdownListener();
 // --- Admin Dropdown rendern ---
 async function renderAdminDropdown() {
