@@ -1,0 +1,29 @@
+{
+  "eventData": [
+    {
+      "month": "September",
+      "events": []
+    },
+    {
+      "month": "Oktober",
+      "events": [
+        "ppp"
+      ],
+      "ppp": {
+        "dates": [
+          "1.10",
+          "2.10"
+        ],
+        "owner": "admin"
+      }
+    }
+  ],
+  "listofRegion": {
+    "Mittelrhein": {
+      "regions": [
+        "ppp",
+        "halloWochenmarkt"
+      ]
+    }
+  }
+}
