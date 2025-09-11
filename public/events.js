@@ -1549,8 +1549,53 @@ listofRegionGlobal = listofRegion;
   
 	renderCalendar();
 };
+function loadUsers() {
+  try {
+    return JSON.parse(fs.readFileSync('userDaten.json', 'utf-8')); // z.B. users.json
+  } catch {
+    return [];
+  }
+}
 
+loadUsers();
+async function renderUserList() {
+  try {
+    const res = await fetch('/userDaten', {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem("jwt")}`
+      }
+    });
+    if (!res.ok) throw new Error("Fehler beim Laden der Benutzer");
+    const users = await res.json();
 
+    const tbody = document.querySelector("#userTable tbody");
+    tbody.innerHTML = ""; // alte Zeilen löschen
+
+    users.forEach(user => {
+      const tr = document.createElement("tr");
+
+      const tdName = document.createElement("td");
+      tdName.textContent = user.username;
+      tr.appendChild(tdName);
+
+      const tdRole = document.createElement("td");
+      tdRole.textContent = user.role;
+      tr.appendChild(tdRole);
+
+      const tdStatus = document.createElement("td");
+      tdStatus.textContent = user.isLoggedIn ? "Online" : "Offline";
+      tr.appendChild(tdStatus);
+
+      tbody.appendChild(tr);
+    });
+
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+// Aufruf beim Laden der Seite
+document.addEventListener("DOMContentLoaded", renderUserList);
 renderCalendar();
 //chooseEvents(currMonth);
 
