@@ -73,28 +73,24 @@ function mergeEventData(existing, incoming, username, role) {
         const newEventDates = newEventObj.dates || [];*/
         const oldEvent = oldMonth[evName];
         const newEventObjRaw = newMonth[evName]; // kann Array oder Objekt sein
-        const newEventObj = Array.isArray(newEventObjRaw)
-          ? { dates: newEventObjRaw, owner: username } // Array → Objekt konvertieren
-          : { dates: Array.isArray(newEventObjRaw?.dates) ? newEventObjRaw.dates : [], owner: newEventObjRaw?.owner || username };
+       const newEventObj = Array.isArray(newEventObjRaw)
+  ? { dates: newEventObjRaw, owner: username, isWeekly: false } // Array → Objekt konvertieren
+  : { 
+      dates: Array.isArray(newEventObjRaw?.dates) ? newEventObjRaw.dates : [], 
+      owner: newEventObjRaw?.owner || username,
+      isWeekly: newEventObjRaw?.isWeekly === true // Hier das Flag übernehmen
+    };
 
         const newEventDates = newEventObj.dates || [];
 if (!oldEvent) {
   oldMonth[evName] = newEventObj;
 } else if (role === "admin" || oldEvent.owner === username) {
-  oldEvent.dates = [...newEventDates];
+  oldEvent.dates = [...newEventObj.dates];
+  oldEvent.owner = oldEvent.owner || username;
+  oldEvent.isWeekly = newEventObj.isWeekly; 
 }
-        /*if (!oldEvent) {
-          // neues Event
-          oldMonth[evName] = {
-            dates: newEventDates,
-            owner: username
-          };
-        } else {
-          // bestehendes Event → nur Admin oder Besitzer darf ändern
-          if (role === "admin" || oldEvent.owner === username) {
-            oldEvent.dates = [...newEventDates];
-          }
-        }*/
+
+        
       });
     }
   });
@@ -124,6 +120,9 @@ app.post('/save-event', authMiddleware("user"), (req, res) => {
   const { eventData: incomingEventData, listofRegion: incomingList } = req.body;
   const username = req.user.username;
   const role = req.user.role;
+  // --- Owner und isWeekly für neue Events setzen ---
+
+
 
   if (!incomingEventData || !incomingList) {
     return res.status(400).json({ message: "❌ Erwarte Objekt mit eventData und listofRegion." });
@@ -155,10 +154,11 @@ app.post('/save-event', authMiddleware("user"), (req, res) => {
      const copy = { month: month.month, events: [...month.events] };
     month.events.forEach(evName => {
       const evObj = month[evName] || { dates: [] };
-      copy[evName] = { ...evObj, owner: username };
+      copy[evName] = { ...evObj, owner: username, isWeekly: evObj?.isWeekly === true  };
     });
     return copy;
   });
+ 
 
   // --- Daten mergen ---
   const merged = mergeEventData(existing, { eventData: incomingWithOwner, listofRegion: incomingList }, username, role);
@@ -167,6 +167,7 @@ app.post('/save-event', authMiddleware("user"), (req, res) => {
   fs.writeFileSync(dataFile, JSON.stringify(merged, null, 2));
 
   res.json({ message: "✅ Struktur gespeichert (gemerged)." });
+   console.log("incomingWithOwner" +incomingWithOwner);
 });
 
 
