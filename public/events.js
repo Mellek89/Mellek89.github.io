@@ -89,6 +89,7 @@ let period = "";
 function onDayClick(day) {
     eventId = '';
     recurringDaysOfEvents.length = 0;
+    datesOfEvents.length = 0;
 
     const clickedDate = new Date(currYear, currMonth, day);
 
@@ -409,7 +410,15 @@ function resetEventState() {
     document.getElementById("regionField").textContent = region;
     document.getElementById("eventField").textContent = eventName;
     document.getElementById("zeitraumField").textContent = zeitraum;
+    const weekmarketEl = document.getElementById("showWeekmarket");
 
+    console.log("isWeekly:", isWeekly);
+    if (isWeekly) {
+ 
+  weekmarketEl.textContent = "Wochenmarkt";
+} else {
+  weekmarketEl.style.display = "none";
+}
     // Modal öffnen
     modal.showModal();
 
@@ -566,6 +575,9 @@ async function speichernEvent(name, month, region, weekmarket) {
     return;
   }
   const username = payload.username;
+  const isWeekly = weekmarket;
+
+ 
     
     await loadRegionData();
 
@@ -621,22 +633,24 @@ eventData.forEach(monat => {
    console.log("📦 Speichere Event:", name, "in Monat:", monthName);
   console.log("👉 Events jetzt:", monatObj.events);
   console.log("👉 Keys jetzt:", Object.keys(monatObj));
- const tagString = `${current.getDate()}.${current.getMonth() + 1}`;
+  const tagString = `${current.getDate()}.${current.getMonth() + 1}`;
       
        
-       // Wenn der Event-Key noch nicht existiert, anlegen
 if (!monatObj[name]) {
   monatObj[name] = {
     dates: [],
-    owner: username // das ist dein eingeloggter User, z.B. aus localStorage oder globaler Variable
+    owner: username,
+    isWeekly: weekmarket === true
   };
+} else {
+  // Wenn das Event schon existiert, sicherstellen, dass isWeekly gesetzt ist
+  monatObj[name].isWeekly = weekmarket === true;
 }
-
-// Tag hinzufügen, falls noch nicht enthalten
+// Tag hinzufügen, falls noch nicht vorhanden
+ 
 if (!monatObj[name].dates.includes(tagString)) {
   monatObj[name].dates.push(tagString);
 }
-      
 
         // Tage innerhalb des Monats sortieren
         monatObj[name].dates.sort((a, b) => {
@@ -854,6 +868,10 @@ function showEvents(currMonth) {
 
   dropdownMenu.addEventListener("click", async (e) => {
     const item = e.target.closest(".dropdown-item");
+     selectedStart = null;
+     selectedEnd = null;
+     period = '';
+      document.getElementById('eventTemp').innerHTML = period;
     if (!item) return;
 
     // Reset
@@ -922,16 +940,12 @@ const hasEvents = actualEvents.length > 0;
 
      if(mittelrhein && oberrhein && (mittelrhein.checked || oberrhein.checked)){
       showError("Für diesen Monat gibt es noch keine Veranstaltungen.");
-   } else{
+   } 
+}else{
      console.log("✅ Keine Fehlermeldung anzeigen");
      showError("");
   }
-}
-console.log("found:", found);
-console.log("hasEvents:", hasEvents);
-console.log("actualEvents:", actualEvents);
-console.log("mittelrhein:", mittelrhein, "checked:", mittelrhein?.checked);
-console.log("oberrhein:", oberrhein, "checked:", oberrhein?.checked);
+
 
 
     // 4️⃣ Rendern
@@ -953,6 +967,11 @@ window.location.href = "index.html#regionDisplay";
 
 let currentRegion = null;
 async function getRegions(){
+
+   if (window.location.pathname.endsWith("/admin.html")) {
+    console.log("Adminseite → getRegions überspringt URL-Check");
+    return;
+  }
 	const params = new URLSearchParams(window.location.search);
 	   currentRegion = params.get('region');
 	  
@@ -1022,9 +1041,9 @@ console.log("🔍 Normalisiere Monat:", copy.month, "Events:", copy.events);
 
 		
 	
-if (!window.location.pathname.endsWith("admin.html")){	
+
 	getRegions();
-}
+
 
 
 function selectRegions(regions) { 
@@ -1054,16 +1073,17 @@ async function showDropdownMenu(listofRegion,regionName){
         return;
 }
 	const regionData = listofRegion[regionName];
-
+if(selectedStart == null){
    if (!regionData || !Array.isArray(regionData.regions)) {
         console.warn(`⚠️ Region "${regionName}" enthält keine Events oder Wochenmärkte.`);
-        alert(`⚠️ Diese Region enthält keine Events oder Wochenmärkte.`);
+        //alert(`⚠️ Diese Region enthält keine Events oder Wochenmärkte.`);
 
          // ✅ Menü zurücksetzen
             let dropdownList = document.querySelector(".dropdown-menu");
             dropdownList.innerHTML = "";
         return;
     }
+  }
 
   
 
@@ -1233,13 +1253,12 @@ prevNextIcon.forEach(icon => {
         }
     
         renderCalendar();
-         // ✅ zentrale Logik nutzen (nur wenn nicht admin.html)
-        if (!window.location.pathname.endsWith("admin.html")) {
+    
             await getRegions();
-        }
+        
 
         await renderEvents();
-          await  showDropdownMenu(listofRegionGlobal, currentRegion);
+          await  showDropdownMenu(listofRegionGlobal, region);
         
     
     });
@@ -1381,12 +1400,19 @@ const dateOfRecurringEvents = async (eventName, username) => {
         }
 
         // Datum hinzufügen
-       if (!monthEntry[eventName]) {
-    monthEntry[eventName] = {
-        dates: [],
-        owner: username // z.B. username vom eingeloggten User
-    };
+       
+  if (!monthEntry[eventName]) {
+  monthEntry[eventName] = {
+    dates: [],
+    owner: username,
+    isWeekly: true
+  };
+} else {
+  // Existierendes Event → isWeekly aktualisieren
+  monthEntry[eventName].isWeekly = true;
 }
+
+
 
 if (!monthEntry[eventName].dates.includes(formatted)) {
     monthEntry[eventName].dates.push(formatted);
@@ -1406,7 +1432,9 @@ if (!monthEntry[eventName].dates.includes(formatted)) {
 					
 				}
 	
-
+// Globale Variablen aktualisieren, damit speichernEvent sie mitschickt
+eventDataGlobal = eventData;
+listofRegionGlobal = listofRegion;
   
 	renderCalendar();
 };
