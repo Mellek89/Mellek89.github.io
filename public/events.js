@@ -861,50 +861,161 @@ function getMonatsname(monatNummer) {
 
 
 
+renderAdminDropdown();
+initAdminDropdownListener();
+// --- Admin Dropdown rendern ---
+async function renderAdminDropdown() {
+  const dropdownMenu = document.getElementById("dropdown-menu");
+  if (!dropdownMenu) return;
 
+  // 1️⃣ Aktuelle Auswahl merken
+  const selectedName = dropdownMenu.querySelector(".dropdown-item.active")?.dataset.name;
 
-function showEvents(currMonth) {
-  const dropdownMenu = document.querySelector(".dropdown-menu");
+  // 2️⃣ Daten holen
+  const a = await getData();
+  eventDataGlobal = a.eventData;
 
-  dropdownMenu.addEventListener("click", async (e) => {
+  // 3️⃣ Dropdown leeren
+  dropdownMenu.innerHTML = "";
+
+  // 4️⃣ Items rendern
+  const monatName = getMonatsname(currMonth + 1);
+  const monatObj = eventDataGlobal.find(m => m.month === monatName);
+  if (!monatObj) return;
+
+  monatObj.events.forEach(marktName => {
+    const evObj = monatObj[marktName];
+    const displayName = marktName; // Optional schöner Name
+
+    // Wrapper
+    const itemDiv = document.createElement("div");
+    itemDiv.className = "dropdown-item";
+    itemDiv.dataset.name = marktName;
+    itemDiv.style.display = "flex";
+    itemDiv.style.justifyContent = "space-between";
+    itemDiv.style.alignItems = "center";
+    itemDiv.style.padding = "4px 8px";
+
+    // Name
+    const nameSpan = document.createElement("span");
+    nameSpan.className = "name";
+    nameSpan.textContent = displayName;
+    itemDiv.appendChild(nameSpan);
+
+    // Admin-Buttons
+    if (window.location.pathname.endsWith("admin.html")) {
+      const btnWrapper = document.createElement("div");
+      btnWrapper.style.display = "flex";
+      btnWrapper.style.gap = "6px";
+
+      const updateBtn = document.createElement("button");
+      updateBtn.type = "button";
+      updateBtn.className = "update-btn";
+      updateBtn.textContent = "✎";
+      updateBtn.title = "Bearbeiten";
+      Object.assign(updateBtn.style, {
+        background: "#4CAF50",
+        border: "none",
+        color: "white",
+        padding: "4px 6px",
+        borderRadius: "4px",
+        cursor: "pointer"
+      });
+
+      const deleteBtn = document.createElement("button");
+      deleteBtn.type = "button";
+      deleteBtn.className = "delete-btn";
+      deleteBtn.textContent = "🗑";
+      deleteBtn.title = "Löschen";
+      Object.assign(deleteBtn.style, {
+        background: "#f44336",
+        border: "none",
+        color: "white",
+        padding: "4px 6px",
+        borderRadius: "4px",
+        cursor: "pointer"
+      });
+
+      btnWrapper.appendChild(updateBtn);
+      btnWrapper.appendChild(deleteBtn);
+      itemDiv.appendChild(btnWrapper);
+    }
+
+    // Auswahl wiederherstellen
+    if (selectedName === marktName) itemDiv.classList.add("active");
+
+    dropdownMenu.appendChild(itemDiv);
+  });
+}
+
+function initAdminDropdownListener() {
+  const dropdownMenu = document.getElementById("dropdown-menu");
+  if (!dropdownMenu) return;
+
+  dropdownMenu.addEventListener("click", (e) => {
     const item = e.target.closest(".dropdown-item");
-     selectedStart = null;
-     selectedEnd = null;
-     period = '';
-      document.getElementById('eventTemp').innerHTML = period;
     if (!item) return;
 
-    // Reset
-    eventId = "";
-    datesOfEvents.length = 0;
+    // alle anderen entfernen
+    dropdownMenu.querySelectorAll(".dropdown-item").forEach(el => el.classList.remove("active"));
 
-    // Alle anderen zurücksetzen
-    dropdownMenu.querySelectorAll(".dropdown-item").forEach(el => {
-      el.style.color = "rgb(240, 255, 255)";
-      el.style.borderBottom = "1px solid rgb(255, 235, 59)";
-    });
+    // nur das geklickte hervorheben
+    item.classList.add("active");
 
-    // Aktuelles hervorheben
-    item.style.color = "rgb(255, 235, 59)";
-    item.style.borderBottom = "1px solid rgb(240, 255, 255)";
-
-    // Daten holen
-    const a = await getData();
-    eventDataGlobal = a.eventData;
-
+    // ausgewähltes Event setzen
+    const marktName = item.dataset.name;
     const monatName = getMonatsname(currMonth + 1);
     const monatObj = eventDataGlobal.find(m => m.month === monatName);
-    const marktName = item.dataset.name;
-
     if (monatObj && monatObj.events.includes(marktName)) {
-  eventId = marktName;
-  const evObj = monatObj[marktName];
-  datesOfEvents = evObj ? evObj.dates : [];
-}
+      eventId = marktName;
+      const evObj = monatObj[marktName];
+      datesOfEvents = evObj ? evObj.dates : [];
+    }
 
     renderCalendar();
   });
 }
+
+function showEvents(currMonth) {
+  document.querySelectorAll(".dropdown-menu").forEach(menu => {
+    menu.addEventListener("click", async e => {
+       e.preventDefault(); 
+      const item = e.target.closest(".dropdown-item");
+      if (!item) return;
+
+      selectedStart = null;
+      selectedEnd = null;
+      period = '';
+
+      // Alle anderen im aktuellen Menü zurücksetzen
+      menu.querySelectorAll(".dropdown-item")
+          .forEach(el => el.classList.remove("active"));
+
+      // Aktuelles hervorheben
+      item.classList.add("active");
+
+      // Daten holen
+      const a = await getData();
+      eventDataGlobal = a.eventData;
+
+      const monatName = getMonatsname(currMonth + 1);
+      const monatObj = eventDataGlobal.find(m => m.month === monatName);
+      const marktName = item.dataset.name;
+
+      if (monatObj && monatObj.events.includes(marktName)) {
+        eventId = marktName;
+        const evObj = monatObj[marktName];
+        datesOfEvents = evObj ? evObj.dates : [];
+      }
+
+      renderCalendar();
+    });
+  });
+}
+
+
+
+
 
 
 
@@ -949,7 +1060,7 @@ const hasEvents = actualEvents.length > 0;
 
 
     // 4️⃣ Rendern
-    //showEvents(currMonth);
+    showEvents(currMonth);
 
     return { isInEvents };
 }
@@ -1103,7 +1214,7 @@ if(selectedStart == null){
         singleEvent += `
           <div class="dropdown-item"
                data-name="${marktName}"
-               style="display:flex; justify-content:space-between; align-items:center; padding:4px 8px; border-bottom:1px solid #ddd;">
+               style="display:flex; justify-content:space-between; align-items:center; padding:4px 8px; ">
             <span class="name">${displayName}</span>`
         if (window.location.pathname.endsWith("admin.html")) {
 
