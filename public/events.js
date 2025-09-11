@@ -285,7 +285,7 @@ function handleWeekmarkets(){
 		
 
 	}
-async function ladeDatenFürRegion(region) {
+/*async function ladeDatenFürRegion(region) {
 
 if (!region) {
     console.warn("⚠️ Keine Region angegeben für ladeDatenFürRegion");
@@ -299,7 +299,7 @@ if (!region) {
       	
         return;
       }
-renderAdminDropdown();
+      renderAdminDropdown();
       await renderEvents();
 			const regionData = listofRegionGlobal[region];
 			if (!regionData) {
@@ -317,7 +317,38 @@ renderAdminDropdown();
        
       } 
    
-} 
+} */
+async function ladeDatenFürRegion(region) {
+  if (!region) {
+    console.warn("⚠️ Keine Region angegeben für ladeDatenFürRegion");
+    return;
+  }
+
+  await loadRegionData();
+
+  if (!listofRegionGlobal) {
+    console.warn(`Region "${region}" nicht gefunden.`);
+    return;
+  }
+
+  const regionData = listofRegionGlobal[region];
+
+  if (!regionData) {
+    console.warn(`❌ Keine Daten für Region "${region}" gefunden.`);
+    showDropdownMenu({}, region); // leeres Objekt anzeigen
+    return;
+  } else {
+    console.log("🔎 Region übergeben:", region);
+    console.log("🔎 Daten für Region:", regionData);
+
+    // Nur die aktuelle Region ans Dropdown übergeben
+    showDropdownMenu({ [region]: regionData }, region);
+  }
+
+  renderAdminDropdown();
+  await renderEvents();
+}
+
 	
 
 oberrhein.addEventListener('change', async () => {
