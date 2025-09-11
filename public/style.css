@@ -473,11 +473,11 @@ header .chooseItem{
 
  }
  
-.dropdown-menu{
+/*.dropdown-menu{
  display: block;
  min-width: 160px;
  z-index: 1;
-color: #F0FFFF;
+
  grid-row: 2;
  margin-bottom: 10%;
 
@@ -485,13 +485,20 @@ color: #F0FFFF;
  
 
  
-}
+}*/
 .dropdown-menu span{
-  color: #F0FFFF;
-  border-bottom: 1px solid #ffeb3b;
+
   font-size: 110%;
 
   
+}
+.dropdownAdmin-item.active {
+  color: rgb(255, 235, 59);
+  border-bottom: 1px solid rgb(240, 255, 255);
+}
+.dropdown-item.active {
+  color: rgb(255, 235, 59);
+  border-bottom: 1px solid rgb(240, 255, 255);
 }
 .line-break {
   margin-bottom: 10%;
