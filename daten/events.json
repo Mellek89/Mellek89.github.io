@@ -3,9 +3,17 @@
     {
       "month": "September",
       "events": [
-        "Test"
+        "halloWochenmarkt",
+        "EventVonJens"
       ],
-      "Test": {
+      "halloWochenmarkt": {
+        "dates": [
+          "2.9"
+        ],
+        "owner": "Jan",
+        "isWeekly": false
+      },
+      "EventVonJens": {
         "dates": [
           "3.9",
           "4.9",
@@ -36,16 +44,16 @@
           "29.9",
           "30.9"
         ],
-        "owner": "admin",
+        "owner": "Jens",
         "isWeekly": false
       }
     },
     {
       "month": "Oktober",
       "events": [
-        "Test"
+        "EventVonJens"
       ],
-      "Test": {
+      "EventVonJens": {
         "dates": [
           "1.10",
           "2.10",
@@ -70,9 +78,14 @@
           "21.10",
           "22.10",
           "23.10",
-          "24.10"
+          "24.10",
+          "25.10",
+          "26.10",
+          "27.10",
+          "28.10",
+          "29.10"
         ],
-        "owner": "admin",
+        "owner": "Jens",
         "isWeekly": false
       }
     }
@@ -80,7 +93,14 @@
   "listofRegion": {
     "Mittelrhein": {
       "regions": [
-        "Test"
+        "ppp",
+        "EventVonJens"
+      ]
+    },
+    "Oberrhein": {
+      "regions": [
+        "halloWochenmarkt",
+        "ppp"
       ]
     }
   }
