@@ -13,9 +13,16 @@ html, body {
   box-sizing: border-box;
   font-family: 'Poppins', 'san-serifs'}
 
-/*.hidden {
+.hidden {
   display: none !important;
-}*/
+}
+/* Footer ausblenden, ohne Grid kaputtzumachen */
+.hidden-footer {
+  visibility: hidden;  /* unsichtbar */
+  height: 0;           /* Höhe auf 0 */
+  overflow: hidden;    /* Inhalt ausblenden */
+  transition: all 0.3s ease; /* optional: sanftes Ausblenden */
+}
 
 
 .container{
@@ -40,11 +47,8 @@ html, body {
  } 
  .container .main.hidden { display: none; }
 
-html, body {
-  overflow-x: hidden;
-  margin: 0;
-  padding: 0;
-}
+
+
 /* Responsive Bilddarstellung */
 img {
   max-width: 100%;
@@ -116,9 +120,10 @@ img {
           overflow: hidden;
           max-height: 0;
           transition: max-height .4s ease-out;
-          z-index: 2;
+          z-index: 4;
   
         }
+       /* .nav { z-index: 9999; position: fixed; inset: 0; }*/
 
         /* Navigation menu inside overlay */
           .menu {
@@ -1064,7 +1069,7 @@ grid-template-columns: repeat(4, 1fr);
 grid-auto-rows: minmax(100px, auto);
 
 }
- .container .main.hidden { display: none; }
+/* .container .main.hidden { display: none; }*/
 .container .footer {
 
  bottom: 0px;
@@ -1088,7 +1093,7 @@ grid-auto-rows: minmax(100px, auto);
   inset: auto;             /* inset zurücksetzen */
   height: auto;
   width: 100%;
-  z-index: 3;   
+  z-index: 4;   
           /* niedriger als Header-Inhalte */
   grid-row: 1/2; 
 
@@ -1547,6 +1552,7 @@ font-size: 25px;
   width: 100%;
   text-align: center;
 }
+
 
 
 
