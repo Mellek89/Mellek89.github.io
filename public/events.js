@@ -337,16 +337,15 @@ async function ladeDatenFürRegion(region) {
     console.warn(`❌ Keine Daten für Region "${region}" gefunden.`);
     showDropdownMenu({}, region); // leeres Objekt anzeigen
     return;
-  } else {
+  } 
     console.log("🔎 Region übergeben:", region);
     console.log("🔎 Daten für Region:", regionData);
 
-    // Nur die aktuelle Region ans Dropdown übergeben
-    showDropdownMenu({ [region]: regionData }, region);
-  }
 
   //renderAdminDropdown();
   await renderEvents();
+   
+    showDropdownMenu({ [region]: regionData }, region);
 }
 
 	
@@ -1008,8 +1007,10 @@ function initAdminDropdownListener() {
 }
 
 function showEvents(currMonth) {
+  console.log('Menus gefunden:', document.querySelectorAll('.dropdown-menu').length);
   document.querySelectorAll(".dropdown-menu").forEach(menu => {
     menu.addEventListener("click", async e => {
+      console.log(e);
        e.preventDefault(); 
       const item = e.target.closest(".dropdown-item");
       if (!item) return;
@@ -1043,7 +1044,6 @@ function showEvents(currMonth) {
     });
   });
 }
-
 
 
 
@@ -1149,6 +1149,7 @@ async function loadRegionData(){
     const data = await getData();  
     listofRegionGlobal  = data.listofRegion; // komplette Liste speichern
     eventDataGlobal  = data.eventData;
+    return data; 
 	 } catch (err) {
         console.error("Fehler beim Laden der JSON-Daten:", err);
     }
@@ -1211,6 +1212,7 @@ function regionExistsInList(eventName,regionObj) {
  
 }
 async function showDropdownMenu(listofRegion,regionName){
+  console.log("showDropdownMenu aufgerufen:", listofRegion, regionName);
 
  if (typeof listofRegion !== 'object' || listofRegion === null || Array.isArray(listofRegion)) {
         console.error("❌ Fehler: listofRegion ist kein gültiges Objekt:", listofRegion);
