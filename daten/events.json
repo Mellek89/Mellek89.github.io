@@ -3,19 +3,42 @@
     {
       "month": "September",
       "events": [
-        "halloWochenmarkt",
-        "EventVonJens"
+        "EventVonAdmin",
+        "EventVonJan",
+        "EventVonJens",
+        "ppp",
+        "halloWochenmarkt"
       ],
-      "halloWochenmarkt": {
+      "EventVonAdmin": {
         "dates": [
-          "2.9"
+          "2.9",
+          "3.9",
+          "4.9",
+          "5.9",
+          "6.9",
+          "7.9",
+          "8.9",
+          "9.9",
+          "10.9",
+          "11.9",
+          "12.9",
+          "13.9",
+          "14.9",
+          "15.9",
+          "16.9"
+        ],
+        "owner": "admin",
+        "isWeekly": false
+      },
+      "EventVonJan": {
+        "dates": [
+          "3.9"
         ],
         "owner": "Jan",
-        "isWeekly": false
+        "isWeekly": true
       },
       "EventVonJens": {
         "dates": [
-          "3.9",
           "4.9",
           "5.9",
           "6.9",
@@ -46,6 +69,20 @@
         ],
         "owner": "Jens",
         "isWeekly": false
+      },
+      "ppp": {
+        "dates": [
+          "17.9"
+        ],
+        "owner": "Jens",
+        "isWeekly": false
+      },
+      "halloWochenmarkt": {
+        "dates": [
+          "17.9"
+        ],
+        "owner": "Jens",
+        "isWeekly": true
       }
     },
     {
@@ -65,25 +102,7 @@
           "8.10",
           "9.10",
           "10.10",
-          "11.10",
-          "12.10",
-          "13.10",
-          "14.10",
-          "15.10",
-          "16.10",
-          "17.10",
-          "18.10",
-          "19.10",
-          "20.10",
-          "21.10",
-          "22.10",
-          "23.10",
-          "24.10",
-          "25.10",
-          "26.10",
-          "27.10",
-          "28.10",
-          "29.10"
+          "11.10"
         ],
         "owner": "Jens",
         "isWeekly": false
@@ -93,14 +112,15 @@
   "listofRegion": {
     "Mittelrhein": {
       "regions": [
-        "ppp",
-        "EventVonJens"
+        "EventVonAdmin",
+        "EventVonJan"
       ]
     },
     "Oberrhein": {
       "regions": [
-        "halloWochenmarkt",
-        "ppp"
+        "EventVonJens",
+        "ppp",
+        "halloWochenmarkt"
       ]
     }
   }

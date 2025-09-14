@@ -345,7 +345,7 @@ async function ladeDatenFürRegion(region) {
     showDropdownMenu({ [region]: regionData }, region);
   }
 
-  renderAdminDropdown();
+  //renderAdminDropdown();
   await renderEvents();
 }
 
@@ -445,8 +445,8 @@ function resetEventState() {
 
     console.log("isWeekly:", isWeekly);
     if (isWeekly) {
- 
-  weekmarketEl.textContent = "Wochenmarkt";
+ weekmarketEl.style.display = "block";
+  weekmarketEl.textContent = "Dieses Event ist ein Wochenmarkt";
 } else {
   weekmarketEl.style.display = "none";
 }
@@ -893,7 +893,7 @@ function getMonatsname(monatNummer) {
 
 
 //renderAdminDropdown();
-initAdminDropdownListener();
+//initAdminDropdownListener();
 // --- Admin Dropdown rendern ---
 async function renderAdminDropdown() {
   const dropdownMenu = document.getElementById("dropdown-menu");
@@ -1052,6 +1052,9 @@ function showEvents(currMonth) {
 
 
 const renderEvents = async () => {
+  console.log('currMonth:', currMonth);
+console.log('months:', months);
+console.log('eventDataGlobal:', eventDataGlobal);
     let found = false;
     let isInEvents = false;
     actualEvents = [];
@@ -1457,16 +1460,23 @@ document.addEventListener("DOMContentLoaded", async function () {
 	
 renderEvents();
    
+document.addEventListener('DOMContentLoaded', () => {
+  const checkbox = document.getElementById('side-menu');
+  const main = document.getElementById('main');
+  const footer = document.getElementById('footer');
 
-const checkbox = document.getElementById('side-menu');
-const menu = document.getElementById('nav');
-const main = document.getElementById('main');
+  checkbox.addEventListener('change', () => {
+    // Body overflow toggeln
+    document.body.style.overflow = checkbox.checked ? 'hidden' : 'auto';
 
-checkbox.addEventListener('click', () => {
+    // Main ausblenden
+    main.classList.toggle('hidden', checkbox.checked);
+    main.classList.remove('open');
 
-  main.classList.toggle('hidden', checkbox.checked);
-  main.classList.remove("open");
-
+    // Footer ausblenden
+    footer.classList.toggle('hidden-footer', checkbox.checked);
+    footer.classList.remove('open');
+  });
 });
 
 const dateOfRecurringEvents = async (eventName, username) => {
