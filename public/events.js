@@ -94,6 +94,14 @@ function onDayClick(day) {
       if (prevView) {
         prevView.style.display = "block";
       }
+       const eventName = document.getElementById("eventName");
+      if (eventName) {
+        eventName.style.display = "block";
+      }
+      const weekmarket = document.getElementById("Weekmarket");
+      if (weekmarket) {
+        weekmarket.style.display = "block";
+      }
 
     const clickedDate = new Date(currYear, currMonth, day);
 
@@ -1295,6 +1303,14 @@ console.log("👉 Events im Monat:", eventDataGlobal.find(m => m.month === getMo
       if (prevView) {
         prevView.style.display = "none";
       }
+      const eventName = document.getElementById("eventName");
+      if (eventName) {
+        eventName.style.display = "none";
+      }
+      const weekmarket = document.getElementById("Weekmarket");
+      if (weekmarket) {
+        weekmarket.style.display = "none";
+      }
      
 
   
@@ -1354,6 +1370,15 @@ function parseDate(d) {
         const prevView = document.getElementById("prevView");
       if (prevView) {
         prevView.style.display = "block";
+      }
+
+       const eventName = document.getElementById("eventName");
+      if (eventName) {
+        eventName.style.display = "block";
+      }
+      const weekmarket = document.getElementById("Weekmarket");
+      if (weekmarket) {
+        weekmarket.style.display = "block";
       }
 
   } else if (e.target.classList.contains("delete-btn")) {

@@ -125,21 +125,23 @@
 
       </div>
         <form id="zeitraumForm" class="zeitraumForm">
-    
-         <label class="eventname" for="eventname"><strong>Eventname :</strong></label> 
+    <div class="eventName" id="eventName">
+         <label  class="eventname" for="eventname"><strong>Eventname :</strong></label> 
               <input type="text" id="eventname" required placeholder="z. B. Weihnachtsmarkt Durlach">
                                   
               <div style="display: flex; gap: 20px; align-items: center;">
         </div>
+      </div>
 
         <div class="period" style="margin-top: 10px;">
           <span class="eventTemp" id="eventTemp"><strong>Zeitraum:</strong></span><br><br>
         </div>
-
+        <div id="Weekmarket">
           <label for="checkbox1" class="weekmarket" >
             <strong>Wochenmarkt</strong>
             <input type="checkbox" id="weekmarket" name="option1" value="value1" style="width: 20%;">
             </label> 
+          </div>
             
           <button class="preview" id="prevView" type="submit">Vorschau anzeigen</button>
       </form>
