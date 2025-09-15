@@ -1026,7 +1026,7 @@ function showEvents(currMonth) {
       
       selectedStart = null;
       selectedEnd = null;
-      period = '';
+      //period = '';
    
        
 
@@ -1385,7 +1385,7 @@ function parseDate(d) {
   
 
     // Zeitraum ins Formular schreiben
-    document.getElementById("eventTemp").innerHTML = zeitraum;
+    document.getElementById("eventTemp").innerHTML = `<span><strong>Zeitraum: </strong></span>`+ zeitraum;
 
     if (e.target.classList.contains("update-btn")) {
         const prevView = document.getElementById("prevView");
