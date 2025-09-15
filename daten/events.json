@@ -5,8 +5,6 @@
       "events": [
         "EventVonAdmin",
         "EventVonJens",
-        "ppp",
-        "halloWochenmarkt",
         "EventVonJan"
       ],
       "EventVonAdmin": {
@@ -62,20 +60,6 @@
         ],
         "owner": "Jens",
         "isWeekly": false
-      },
-      "ppp": {
-        "dates": [
-          "17.9"
-        ],
-        "owner": "Jens",
-        "isWeekly": false
-      },
-      "halloWochenmarkt": {
-        "dates": [
-          "17.9"
-        ],
-        "owner": "Jens",
-        "isWeekly": true
       },
       "EventVonJan": {
         "dates": [
@@ -139,9 +123,7 @@
     },
     "Oberrhein": {
       "regions": [
-        "EventVonJens",
-        "ppp",
-        "halloWochenmarkt"
+        "EventVonJens"
       ]
     }
   }
