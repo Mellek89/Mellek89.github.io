@@ -90,6 +90,10 @@ function onDayClick(day) {
     eventId = '';
     recurringDaysOfEvents.length = 0;
     datesOfEvents.length = 0;
+     const prevView = document.getElementById("prevView");
+      if (prevView) {
+        prevView.style.display = "block";
+      }
 
     const clickedDate = new Date(currYear, currMonth, day);
 
@@ -405,8 +409,8 @@ function resetEventState() {
     const { name, region, isWeekly } = handleWeekmarkets();
 	  const finalName =  eventnametmp;
 		
-					const zeitraum = `${selectedStart.day} . ${selectedStart.month+1}` + 
-          (selectedEnd ?` -  ${selectedEnd.day} . ${selectedEnd.month+1}` : '' ) 
+					const zeitraum = `${selectedStart.day}. ${selectedStart.month+1}.` + 
+          (selectedEnd ?` -  ${selectedEnd.day}. ${selectedEnd.month+1}.` : '' ) 
           + `(${currYear})`;
       if (selectedStart == null){
         
@@ -1007,7 +1011,7 @@ function initAdminDropdownListener() {
 }
 
 function showEvents(currMonth) {
-  console.log('Menus gefunden:', document.querySelectorAll('.dropdown-menu').length);
+ 
   document.querySelectorAll(".dropdown-menu").forEach(menu => {
     menu.addEventListener("click", async e => {
       console.log(e);
@@ -1015,9 +1019,14 @@ function showEvents(currMonth) {
       const item = e.target.closest(".dropdown-item");
       if (!item) return;
 
+      
       selectedStart = null;
       selectedEnd = null;
       period = '';
+   
+       
+
+
 
       // Alle anderen im aktuellen Menü zurücksetzen
       menu.querySelectorAll(".dropdown-item")
@@ -1281,7 +1290,13 @@ dropdownList.addEventListener("click", async function(e) {
 console.log("👉 Klick auf:", marktName);
 console.log("👉 Events im Monat:", eventDataGlobal.find(m => m.month === getMonatsname(currMonth+1))?.events);
 
-  if (e.target.classList.contains("update-btn")) {
+      const prevView = document.getElementById("prevView");
+      if (prevView) {
+        prevView.style.display = "none";
+      }
+     
+
+  
     // Formular mit Eventnamen füllen
     document.getElementById("eventname").value = marktName;
 
@@ -1297,6 +1312,8 @@ console.log("👉 Events im Monat:", eventDataGlobal.find(m => m.month === getMo
       return;
     }
 
+
+   
     let zeitraum = "";
     if (monatObj[marktName]) {
        const evObj = monatObj[marktName];
@@ -1321,9 +1338,9 @@ function parseDate(d) {
       const startDate = new Date(selectedStart.year, selectedStart.month, selectedStart.day);
       const endDate = new Date(selectedEnd.year, selectedEnd.month, selectedEnd.day);
 
-      zeitraum = `${startDate.getDate()}. ${startDate.getMonth() + 1}` +
+      zeitraum = `${startDate.getDate()}.${startDate.getMonth() + 1}.` +
         (endDate && endDate.getTime() !== startDate.getTime()
-          ? ` - ${endDate.getDate()}. ${endDate.getMonth() + 1}`
+          ? ` - ${endDate.getDate()}.${endDate.getMonth() + 1}.`
           : "") +
         ` (${currYear})`;
     
@@ -1331,6 +1348,12 @@ function parseDate(d) {
 
     // Zeitraum ins Formular schreiben
     document.getElementById("eventTemp").innerHTML = zeitraum;
+
+    if (e.target.classList.contains("update-btn")) {
+        const prevView = document.getElementById("prevView");
+      if (prevView) {
+        prevView.style.display = "block";
+      }
 
   } else if (e.target.classList.contains("delete-btn")) {
     const regionDel = region || null;  // falls du Region als data-Attr mitgibst
