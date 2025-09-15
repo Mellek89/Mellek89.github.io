@@ -69,6 +69,8 @@ const months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "A
 					}
 					
 				  }
+ 
+
 				
 let eventDataGlobal = [];
 
@@ -363,6 +365,7 @@ async function ladeDatenFürRegion(region) {
 	
 
 oberrhein.addEventListener('change', async () => {
+  datesOfEvents.length= 0;
   if (oberrhein.checked) {
     resetEventState(); // 👉 Zustände leeren
     region = oberrhein.value;
@@ -377,6 +380,7 @@ oberrhein.addEventListener('change', async () => {
 });
 
 mittelrhein.addEventListener('change', async () => {
+   datesOfEvents.length= 0;
   if (mittelrhein.checked) {
     resetEventState(); 
     region = mittelrhein.value;
@@ -583,14 +587,6 @@ async function showDeleteConfirmation(region, eventName, zeitraum, currYear, isW
   }
 
 
-
-
-
-
-
-
-
-
 async function speichernEvent(name, month, region, weekmarket) {
     console.log("📦 speichernEvent aufgerufen mit:", name, month, region, weekmarket);
  // Token holen
@@ -618,7 +614,7 @@ async function speichernEvent(name, month, region, weekmarket) {
   }
   const username = payload.username;
   const isWeekly = weekmarket;
-
+console.log("User" + username );
  
     
     await loadRegionData();
@@ -1249,28 +1245,53 @@ if(selectedStart == null){
     }
   }
 
+   
+
   
 
 	
 	let dropdownList = document.querySelector(".dropdown-menu");
 	 dropdownList.innerHTML = ""; // immer leeren
 		let singleEvent = "";
-		if(actualEvents.length != 0){
-		
 
-   // --- Wochenmärkte der Region hinzufügen ---
+  for (let y = 0; y < eventDataGlobal.length; y++) {
+  if (months[currMonth] === eventDataGlobal[y].month) {
+    const monthObj = eventDataGlobal[y];
+
+    // alle Events dieses Monats durchgehen
+    monthObj.events.forEach(eventName => {
+      const evObj = monthObj[eventName];
+      console.log(eventName, "→ Owner:", evObj.owner);
+    });
+
+    break;
+  }
+}
+		if(actualEvents.length != 0){
+	   // --- Wochenmärkte der Region hinzufügen ---
    if (Array.isArray(actualEvents) && actualEvents.length) {
     for (const marktName of regionData.regions) {
       if (actualEvents.includes(marktName)) {
          const displayName = marktName; 
+
+
         // EIN Wrapper, Buttons darin; name zusätzlich als data-Attribut
         const isActive = (window.location.pathname.endsWith("admin.html") && eventId === marktName) ? "active" : "";
+const monthObj = eventDataGlobal.find(m => m.month === months[currMonth]);
+// ➜ Owner für diesen Markt im aktuellen Monat auslesen
+    const owner = monthObj[marktName]?.owner || null;
+    console.log(`${marktName} → Owner:`, owner);
+
+        // Wenn du den aktuell eingeloggten User prüfen willst:
+    const currentOwner = localStorage.getItem("currentOwner"); // z.B. aus Login
+    const isOwner = owner === currentOwner;
+
         singleEvent += `
            <div class="dropdown-item ${isActive}"
                data-name="${marktName}"
                style="display:flex; justify-content:space-between; align-items:center; padding:4px 8px; ">
             <span class="name">${displayName}</span>`
-        if (window.location.pathname.endsWith("admin.html")) {
+        if (window.location.pathname.endsWith("admin.html") && isOwner) {
 
              singleEvent += `<div style="display:flex; gap:6px;">
               <button type="button" class="update-btn" title="Bearbeiten" aria-label="Bearbeiten"
