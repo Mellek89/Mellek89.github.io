@@ -1029,11 +1029,11 @@ function showEvents(currMonth) {
 
 
       // Alle anderen im aktuellen Menü zurücksetzen
-      menu.querySelectorAll(".dropdown-item")
-          .forEach(el => el.classList.remove("active"));
+    menu.querySelectorAll(".dropdown-item").forEach(el => {
+    if (el !== item) el.classList.remove("active");
+});
 
-      // Aktuelles hervorheben
-      item.classList.add("active");
+item.classList.add("active");
 
       // Daten holen
       const a = await getData();
@@ -1256,8 +1256,9 @@ if(selectedStart == null){
       if (actualEvents.includes(marktName)) {
          const displayName = marktName; 
         // EIN Wrapper, Buttons darin; name zusätzlich als data-Attribut
+        const isActive = (window.location.pathname.endsWith("admin.html") && eventId === marktName) ? "active" : "";
         singleEvent += `
-          <div class="dropdown-item"
+           <div class="dropdown-item ${isActive}"
                data-name="${marktName}"
                style="display:flex; justify-content:space-between; align-items:center; padding:4px 8px; ">
             <span class="name">${displayName}</span>`
@@ -1664,6 +1665,3 @@ async function renderUserList() {
 document.addEventListener("DOMContentLoaded", renderUserList);
 renderCalendar();
 //chooseEvents(currMonth);
-
-
-
