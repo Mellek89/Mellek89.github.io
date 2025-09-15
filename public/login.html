@@ -105,6 +105,8 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
 
     if (res.ok) {
       localStorage.setItem("jwt", data.token); // JWT speichern
+      localStorage.setItem("currentOwner", username);
+
       window.location.href = "/admin.html";    // weiterleiten
     } else {
       alert(data.message);
