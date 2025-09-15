@@ -71,7 +71,18 @@ const months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "A
 				  }
  
 
-				
+ let prevView = document.getElementById("prevView");
+      if (prevView) {
+        prevView.style.display = "none";
+      }
+       let eventName = document.getElementById("eventName");
+      if (eventName) {
+        eventName.style.display = "none";
+      }
+      let weekmarket = document.getElementById("Weekmarket");
+      if (weekmarket) {
+        weekmarket.style.display = "none";
+      }				
 let eventDataGlobal = [];
 
 async function loadEvents() {
@@ -92,15 +103,15 @@ function onDayClick(day) {
     eventId = '';
     recurringDaysOfEvents.length = 0;
     datesOfEvents.length = 0;
-     const prevView = document.getElementById("prevView");
+      prevView = document.getElementById("prevView");
       if (prevView) {
         prevView.style.display = "block";
       }
-       const eventName = document.getElementById("eventName");
+        eventName = document.getElementById("eventName");
       if (eventName) {
         eventName.style.display = "block";
       }
-      const weekmarket = document.getElementById("Weekmarket");
+       weekmarket = document.getElementById("Weekmarket");
       if (weekmarket) {
         weekmarket.style.display = "block";
       }
@@ -366,6 +377,18 @@ async function ladeDatenFürRegion(region) {
 
 oberrhein.addEventListener('change', async () => {
   datesOfEvents.length= 0;
+    prevView = document.getElementById("prevView");
+      if (prevView) {
+        prevView.style.display = "none";
+      }
+        eventName = document.getElementById("eventName");
+      if (eventName) {
+        eventName.style.display = "none";
+      }
+       weekmarket = document.getElementById("Weekmarket");
+      if (weekmarket) {
+        weekmarket.style.display = "none";
+      }
   if (oberrhein.checked) {
     resetEventState(); // 👉 Zustände leeren
     region = oberrhein.value;
@@ -380,6 +403,18 @@ oberrhein.addEventListener('change', async () => {
 });
 
 mittelrhein.addEventListener('change', async () => {
+   prevView = document.getElementById("prevView");
+      if (prevView) {
+        prevView.style.display = "none";
+      }
+        eventName = document.getElementById("eventName");
+      if (eventName) {
+        eventName.style.display = "none";
+      }
+       weekmarket = document.getElementById("Weekmarket");
+      if (weekmarket) {
+        weekmarket.style.display = "none";
+      }
    datesOfEvents.length= 0;
   if (mittelrhein.checked) {
     resetEventState(); 
@@ -1203,7 +1238,27 @@ console.log("🔍 Normalisiere Monat:", copy.month, "Events:", copy.events);
 
 	getRegions();
 
+   const create = document.getElementById("create");
+   create.addEventListener( "click", e => {
+      console.log(e + "create Event geklickt!");
+      e.preventDefault(); 
 
+      //resetEventState();
+        prevView = document.getElementById("prevView");
+      if (prevView) {
+        prevView.style.display = "block";
+      }
+        eventName = document.getElementById("eventName");
+      if (eventName) {
+        eventName.style.display = "block";
+      }
+       weekmarket = document.getElementById("Weekmarket");
+      if (weekmarket) {
+        weekmarket.style.display = "block";
+      }
+
+
+   });
 
 function selectRegions(regions) { 
 	
@@ -1320,15 +1375,15 @@ dropdownList.addEventListener("click", async function(e) {
 console.log("👉 Klick auf:", marktName);
 console.log("👉 Events im Monat:", eventDataGlobal.find(m => m.month === getMonatsname(currMonth+1))?.events);
 
-      const prevView = document.getElementById("prevView");
+       prevView = document.getElementById("prevView");
       if (prevView) {
         prevView.style.display = "none";
       }
-      const eventName = document.getElementById("eventName");
+       eventName = document.getElementById("eventName");
       if (eventName) {
         eventName.style.display = "none";
       }
-      const weekmarket = document.getElementById("Weekmarket");
+       weekmarket = document.getElementById("Weekmarket");
       if (weekmarket) {
         weekmarket.style.display = "none";
       }
@@ -1388,16 +1443,16 @@ function parseDate(d) {
     document.getElementById("eventTemp").innerHTML = `<span><strong>Zeitraum: </strong></span>`+ zeitraum;
 
     if (e.target.classList.contains("update-btn")) {
-        const prevView = document.getElementById("prevView");
+         prevView = document.getElementById("prevView");
       if (prevView) {
         prevView.style.display = "block";
       }
 
-       const eventName = document.getElementById("eventName");
+        eventName = document.getElementById("eventName");
       if (eventName) {
         eventName.style.display = "block";
       }
-      const weekmarket = document.getElementById("Weekmarket");
+       weekmarket = document.getElementById("Weekmarket");
       if (weekmarket) {
         weekmarket.style.display = "block";
       }
