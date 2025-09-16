@@ -485,6 +485,11 @@ function resetEventState() {
       const eventname = document.getElementById('eventname').value.trim();
 	   let eventnametmp = eventname;
 	   eventnametmp= formattedEventname;
+     let zeitraumInform = document.getElementById('eventTemp').textContent.trim();
+      if (!zeitraumInform ) {
+        alert("Bitte einen Zeitraum wählen.");
+        return;
+      }
 	  
 	
       if (!eventnametmp ) {
