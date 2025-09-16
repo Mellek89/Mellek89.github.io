@@ -1096,16 +1096,14 @@ function showEvents(currMonth) {
        e.preventDefault(); 
       const item = e.target.closest(".dropdown-item");
       if (!item) return;
-
+      const createBtn = document.getElementById("create");
+      if(createBtn){
+        createBtn.style.display = "block";
+      }
       
       selectedStart = null;
       selectedEnd = null;
-      //period = '';
-   
-       
-
-
-
+     
       // Alle anderen im aktuellen Menü zurücksetzen
     menu.querySelectorAll(".dropdown-item").forEach(el => {
     if (el !== item) el.classList.remove("active");
@@ -1120,11 +1118,16 @@ item.classList.add("active");
       const monatName = getMonatsname(currMonth + 1);
       const monatObj = eventDataGlobal.find(m => m.month === monatName);
       const marktName = item.dataset.name;
-
+      
       if (monatObj && monatObj.events.includes(marktName)) {
         eventId = marktName;
         const evObj = monatObj[marktName];
         datesOfEvents = evObj ? evObj.dates : [];
+        let  weekmarket = evObj.isWeekly;
+        if(weekmarket == true){
+          dateOfRecurringEvents();
+        }
+        
       }
 
       renderCalendar();
