@@ -1537,11 +1537,11 @@ prevNextIcon.forEach(icon => {
     
         renderCalendar();
     
-            await getRegions();
+        await getRegions();
         
 
         await renderEvents();
-          await  showDropdownMenu(listofRegionGlobal, region);
+          await  showDropdownMenu(listofRegionGlobal, currentRegion);
         
     
     });
