@@ -71,7 +71,16 @@ const months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "A
 				  }
  
 
- let prevView = document.getElementById("prevView");
+noneFormAttributes();
+let eventDataGlobal = [];
+
+async function loadEvents() {
+  const a = await getData();
+  eventDataGlobal = normalizeEventData(a.eventData, currYear);
+}
+function noneFormAttributes(){
+
+   let prevView = document.getElementById("prevView");
       if (prevView) {
         prevView.style.display = "none";
       }
@@ -82,13 +91,46 @@ const months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "A
       let weekmarket = document.getElementById("Weekmarket");
       if (weekmarket) {
         weekmarket.style.display = "none";
-      }				
-let eventDataGlobal = [];
-
-async function loadEvents() {
-  const a = await getData();
-  eventDataGlobal = normalizeEventData(a.eventData, currYear);
+      }	
+      
+      let createBtn = document.getElementById("create");
+      if(createBtn){
+      createBtn.style.display = "none";
+      }
+        
+      let period = document.getElementById("period");
+      if(period){
+      period.style.display = "none";
+      }
+      		
 }
+
+function getFormAttributes(){
+  let prevView = document.getElementById("prevView");
+      if (prevView) {
+        prevView.style.display = "block";
+      }
+       let eventName = document.getElementById("eventName");
+      if (eventName) {
+        eventName.style.display = "block";
+      }
+      let weekmarket = document.getElementById("Weekmarket");
+      if (weekmarket) {
+        weekmarket.style.display = "block";
+      }	
+      if(saveBtn){
+      let saveBtn = document.getElementById("create");
+      saveBtn.style.display = "block";
+      }
+        
+      let period = document.getElementById("period");
+      if(period){
+      period.style.display = "block";
+      }
+      		
+}
+
+
 			
 
 
@@ -103,18 +145,7 @@ function onDayClick(day) {
     eventId = '';
     recurringDaysOfEvents.length = 0;
     datesOfEvents.length = 0;
-      prevView = document.getElementById("prevView");
-      if (prevView) {
-        prevView.style.display = "block";
-      }
-        eventName = document.getElementById("eventName");
-      if (eventName) {
-        eventName.style.display = "block";
-      }
-       weekmarket = document.getElementById("Weekmarket");
-      if (weekmarket) {
-        weekmarket.style.display = "block";
-      }
+     getFormAttributes();
 
     const clickedDate = new Date(currYear, currMonth, day);
 
@@ -377,6 +408,10 @@ async function ladeDatenFürRegion(region) {
 
 oberrhein.addEventListener('change', async () => {
   datesOfEvents.length= 0;
+    let createBtn = document.getElementById("create");
+      if (createBtn) {
+        createBtn.style.display = "block";
+      }
     prevView = document.getElementById("prevView");
       if (prevView) {
         prevView.style.display = "none";
@@ -403,6 +438,10 @@ oberrhein.addEventListener('change', async () => {
 });
 
 mittelrhein.addEventListener('change', async () => {
+    let createBtn = document.getElementById("create");
+      if (createBtn) {
+        createBtn.style.display = "block";
+      }
    prevView = document.getElementById("prevView");
       if (prevView) {
         prevView.style.display = "none";
@@ -1238,27 +1277,18 @@ console.log("🔍 Normalisiere Monat:", copy.month, "Events:", copy.events);
 
 	getRegions();
 
-   const create = document.getElementById("create");
+if(window.location.pathname.endsWith("admin.html")){
+  const create = document.getElementById("create");
    create.addEventListener( "click", e => {
       console.log(e + "create Event geklickt!");
       e.preventDefault(); 
 
-      //resetEventState();
-        prevView = document.getElementById("prevView");
-      if (prevView) {
-        prevView.style.display = "block";
-      }
-        eventName = document.getElementById("eventName");
-      if (eventName) {
-        eventName.style.display = "block";
-      }
-       weekmarket = document.getElementById("Weekmarket");
-      if (weekmarket) {
-        weekmarket.style.display = "block";
-      }
+      getFormAttributes();
 
 
    });
+}
+   
 
 function selectRegions(regions) { 
 	
@@ -1374,24 +1404,16 @@ dropdownList.addEventListener("click", async function(e) {
     
 console.log("👉 Klick auf:", marktName);
 console.log("👉 Events im Monat:", eventDataGlobal.find(m => m.month === getMonatsname(currMonth+1))?.events);
+if (window.location.pathname.endsWith("/admin.html")){
+   noneFormAttributes();
+    // Formular mit Eventnamen füllen
+    document.getElementById("eventname").value = marktName;
 
-       prevView = document.getElementById("prevView");
-      if (prevView) {
-        prevView.style.display = "none";
-      }
-       eventName = document.getElementById("eventName");
-      if (eventName) {
-        eventName.style.display = "none";
-      }
-       weekmarket = document.getElementById("Weekmarket");
-      if (weekmarket) {
-        weekmarket.style.display = "none";
-      }
+   
      
 
   
-    // Formular mit Eventnamen füllen
-    document.getElementById("eventname").value = marktName;
+   
 
     // Daten laden & normalisieren
     await loadEvents();
@@ -1443,24 +1465,13 @@ function parseDate(d) {
     document.getElementById("eventTemp").innerHTML = `<span><strong>Zeitraum: </strong></span>`+ zeitraum;
 
     if (e.target.classList.contains("update-btn")) {
-         prevView = document.getElementById("prevView");
-      if (prevView) {
-        prevView.style.display = "block";
-      }
-
-        eventName = document.getElementById("eventName");
-      if (eventName) {
-        eventName.style.display = "block";
-      }
-       weekmarket = document.getElementById("Weekmarket");
-      if (weekmarket) {
-        weekmarket.style.display = "block";
-      }
+        getFormAttributes();
 
   } else if (e.target.classList.contains("delete-btn")) {
     const regionDel = region || null;  // falls du Region als data-Attr mitgibst
     const isWeekly = item.dataset.weekly === "true"; // Beispiel für boolean-Flag
     showDeleteConfirmation(region, marktName, currMonth, currYear, isWeekly);
+  }
   }
 });
 
@@ -1763,6 +1774,9 @@ async function renderUserList() {
 }
 
 // Aufruf beim Laden der Seite
-document.addEventListener("DOMContentLoaded", renderUserList);
+if(window.location.pathname.endsWith("/admin.html")){
+  document.addEventListener("DOMContentLoaded", renderUserList);
+}
+
 renderCalendar();
 //chooseEvents(currMonth);
