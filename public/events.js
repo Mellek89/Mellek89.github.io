@@ -177,6 +177,15 @@ function onDayClick(day) {
 
     renderCalendar(); // Kalender neu zeichnen
 }
+// 👉 kleine Hilfsfunktion
+function resetEventState() {
+  eventId = '';
+  selectedStart = null;
+  selectedEnd = null;
+  period = '';
+  document.getElementById('eventTemp').innerHTML = period; // Zeitraum leeren
+  document.getElementById('eventname').value = period; // Eventname leeren
+}
 
 const renderCalendar = () => {
     const firstDateOfMonth = new Date(currYear, currMonth, 1).getDay();
@@ -468,14 +477,7 @@ mittelrhein.addEventListener('change', async () => {
   }
 });
 
-// 👉 kleine Hilfsfunktion
-function resetEventState() {
-  eventId = '';
-  selectedStart = null;
-  selectedEnd = null;
-  period = '';
-  document.getElementById('eventTemp').innerHTML = period; // HTML leeren
-}
+
 
 
       
@@ -1290,7 +1292,7 @@ if(window.location.pathname.endsWith("admin.html")){
    create.addEventListener( "click", e => {
       console.log(e + "create Event geklickt!");
       e.preventDefault(); 
-
+      resetEventState();
       getFormAttributes();
 
 
