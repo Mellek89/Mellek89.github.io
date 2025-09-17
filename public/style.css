@@ -43,7 +43,9 @@ html, body {
 }
  /* Nav menu */
 .side-menu {
-  display: none;
+  opacity: 0;
+  width: 0;
+  height: 0;
  } 
  .container .main.hidden { display: none; }
 
@@ -237,6 +239,7 @@ img {
         cursor: default;
         padding: 40px 20px; 
         grid-column: 4; 
+          z-index: 5; /* Set z-index to keep the icon at the top position */
         
         
       }
@@ -248,7 +251,7 @@ img {
         height: 2px;
         position: relative;
         width: 24px; 
-        z-index: 3; /* Set z-index to keep the icon at the top position */
+      
 
       }
       /* Style span tag */
