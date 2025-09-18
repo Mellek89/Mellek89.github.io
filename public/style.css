@@ -29,7 +29,7 @@ html, body {
   max-width: 100%;
   
   min-height: 100vh;
-  background-image: url('./images/Lango_laenge_Home.png');
+  background-image: url('./imagesOptimized/images/Lango_laenge_Home.png');
   background-size: cover;       /* Bild auf gesamte Fläche anpassen */
   background-repeat: no-repeat; /* Kein Wiederholen des Bildes */
   background-position: center;  /* Bild zentrieren */
