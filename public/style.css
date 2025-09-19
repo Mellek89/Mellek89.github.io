@@ -729,25 +729,14 @@ p,
 
 
 
-/****Ueber uns****/
+/****Kontakt****/
 
 
 
-.GrünTreuetaler,
-.RotTreuetaler,
-.GelbTreuetaler,
-.GrünTreuetalerJens {
-  grid-column: span 1;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 10px;
-  padding: 1rem;
-  
-  border-radius: 6px;
-}
 
 /* E-Mail-Text */
+
+
 .emailGrün a,
 .emailRot a,
 .emailGelb a,
@@ -758,31 +747,90 @@ p,
   text-decoration: none;
 }
 
-/* Taler-Bild */
-.talerGrün,
-.talerRot,
-.talerGelb,
-.talerGrünJens {
-  width: 80px;     /* Größe anpassen */
-  height: auto;
+.emailGelb,
+.emailGrün,
+.emailGrünJens,
+.emailRot {
+  margin-top: 8px;   
+   
+  font-size: 0.9em;
+  line-height: 1.2em;
+ 
+  text-align: left;
 }
-#taler {
+
+.GruenTreuetaler,
+.GelbTreuetaler,
+.RotTreuetaler,
+.GruenTreuetalerJens{
+  display: flex;            /* nebeneinander anordnen */
+  align-items: center;      /* vertikal mittig */
+  gap: 0.75rem;             /* Abstand zwischen Münze und E-Mail */
   width: 100px;
   height: 100px;
-  display: block;
- 
-  transform-style: preserve-3d;
+  perspective: 800px;          /* 3D-Tiefe */
+  margin-bottom: 3em;
+  margin-left: 10px;
 }
+
+#talergruen,
+#talerGelb,
+#talerRot,
+#talerGrünJens {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d; /* 3D-Objekt */
+  animation: drehen 2s linear infinite;
+  aspect-ratio: 1 / 1; 
+  margin-right: 2em;
+}
+
+.seite {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  backface-visibility: hidden;  /* Rückseite ausblenden, wenn hinten */
+  background-size: cover;
+  border-radius: 50%;           /* Kreis */
+}
+
+/* Vorderseite (Bild einfügen) */
+.front,
+.frontGrün {
+  background-image: url('./imagesOptimized/images/TreuetalerGrünVorne.jpeg');
+}
+
+/* Rückseite (Bild einfügen) */
+.back,
+.backGrün {
+  background-image: url('./imagesOptimized/images/TreuetalerGrünHinten.jpeg');
+  transform: rotateY(180deg);   /* Rückseite umdrehen */
+}
+.frontGelb {
+  background-image: url('./imagesOptimized/images/TreuetalerGelbVorne.jpeg');
+}
+
+/* Rückseite (Bild einfügen) */
+.backGelb {
+  background-image: url('./imagesOptimized/images/TreuetalerGelbHinten.jpeg');
+  transform: rotateY(180deg);   /* Rückseite umdrehen */
+}
+
+.frontRot {
+  background-image: url('./imagesOptimized/images/TreuetalerRotVorne.jpeg');
+}
+
+/* Rückseite (Bild einfügen) */
+.backRot {
+  background-image: url('./imagesOptimized/images/TreuetalerRotHinten.jpeg');
+  transform: rotateY(180deg);   /* Rückseite umdrehen */
+}
+
 @keyframes drehen {
-  0% { transform: rotateY(0deg); }
+  0%   { transform: rotateY(0deg); }
   100% { transform: rotateY(360deg); }
 }
-
-#taler {
-  animation: drehen 2s linear infinite;
-}
-
-
 
 
 
