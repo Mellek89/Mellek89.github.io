@@ -754,7 +754,7 @@ p,
   margin-top: 8px;   
    
   font-size: 0.9em;
-  line-height: 1.2em;
+  line-height: 1.6em;
  
   text-align: left;
 }
@@ -770,7 +770,8 @@ p,
   height: 100px;
   perspective: 800px;          /* 3D-Tiefe */
   margin-bottom: 3em;
-  margin-left: 10px;
+  margin-left: -5em;
+  
 }
 
 #talergruen,
