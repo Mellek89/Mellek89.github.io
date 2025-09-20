@@ -93,10 +93,7 @@ function noneFormAttributes(){
         weekmarket.style.display = "none";
       }	
       
-      let createBtn = document.getElementById("create");
-      if(createBtn){
-      createBtn.style.display = "none";
-      }
+  
         
       let period = document.getElementById("period");
       if(period){
@@ -127,6 +124,7 @@ function getFormAttributes(){
       if(period){
       period.style.display = "block";
       }
+     
       		
 }
 
@@ -1099,8 +1097,8 @@ function showEvents(currMonth) {
  
   document.querySelectorAll(".dropdown-menu").forEach(menu => {
     menu.addEventListener("click", async e => {
-      console.log("ShowEvents dropdown wurde geklickt!!!")
-      console.log(e);
+     
+    
        e.preventDefault(); 
       const item = e.target.closest(".dropdown-item");
       if (!item) return;
@@ -1421,6 +1419,10 @@ console.log("👉 Klick auf:", marktName);
 console.log("👉 Events im Monat:", eventDataGlobal.find(m => m.month === getMonatsname(currMonth+1))?.events);
 if (window.location.pathname.endsWith("/admin.html")){
    noneFormAttributes();
+    let period = document.getElementById("period");
+      if(period){
+      period.style.display = "block";
+      }
     // Formular mit Eventnamen füllen
     document.getElementById("eventname").value = marktName;
 
@@ -1553,7 +1555,7 @@ prevNextIcon.forEach(icon => {
          // ➜ Alte Event-Daten leeren
   
     
-      
+    
     await getRegions();
     const monatName = getMonatsname(currMonth + 1);
     const monatObj = eventDataGlobal.find(m => m.month === monatName);
@@ -1562,7 +1564,7 @@ prevNextIcon.forEach(icon => {
     } else {
         datesOfEvents = [];
     }
-
+    
     await renderEvents();
     await showDropdownMenu(listofRegionGlobal, currentRegion);
     renderCalendar();   
