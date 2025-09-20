@@ -1106,8 +1106,8 @@ function showEvents(currMonth) {
         createBtn.style.display = "block";
       }
       
-      selectedStart = null;
-      selectedEnd = null;
+      //selectedStart = null;
+     // selectedEnd = null;
      
       // Alle anderen im aktuellen Menü zurücksetzen
     menu.querySelectorAll(".dropdown-item").forEach(el => {
@@ -1132,7 +1132,7 @@ item.classList.add("active");
         if(weekmarket == true){
           dateOfRecurringEvents();
         }
-        //renderCalendar();
+        renderCalendar();
       }
 
       
