@@ -1099,6 +1099,7 @@ function showEvents(currMonth) {
  
   document.querySelectorAll(".dropdown-menu").forEach(menu => {
     menu.addEventListener("click", async e => {
+      console.log("ShowEvents dropdown wurde geklickt!!!")
       console.log(e);
        e.preventDefault(); 
       const item = e.target.closest(".dropdown-item");
@@ -1134,10 +1135,10 @@ item.classList.add("active");
         if(weekmarket == true){
           dateOfRecurringEvents();
         }
-        
+        renderCalendar();
       }
 
-      renderCalendar();
+      
     });
   });
 }
@@ -1295,9 +1296,12 @@ if(window.location.pathname.endsWith("admin.html")){
       e.preventDefault(); 
       resetEventState();
       getFormAttributes();
+  
+     // datesOfEvents.length = 0;
 
 
    });
+   renderCalendar();
 }
    
 
@@ -1357,7 +1361,7 @@ if(selectedStart == null){
     // alle Events dieses Monats durchgehen
     monthObj.events.forEach(eventName => {
       const evObj = monthObj[eventName];
-      console.log(eventName, "→ Owner:", evObj.owner);
+      
     });
 
     break;
@@ -1528,7 +1532,7 @@ function parseTerminString(str, year) {
 		 calendar.style.setProperty("position", "relative", "important");
 		 calendar.style.setProperty("top", newTop + "%", "important");
 	}
-	showEvents(currMonth);
+	//showEvents(currMonth);
 
 }
 
@@ -1546,14 +1550,22 @@ prevNextIcon.forEach(icon => {
             currMonth = date.getMonth();
         }
     
-        renderCalendar();
+         // ➜ Alte Event-Daten leeren
+  
     
-        await getRegions();
-        
+      
+    await getRegions();
+    const monatName = getMonatsname(currMonth + 1);
+    const monatObj = eventDataGlobal.find(m => m.month === monatName);
+    if (eventId && monatObj && monatObj[eventId]) {
+        datesOfEvents = monatObj[eventId].dates || [];
+    } else {
+        datesOfEvents = [];
+    }
 
-        await renderEvents();
-          await  showDropdownMenu(listofRegionGlobal, currentRegion);
-        
+    await renderEvents();
+    await showDropdownMenu(listofRegionGlobal, currentRegion);
+    renderCalendar();   
     
     });
 });
