@@ -1388,7 +1388,7 @@ const monthObj = eventDataGlobal.find(m => m.month === months[currMonth]);
                data-name="${marktName}"
                style="display:flex; justify-content:space-between; align-items:center; padding:4px 8px; ">
             <span class="name">${displayName}</span>`
-        if (window.location.pathname.endsWith("admin.html") && isOwner) {
+        if (window.location.pathname.endsWith("admin.html") && (isOwner || (currentOwner == "admin"))) {
 
              singleEvent += `<div style="display:flex; gap:6px;">
               <button type="button" class="update-btn" title="Bearbeiten" aria-label="Bearbeiten"
