@@ -1212,6 +1212,7 @@ async function getRegions(){
 
    if (window.location.pathname.endsWith("/admin.html")) {
     console.log("Adminseite → getRegions überspringt URL-Check");
+    currentRegion= region;
     return;
   }
 	const params = new URLSearchParams(window.location.search);
