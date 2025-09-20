@@ -1098,7 +1098,7 @@ function showEvents(currMonth) {
    document.querySelector(".dropdown-menu")?.addEventListener("click", async e => {
      
       const item = e.target.closest(".dropdown-item");
-console.log(item);
+      recurringDaysOfEvents.length = 0;
 
       if (!item) return;
        e.preventDefault(); 
