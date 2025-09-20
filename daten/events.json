@@ -5,7 +5,8 @@
       "events": [
         "EventVonAdmin",
         "EventVonJens",
-        "EventVonJan"
+        "EventVonJan",
+        "UweEvent"
       ],
       "EventVonAdmin": {
         "dates": [
@@ -88,12 +89,24 @@
         ],
         "owner": "Jan",
         "isWeekly": false
+      },
+      "UweEvent": {
+        "dates": [
+          "26.9",
+          "27.9",
+          "28.9",
+          "29.9",
+          "30.9"
+        ],
+        "owner": "Uwe",
+        "isWeekly": false
       }
     },
     {
       "month": "Oktober",
       "events": [
-        "EventVonJens"
+        "EventVonJens",
+        "UweEvent"
       ],
       "EventVonJens": {
         "dates": [
@@ -111,6 +124,23 @@
         ],
         "owner": "Jens",
         "isWeekly": false
+      },
+      "UweEvent": {
+        "dates": [
+          "1.10",
+          "2.10",
+          "3.10",
+          "4.10",
+          "5.10",
+          "6.10",
+          "7.10",
+          "8.10",
+          "9.10",
+          "10.10",
+          "11.10"
+        ],
+        "owner": "Uwe",
+        "isWeekly": false
       }
     }
   ],
@@ -123,7 +153,8 @@
     },
     "Oberrhein": {
       "regions": [
-        "EventVonJens"
+        "EventVonJens",
+        "UweEvent"
       ]
     }
   }
