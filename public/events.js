@@ -1094,20 +1094,19 @@ function initAdminDropdownListener() {
 
 function showEvents(currMonth) {
  
-  document.querySelectorAll(".dropdown-menu").forEach(menu => {
-    menu.addEventListener("click", async e => {
+ // document.querySelectorAll(".dropdown-menu").forEach(menu => {
+   document.querySelector(".dropdown-menu")?.addEventListener("click", async e => {
      
-    
-       e.preventDefault(); 
       const item = e.target.closest(".dropdown-item");
+console.log(item);
+
       if (!item) return;
+       e.preventDefault(); 
+      const menu = item.closest(".dropdown-menu");
       const createBtn = document.getElementById("create");
       if(createBtn){
         createBtn.style.display = "block";
       }
-      
-      //selectedStart = null;
-     // selectedEnd = null;
      
       // Alle anderen im aktuellen Menü zurücksetzen
     menu.querySelectorAll(".dropdown-item").forEach(el => {
@@ -1136,7 +1135,7 @@ item.classList.add("active");
       }
 
       
-    });
+    
   });
 }
 
