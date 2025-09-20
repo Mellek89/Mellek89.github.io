@@ -1445,34 +1445,68 @@ if (window.location.pathname.endsWith("/admin.html")){
 
    
     let zeitraum = "";
-    if (monatObj[marktName]) {
-       const evObj = monatObj[marktName];
-       const termine = evObj.dates;
-      if (termine && termine.length > 0) {
-    selectedStart = parseDate(termine[0]);
-    selectedEnd = parseDate(termine[termine.length - 1]);
+ let alleTermine = [];
+
+for (const m of eventDataGlobal) {
+  if (m.events?.includes(marktName) && m[marktName]?.dates) {
+    alleTermine = alleTermine.concat(m[marktName].dates);
   }
 }
-function parseDate(d) {
+
+// Jetzt die früheste und späteste Datumsangabe finden
+if (alleTermine.length > 0) {
+  // chronologisch sortieren
+  alleTermine.sort((a,b)=>{
+    const da = parseDate(a);
+    const db = parseDate(b);
+    return new Date(da.year, da.month, da.day) - new Date(db.year, db.month, db.day);
+  });
+
+  selectedStart = parseDate(alleTermine[0]);
+  selectedEnd   = parseDate(alleTermine[alleTermine.length - 1]);
+}
+
+function parseDate(d, fallbackYear) {
+  if (typeof d === "object" && d !== null) {
+    return {
+      day: d.day,
+      month: d.month,
+      year: d.year ?? fallbackYear   // wenn kein Jahr drin, currYear verwenden
+    };
+  }
   if (typeof d === "string") {
-    // "1.9" → { day, month, year }
     const [day, month] = d.split(".").map(Number);
-    return { day, month: month - 1, year: new Date().getFullYear() };
-  } else if (typeof d === "object" && d !== null) {
-    // { day, month, year } → direkt zurückgeben
-    return { day: d.day, month: d.month, year: d.year };
+    return { day, month: month - 1, year: fallbackYear };
   }
   throw new Error("Ungültiges Datum: " + d);
 }
 
-      const startDate = new Date(selectedStart.year, selectedStart.month, selectedStart.day);
-      const endDate = new Date(selectedEnd.year, selectedEnd.month, selectedEnd.day);
 
-      zeitraum = `${startDate.getDate()}.${startDate.getMonth() + 1}.` +
-        (endDate && endDate.getTime() !== startDate.getTime()
-          ? ` - ${endDate.getDate()}.${endDate.getMonth() + 1}.`
-          : "") +
-        ` (${currYear})`;
+
+
+
+      const startDate = new Date(
+  selectedStart.year,
+  selectedStart.month,
+  selectedStart.day
+);
+const endDate = new Date(
+  selectedEnd.year,
+  selectedEnd.month,
+  selectedEnd.day
+);
+
+
+if (endDate.getTime() === startDate.getTime()) {
+  // ein einzelner Tag
+  zeitraum = `${startDate.getDate()}.${startDate.getMonth() + 1}.${startDate.getFullYear()}`;
+} else {
+  // Zeitraum – Start und Ende jeweils mit eigenem Monat & Jahr
+  zeitraum =
+    `${startDate.getDate()}.${startDate.getMonth() + 1}.${startDate.getFullYear()} - ` +
+    `${endDate.getDate()}.${endDate.getMonth() + 1}.${endDate.getFullYear()}`;
+}
+
     
   
 
@@ -1550,9 +1584,7 @@ prevNextIcon.forEach(icon => {
             currMonth = date.getMonth();
         }
     
-         // ➜ Alte Event-Daten leeren
-  
-    
+      
     
     await getRegions();
     const monatName = getMonatsname(currMonth + 1);
