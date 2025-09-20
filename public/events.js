@@ -978,10 +978,9 @@ function getMonatsname(monatNummer) {
 
 
 
-//renderAdminDropdown();
-//initAdminDropdownListener();
+
 // --- Admin Dropdown rendern ---
-async function renderAdminDropdown() {
+/*async function renderAdminDropdown() {
   const dropdownMenu = document.getElementById("dropdown-menu");
   if (!dropdownMenu) return;
 
@@ -1063,7 +1062,7 @@ async function renderAdminDropdown() {
 
     dropdownMenu.appendChild(itemDiv);
   });
-}
+}*/
 
 function initAdminDropdownListener() {
   const dropdownMenu = document.getElementById("dropdown-menu");
@@ -1133,7 +1132,7 @@ item.classList.add("active");
         if(weekmarket == true){
           dateOfRecurringEvents();
         }
-        renderCalendar();
+        //renderCalendar();
       }
 
       
@@ -1258,7 +1257,7 @@ function normalizeEventData(eventData, year) {
 
     monthObj.events.forEach(name => {
       const event = monthObj[name];
-console.log("🔍 Normalisiere Monat:", copy.month, "Events:", copy.events);
+
       if (Array.isArray(event)) {
         // altes Schema → nur Array mit Strings
         copy[name] = event.map(str => {
