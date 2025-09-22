@@ -14,7 +14,11 @@ app.use((req, res, next) => {
   next();
 });
 app.use(express.json());
-app.use(express.static('public'));
+app.use(express.static('public', {
+  maxAge: '1y',
+  immutable: true
+}));
+
 
 // -------------------
 // Daten-Datei (außerhalb von public, sicherer)
