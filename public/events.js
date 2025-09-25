@@ -42,6 +42,7 @@ const selectedDaysForEvent = [];
 let tmp = [];
 let formattedEventname = '';
 let region = '';
+let marktNameGlobal = '';
 
 
 
@@ -238,9 +239,15 @@ const renderCalendar = () => {
          // Termine markieren (datesOfEvents)
        if (Array.isArray(datesOfEvents) && datesOfEvents.length > 0) {
   for (const d of datesOfEvents) {
+      let day, month;
+ if (typeof d === "string") {
     const [dayStr, monthStr] = d.split(".");
     const day = parseInt(dayStr, 10);
     const month = parseInt(monthStr, 10);
+ }else if (d && typeof d === "object") {
+     day = d.day;
+      month = d.month + 1;   
+ }
     if (day === i && month === currMonth + 1) {
       className += (className ? " " : "") + "circle";
       break; // nur einmal markieren
@@ -518,7 +525,7 @@ mittelrhein.addEventListener('change', async () => {
 				const saveBtn= document.getElementById('saveBtn');
 				  saveBtn.addEventListener('click', async function handler() {
 					
-					await speichernEvent(finalName, currMonth, region,isWeekly);
+				//	await speichernEvent(finalName, currMonth, region,isWeekly,oldName);
 					    // Events in Liste anzeigen
   					//ladeDatenFürRegion(region);
 				
@@ -554,12 +561,11 @@ mittelrhein.addEventListener('change', async () => {
 
     // Save
     const saveHandler = async () => {
-      await speichernEvent(finalName, currMonth, region, isWeekly);
-      ladeDatenFürRegion(region);
+      await speichernEvent(finalName, currMonth, region, isWeekly, oldName);
       modal.close();
       saveBtn.removeEventListener("click", saveHandler);
     };
- 
+ const oldName = marktNameGlobal;
     saveBtn.addEventListener("click", saveHandler);
 
     // Abbrechen
@@ -664,127 +670,338 @@ async function showDeleteConfirmation(region, eventName, zeitraum, currYear, isW
      delBtn.addEventListener("click",deleteHandler);
   
   }
-
-
-async function speichernEvent(name, month, region, weekmarket) {
-    console.log("📦 speichernEvent aufgerufen mit:", name, month, region, weekmarket);
- // Token holen
-  const token = localStorage.getItem("jwt");
-  if (!token) {
-    console.error("❌ Kein Token gefunden, bitte einloggen!");
-    return;
-  }
-
-  // Payload aus JWT
-  function parseJwt(token) {
-    try {
-      const base64Payload = token.split('.')[1];
-      return JSON.parse(atob(base64Payload));
-    } catch (err) {
-      console.error("❌ JWT konnte nicht geparst werden:", err);
-      return null;
-    }
-  }
-
-  const payload = parseJwt(token);
-  if (!payload || !payload.username) {
-    console.error("❌ Kein Username im Token gefunden");
-    return;
-  }
-  const username = payload.username;
-  const isWeekly = weekmarket;
-console.log("User" + username );
+  
  
-    
-    await loadRegionData();
+ 
 
+
+function mergeOrUpdateEvent(
+    monatObj,
+    oldName,
+    newName,
+    tagString,
+    username,
+    weekmarket,
+    isUpdate = false,
+    opts = {}
+) {
+    const changeType = opts.changeType; // "start" | "end" | null
+  
+const oldStart = opts.oldStart;
+const oldEnd = opts.oldEnd;
+
+    let eventData = eventDataGlobal;
+    let event = null;
+
+    // Event existiert unter altem Namen?
+    if (oldName && monatObj[oldName]) {
+        event = monatObj[oldName];
+        event.owner = event.owner || username;
+        event.isWeekly = weekmarket === true;
+
+        // Wenn das Event NICHT wöchentlich ist, alte Monate löschen
+        if (!event.isWeekly) {
+            eventData.forEach(m => {
+                if (m !== monatObj && m[newName]) {
+                    delete m[newName];
+                    if (Array.isArray(m.events)) {
+                        m.events = m.events.filter(ev => ev !== newName);
+                    }
+                }
+            });
+        }
+
+        // Start-End Logik für Updates (nur im aktuellen Monat)
+        if (!weekmarket && isUpdate && selectedStart) {
+            const start = selectedStart;
+            const end = selectedEnd || selectedStart;
+            console.log("Alte Termine:", event.dates);
+              console.log("Bereich:", start, end);
+            // Alte Termine innerhalb des Bereichs löschen
+            if (!weekmarket && isUpdate && oldStart && oldEnd) {
+    event.dates = event.dates.filter(d => {
+        const date = new Date(d.year, d.month, d.day);
+        const startDate = new Date(oldStart.year, oldStart.month, oldStart.day);
+        const endDate = new Date(oldEnd.year, oldEnd.month, oldEnd.day);
+        return date < startDate || date > endDate; // lösche nur die alten Tage
+    });
+}
+            console.log("Neue Termine nach Filter:", event.dates);
+
+            // Neue Termine hinzufügen
+           let current = new Date(tagString.start.year, tagString.start.month, tagString.start.day);
+const last = tagString.end ? new Date(tagString.end.year, tagString.end.month, tagString.end.day) : current;
+
+            while (current <= last) {
+                if (!event.dates.some(d =>
+                    d.day === current.getDate() &&
+                    d.month === current.getMonth() &&
+                    d.year === current.getFullYear()
+                )) {
+                    event.dates.push({
+                        day: current.getDate(),
+                        month: current.getMonth(),
+                        year: current.getFullYear()
+                    });
+                }
+                current.setDate(current.getDate() + 1);
+            }
+
+        } else if (!weekmarket && tagString) {
+            // Einzelne Tage hinzufügen (kein Update)
+            if (!event.dates.some(d =>
+                d.day === tagString.day &&
+                d.month === tagString.month &&
+                d.year === tagString.year
+            )) {
+                event.dates.push({
+                    day: tagString.day,
+                    month: tagString.month,
+                    year: tagString.year
+                });
+            }
+        } else if (weekmarket && tagString) {
+            // Wöchentliche Events
+            if (changeType === "start") {
+                event.dates.push(tagString);
+            } else if (changeType === "end") {
+                if (!event.dates.some(d =>
+                    d.day === tagString.day &&
+                    d.month === tagString.month &&
+                    d.year === tagString.year
+                )) {
+                    event.dates.push(tagString);
+                }
+            } else {
+                if (!event.dates.some(d =>
+                    d.day === tagString.day &&
+                    d.month === tagString.month &&
+                    d.year === tagString.year
+                )) {
+                    event.dates.push(tagString);
+                }
+            }
+        }
+
+        // Event umbenennen, falls Name geändert wurde
+        if (newName !== oldName) {
+            monatObj[newName] = event;
+            delete monatObj[oldName];
+        }
+
+    } else if (monatObj[newName]) {
+
+      
+
+        // Event existiert bereits unter neuem Namen → nur Datum & Flags updaten
+        event = monatObj[newName];
+        event.owner = event.owner || username;
+        event.isWeekly = weekmarket === true;
+
+        if (tagString && typeof tagString === "object") {
+            if (!event.dates.some(d =>
+                d.day === tagString.day &&
+                d.month === tagString.month &&
+                d.year === tagString.year
+            )) {
+                event.dates.push(tagString);
+            }
+        }
+
+    } else {
+        // Neues Event anlegen
+        monatObj[newName] = {
+            dates: (tagString && typeof tagString === "object") ? [tagString] : [],
+            owner: username,
+            isWeekly: weekmarket === true
+        };
+        event = monatObj[newName];
+    }
+
+    // Globale Daten aktualisieren
+    eventDataGlobal = eventData;
+}
+
+
+// Utility zum Parsen von Datumstrings
+function parseDate(d, fallbackYear) {
+  if (typeof d === "object" && d !== null) {
+    return { day: d.day, month: d.month, year: d.year ?? fallbackYear };
+  }
+  if (typeof d === "string") {
+    const [day, month] = d.split(".").map(Number);
+    return { day, month: month - 1, year: fallbackYear };
+  }
+  throw new Error("Ungültiges Datum: " + d);
+}
+
+async function speichernEvent(name, month, region, weekmarket, oldName) {
+    console.log("📦 speichernEvent aufgerufen mit:", name, month, region, weekmarket, oldName);
+
+    const token = localStorage.getItem("jwt");
+    if (!token) {
+        console.error("❌ Kein Token gefunden, bitte einloggen!");
+        return;
+    }
+
+    function parseJwt(token) {
+        try {
+            const base64Payload = token.split('.')[1];
+            return JSON.parse(atob(base64Payload));
+        } catch (err) {
+            console.error("❌ JWT konnte nicht geparst werden:", err);
+            return null;
+        }
+    }
+
+    const payload = parseJwt(token);
+    if (!payload || !payload.username) {
+        console.error("❌ Kein Username im Token gefunden");
+        return;
+    }
+    const username = payload.username;
+    const isWeekly = weekmarket;
+
+    await loadRegionData();
     if (!selectedStart) return;
 
-    // Kopien der globalen Daten
     let eventData = [...eventDataGlobal];
     let listofRegion = { ...listofRegionGlobal };
+    let oldEventData = null;
 
-    // 🔹 Alte Daten für dieses Event zuverlässig entfernen
-eventData.forEach(monat => {
-    // Event aus events-Liste entfernen
-    if (Array.isArray(monat.events)) {
-        monat.events = monat.events.filter(ev => ev !== name);
+    // Alte Daten sichern, falls umbenannt wird
+    if (oldName) {
+        for (const monat of eventData) {
+            if (monat[oldName]) {
+                oldEventData = JSON.parse(JSON.stringify(monat[oldName]));
+                break;
+            }
+        }
     }
 
-    // Einzelne Tage des Events löschen
-    if (monat.hasOwnProperty(name)) {
-        delete monat[name];
-    }
-});
+    const oldDates = oldEventData?.dates || [];
 
-
-
-    // Alte Event-Zuordnung in Regionen entfernen
-    for (const reg in listofRegion) {
-        listofRegion[reg].regions = listofRegion[reg].regions.filter(ev => ev !== name);
-    }
-
-    // 2️⃣ Neuen Zeitraum berechnen
-    const startDate = new Date(selectedStart.year, selectedStart.month, selectedStart.day);
-    const endDate = selectedEnd
+    // neuer Zeitraum
+    const newStart = new Date(selectedStart.year, selectedStart.month, selectedStart.day);
+    const newEnd   = selectedEnd
         ? new Date(selectedEnd.year, selectedEnd.month, selectedEnd.day)
-        : startDate;
+        : newStart;
 
-    let current = new Date(startDate);
-    while (current <= endDate) {
-        const monthName = months[current.getMonth()]; // z.B. "September"
+    // alten Zeitraum parsen
+    const oldStart = oldDates.length ? (() => {
+        const p = parseDate(oldDates[0], newStart.getFullYear());
+        return new Date(p.year, p.month, p.day);
+    })() : null;
+
+    const oldEnd = oldDates.length ? (() => {
+        const p = parseDate(oldDates[oldDates.length - 1], newStart.getFullYear());
+        return new Date(p.year, p.month, p.day);
+    })() : null;
+
+    // prüfen ob Start- oder Enddatum geändert
+    let changeType = null;
+    if (oldStart && oldStart.getTime() !== newStart.getTime()) changeType = "start";
+    else if (oldEnd && oldEnd.getTime() !== newEnd.getTime())  changeType = "end";
+
+    // alle Tage des neuen Zeitraums durchlaufen
+    let current = new Date(newStart);
+    while (current <= newEnd) {
+     
+       const monthName = months[current.getMonth()];
         let monatObj = eventData.find(m => m.month === monthName);
-
-
         if (!monatObj) {
             monatObj = { month: monthName, events: [] };
             eventData.push(monatObj);
         }
 
-        // Event in events-Liste eintragen, falls noch nicht vorhanden
+                const tagString = {
+            day: current.getDate(),
+            month: current.getMonth(),
+            year: current.getFullYear(),
+            start: { ...selectedStart },
+            end: selectedEnd ? { ...selectedEnd } : null
+        };
+
+
+        // Event anlegen/aktualisieren/umbenennen
+        mergeOrUpdateEvent(
+            monatObj,
+             oldName && oldName !== name ? oldName : null, 
+            name,
+            tagString,
+            username,
+            isWeekly,
+            true,
+            { changeType, 
+              oldStart: oldStart,   // hier übergeben
+              oldEnd: oldEnd    }          // <- neue Info für Start/End-Änderung
+        );
+    
+        // Event in events-Liste eintragen
         if (!monatObj.events.includes(name)) {
             monatObj.events.push(name);
         }
 
-        
-   console.log("📦 Speichere Event:", name, "in Monat:", monthName);
-  console.log("👉 Events jetzt:", monatObj.events);
-  console.log("👉 Keys jetzt:", Object.keys(monatObj));
-  const tagString = `${current.getDate()}.${current.getMonth() + 1}`;
-      
-       
-if (!monatObj[name]) {
-  monatObj[name] = {
-    dates: [],
-    owner: username,
-    isWeekly: weekmarket === true
-  };
-} else {
-  // Wenn das Event schon existiert, sicherstellen, dass isWeekly gesetzt ist
-  monatObj[name].isWeekly = weekmarket === true;
-}
-// Tag hinzufügen, falls noch nicht vorhanden
- 
-if (!monatObj[name].dates.includes(tagString)) {
-  monatObj[name].dates.push(tagString);
+        // Tage sortieren
+console.log('monatObj nach mergeOrUpdateEvent:', monatObj);
+console.log('monatObj[name]:', monatObj[name]);
+
+      if (monatObj[name] && Array.isArray(monatObj[name].dates)) {
+    monatObj[name].dates.sort((a, b) => {
+        if (a.year !== b.year) return a.year - b.year;
+        if (a.month !== b.month) return a.month - b.month;
+        return a.day - b.day;
+    });
 }
 
-        // Tage innerhalb des Monats sortieren
-        monatObj[name].dates.sort((a, b) => {
-            const [dayA, monthA] = a.split('.').map(Number);
-            const [dayB, monthB] = b.split('.').map(Number);
-            return dayA - dayB;
-        });
+
 
         current.setDate(current.getDate() + 1);
     }
 
-    // --- Wochenmärkte separat behandeln ---
+    // Wochenmärkte über alle Monate
     if (weekmarket === true) {
-        await dateOfRecurringEvents(name,username );
+        await dateOfRecurringEvents(name, username);
+
+        for (const monthName of months) {
+            let monatObj = eventData.find(m => m.month === monthName);
+            if (!monatObj) {
+                monatObj = { month: monthName, events: [] };
+                eventData.push(monatObj);
+            }
+
+            mergeOrUpdateEvent(
+                monatObj,
+                oldName,
+                name,
+                undefined,
+                username,
+                true,
+                
+                { changeType }
+            );
+
+            if (!monatObj.events.includes(name)) {
+                monatObj.events.push(name);
+            }
+        }
     }
 
-    // --- Regionenliste pflegen ---
+    // alten Namen aus allen Strukturen entfernen
+    if (oldName && oldName !== name) {
+        eventData.forEach(monat => {
+            if (Array.isArray(monat.events)) {
+                monat.events = monat.events.filter(ev => ev !== oldName);
+            }
+            delete monat[oldName];
+        });
+        for (const reg in listofRegion) {
+            listofRegion[reg].regions =
+                listofRegion[reg].regions.filter(ev => ev !== oldName);
+        }
+    }
+
+    // Regionenliste aktualisieren
     if (!listofRegion[region]) {
         listofRegion[region] = { regions: [] };
     }
@@ -792,32 +1009,40 @@ if (!monatObj[name].dates.includes(tagString)) {
         listofRegion[region].regions.push(name);
     }
 
-    // --- Globale Daten aktualisieren ---
+    // Globale Daten aktualisieren
     eventDataGlobal = eventData;
     listofRegionGlobal = listofRegion;
 
-    // --- UI zurücksetzen ---
+    // UI zurücksetzen
     document.getElementById('bestaetigung').innerHTML = '';
     document.getElementById('zeitraumForm').reset();
 
-    // --- Daten an Server senden ---
+    // Daten an Server senden
+    const payloadToServer = {
+        eventData: eventDataGlobal,
+        listofRegion: listofRegionGlobal,
+        weekmarket:isWeekly,
+        oldName: oldName,
+        newName: name
+    };
+    console.log("payloadToServer", payloadToServer)
 
-    const payloadToServer  = {
-  eventData: eventDataGlobal,
-  listofRegion: listofRegionGlobal
-};
     try {
+      console.log("FINAL payloadToServer", JSON.stringify(payloadToServer, null, 2));
         await fetch('/save-event', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json',
-              'Authorization': `Bearer ${token}`
-             },
-             
-            body: JSON.stringify(payloadToServer )
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify(payloadToServer)
         });
-        console.log("JWT im Speicher:", token);
 
-        // --- UI aktualisieren ---
+        console.log("✅ Event erfolgreich gespeichert/umbenannt:", name);
+
+        // UI aktualisieren
+
+
         await renderEvents();
         await showDropdownMenu(listofRegionGlobal, region);
         renderCalendar();
@@ -829,29 +1054,11 @@ if (!monatObj[name].dates.includes(tagString)) {
 
 
 
-
-
-function updateEvent(name, month, newDates, region) {
-  const monatName = getMonatsname(month + 1);
-  let monatObj = eventData.find(e => e.month === monatName);
-  
-  if (!monatObj || !monatObj[name]) return;
-
-  // Aktualisiere die Termine
-  monatObj[name] = newDates;
-
-  // Optional: Backend erneut speichern
-  saveCombinedData();
- 
-}
-
 function checkEventConsistency(eventData) {
   eventData.forEach(monatObj => {
     const keys = Object.keys(monatObj).filter(k => !["month", "events", "owner"].includes(k));
     const list = monatObj.events;
-    console.log("🧩 Monat:", monatObj.month);
-    console.log("   Keys :", keys);
-    console.log("   Liste:", list);
+  
     const diff1 = list.filter(l => !keys.includes(l));
     const diff2 = keys.filter(k => !list.includes(k));
     if (diff1.length || diff2.length) {
@@ -979,118 +1186,6 @@ function getMonatsname(monatNummer) {
 
 
 
-// --- Admin Dropdown rendern ---
-/*async function renderAdminDropdown() {
-  const dropdownMenu = document.getElementById("dropdown-menu");
-  if (!dropdownMenu) return;
-
-  // 1️⃣ Aktuelle Auswahl merken
-  const selectedName = dropdownMenu.querySelector(".dropdown-item.active")?.dataset.name;
-
-  // 2️⃣ Daten holen
-  const a = await getData();
-  eventDataGlobal = a.eventData;
-
-  // 3️⃣ Dropdown leeren
-  dropdownMenu.innerHTML = "";
-
-  // 4️⃣ Items rendern
-  const monatName = getMonatsname(currMonth + 1);
-  const monatObj = eventDataGlobal.find(m => m.month === monatName);
-  if (!monatObj) return;
-
-  monatObj.events.forEach(marktName => {
-    const evObj = monatObj[marktName];
-    const displayName = marktName; // Optional schöner Name
-
-    // Wrapper
-    const itemDiv = document.createElement("div");
-    itemDiv.className = "dropdown-item";
-    itemDiv.dataset.name = marktName;
-    itemDiv.style.display = "flex";
-    itemDiv.style.justifyContent = "space-between";
-    itemDiv.style.alignItems = "center";
-    itemDiv.style.padding = "4px 8px";
-
-    // Name
-    const nameSpan = document.createElement("span");
-    nameSpan.className = "name";
-    nameSpan.textContent = displayName;
-    itemDiv.appendChild(nameSpan);
-
-    // Admin-Buttons
-    if (window.location.pathname.endsWith("admin.html")) {
-      const btnWrapper = document.createElement("div");
-      btnWrapper.style.display = "flex";
-      btnWrapper.style.gap = "6px";
-
-      const updateBtn = document.createElement("button");
-      updateBtn.type = "button";
-      updateBtn.className = "update-btn";
-      updateBtn.textContent = "✎";
-      updateBtn.title = "Bearbeiten";
-      Object.assign(updateBtn.style, {
-        background: "#4CAF50",
-        border: "none",
-        color: "white",
-        padding: "4px 6px",
-        borderRadius: "4px",
-        cursor: "pointer"
-      });
-
-      const deleteBtn = document.createElement("button");
-      deleteBtn.type = "button";
-      deleteBtn.className = "delete-btn";
-      deleteBtn.textContent = "🗑";
-      deleteBtn.title = "Löschen";
-      Object.assign(deleteBtn.style, {
-        background: "#f44336",
-        border: "none",
-        color: "white",
-        padding: "4px 6px",
-        borderRadius: "4px",
-        cursor: "pointer"
-      });
-
-      btnWrapper.appendChild(updateBtn);
-      btnWrapper.appendChild(deleteBtn);
-      itemDiv.appendChild(btnWrapper);
-    }
-
-    // Auswahl wiederherstellen
-    if (selectedName === marktName) itemDiv.classList.add("active");
-
-    dropdownMenu.appendChild(itemDiv);
-  });
-}*/
-
-function initAdminDropdownListener() {
-  const dropdownMenu = document.getElementById("dropdown-menu");
-  if (!dropdownMenu) return;
-
-  dropdownMenu.addEventListener("click", (e) => {
-    const item = e.target.closest(".dropdown-item");
-    if (!item) return;
-
-    // alle anderen entfernen
-    dropdownMenu.querySelectorAll(".dropdown-item").forEach(el => el.classList.remove("active"));
-
-    // nur das geklickte hervorheben
-    item.classList.add("active");
-
-    // ausgewähltes Event setzen
-    const marktName = item.dataset.name;
-    const monatName = getMonatsname(currMonth + 1);
-    const monatObj = eventDataGlobal.find(m => m.month === monatName);
-    if (monatObj && monatObj.events.includes(marktName)) {
-      eventId = marktName;
-      const evObj = monatObj[marktName];
-      datesOfEvents = evObj ? evObj.dates : [];
-    }
-
-    renderCalendar();
-  });
-}
 
 function showEvents(currMonth) {
  
@@ -1122,6 +1217,7 @@ item.classList.add("active");
       const monatName = getMonatsname(currMonth + 1);
       const monatObj = eventDataGlobal.find(m => m.month === monatName);
       const marktName = item.dataset.name;
+      marktNameGlobal = marktName;
       
       if (monatObj && monatObj.events.includes(marktName)) {
         eventId = marktName;
@@ -1146,14 +1242,22 @@ item.classList.add("active");
 
 
 const renderEvents = async () => {
-  console.log('currMonth:', currMonth);
+ 
 console.log('months:', months);
-console.log('eventDataGlobal:', eventDataGlobal);
+console.log("eventDataGlobal months:", eventDataGlobal.map(m => m.month));
+console.log("currMonth index:", currMonth);
+console.log("months[currMonth]:", months[currMonth]);
     let found = false;
     let isInEvents = false;
     actualEvents = [];
   const mittelrhein = document.getElementById('MittelrheinAdmin');
 	const oberrhein = document.getElementById('OberrheinAdmin');
+
+const currentMonthName = months[currMonth]; // 0-basiert
+const monthObj = eventDataGlobal.find(m => m.month === currentMonthName);
+if (!monthObj) {
+  console.warn("Kein Monatsobjekt gefunden:", currentMonthName);
+}
 
     // 1️⃣ Aktuellen Monat holen
     for (let y = 0; y < eventDataGlobal.length; y++) {
@@ -1254,23 +1358,41 @@ function normalizeEventData(eventData, year) {
   return eventData.map(monthObj => {
     const copy = { ...monthObj };
 
+    if (!Array.isArray(monthObj.events)) return copy;
+
     monthObj.events.forEach(name => {
       const event = monthObj[name];
 
       if (Array.isArray(event)) {
-        // altes Schema → nur Array mit Strings
-        copy[name] = event.map(str => {
-          const [day, month] = str.split(".").map(Number);
-          return { day, month: month - 1, year };
-        });
-      } else if (event && event.dates) {
-        // neues Schema → { dates: [], owner: "xyz" }
-        copy[name] = {
-          owner: event.owner,
-          dates: event.dates.map(str => {
+        // Altes Schema → Array von Strings
+        copy[name] = event
+          .filter(Boolean)
+          .map(str => {
             const [day, month] = str.split(".").map(Number);
             return { day, month: month - 1, year };
-          })
+          });
+
+      } else if (event && Array.isArray(event.dates)) {
+        // Neues Schema → Objekt mit dates[]
+        copy[name] = {
+          owner: event.owner,
+          isWeekly: !!event.isWeekly,
+          dates: event.dates
+            .filter(Boolean)              // nur gültige Einträge
+            .map(d => {
+              if (typeof d === "string") {
+                const [day, month] = d.split(".").map(Number);
+                return { day, month: month - 1, year };
+              }
+              if (typeof d === "object") {
+                return {
+                  ...d,
+                  year: d.year != null ? d.year : year
+                };
+              }
+              return null;                // alles andere überspringen
+            })
+            .filter(Boolean)
         };
       }
     });
@@ -1278,6 +1400,7 @@ function normalizeEventData(eventData, year) {
     return copy;
   });
 }
+
 
 
 		
@@ -1390,7 +1513,7 @@ const monthObj = eventDataGlobal.find(m => m.month === months[currMonth]);
         if (window.location.pathname.endsWith("admin.html") && (isOwner || (currentOwner == "admin"))) {
 
              singleEvent += `<div style="display:flex; gap:6px;">
-              <button type="button" class="update-btn" title="Bearbeiten" aria-label="Bearbeiten"
+              <button type="button" class="update-btn" id="update-btn" title="Bearbeiten" aria-label="Bearbeiten"
                       style="background:#4CAF50; border:none; color:white; padding:4px 6px; border-radius:4px; cursor:pointer;">✎</button>
               <button type="button" class="delete-btn" title="Löschen" aria-label="Löschen"
                       style="background:#f44336; border:none; color:white; padding:4px 6px; border-radius:4px; cursor:pointer;">🗑</button>
@@ -1465,21 +1588,15 @@ if (alleTermine.length > 0) {
   selectedStart = parseDate(alleTermine[0]);
   selectedEnd   = parseDate(alleTermine[alleTermine.length - 1]);
 }
-
-function parseDate(d, fallbackYear) {
-  if (typeof d === "object" && d !== null) {
-    return {
-      day: d.day,
-      month: d.month,
-      year: d.year ?? fallbackYear   // wenn kein Jahr drin, currYear verwenden
-    };
-  }
-  if (typeof d === "string") {
-    const [day, month] = d.split(".").map(Number);
-    return { day, month: month - 1, year: fallbackYear };
-  }
-  throw new Error("Ungültiges Datum: " + d);
+function getOldRange(datesArray = [], refYear) {
+  const parsed = datesArray
+    .map(d => parseDate(d, refYear))
+    .map(p => new Date(p.year, p.month, p.day));
+  if (!parsed.length) return { start: null, end: null };
+  parsed.sort((a,b) => a - b);
+  return { start: parsed[0], end: parsed[parsed.length - 1] };
 }
+
 
 
 
@@ -1525,15 +1642,6 @@ if (endDate.getTime() === startDate.getTime()) {
 });
 
 
-function parseTerminString(str, year) {
-  const [day, month] = str.split(".").map(Number);
-  return new Date(year, month - 1, day);
-}
-
-
-
-
-
 	// Wait one frame to allow layout update
 	await new Promise(requestAnimationFrame);
 
@@ -1566,9 +1674,16 @@ function parseTerminString(str, year) {
 		 calendar.style.setProperty("position", "relative", "important");
 		 calendar.style.setProperty("top", newTop + "%", "important");
 	}
-	//showEvents(currMonth);
 
 }
+
+let isUpdate = false;
+document.addEventListener("click", (e) => {
+  if (e.target && e.target.id === "update-btn") {
+    console.log("Dynamischer Button geklickt!");
+    isUpdate = true;
+  }
+});
 
 prevNextIcon.forEach(icon => {
   
@@ -1697,6 +1812,10 @@ const dateOfRecurringEvents = async (eventName, username) => {
        
         return;
     }
+    if (eventData.isWeekly) {
+    // ggf. alte Einzeltermine leeren, falls nur Wochenlogik zählt
+    eventData.dates = [];
+}
 
     // Wochentag merken
     const dtfBerlin = new Intl.DateTimeFormat('de-DE', {

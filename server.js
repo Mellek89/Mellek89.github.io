@@ -14,10 +14,6 @@ app.use((req, res, next) => {
   next();
 });
 app.use(express.json());
-app.use(express.static('public', {
-  maxAge: '1y',
-  immutable: true
-}));
 
 
 // -------------------
@@ -42,120 +38,195 @@ if (!fs.existsSync(dataFile)) {
 // -------------------
 function loadEvents() {
   try {
-    return JSON.parse(fs.readFileSync(dataFile, 'utf-8'));
-  } catch {
+    if (!fs.existsSync(dataFile)) {
+      // Datei existiert nicht → leere Struktur zurückgeben
+
+      console.log("DataFileZumLaden:  ",dataFile);
+      return { eventData: [], listofRegion: {} };
+    }
+    return JSON.parse(fs.readFileSync(dataFile, "utf-8"));
+  } catch (err) {
+    console.error("Fehler beim Laden der Events:", err);
     return { eventData: [], listofRegion: {} };
   }
 }
 
 function mergeEventData(existing, incoming, username, role) {
   incoming.eventData.forEach(newMonth => {
-    // passenden Monat im bestehenden Datensatz suchen
     let oldMonth = existing.eventData.find(m => m.month === newMonth.month);
 
     if (!oldMonth) {
-      // neuer Monat → komplett übernehmen
-       const monthCopy = { month: newMonth.month, events: [...newMonth.events] };
+      // Neuer Monat → komplett übernehmen
+      const monthCopy = { month: newMonth.month, events: [...newMonth.events] };
 
-      // Events ins neue Schema {dates, owner} konvertieren
       newMonth.events.forEach(evName => {
         const evObj = newMonth[evName] || { dates: [], owner: username };
         monthCopy[evName] = {
           dates: Array.isArray(evObj.dates) ? evObj.dates : [],
-          owner: username
+          owner: evObj.owner || username,
+          isWeekly: evObj.isWeekly === true
         };
       });
 
       existing.eventData.push(monthCopy);
     } else {
-      // Monat existiert schon → Events mergen
+      // Monat existiert → Events mergen
       newMonth.events.forEach(evName => {
-        if (!oldMonth.events.includes(evName)) {
-          oldMonth.events.push(evName);
-        }
-        /*const newEventObj = newMonth[evName] || { dates: [], owner: username };
-        const newEventDates = newEventObj.dates || [];*/
+        if (!oldMonth.events.includes(evName)) oldMonth.events.push(evName);
+
         const oldEvent = oldMonth[evName];
-        const newEventObjRaw = newMonth[evName]; // kann Array oder Objekt sein
-       const newEventObj = Array.isArray(newEventObjRaw)
-  ? { dates: newEventObjRaw, owner: username, isWeekly: false } // Array → Objekt konvertieren
-  : { 
-      dates: Array.isArray(newEventObjRaw?.dates) ? newEventObjRaw.dates : [], 
-      owner: newEventObjRaw?.owner || username,
-      isWeekly: newEventObjRaw?.isWeekly === true // Hier das Flag übernehmen
-    };
+        const newEventRaw = newMonth[evName];
 
-        const newEventDates = newEventObj.dates || [];
-if (!oldEvent) {
-  oldMonth[evName] = newEventObj; 
-  console.log(newEventObj + "newEventObj");
-} else if (role === "admin" || oldEvent.owner === username) {
-  oldEvent.dates = [...newEventObj.dates];
-  oldEvent.owner = oldEvent.owner || username;
-  oldEvent.isWeekly = newEventObj.isWeekly; 
-}
+        // Korrekte Deklaration von newEvent
+        const newEvent = Array.isArray(newEventRaw)
+          ? { dates: newEventRaw, owner: username, isWeekly: false }
+          : {
+              dates: Array.isArray(newEventRaw?.dates) ? newEventRaw.dates : [],
+              owner: newEventRaw?.owner || username,
+              isWeekly: newEventRaw?.isWeekly === true
+            };
 
-        
+        if (!oldEvent) {
+          oldMonth[evName] = newEvent;
+        } else if (role === "admin" || oldEvent.owner === username) {
+          oldEvent.dates = [...newEvent.dates];
+          oldEvent.owner = oldEvent.owner || username;
+          oldEvent.isWeekly = newEvent.isWeekly;
+        }
+
+        // ✅ Wenn Wochenmarkt deaktiviert → alle anderen Monate updaten
+        if (oldEvent?.isWeekly === true && newEvent.isWeekly === false) {
+          
+          existing.eventData.forEach(month => {
+            if (month !== oldMonth && month[evName]) {
+              month[evName].isWeekly = false;
+
+              // Optional: Event aus events-Array entfernen
+              month.events = month.events.filter(e => e !== evName);
+              delete month[evName];
+            }
+          });
+        }
       });
     }
   });
 
   // Regionenliste mergen
   for (const region in incoming.listofRegion) {
-    if (!existing.listofRegion[region]) {
-      existing.listofRegion[region] = { regions: [] };
-    }
-    existing.listofRegion[region].regions.push(
-      ...incoming.listofRegion[region].regions
-    );
-    existing.listofRegion[region].regions = [
-      ...new Set(existing.listofRegion[region].regions)
-    ];
+    if (!existing.listofRegion[region]) existing.listofRegion[region] = { regions: [] };
+
+    existing.listofRegion[region].regions.push(...incoming.listofRegion[region].regions);
+    existing.listofRegion[region].regions = [...new Set(existing.listofRegion[region].regions)];
   }
 
   return existing;
 }
 
 
+
 // -------------------
 // POST-Routen zuerst
 app.post('/save-event', authMiddleware("user"), (req, res) => {
-  console.log("📨 /save-event aufgerufen", req.body);
+  try {
+    console.log("📥 Endgültiges payload angekommen:", req.body);
 
-  const { eventData: incomingEventData, listofRegion: incomingList } = req.body;
-  const username = req.user.username;
-  const role = req.user.role;
+    const { eventData: incomingEventData, listofRegion: incomingList, oldName, newName } = req.body;
+    const username = req.user.username;
+    const role = req.user.role;
 
-  if (!incomingEventData || !incomingList) {
-    return res.status(400).json({ message: "❌ Erwarte Objekt mit eventData und listofRegion." });
-  }
+// alle Events dieses Monats
+ incomingEventData.forEach(monthObj => {
+  console.log(`--- ${monthObj.month} ---`);
+  monthObj.events.forEach(evName => {
+    const evObj = monthObj[evName];
+    if (evObj) {
+      console.log("Event:", evName, "Dates:", evObj.dates);
+    } else {
+      console.warn("⚠️ Keine Eventdaten vorhanden für:", evName);
+    }
+  });
+});
+    if (!incomingEventData || !incomingList) {
+      return res.status(400).json({ message: "❌ Erwarte Objekt mit eventData und listofRegion." });
+    }
 
-  const existing = loadEvents();
+    const existing = loadEvents(); // aktuelle Datei laden
 
-  // --- Owner für neue Events setzen ---
-  const incomingWithOwner = incomingEventData.map(month => {
-    const copy = { month: month.month, events: [...month.events] };
+    // 1️⃣ Alte Eventnamen umbenennen/löschen, falls oldName existiert
+    if (oldName && newName && oldName !== newName) {
+      existing.eventData.forEach(monat => {
+        // Event-Objekt umbenennen, Owner und isWeekly übernehmen
+        if (monat[oldName]) {
+          monat[newName] = {
+            ...monat[oldName],
+            owner: monat[oldName].owner || username,
+            isWeekly: monat[oldName].isWeekly
+          };
+          delete monat[oldName];
+        }
 
-    month.events.forEach(evName => {
-      const evObj = month[evName] || { dates: [] };
+        // Events-Array anpassen
+        if (Array.isArray(monat.events)) {
+          monat.events = monat.events.map(ev => (ev === oldName ? newName : ev));
+        }
+      });
+
+      // Regionenliste aktualisieren
+      for (const region in existing.listofRegion) {
+        existing.listofRegion[region].regions = existing.listofRegion[region].regions.map(ev =>
+          ev === oldName ? newName : ev
+        );
+      }
+    }
+
+  
+
+    // 2️⃣ Owner für neue/aktualisierte Events setzen
+   const incomingWithOwner = incomingEventData.map(month => {
+  const copy = { month: month.month, events: [...month.events] };
+
+  month.events.forEach(evName => {
+    const evObj = month[evName];
+    if (evObj) {
+      // nur wenn evObj existiert, alles übernehmen
       copy[evName] = {
         dates: Array.isArray(evObj.dates) ? evObj.dates : [],
-        owner: username,        // jeder User wird Owner seiner Events
-        isWeekly: evObj?.isWeekly === true
+        owner: evObj.owner || username,
+        isWeekly: typeof evObj.isWeekly === "boolean" ? evObj.isWeekly : false
       };
-    });
-
-    return copy;
+    } else {
+      // Falls noch nicht vorhanden, neuen Event-Objekt erstellen
+      copy[evName] = {
+        dates: [],
+        owner: username,
+        isWeekly: false
+      };
+    }
   });
 
-  // --- Daten mergen ohne alte Owner-Prüfung ---
-  const merged = mergeEventData(existing, { eventData: incomingWithOwner, listofRegion: incomingList }, username, role);
+  return copy;
+});
 
-  // --- In Datei schreiben ---
-  fs.writeFileSync(dataFile, JSON.stringify(merged, null, 2));
 
-  console.log("incomingWithOwner", incomingWithOwner);
-  res.json({ message: "✅ Struktur gespeichert (gemerged)." });
+
+    // 3️⃣ Neue Daten mergen
+    const merged = mergeEventData(
+      existing,
+      { eventData: incomingWithOwner, listofRegion: incomingList },
+      username,
+      role
+    );
+
+    // 4️⃣ Datei speichern
+    fs.writeFileSync(dataFile, JSON.stringify(merged, null, 2));
+    console.log("✅ Struktur gespeichert (inkl. Umbenennung & Owner).,", incomingWithOwner);
+    console.log(JSON.stringify(merged, null, 2));
+
+    res.json({ message: "✅ Struktur gespeichert (inkl. Umbenennung & Owner)." });
+  } catch (err) {
+    console.error("❌ Fehler im save-event Handler:", err);
+    res.status(500).json({ message: "Fehler beim Speichern" });
+  }
 });
 
 
