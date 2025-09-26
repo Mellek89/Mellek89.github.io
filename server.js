@@ -95,7 +95,7 @@ function mergeEventData(existing, incoming, username, role) {
         }
 
         // ✅ Wenn Wochenmarkt deaktiviert → alle anderen Monate updaten
-        if (oldEvent?.isWeekly === true && newEvent.isWeekly === false) {
+        if (oldEvent?.isWeekly === true && newEvent.isWeekly === false &&  oldMonth[evName] == newEvent[evName] ) {
           
           existing.eventData.forEach(month => {
             if (month !== oldMonth && month[evName]) {
