@@ -227,33 +227,40 @@ const renderCalendar = () => {
         }
 
         // Wiederkehrende Events markieren
-        if (recurringDaysOfEvents && recurringDaysOfEvents.length > 0) {
+         let weekmarket = document.getElementById("Weekmarket");
+      if (weekmarket) {
+             const monthName = months[currMonth];
+        let monatObj = eventData.find(m => m.month === monthName);
+
+
+
+        /*if (recurringDaysOfEvents && recurringDaysOfEvents.length > 0) {
             for (let j = 0; j < recurringDaysOfEvents.length; j += 2) {
                 const day = recurringDaysOfEvents[j];
                 const month = recurringDaysOfEvents[j + 1] - 1; // JS-Monate 0-basiert
                 if (month === currMonth && day === i) {
                     className += (className ? " " : "") + "circle";
                 }
-            }
+            }*/
         }
          // Termine markieren (datesOfEvents)
        if (Array.isArray(datesOfEvents) && datesOfEvents.length > 0) {
-  for (const d of datesOfEvents) {
-      let day, month;
- if (typeof d === "string") {
-    const [dayStr, monthStr] = d.split(".");
-    const day = parseInt(dayStr, 10);
-    const month = parseInt(monthStr, 10);
- }else if (d && typeof d === "object") {
-     day = d.day;
-      month = d.month + 1;   
- }
-    if (day === i && month === currMonth + 1) {
-      className += (className ? " " : "") + "circle";
-      break; // nur einmal markieren
-    }
-  }
-}
+            for (const d of datesOfEvents) {
+                let day, month;
+          if (typeof d === "string") {
+              const [dayStr, monthStr] = d.split(".");
+              const day = parseInt(dayStr, 10);
+              const month = parseInt(monthStr, 10);
+          }else if (d && typeof d === "object") {
+              day = d.day;
+                month = d.month + 1;   
+          }
+              if (day === i && month === currMonth + 1) {
+                className += (className ? " " : "") + "circle";
+                break; // nur einmal markieren
+              }
+            }
+         }
 
 
         liTag += `<li data-day="${i}" class="${className}">${i}</li>`;
@@ -712,7 +719,7 @@ const oldEnd = opts.oldEnd;
         }
 
         // Start-End Logik für Updates (nur im aktuellen Monat)
-        if (!weekmarket && isUpdate && selectedStart) {
+if (!weekmarket && isUpdate && selectedStart) {
             const start = selectedStart;
             const end = selectedEnd || selectedStart;
             console.log("Alte Termine:", event.dates);
@@ -730,7 +737,7 @@ const oldEnd = opts.oldEnd;
 
             // Neue Termine hinzufügen
            let current = new Date(tagString.start.year, tagString.start.month, tagString.start.day);
-const last = tagString.end ? new Date(tagString.end.year, tagString.end.month, tagString.end.day) : current;
+           const last = tagString.end ? new Date(tagString.end.year, tagString.end.month, tagString.end.day) : current;
 
             while (current <= last) {
                 if (!event.dates.some(d =>
@@ -817,6 +824,12 @@ const last = tagString.end ? new Date(tagString.end.year, tagString.end.month, t
         };
         event = monatObj[newName];
     }
+            // am Ende von mergeOrUpdateEvent:
+        if (!Array.isArray(monatObj.events)) monatObj.events = [];
+        if (!monatObj.events.includes(newName)) {
+            monatObj.events.push(newName);
+        }
+
 
     // Globale Daten aktualisieren
     eventDataGlobal = eventData;
@@ -905,6 +918,27 @@ async function speichernEvent(name, month, region, weekmarket, oldName) {
 
     // alle Tage des neuen Zeitraums durchlaufen
     let current = new Date(newStart);
+        // Wochenmärkte über alle Monate
+ if (weekmarket) {
+  const { eventData: weeklyData, listofRegion: weeklyRegions } =
+        await dateOfRecurringEvents(name, username);
+
+  weeklyData.forEach(weekMonth => {
+    let monatObj = eventData.find(m => m.month === weekMonth.month);
+    if (!monatObj) {
+       monatObj = { month: weekMonth.month, events: [] };
+       eventData.push(monatObj);
+    }
+    weekMonth.events.forEach(evName => {
+      // alle Termine dieses Events schreiben
+      weekMonth[evName].dates.forEach(d => {
+        mergeOrUpdateEvent(monatObj, oldName, evName, d, username, true);
+      });
+    });
+  });
+}
+
+
     while (current <= newEnd) {
      
        const monthName = months[current.getMonth()];
@@ -922,9 +956,8 @@ async function speichernEvent(name, month, region, weekmarket, oldName) {
             end: selectedEnd ? { ...selectedEnd } : null
         };
 
-
-        // Event anlegen/aktualisieren/umbenennen
-        mergeOrUpdateEvent(
+  
+    mergeOrUpdateEvent(
             monatObj,
              oldName && oldName !== name ? oldName : null, 
             name,
@@ -936,6 +969,11 @@ async function speichernEvent(name, month, region, weekmarket, oldName) {
               oldStart: oldStart,   // hier übergeben
               oldEnd: oldEnd    }          // <- neue Info für Start/End-Änderung
         );
+
+
+
+        // Event anlegen/aktualisieren/umbenennen
+      
     
         // Event in events-Liste eintragen
         if (!monatObj.events.includes(name)) {
@@ -959,33 +997,8 @@ console.log('monatObj[name]:', monatObj[name]);
         current.setDate(current.getDate() + 1);
     }
 
-    // Wochenmärkte über alle Monate
-    if (weekmarket === true) {
-        await dateOfRecurringEvents(name, username);
+  
 
-        for (const monthName of months) {
-            let monatObj = eventData.find(m => m.month === monthName);
-            if (!monatObj) {
-                monatObj = { month: monthName, events: [] };
-                eventData.push(monatObj);
-            }
-
-            mergeOrUpdateEvent(
-                monatObj,
-                oldName,
-                name,
-                undefined,
-                username,
-                true,
-                
-                { changeType }
-            );
-
-            if (!monatObj.events.includes(name)) {
-                monatObj.events.push(name);
-            }
-        }
-    }
 
     // alten Namen aus allen Strukturen entfernen
     if (oldName && oldName !== name) {
@@ -1788,14 +1801,55 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 const dateOfRecurringEvents = async (eventName, username) => {
-	 const serverData = await getData();
+	  const serverData = await getData();
+    
+
     eventData = serverData?.eventData || [];
     listofRegion = serverData?.listofRegion || {};
     recurringMarketDates.length = 0;
+    let event = null;
 
-   
-    const firstDay = selectedStart.day;
-    if (!firstDay) {
+    const newStart = new Date(selectedStart.year, selectedStart.month, selectedStart.day);
+    let current = new Date(newStart);
+
+    const tagString = {
+            day: current.getDate(),
+            month: current.getMonth(),
+            year: current.getFullYear(),
+            start: { ...selectedStart },
+            end: selectedEnd ? { ...selectedEnd } : null
+        };
+
+    const firstDay = selectedStart.day; 
+    const monthName = months[current.getMonth()];
+    let monatObj = eventDataGlobal.find(m => m.month == monthName);
+
+    if (!monatObj) {
+    monatObj = { month: monthName, events: [] };
+    eventDataGlobal.push(monatObj);
+}
+    
+if (!monatObj[eventName]) {
+    monatObj[eventName] = {
+        dates: [],
+        owner: username,
+        isWeekly: true
+    };
+}
+    event = monatObj[eventName];
+    event.owner = event.owner || username;
+    event.isWeekly = weekmarket === true;
+
+      if (tagString && typeof tagString === "object") {
+            if (!event.dates.some(d =>
+                d.day === tagString.day &&
+                d.month === tagString.month &&
+                d.year === tagString.year
+            )) {
+                event.dates.push(tagString);
+            }
+        }
+    if (! firstDay) {
         console.error("❌ Kein Starttag in DaysSet gefunden!");
         return;
     }
@@ -1803,7 +1857,7 @@ const dateOfRecurringEvents = async (eventName, username) => {
 
   
     // Startdatum erzeugen (UTC damit es sauber bleibt)
-    let currentUTCDate = new Date(Date.UTC(currYear, month, firstDay));
+    let currentUTCDate = new Date(Date.UTC(currYear, month,  firstDay));
 
     // Sicherstellen, dass es ein gültiges Datum ist
     if (isNaN(currentUTCDate)) {
@@ -1827,8 +1881,17 @@ const dateOfRecurringEvents = async (eventName, username) => {
 
     // --- Vorwärts durch Jahr gehen ---
     let forward = new Date(currentUTCDate);
+
+   
+    
     while (forward.getUTCFullYear() === currYear) {
-        recurringMarketDates.push(forward.toISOString().split("T")[0]);
+
+        recurringMarketDates.push({
+          day: forward.getUTCDate(),
+        month: forward.getUTCMonth(),
+        year: forward.getUTCFullYear()
+    });
+         
         forward.setUTCDate(forward.getUTCDate() + 7);
     }
 
@@ -1836,72 +1899,65 @@ const dateOfRecurringEvents = async (eventName, username) => {
     let backward = new Date(currentUTCDate);
     backward.setUTCDate(backward.getUTCDate() - 7);
     while (backward.getUTCFullYear() === currYear) {
-        recurringMarketDates.push(backward.toISOString().split("T")[0]);
+
+
+         recurringMarketDates.push({
+          day: backward.getUTCDate(),
+        month: backward.getUTCMonth(),
+        year: backward.getUTCFullYear()
+    });
         backward.setUTCDate(backward.getUTCDate() - 7);
     }
 
     // Sortieren
-    recurringMarketDates.sort((a, b) => new Date(a) - new Date(b));
+    //recurringMarketDates.sort((a, b) => new Date(a) - new Date(b));
+    recurringMarketDates.sort((a, b) =>
+   months.indexOf(a.month) - months.indexOf(b.month)
+);
 
     // --- Pro Monat einsortieren ---
-    recurringMarketDates.forEach(dateISO => {
-        const dateObj = new Date(dateISO);
-        const monthName = dateObj.toLocaleString("de-DE", { month: "long" });
-        const day = dateObj.getUTCDate();
-        const monthNum = dateObj.getUTCMonth() + 1;
-        const formatted = `${day}.${monthNum}`;
+  
 
-        // Monatseintrag finden oder anlegen
-        let monthEntry = eventData.find(e => e.month === monthName);
-        if (!monthEntry) {
-            monthEntry = { month: monthName, events: [] };
-            eventData.push(monthEntry);
-        }
+recurringMarketDates.forEach(dateObj => {
+    const monthName = months[dateObj.month];
+    let monthEntry = eventData.find(e => e.month === monthName);
+    if (!monthEntry) {
+        monthEntry = { month: monthName, events: [] };
+        eventData.push(monthEntry);
+    }
 
-        // Eventnamen registrieren
-        if (!monthEntry.events.includes(eventName)) {
-            monthEntry.events.push(eventName);
-        }
+    if (!monthEntry.events.includes(eventName)) {
+        monthEntry.events.push(eventName);
+    }
 
-        // Datum hinzufügen
-       
-  if (!monthEntry[eventName]) {
-  monthEntry[eventName] = {
-    dates: [],
-    owner: username,
-    isWeekly: true
-  };
-} else {
-  // Existierendes Event → isWeekly aktualisieren
-  monthEntry[eventName].isWeekly = true;
-}
+    if (!monthEntry[eventName]) {
+        monthEntry[eventName] = { dates: [], owner: username, isWeekly: true };
+    }
+
+    // Prüfen, ob dieses exakte Objekt schon existiert
+    const exists = monthEntry[eventName].dates.some(d =>
+        d.day === dateObj.day &&
+        d.month === dateObj.month &&
+        d.year === dateObj.year
+    );
+    if (!exists) {
+        monthEntry[eventName].dates.push(dateObj); // <─ jetzt echtes Objekt
+    }
+});
 
 
 
-if (!monthEntry[eventName].dates.includes(formatted)) {
-    monthEntry[eventName].dates.push(formatted);
-}
-    });
 
 
-	for(let z=0 ;z<recurringMarketDates.length; z++){
-											
-					let days = recurringMarketDates[z].split("-");
-					let day = days[2];
-					day = +day; //convert String into Number
-					let month = days[1];
-					month = +month;
-				recurringDaysOfEvents.push(day,month);
-					
-					
-				}
-	
+
 // Globale Variablen aktualisieren, damit speichernEvent sie mitschickt
 eventDataGlobal = eventData;
 listofRegionGlobal = listofRegion;
   
 	renderCalendar();
+  return { eventData, listofRegion };
 };
+
 function loadUsers() {
   try {
     return JSON.parse(fs.readFileSync('userDaten.json', 'utf-8')); // z.B. users.json
