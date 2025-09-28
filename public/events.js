@@ -991,7 +991,7 @@ console.log('monatObj[name]:', monatObj[name]);
         oldName: oldName,
         newName: name
     };
-    console.log("payloadToServer", payloadToServer)  
+    console.log("payloadToServer!", payloadToServer)  
 
     try {
       console.log("FINAL payloadToServer", JSON.stringify(payloadToServer, null, 2));
