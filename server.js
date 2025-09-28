@@ -341,8 +341,15 @@ app.get('/events.json', (req, res) => {
 // -------------------
 
 // -------------------
-app.use(express.static(path.join(__dirname, 'public')));
 
+
+// in server.js – vor app.listen()
+app.use(express.static(path.join(__dirname, 'public'), {
+  setHeaders(res) {
+    // nur 5 Minuten Cache im Browser
+    res.setHeader('Cache-Control', 'public, max-age=300');
+  }
+}));
 
 // -------------------
 // Server starten
