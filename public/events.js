@@ -43,7 +43,7 @@ let tmp = [];
 let formattedEventname = '';
 let region = '';
 let marktNameGlobal = '';
-
+let weekmarketGlobal = null;
 
 
 var endOfEvent= null;
@@ -137,6 +137,8 @@ function getFormAttributes(){
 // Globale Variablen für die Bereichsauswahl
 let selectedStart = null;
 let selectedEnd = null;
+let startDate = null;
+let endDate = null;
 let period = "";
 
 // Klick-Handler für Tage
@@ -144,6 +146,7 @@ function onDayClick(day) {
     eventId = '';
     recurringDaysOfEvents.length = 0;
     datesOfEvents.length = 0;
+    weekmarketGlobal = null;
      getFormAttributes();
 
     const clickedDate = new Date(currYear, currMonth, day);
@@ -160,8 +163,8 @@ function onDayClick(day) {
         selectedEnd = { day, month: currMonth, year: currYear };
 
         // Start- und Enddatum als Date-Objekte
-        let startDate = new Date(selectedStart.year, selectedStart.month, selectedStart.day);
-        let endDate = new Date(selectedEnd.year, selectedEnd.month, selectedEnd.day);
+         startDate = new Date(selectedStart.year, selectedStart.month, selectedStart.day);
+         endDate = new Date(selectedEnd.year, selectedEnd.month, selectedEnd.day);
 
         // Falls Ende vor Start liegt → tauschen
         if (endDate < startDate) {
@@ -194,13 +197,15 @@ const renderCalendar = () => {
 
     let liTag = "";
 
-    const startDate = selectedStart
+    if (!weekmarketGlobal) {
+     startDate = selectedStart
         ? new Date(selectedStart.year, selectedStart.month, selectedStart.day)
         : null;
-    const endDate = selectedEnd
+     endDate = selectedEnd
         ? new Date(selectedEnd.year, selectedEnd.month, selectedEnd.day)
         : startDate;
 
+        }
     // Vortage des Vormonats
     for (let i = firstDateOfMonth; i > 0; i--) {
         const inactiveLastDays = lastDateOfLastMonth - i + 1;
@@ -221,29 +226,15 @@ const renderCalendar = () => {
             className = "active";
         }
 
-        // Bereich hervorheben (Start-End)
-        if (startDate && endDate && currentDate >= startDate && currentDate <= endDate) {
-            className += (className ? " " : "") + "circle";
-        }
+       
 
-        // Wiederkehrende Events markieren
-         let weekmarket = document.getElementById("Weekmarket");
-      if (weekmarket) {
-             const monthName = months[currMonth];
-        let monatObj = eventData.find(m => m.month === monthName);
+// Bereich hervorheben (nur für normale Events, nicht für Wochenmärkte)
+if ((!weekmarketGlobal || weekmarketGlobal == false) && startDate && endDate && currentDate >= startDate && currentDate <= endDate) {
+    className += (className ? " " : "") + "circle";
+}
 
-
-
-        /*if (recurringDaysOfEvents && recurringDaysOfEvents.length > 0) {
-            for (let j = 0; j < recurringDaysOfEvents.length; j += 2) {
-                const day = recurringDaysOfEvents[j];
-                const month = recurringDaysOfEvents[j + 1] - 1; // JS-Monate 0-basiert
-                if (month === currMonth && day === i) {
-                    className += (className ? " " : "") + "circle";
-                }
-            }*/
-        }
          // Termine markieren (datesOfEvents)
+      
        if (Array.isArray(datesOfEvents) && datesOfEvents.length > 0) {
             for (const d of datesOfEvents) {
                 let day, month;
@@ -261,7 +252,7 @@ const renderCalendar = () => {
               }
             }
          }
-
+        
 
         liTag += `<li data-day="${i}" class="${className}">${i}</li>`;
     }
@@ -362,39 +353,7 @@ function handleWeekmarkets(){
 		
 
 	}
-/*async function ladeDatenFürRegion(region) {
 
-if (!region) {
-    console.warn("⚠️ Keine Region angegeben für ladeDatenFürRegion");
-    return;
-  }
-
-		 await loadRegionData();
-
-      if (!listofRegionGlobal) {
-        console.warn(`Region "${region}" nicht gefunden.`);
-      	
-        return;
-      }
-      renderAdminDropdown();
-      await renderEvents();
-			const regionData = listofRegionGlobal[region];
-			if (!regionData) {
-			console.warn(`❌ Keine Daten für Region "${region}" gefunden.`);
-			showDropdownMenu(listofRegionGlobal,region); 
-			
-      }else {
-
-			console.log("🔎 Region übergeben:", region);
-			console.log("🔎 Daten für Region:", listofRegionGlobal[region]);
-
-			console.log("📤 Übergabe an Dropdown:", regionData);
-			showDropdownMenu(listofRegionGlobal,region); 
-
-       
-      } 
-   
-} */
 async function ladeDatenFürRegion(region) {
   if (!region) {
     console.warn("⚠️ Keine Region angegeben für ladeDatenFürRegion");
@@ -531,11 +490,6 @@ mittelrhein.addEventListener('change', async () => {
 				
 				const saveBtn= document.getElementById('saveBtn');
 				  saveBtn.addEventListener('click', async function handler() {
-					
-				//	await speichernEvent(finalName, currMonth, region,isWeekly,oldName);
-					    // Events in Liste anzeigen
-  					//ladeDatenFürRegion(region);
-				
 					// Nur einmal ausführen: Eventlistener wieder entfernen
 					saveBtn.removeEventListener('click', handler);
 				});
@@ -876,7 +830,7 @@ async function speichernEvent(name, month, region, weekmarket, oldName) {
     const isWeekly = weekmarket;
 
     await loadRegionData();
-    if (!selectedStart) return;
+    if (!weekmarket && !selectedStart) return;
 
     let eventData = [...eventDataGlobal];
     let listofRegion = { ...listofRegionGlobal };
@@ -920,6 +874,8 @@ async function speichernEvent(name, month, region, weekmarket, oldName) {
     let current = new Date(newStart);
         // Wochenmärkte über alle Monate
  if (weekmarket) {
+           weekmarketGlobal = weekmarket;
+        
   const { eventData: weeklyData, listofRegion: weeklyRegions } =
         await dateOfRecurringEvents(name, username);
 
@@ -970,10 +926,7 @@ async function speichernEvent(name, month, region, weekmarket, oldName) {
               oldEnd: oldEnd    }          // <- neue Info für Start/End-Änderung
         );
 
-
-
-        // Event anlegen/aktualisieren/umbenennen
-      
+       
     
         // Event in events-Liste eintragen
         if (!monatObj.events.includes(name)) {
@@ -1053,11 +1006,20 @@ console.log('monatObj[name]:', monatObj[name]);
 
         console.log("✅ Event erfolgreich gespeichert/umbenannt:", name);
 
-        // UI aktualisieren
+     
+// === Nach dem Speichern direkt die Event-Daten setzen ===
+           
+              const monatObj  = eventDataGlobal.find(m => m.month === months[month]);
 
+              if (monatObj &&  monatObj[name]) {
+                  datesOfEvents = monatObj[name].dates || [];
+              } else {
+                  datesOfEvents = [];
+              }
 
         await renderEvents();
         await showDropdownMenu(listofRegionGlobal, region);
+          
         renderCalendar();
 
     } catch (err) {
@@ -1201,8 +1163,8 @@ function getMonatsname(monatNummer) {
 
 
 function showEvents(currMonth) {
- 
- // document.querySelectorAll(".dropdown-menu").forEach(menu => {
+
+
    document.querySelector(".dropdown-menu")?.addEventListener("click", async e => {
      
       const item = e.target.closest(".dropdown-item");
@@ -1236,10 +1198,7 @@ item.classList.add("active");
         eventId = marktName;
         const evObj = monatObj[marktName];
         datesOfEvents = evObj ? evObj.dates : [];
-        let  weekmarket = evObj.isWeekly;
-        if(weekmarket == true){
-          dateOfRecurringEvents();
-        }
+     
         renderCalendar();
       }
 
@@ -1703,7 +1662,10 @@ prevNextIcon.forEach(icon => {
     icon.addEventListener("click", async handleClick => {
         await loadRegionData();
         clearMessage();
-
+   if (weekmarketGlobal) {
+      selectedStart = null;
+      selectedEnd   = null;
+    }
         currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
 
         if (currMonth < 0 || currMonth > 11) {
@@ -1910,10 +1872,12 @@ if (!monatObj[eventName]) {
     }
 
     // Sortieren
-    //recurringMarketDates.sort((a, b) => new Date(a) - new Date(b));
     recurringMarketDates.sort((a, b) =>
-   months.indexOf(a.month) - months.indexOf(b.month)
+  a.year - b.year ||
+  a.month - b.month ||
+  a.day - b.day
 );
+
 
     // --- Pro Monat einsortieren ---
   
@@ -1945,7 +1909,9 @@ recurringMarketDates.forEach(dateObj => {
     }
 });
 
-
+eventData.sort((a, b) =>
+    months.indexOf(a.month) - months.indexOf(b.month)
+);
 
 
 
