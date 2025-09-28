@@ -350,3 +350,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.listen(PORT, () => {
   console.log(`✅ Der Server läuft auf http://localhost:${PORT}`);
 });
+app.get('/debug-files', (req, res) => {
+  const fs = require('fs');
+  const path = require('path');
+  const files = fs.readdirSync(path.join(__dirname, 'public'));
+  res.json(files);
+});
+
