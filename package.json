@@ -5,6 +5,7 @@
   "main": "admin.js",
   "type": "commonjs",
   "scripts": {
+     "start": "node admin.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
