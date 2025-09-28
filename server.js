@@ -339,9 +339,10 @@ app.get('/events.json', (req, res) => {
 });
 
 // -------------------
-// Statische Dateien zuletzt
+
 // -------------------
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 // -------------------
 // Server starten
