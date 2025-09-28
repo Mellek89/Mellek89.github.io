@@ -1379,7 +1379,7 @@ function normalizeEventData(eventData, year) {
 		
 	
 
-	getRegions();
+	getRegions(); 
 
 if(window.location.pathname.endsWith("admin.html")){
   const create = document.getElementById("create");
