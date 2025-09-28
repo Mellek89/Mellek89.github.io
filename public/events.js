@@ -1001,7 +1001,7 @@ console.log('monatObj[name]:', monatObj[name]);
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
             },
-            body: JSON.stringify(payloadToServer)
+            body: JSON.stringify(payloadToServer) 
         });
 
         console.log("✅ Event erfolgreich gespeichert/umbenannt:", name);
