@@ -1664,7 +1664,7 @@ prevNextIcon.forEach(icon => {
         await loadRegionData();
         clearMessage();
    if (weekmarketGlobal) {
-      selectedStart = null;
+      selectedStart = null; 
       selectedEnd   = null;
     }
         currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
