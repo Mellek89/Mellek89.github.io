@@ -1193,7 +1193,8 @@ item.classList.add("active");
       const monatObj = eventDataGlobal.find(m => m.month === monatName);
       const marktName = item.dataset.name;
       marktNameGlobal = marktName;
-      
+      weekmarketGlobal = monatObj[marktName].isWeekly;
+
       if (monatObj && monatObj.events.includes(marktName)) {
         eventId = marktName;
         const evObj = monatObj[marktName];
