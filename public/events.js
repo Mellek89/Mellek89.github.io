@@ -392,19 +392,20 @@ oberrhein.addEventListener('change', async () => {
       if (createBtn) {
         createBtn.style.display = "block";
       }
-    prevView = document.getElementById("prevView");
+    let prevView = document.getElementById("prevView");
       if (prevView) {
         prevView.style.display = "none";
       }
-        eventName = document.getElementById("eventName");
+       let eventName = document.getElementById("eventName");
       if (eventName) {
         eventName.style.display = "none";
       }
-       weekmarket = document.getElementById("Weekmarket");
+     let  weekmarket = document.getElementById("Weekmarket");
       if (weekmarket) {
         weekmarket.style.display = "none";
       }
   if (oberrhein.checked) {
+    console.log("oberrhein.checked:", oberrhein.checked);
     resetEventState(); // 👉 Zustände leeren
     region = oberrhein.value;
 
@@ -422,15 +423,15 @@ mittelrhein.addEventListener('change', async () => {
       if (createBtn) {
         createBtn.style.display = "block";
       }
-   prevView = document.getElementById("prevView");
+   let prevView = document.getElementById("prevView");
       if (prevView) {
         prevView.style.display = "none";
       }
-        eventName = document.getElementById("eventName");
+       let eventName = document.getElementById("eventName");
       if (eventName) {
         eventName.style.display = "none";
       }
-       weekmarket = document.getElementById("Weekmarket");
+      let weekmarket = document.getElementById("Weekmarket");
       if (weekmarket) {
         weekmarket.style.display = "none";
       }
