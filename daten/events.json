@@ -1,0 +1,3219 @@
+{
+  "eventData": [
+    {
+      "month": "September",
+      "events": [
+        "UweEvent",
+        "Event von Jan",
+        "halloWochenmarkt",
+        "Event von Gernot"
+      ],
+      "UweEvent": {
+        "dates": [
+          {
+            "day": 2,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 2,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 10,
+              "month": 8,
+              "year": 2025
+            }
+          },
+          {
+            "day": 3,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 2,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 10,
+              "month": 8,
+              "year": 2025
+            }
+          },
+          {
+            "day": 4,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 2,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 10,
+              "month": 8,
+              "year": 2025
+            }
+          },
+          {
+            "day": 5,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 2,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 10,
+              "month": 8,
+              "year": 2025
+            }
+          },
+          {
+            "day": 6,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 2,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 10,
+              "month": 8,
+              "year": 2025
+            }
+          },
+          {
+            "day": 7,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 2,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 10,
+              "month": 8,
+              "year": 2025
+            }
+          },
+          {
+            "day": 8,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 2,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 10,
+              "month": 8,
+              "year": 2025
+            }
+          },
+          {
+            "day": 9,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 2,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 10,
+              "month": 8,
+              "year": 2025
+            }
+          },
+          {
+            "day": 10,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 2,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 10,
+              "month": 8,
+              "year": 2025
+            }
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": false
+      },
+      "Event von Jan": {
+        "dates": [
+          {
+            "day": 4,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 5,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 6,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 7,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 8,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 9,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 10,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 11,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 12,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 13,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 14,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 15,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 16,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 17,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 18,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 19,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 20,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 21,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 22,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 23,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 24,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 25,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 26,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 27,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 28,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 29,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 30,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": true
+      },
+      "halloWochenmarkt": {
+        "dates": [
+          {
+            "day": 3,
+            "month": 8,
+            "year": 2025
+          },
+          {
+            "day": 10,
+            "month": 8,
+            "year": 2025
+          },
+          {
+            "day": 17,
+            "month": 8,
+            "year": 2025
+          },
+          {
+            "day": 24,
+            "month": 8,
+            "year": 2025
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": true
+      },
+      "Event von Gernot": {
+        "dates": [
+          {
+            "day": 3,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 4,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 5,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 6,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 7,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 8,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 9,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 10,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 11,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 12,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 13,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 14,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 15,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 16,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 17,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 18,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 19,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 20,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 21,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 22,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 23,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 24,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 25,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 26,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 27,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 28,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 29,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 30,
+            "month": 8,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          }
+        ],
+        "owner": "Gernot",
+        "isWeekly": false
+      }
+    },
+    {
+      "month": "Oktober",
+      "events": [
+        "Event von Jan",
+        "halloWochenmarkt",
+        "Event von Gernot"
+      ],
+      "Event von Jan": {
+        "dates": [
+          {
+            "day": 1,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 2,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 3,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 4,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 5,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 6,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 7,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 8,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 9,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 10,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 11,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 12,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 13,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 14,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 15,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 16,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 17,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 18,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 19,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 20,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 21,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 22,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 23,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 24,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 25,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 26,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 27,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 28,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 29,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 30,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 31,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": true
+      },
+      "halloWochenmarkt": {
+        "dates": [
+          {
+            "day": 1,
+            "month": 9,
+            "year": 2025
+          },
+          {
+            "day": 8,
+            "month": 9,
+            "year": 2025
+          },
+          {
+            "day": 15,
+            "month": 9,
+            "year": 2025
+          },
+          {
+            "day": 22,
+            "month": 9,
+            "year": 2025
+          },
+          {
+            "day": 29,
+            "month": 9,
+            "year": 2025
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": true
+      },
+      "Event von Gernot": {
+        "dates": [
+          {
+            "day": 1,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 2,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 3,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 4,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 5,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 6,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 7,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 8,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 9,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 10,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 11,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 12,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 13,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 14,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 15,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 16,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 17,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 18,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 19,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 20,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 21,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 22,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 23,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 24,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 25,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 26,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 27,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 28,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 29,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 30,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 31,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          }
+        ],
+        "owner": "Gernot",
+        "isWeekly": false
+      }
+    },
+    {
+      "month": "November",
+      "events": [
+        "Event von Jan",
+        "halloWochenmarkt",
+        "Event von Gernot"
+      ],
+      "Event von Jan": {
+        "dates": [
+          {
+            "day": 1,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 2,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 3,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 4,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 5,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 6,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 7,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 8,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 9,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 10,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 11,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 12,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 13,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          },
+          {
+            "day": 14,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 4,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 14,
+              "month": 10,
+              "year": 2025
+            }
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": true
+      },
+      "halloWochenmarkt": {
+        "dates": [
+          {
+            "day": 5,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 5,
+              "month": 10,
+              "year": 2025
+            },
+            "end": null
+          },
+          {
+            "day": 12,
+            "month": 10,
+            "year": 2025
+          },
+          {
+            "day": 19,
+            "month": 10,
+            "year": 2025
+          },
+          {
+            "day": 26,
+            "month": 10,
+            "year": 2025
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": true
+      },
+      "Event von Gernot": {
+        "dates": [
+          {
+            "day": 1,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 2,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 3,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 4,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 5,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 6,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 7,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 8,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 9,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 10,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 11,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 12,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 13,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 14,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 15,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 16,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 17,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 18,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 19,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 20,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 21,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 22,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 23,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 24,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 25,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 26,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 27,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 28,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 29,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 30,
+            "month": 10,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          }
+        ],
+        "owner": "Gernot",
+        "isWeekly": false
+      }
+    },
+    {
+      "month": "Januar",
+      "events": [
+        "halloWochenmarkt"
+      ],
+      "halloWochenmarkt": {
+        "dates": [
+          {
+            "day": 1,
+            "month": 0,
+            "year": 2025
+          },
+          {
+            "day": 8,
+            "month": 0,
+            "year": 2025
+          },
+          {
+            "day": 15,
+            "month": 0,
+            "year": 2025
+          },
+          {
+            "day": 22,
+            "month": 0,
+            "year": 2025
+          },
+          {
+            "day": 29,
+            "month": 0,
+            "year": 2025
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": true
+      }
+    },
+    {
+      "month": "Februar",
+      "events": [
+        "halloWochenmarkt"
+      ],
+      "halloWochenmarkt": {
+        "dates": [
+          {
+            "day": 5,
+            "month": 1,
+            "year": 2025
+          },
+          {
+            "day": 12,
+            "month": 1,
+            "year": 2025
+          },
+          {
+            "day": 19,
+            "month": 1,
+            "year": 2025
+          },
+          {
+            "day": 26,
+            "month": 1,
+            "year": 2025
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": true
+      }
+    },
+    {
+      "month": "März",
+      "events": [
+        "halloWochenmarkt"
+      ],
+      "halloWochenmarkt": {
+        "dates": [
+          {
+            "day": 5,
+            "month": 2,
+            "year": 2025
+          },
+          {
+            "day": 12,
+            "month": 2,
+            "year": 2025
+          },
+          {
+            "day": 19,
+            "month": 2,
+            "year": 2025
+          },
+          {
+            "day": 26,
+            "month": 2,
+            "year": 2025
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": true
+      }
+    },
+    {
+      "month": "April",
+      "events": [
+        "halloWochenmarkt"
+      ],
+      "halloWochenmarkt": {
+        "dates": [
+          {
+            "day": 2,
+            "month": 3,
+            "year": 2025
+          },
+          {
+            "day": 9,
+            "month": 3,
+            "year": 2025
+          },
+          {
+            "day": 16,
+            "month": 3,
+            "year": 2025
+          },
+          {
+            "day": 23,
+            "month": 3,
+            "year": 2025
+          },
+          {
+            "day": 30,
+            "month": 3,
+            "year": 2025
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": true
+      }
+    },
+    {
+      "month": "Mai",
+      "events": [
+        "halloWochenmarkt"
+      ],
+      "halloWochenmarkt": {
+        "dates": [
+          {
+            "day": 7,
+            "month": 4,
+            "year": 2025
+          },
+          {
+            "day": 14,
+            "month": 4,
+            "year": 2025
+          },
+          {
+            "day": 21,
+            "month": 4,
+            "year": 2025
+          },
+          {
+            "day": 28,
+            "month": 4,
+            "year": 2025
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": true
+      }
+    },
+    {
+      "month": "Juni",
+      "events": [
+        "halloWochenmarkt"
+      ],
+      "halloWochenmarkt": {
+        "dates": [
+          {
+            "day": 4,
+            "month": 5,
+            "year": 2025
+          },
+          {
+            "day": 11,
+            "month": 5,
+            "year": 2025
+          },
+          {
+            "day": 18,
+            "month": 5,
+            "year": 2025
+          },
+          {
+            "day": 25,
+            "month": 5,
+            "year": 2025
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": true
+      }
+    },
+    {
+      "month": "Juli",
+      "events": [
+        "halloWochenmarkt"
+      ],
+      "halloWochenmarkt": {
+        "dates": [
+          {
+            "day": 2,
+            "month": 6,
+            "year": 2025
+          },
+          {
+            "day": 9,
+            "month": 6,
+            "year": 2025
+          },
+          {
+            "day": 16,
+            "month": 6,
+            "year": 2025
+          },
+          {
+            "day": 23,
+            "month": 6,
+            "year": 2025
+          },
+          {
+            "day": 30,
+            "month": 6,
+            "year": 2025
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": true
+      }
+    },
+    {
+      "month": "August",
+      "events": [
+        "halloWochenmarkt"
+      ],
+      "halloWochenmarkt": {
+        "dates": [
+          {
+            "day": 6,
+            "month": 7,
+            "year": 2025
+          },
+          {
+            "day": 13,
+            "month": 7,
+            "year": 2025
+          },
+          {
+            "day": 20,
+            "month": 7,
+            "year": 2025
+          },
+          {
+            "day": 27,
+            "month": 7,
+            "year": 2025
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": true
+      }
+    },
+    {
+      "month": "Dezember",
+      "events": [
+        "halloWochenmarkt",
+        "Event von Gernot"
+      ],
+      "halloWochenmarkt": {
+        "dates": [
+          {
+            "day": 3,
+            "month": 11,
+            "year": 2025
+          },
+          {
+            "day": 10,
+            "month": 11,
+            "year": 2025
+          },
+          {
+            "day": 17,
+            "month": 11,
+            "year": 2025
+          },
+          {
+            "day": 24,
+            "month": 11,
+            "year": 2025
+          },
+          {
+            "day": 31,
+            "month": 11,
+            "year": 2025
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": true
+      },
+      "Event von Gernot": {
+        "dates": [
+          {
+            "day": 1,
+            "month": 11,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 2,
+            "month": 11,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 3,
+            "month": 11,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 4,
+            "month": 11,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 5,
+            "month": 11,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 6,
+            "month": 11,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 7,
+            "month": 11,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 8,
+            "month": 11,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 9,
+            "month": 11,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 10,
+            "month": 11,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 11,
+            "month": 11,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          },
+          {
+            "day": 12,
+            "month": 11,
+            "year": 2025,
+            "start": {
+              "day": 3,
+              "month": 8,
+              "year": 2025
+            },
+            "end": {
+              "day": 12,
+              "month": 11,
+              "year": 2025
+            }
+          }
+        ],
+        "owner": "Gernot",
+        "isWeekly": false
+      }
+    }
+  ],
+  "listofRegion": {
+    "Mittelrhein": {
+      "regions": [
+        "UweEvent",
+        "Event von Jan",
+        "halloWochenmarkt"
+      ]
+    },
+    "Oberrhein": {
+      "regions": [
+        "Event von Gernot"
+      ]
+    }
+  }
+}
