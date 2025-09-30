@@ -5,18 +5,19 @@
   "main": "server.js",
   "type": "commonjs",
   "scripts": {
-     "start": "node server.js",
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "async-mutex": "^0.5.0",
     "body-parser": "^1.20.2",
-    
     "express": "^5.1.0",
     "finalhandler": "^2.1.0",
     "jsonwebtoken": "^9.0.2",
     "rrule": "^2.8.1",
     "send": "^0.18.0",
-    "serve-static": "^2.2.0"
+    "serve-static": "^2.2.0",
+    "socket.io": "^4.8.1"
   },
   "overrides": {
     "debug": "^4.3.1"
