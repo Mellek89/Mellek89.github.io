@@ -225,29 +225,30 @@
 
         </footer>
     </div>
-    <script src="/socket.io/socket.io.js"></script>
-    <script>
-  const socket = io(); // Verbindung zum Server herstellen
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  const socket = io(); // Verbindung herstellen
 
   socket.on("connect", () => {
     console.log("✅ Mit Socket.IO verbunden:", socket.id);
   });
 
-  // Beispiel: angemeldete Benutzer aktualisieren
   socket.on("updateUsers", (users) => {
+    console.log("👥 Benutzerliste empfangen:", users);
     const tbody = document.querySelector("#userTable tbody");
     tbody.innerHTML = "";
-    console.log("updateUsers empfangen:", users, Array.isArray(users));
     users.forEach(user => {
-      const row = `<tr>
-        <td>${user.username}</td>
-        <td>${user.role}</td>
-        <td>✅ online</td>
-      </tr>`;
-      tbody.insertAdjacentHTML("beforeend", row);
+      tbody.insertAdjacentHTML("beforeend", `
+        <tr>
+          <td>${user.username}</td>
+          <td>${user.role}</td>
+          <td>✅ online</td>
+        </tr>
+      `);
     });
   });
 </script>
+
 
 
     <script type= "module" src="/events.js?v=2025-09-28" ></script>
