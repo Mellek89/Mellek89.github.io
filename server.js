@@ -8,6 +8,22 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000; 
 const { authMiddleware } = require("./authMiddleware");
+const { Mutex } = require('async-mutex');
+const fileMutex = new Mutex();
+
+
+
+
+async function saveEventsSafe(events) {
+  await fileMutex.runExclusive(() => {
+  // Backup erstellen
+  fs.writeFileSync(dataFile.replace('.json', '_backup.json'), JSON.stringify(loadEvents(), null, 2));
+
+  // Hauptdatei speichern
+  fs.writeFileSync(dataFile, JSON.stringify(events, null, 2));
+});
+
+}
 
 app.use((req, res, next) => {
   console.log(`➡️ Request: ${req.method} ${req.url}`);
@@ -27,11 +43,15 @@ const dataFile = path.join(dataDir,  'events.json');
 // Ordner erstellen, falls nicht vorhanden
 if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
 
-// Datei erstellen, falls nicht vorhanden
-if (!fs.existsSync(dataFile)) {
-  const initialData = { eventData: [], listofRegion: {} };
-  fs.writeFileSync(dataFile, JSON.stringify(initialData, null, 2));
-}
+
+(async () => {
+  // Datei erstellen, falls nicht vorhanden
+  if (!fs.existsSync(dataFile)) {
+    const initialData = { eventData: [], listofRegion: {} };
+    await saveEventsSafe(initialData);
+  }
+})();
+
 
 // -------------------
 // Hilfsfunktionen
@@ -86,13 +106,29 @@ function mergeEventData(existing, incoming, username, role) {
               isWeekly: newEventRaw?.isWeekly === true
             };
 
-        if (!oldEvent) {
+        /*if (!oldEvent) {
           oldMonth[evName] = newEvent;
         } else if (role === "admin" || oldEvent.owner === username) {
           oldEvent.dates = [...newEvent.dates];
           oldEvent.owner = oldEvent.owner || username;
           oldEvent.isWeekly = newEvent.isWeekly;
+        }*/
+              if (!oldEvent) {
+          // Neues Event anlegen
+          oldMonth[evName] = newEvent;
+        } else if (role === "admin" || oldEvent.owner === username) {
+          // Event bearbeiten: Termine ersetzen oder ergänzen
+          oldEvent.dates = Array.isArray(newEvent.dates) 
+            ? [...newEvent.dates]   // oder: [...oldEvent.dates, ...newEvent.dates] für additive Änderung
+            : oldEvent.dates;
+
+          // Wochenmarkt-Flag aktualisieren
+          oldEvent.isWeekly = newEvent.isWeekly;
+
+          // Owner bleibt unverändert, außer es ist admin, dann kann ggf. geändert werden
+          if (role === "admin") oldEvent.owner = newEvent.owner || oldEvent.owner;
         }
+
 
         // ✅ Wenn Wochenmarkt deaktiviert → alle anderen Monate updaten
         if (oldEvent?.isWeekly === true && newEvent.isWeekly === false &&  oldMonth[evName] == newEvent[evName] ) {
@@ -126,7 +162,7 @@ function mergeEventData(existing, incoming, username, role) {
 
 // -------------------
 // POST-Routen zuerst
-app.post('/save-event', authMiddleware("user"), (req, res) => {
+app.post('/save-event', authMiddleware("user"), async(req, res) => {
   try {
     console.log("📥 Endgültiges payload angekommen:", req.body);
 
@@ -218,7 +254,8 @@ app.post('/save-event', authMiddleware("user"), (req, res) => {
     );
 
     // 4️⃣ Datei speichern
-    fs.writeFileSync(dataFile, JSON.stringify(merged, null, 2));
+   // fs.writeFileSync(dataFile, JSON.stringify(merged, null, 2));
+     await saveEventsSafe(merged);
     console.log("✅ Struktur gespeichert (inkl. Umbenennung & Owner).,", incomingWithOwner);
     console.log(JSON.stringify(merged, null, 2));
 
@@ -230,7 +267,7 @@ app.post('/save-event', authMiddleware("user"), (req, res) => {
 });
 
 
-app.post("/delete-event", authMiddleware("user"), (req, res) => {
+/*app.post("/delete-event", authMiddleware("user"), (req, res) => {
   console.log("BODY:", req.body);
   console.log("🗑️ /delete-event wurde aufgerufen");
 
@@ -278,6 +315,7 @@ monthObj.events = monthObj.events.filter(e => e !== eventName);
     res.status(500).json({ message: "Fehler beim Schreiben der Datei" });
   }
 });
+*/
 
 app.get('/userDaten', authMiddleware("user"), (req, res) => {
   console.log('userDaten wurde aufgerufen!')
@@ -306,6 +344,276 @@ app.get('/userDaten', authMiddleware("user"), (req, res) => {
   }
    
 });
+
+app.post("/delete-event", authMiddleware("user"), async (req, res) => {
+  try {
+    const username = req.user.username;
+    const role = req.user.role;
+    const { month, eventName } = req.body;
+
+    let found = false;
+    let errorResponse = null; // Variable für Fehler innerhalb des Mutex
+    let events;
+
+    console.log("delete event ausgelöst!");
+
+    // Sperre beim Zugriff auf die Datei
+    await fileMutex.runExclusive(async () => {
+      console.log(`🔒 Mutex von ${username} übernommen`);
+      events = loadEvents(); // aktuelle Daten laden
+
+      const eventObjs = [];
+
+      // -------------------------------
+      // Fall 1: bestimmter Monat
+      // -------------------------------
+      if (month) {
+        const monthObj = events.eventData.find(m => m.month === month);
+        if (!monthObj) {
+          errorResponse = { status: 404, message: "❌ Monat nicht gefunden" };
+          return;
+        }
+
+        const eventObj = monthObj[eventName];
+        if (!eventObj) {
+          errorResponse = { status: 404, message: "❌ Event nicht gefunden" };
+          return;
+        }
+
+        if (eventObj.isWeekly === false) {
+          if (role !== "admin" && eventObj.owner !== username) {
+            errorResponse = { status: 403, message: "❌ Keine Berechtigung" };
+            return;
+          }
+
+          monthObj.events = monthObj.events.filter(e => e !== eventName);
+          delete monthObj[eventName];
+          found = true;
+        } else {
+          events.eventData.forEach(m => {
+            if (m[eventName]) eventObjs.push(m);
+          });
+        }
+      } else {
+        // kein Monat angegeben → global
+        events.eventData.forEach(m => {
+          if (m[eventName]) eventObjs.push(m);
+        });
+      }
+
+      // -------------------------------
+      // Fall 2: global löschen
+      // -------------------------------
+      eventObjs.forEach(monthObj => {
+        const eventObj = monthObj[eventName];
+        if (role === "admin" || eventObj.owner === username) {
+          monthObj.events = monthObj.events.filter(e => e !== eventName);
+          delete monthObj[eventName];
+          found = true;
+        }
+      });
+
+      // Regionenliste bereinigen
+      for (const regionName in events.listofRegion) {
+        const region = events.listofRegion[regionName];
+        if (region.regions.includes(eventName)) {
+          region.regions = region.regions.filter(e => e !== eventName);
+        }
+        if (region.regions.length === 0) delete events.listofRegion[regionName];
+      }
+
+      console.log(`🔓 Mutex von ${username} wird freigegeben`);
+    });
+
+    // Fehler nach Mutex prüfen
+    if (errorResponse) {
+      return res.status(errorResponse.status).json({ message: errorResponse.message });
+    }
+
+    if (!found) {
+      return res.status(404).json({ message: "❌ Event nicht gefunden oder keine Berechtigung" });
+    }
+
+    // Datei speichern (außerhalb von Fehlerfällen)
+    await saveEventsSafe(events);
+
+    res.json({ message: month
+      ? `✅ Event "${eventName}" im Monat "${month}" gelöscht`
+      : `✅ Event "${eventName}" in allen Monaten gelöscht`
+    });
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "❌ Fehler beim Löschen" });
+  }
+});
+
+
+/*app.post("/delete-event", authMiddleware("user"), async (req, res) => {
+  try {
+    const username = req.user.username;
+    const role = req.user.role;
+    const { month, eventName } = req.body;
+
+    let found = false;
+
+    // Sperre beim Zugriff auf die Datei
+    await fileMutex.runExclusive(async () => {
+      const events = loadEvents(); // aktuelle Daten laden
+
+      const eventObjs = [];
+
+      // -------------------------------
+      // Fall 1: bestimmter Monat und kein Wochenmarkt
+      // -------------------------------
+      if (month) {
+        const monthObj = events.eventData.find(m => m.month === month);
+        if (!monthObj)
+          return res.status(404).json({ message: "❌ Monat nicht gefunden" });
+
+        const eventObj = monthObj[eventName];
+        if (!eventObj)
+          return res.status(404).json({ message: "❌ Event nicht gefunden" });
+
+        if (eventObj.isWeekly === false) {
+          if (role !== "admin" && eventObj.owner !== username)
+            return res.status(403).json({ message: "❌ Keine Berechtigung" });
+
+          monthObj.events = monthObj.events.filter(e => e !== eventName);
+          delete monthObj[eventName];
+          found = true;
+        } else {
+          // Wochenmarkt → alle Monate markieren
+          events.eventData.forEach(m => {
+            if (m[eventName]) eventObjs.push(m);
+          });
+        }
+      } else {
+        // Wenn kein Monat angegeben → global
+        events.eventData.forEach(m => {
+          if (m[eventName]) eventObjs.push(m);
+        });
+      }
+
+      // -------------------------------
+      // Fall 2: global löschen (Wochenmarkt oder kein month)
+      // -------------------------------
+      eventObjs.forEach(monthObj => {
+        const eventObj = monthObj[eventName];
+        if (role === "admin" || eventObj.owner === username) {
+          monthObj.events = monthObj.events.filter(e => e !== eventName);
+          delete monthObj[eventName];
+          found = true;
+        }
+      });
+
+      if (!found) {
+        return res.status(404).json({ message: "❌ Event nicht gefunden oder keine Berechtigung" });
+      }
+
+      // Regionenliste bereinigen
+      for (const regionName in events.listofRegion) {
+        const region = events.listofRegion[regionName];
+        if (region.regions.includes(eventName)) {
+          region.regions = region.regions.filter(e => e !== eventName);
+        }
+        if (region.regions.length === 0) delete events.listofRegion[regionName];
+      }
+
+      // Datei sicher speichern
+      await saveEventsSafe(events);
+    });
+
+    res.json({ message: `✅ Event "${eventName}" erfolgreich gelöscht` });
+  } catch (err) {
+    console.error("❌ Fehler beim Löschen des Events:", err);
+    res.status(500).json({ message: "Fehler beim Löschen des Events" });
+  }
+});
+
+app.post("/delete-event", authMiddleware("user"), async (req, res) => {
+  console.log("BODY:", req.body);
+  console.log("🗑️ /delete-event wurde aufgerufen");
+
+  const username = req.user.username;
+  const { month, eventName } = req.body;
+
+  let events = loadEvents();
+  let found = false;
+
+  // -------------------------------
+  // Fall 1: bestimmter Monat
+  // -------------------------------
+  if (month) {
+   
+    const monthObj = events.eventData.find(m => m.month === month);
+    if (!monthObj) {
+      return res.status(404).json({ message: "❌ Monat nicht gefunden" });
+    }
+
+    const eventObj = monthObj[eventName];
+    if (!eventObj) {
+      return res.status(404).json({ message: "❌ Event nicht gefunden" });
+    }
+
+    if (eventObj.isWeekly === false) {
+       console.log("gehen hier rein, wenn du kein wochenmarkt bist oder in mehreren Monaten vorkommst",month)
+    // Berechtigung prüfen
+    if (req.user.role !== "admin" && eventObj.owner !== username) {
+      return res.status(403).json({ message: "❌ Keine Berechtigung zum Löschen dieses Events" });
+    }
+
+    monthObj.events = monthObj.events.filter(e => e !== eventName);
+    delete monthObj[eventName];
+    found = true;
+  }
+}
+
+  // -------------------------------
+  // Fall 2: global in allen Monaten
+  // -------------------------------
+  else {
+    events.eventData.forEach(monthObj => {
+      if (monthObj[eventName]) {
+        const eventObj = monthObj[eventName];
+console.log("Kommt er hier an?")
+        // Berechtigung prüfen
+        if (req.user.role === "admin" || eventObj.owner === username) {
+          console.log("hier sollen alle beteiligten Monate gelöscht werden!")
+          monthObj.events = monthObj.events.filter(e => e !== eventName);
+          delete monthObj[eventName];
+          found = true;
+        }
+      }
+    });
+  }
+
+  if (!found) {
+    return res.status(404).json({ message: "❌ Event nicht gefunden oder keine Berechtigung" });
+  }
+
+  // Regionenliste bereinigen
+  for (const regionName in events.listofRegion) {
+    const region = events.listofRegion[regionName];
+    if (region.regions.includes(eventName)) {
+      region.regions = region.regions.filter(e => e !== eventName);
+    }
+    if (region.regions.length === 0) delete events.listofRegion[regionName];
+  }
+
+  try {
+   // fs.writeFileSync(dataFile, JSON.stringify(events, null, 2));
+    await saveEventsSafe(events);
+    res.json({ message: month ? 
+      `✅ Event "${eventName}" im Monat "${month}" gelöscht` : 
+      `✅ Event "${eventName}" in allen Monaten gelöscht` 
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "❌ Fehler beim Schreiben der Datei" });
+  }
+});*/
+
 app.post("/login", (req, res) => {
   const { username, password } = req.body;
   const userFile = path.join(__dirname, "daten", "userDaten.json");
