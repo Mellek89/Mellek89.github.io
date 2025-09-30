@@ -683,7 +683,7 @@ app.use(express.static(path.join(__dirname, 'public'), {
 // Server starten
 // -------------------
 
-app.get('/debug-files', (req, res) => {
+app.get('/debug-files', (req, res) => { 
   const fs = require('fs');
   const path = require('path');
   const files = fs.readdirSync(path.join(__dirname, 'public'));
