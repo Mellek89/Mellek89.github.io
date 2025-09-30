@@ -1976,4 +1976,3 @@ if(window.location.pathname.endsWith("/admin.html")){
 }
 
 renderCalendar();
-//chooseEvents(currMonth);
