@@ -2,10 +2,17 @@
 
 const express = require('express');
 const fs = require('fs');
+const http = require('http');
+const { Server } = require("socket.io");
 const jwt = require("jsonwebtoken");
 const path = require('path');
 
 const app = express();
+const server = http.createServer(app);
+const io = new Server(server);
+
+const onlineUsers = {}; // username -> { role, lastActive }
+
 const PORT = process.env.PORT || 3000; 
 const { authMiddleware } = require("./authMiddleware");
 const { Mutex } = require('async-mutex');
@@ -56,6 +63,16 @@ if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
 // -------------------
 // Hilfsfunktionen
 // -------------------
+function broadcastUsers() {
+  io.emit(
+    "updateUsers",
+    Object.entries(onlineUsers).map(([username, info]) => ({
+      username,
+      role: info.role
+    }))
+  );
+}
+
 function loadEvents() {
   try {
     if (!fs.existsSync(dataFile)) {
@@ -106,13 +123,6 @@ function mergeEventData(existing, incoming, username, role) {
               isWeekly: newEventRaw?.isWeekly === true
             };
 
-        /*if (!oldEvent) {
-          oldMonth[evName] = newEvent;
-        } else if (role === "admin" || oldEvent.owner === username) {
-          oldEvent.dates = [...newEvent.dates];
-          oldEvent.owner = oldEvent.owner || username;
-          oldEvent.isWeekly = newEvent.isWeekly;
-        }*/
               if (!oldEvent) {
           // Neues Event anlegen
           oldMonth[evName] = newEvent;
@@ -266,56 +276,6 @@ app.post('/save-event', authMiddleware("user"), async(req, res) => {
   }
 });
 
-
-/*app.post("/delete-event", authMiddleware("user"), (req, res) => {
-  console.log("BODY:", req.body);
-  console.log("🗑️ /delete-event wurde aufgerufen");
-
-  //const incoming = req.body;
-  const username = req.user.username;
-    const { month, eventName } = req.body; // vom Frontend senden
-
-  let events = loadEvents();
-
-// Nur löschen, wenn der Owner der gleiche ist
- const monthObj = events.eventData.find(m => m.month === month);
-  if (!monthObj) {
-    return res.status(404).json({ message: "❌ Monat nicht gefunden" });
-  }
-
-  const eventObj = monthObj[eventName];
-  if (!eventObj) {
-    return res.status(404).json({ message: "❌ Event nicht gefunden" });
-  }
-
-  // ❗ Berechtigung prüfen
-  if (req.user.role !== "admin" && eventObj.owner !== username) {
-    return res.status(403).json({ message: "❌ Keine Berechtigung zum Löschen dieses Events" });
-  }
-
-  // Event entfernen
-monthObj.events = monthObj.events.filter(e => e !== eventName);
-  delete monthObj[eventName];
-
-  // Event auch aus listofRegion entfernen
-  for (const regionName in events.listofRegion) {
-    const region = events.listofRegion[regionName];
-    if (region.regions.includes(eventName)) {
-      region.regions = region.regions.filter(e => e !== eventName);
-    }
-    // Optional: leere Regionen entfernen
-    if (region.regions.length === 0) delete events.listofRegion[regionName];
-  }
-
-  try {
-    fs.writeFileSync(dataFile, JSON.stringify(events, null, 2));
-    res.json({ message: "✅ Event gelöscht" });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: "Fehler beim Schreiben der Datei" });
-  }
-});
-*/
 
 app.get('/userDaten', authMiddleware("user"), (req, res) => {
   console.log('userDaten wurde aufgerufen!')
@@ -633,8 +593,68 @@ console.log(users);
     { expiresIn: "2h" }
   );
 
+  onlineUsers[username] = { role: user.role, lastActive: Date.now() };
+
+  // Update alle Clients
+broadcastUsers();
+
   res.json({ token });
 });
+
+// Logout
+app.post("/logout", (req, res) => {
+  const token = req.headers.authorization?.split(" ")[1];
+  if (!token) return res.status(401).json({ message: "Kein Token" });
+
+  try {
+    const payload = jwt.verify(token, "DEIN_SECRET_KEY");
+    delete onlineUsers[payload.username];
+
+broadcastUsers();
+
+    res.json({ message: "✅ Abgemeldet" });
+  } catch {
+    res.status(401).json({ message: "Ungültiges Token" });
+  }
+});
+// Socket.IO: Client verbindet sich
+io.on("connection", (socket) => {
+  console.log("🔌 Client verbunden");
+
+  // Direkt aktuelle Liste senden
+ socket.emit(
+    "updateUsers",
+    Object.entries(onlineUsers).map(([username, info]) => ({
+      username,
+      role: info.role
+    }))
+  );
+
+  socket.on("disconnect", () => {
+    console.log("❌ Client getrennt");
+  });
+});
+
+// Automatische Bereinigung inaktiver User
+setInterval(() => {
+  const now = Date.now();
+  let changed = false;
+  for (const [username, info] of Object.entries(onlineUsers)) {
+    if (now - info.lastActive > 1000 * 60 * 5) { // 5 Minuten
+      delete onlineUsers[username];
+      changed = true;
+      console.log(`⏰ Benutzer ${username} automatisch abgemeldet`);
+    }
+  }
+  if (changed) io.emit("updateUsers", Object.entries(onlineUsers).map(([username, info]) => ({ 
+  username,
+  role: info.role
+})));
+
+}, 1000 * 60);
+
+server.listen(3000, () => console.log("Server läuft auf http://localhost:3000"));
+
 
 
 // GET: Datei herunterladen
