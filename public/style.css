@@ -131,7 +131,7 @@ img {
           .menu {
             position: relative;
             display: grid;
-            row-gap: 3rem; /* Use rem for better scalability */
+            gap: 3rem; /* Use rem for better scalability */
             margin-top: 4rem;
             left: 0; /* Align to center with flex parent */
             text-align: center;
