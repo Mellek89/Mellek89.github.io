@@ -1,0 +1,503 @@
+{
+  "eventData": [
+    {
+      "month": "Januar",
+      "events": [
+        "Event von Uwe"
+      ],
+      "Event von Uwe": {
+        "dates": [
+          {
+            "day": 1,
+            "month": 0,
+            "year": 2025
+          },
+          {
+            "day": 8,
+            "month": 0,
+            "year": 2025
+          },
+          {
+            "day": 15,
+            "month": 0,
+            "year": 2025
+          },
+          {
+            "day": 22,
+            "month": 0,
+            "year": 2025
+          },
+          {
+            "day": 29,
+            "month": 0,
+            "year": 2025
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": true
+      }
+    },
+    {
+      "month": "Februar",
+      "events": [
+        "Event von Uwe"
+      ],
+      "Event von Uwe": {
+        "dates": [
+          {
+            "day": 5,
+            "month": 1,
+            "year": 2025
+          },
+          {
+            "day": 12,
+            "month": 1,
+            "year": 2025
+          },
+          {
+            "day": 19,
+            "month": 1,
+            "year": 2025
+          },
+          {
+            "day": 26,
+            "month": 1,
+            "year": 2025
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": true
+      }
+    },
+    {
+      "month": "März",
+      "events": [
+        "Event von Uwe"
+      ],
+      "Event von Uwe": {
+        "dates": [
+          {
+            "day": 5,
+            "month": 2,
+            "year": 2025
+          },
+          {
+            "day": 12,
+            "month": 2,
+            "year": 2025
+          },
+          {
+            "day": 19,
+            "month": 2,
+            "year": 2025
+          },
+          {
+            "day": 26,
+            "month": 2,
+            "year": 2025
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": true
+      }
+    },
+    {
+      "month": "April",
+      "events": [
+        "Event von Uwe"
+      ],
+      "Event von Uwe": {
+        "dates": [
+          {
+            "day": 2,
+            "month": 3,
+            "year": 2025
+          },
+          {
+            "day": 9,
+            "month": 3,
+            "year": 2025
+          },
+          {
+            "day": 16,
+            "month": 3,
+            "year": 2025
+          },
+          {
+            "day": 23,
+            "month": 3,
+            "year": 2025
+          },
+          {
+            "day": 30,
+            "month": 3,
+            "year": 2025
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": true
+      }
+    },
+    {
+      "month": "Mai",
+      "events": [
+        "Event von Uwe"
+      ],
+      "Event von Uwe": {
+        "dates": [
+          {
+            "day": 7,
+            "month": 4,
+            "year": 2025
+          },
+          {
+            "day": 14,
+            "month": 4,
+            "year": 2025
+          },
+          {
+            "day": 21,
+            "month": 4,
+            "year": 2025
+          },
+          {
+            "day": 28,
+            "month": 4,
+            "year": 2025
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": true
+      }
+    },
+    {
+      "month": "Juni",
+      "events": [
+        "Event von Uwe"
+      ],
+      "Event von Uwe": {
+        "dates": [
+          {
+            "day": 4,
+            "month": 5,
+            "year": 2025
+          },
+          {
+            "day": 11,
+            "month": 5,
+            "year": 2025
+          },
+          {
+            "day": 18,
+            "month": 5,
+            "year": 2025
+          },
+          {
+            "day": 25,
+            "month": 5,
+            "year": 2025
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": true
+      }
+    },
+    {
+      "month": "Juli",
+      "events": [
+        "Event von Uwe"
+      ],
+      "Event von Uwe": {
+        "dates": [
+          {
+            "day": 2,
+            "month": 6,
+            "year": 2025
+          },
+          {
+            "day": 9,
+            "month": 6,
+            "year": 2025
+          },
+          {
+            "day": 16,
+            "month": 6,
+            "year": 2025
+          },
+          {
+            "day": 23,
+            "month": 6,
+            "year": 2025
+          },
+          {
+            "day": 30,
+            "month": 6,
+            "year": 2025
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": true
+      }
+    },
+    {
+      "month": "August",
+      "events": [
+        "Event von Uwe"
+      ],
+      "Event von Uwe": {
+        "dates": [
+          {
+            "day": 6,
+            "month": 7,
+            "year": 2025
+          },
+          {
+            "day": 13,
+            "month": 7,
+            "year": 2025
+          },
+          {
+            "day": 20,
+            "month": 7,
+            "year": 2025
+          },
+          {
+            "day": 27,
+            "month": 7,
+            "year": 2025
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": true
+      }
+    },
+    {
+      "month": "September",
+      "events": [
+        "Event von Uwe"
+      ],
+      "Event von Uwe": {
+        "dates": [
+          {
+            "day": 3,
+            "month": 8,
+            "year": 2025
+          },
+          {
+            "day": 10,
+            "month": 8,
+            "year": 2025
+          },
+          {
+            "day": 17,
+            "month": 8,
+            "year": 2025
+          },
+          {
+            "day": 24,
+            "month": 8,
+            "year": 2025
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": true
+      }
+    },
+    {
+      "month": "Oktober",
+      "events": [
+        "Event von Uwe",
+        "Event von Jens"
+      ],
+      "Event von Uwe": {
+        "dates": [
+          {
+            "day": 1,
+            "month": 9,
+            "year": 2025
+          },
+          {
+            "day": 8,
+            "month": 9,
+            "year": 2025
+          },
+          {
+            "day": 15,
+            "month": 9,
+            "year": 2025
+          },
+          {
+            "day": 22,
+            "month": 9,
+            "year": 2025
+          },
+          {
+            "day": 29,
+            "month": 9,
+            "year": 2025
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": true
+      },
+      "Event von Jens": {
+        "dates": [
+          {
+            "day": 6,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "year": 2025,
+              "month": 9,
+              "day": 6
+            },
+            "end": {
+              "year": 2025,
+              "month": 9,
+              "day": 10
+            }
+          },
+          {
+            "day": 7,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "year": 2025,
+              "month": 9,
+              "day": 6
+            },
+            "end": {
+              "year": 2025,
+              "month": 9,
+              "day": 10
+            }
+          },
+          {
+            "day": 8,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "year": 2025,
+              "month": 9,
+              "day": 6
+            },
+            "end": {
+              "year": 2025,
+              "month": 9,
+              "day": 10
+            }
+          },
+          {
+            "day": 9,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "year": 2025,
+              "month": 9,
+              "day": 6
+            },
+            "end": {
+              "year": 2025,
+              "month": 9,
+              "day": 10
+            }
+          },
+          {
+            "day": 10,
+            "month": 9,
+            "year": 2025,
+            "start": {
+              "year": 2025,
+              "month": 9,
+              "day": 6
+            },
+            "end": {
+              "year": 2025,
+              "month": 9,
+              "day": 10
+            }
+          }
+        ],
+        "owner": "Jens",
+        "isWeekly": false
+      }
+    },
+    {
+      "month": "November",
+      "events": [
+        "Event von Uwe"
+      ],
+      "Event von Uwe": {
+        "dates": [
+          {
+            "day": 5,
+            "month": 10,
+            "year": 2025
+          },
+          {
+            "day": 12,
+            "month": 10,
+            "year": 2025
+          },
+          {
+            "day": 19,
+            "month": 10,
+            "year": 2025
+          },
+          {
+            "day": 26,
+            "month": 10,
+            "year": 2025
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": true
+      }
+    },
+    {
+      "month": "Dezember",
+      "events": [
+        "Event von Uwe"
+      ],
+      "Event von Uwe": {
+        "dates": [
+          {
+            "day": 3,
+            "month": 11,
+            "year": 2025
+          },
+          {
+            "day": 10,
+            "month": 11,
+            "year": 2025
+          },
+          {
+            "day": 17,
+            "month": 11,
+            "year": 2025
+          },
+          {
+            "day": 24,
+            "month": 11,
+            "year": 2025
+          },
+          {
+            "day": 31,
+            "month": 11,
+            "year": 2025
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": true
+      }
+    }
+  ],
+  "listofRegion": {
+    "Mittelrhein": {
+      "regions": [
+        "Event von Uwe",
+        "Event von Jens"
+      ]
+    }
+  }
+}
