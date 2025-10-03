@@ -103,6 +103,7 @@ function mergeEventData(existing, incoming, username, role) {
           owner: evObj.owner || username,
           isWeekly: evObj.isWeekly === true
         };
+        console.log("MonthCopy, wird hier etwas überschrieben?",monthCopy);
       });
 
       existing.eventData.push(monthCopy);
