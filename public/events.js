@@ -375,9 +375,6 @@ async function ladeDatenFürRegion(region) {
     showDropdownMenu({}, region); // leeres Objekt anzeigen
     return;
   } 
-    console.log("🔎 Region übergeben:", region);
-    console.log("🔎 Daten für Region:", regionData);
-
 
   //renderAdminDropdown();
   await renderEvents();
@@ -500,7 +497,7 @@ if ( selectedFromClick) {
    const monatName = getMonatsname(currMonth + 1);
       let monatObj = eventDataGlobal.find(m => m.month === monatName);
       let eventObj =monatObj[marktNameGlobal];
-      const finalNameUpdate =  marktNameGlobal;
+      
 
       const zeitraum = `${eventObj.dates[0].day}. ${eventObj.dates[0].month}` + `(${currYear})`;
 
@@ -519,21 +516,7 @@ if ( selectedFromClick) {
       }
     showConfirmation(region, eventnametmp, zeitraum, finalName, currMonth, currYear, isWeekly,selectedStart, selectedEnd);
 }
-  
-					
-
-				
-				
-		
-					
-				
-		/*		const saveBtn= document.getElementById('saveBtn');
-				  saveBtn.addEventListener('click', async function saveHandler() {
-					// Nur einmal ausführen: Eventlistener wieder entfernen
-					saveBtn.removeEventListener('click', saveHandler);
-				});*/
-				
-			
+  		
 
 
     });
@@ -1548,7 +1531,11 @@ item.classList.add("active");
       const monatName = getMonatsname(currMonth + 1);
       const monatObj = eventDataGlobal.find(m => m.month === monatName);
       const marktName = item.dataset.name;
-      marktNameGlobal = marktName;
+
+      if(isUpdate && isUpdate == true){
+           marktNameGlobal = marktName;
+      }
+   
      if (monatObj && monatObj[marktName]) {
      
       weekmarketGlobal = monatObj[marktName].isWeekly;
@@ -1580,10 +1567,6 @@ item.classList.add("active");
 
 const renderEvents = async () => {
  
-console.log('months:', months);
-console.log("eventDataGlobal months:", eventDataGlobal.map(m => m.month));
-console.log("currMonth index:", currMonth);
-console.log("months[currMonth]:", months[currMonth]);
     let found = false;
     let isInEvents = false;
     actualEvents = [];
