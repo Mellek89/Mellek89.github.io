@@ -147,7 +147,7 @@ function onDayClick(day) {
     recurringDaysOfEvents.length = 0;
     datesOfEvents.length = 0;
     weekmarketGlobal = null;
-     getFormAttributes();
+    
  selectedFromClick = true;  
 
     const clickedDate = new Date(currYear, currMonth, day);
