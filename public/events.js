@@ -493,10 +493,14 @@ if ( selectedFromClick) {
 
 } else if(isUpdate && isUpdate == true){
   selectedStart= null;
-  selectedEnd=null;
+  //selectedEnd=null;
    const monatName = getMonatsname(currMonth + 1);
       let monatObj = eventDataGlobal.find(m => m.month === monatName);
       let eventObj =monatObj[marktNameGlobal];
+       const  newStart = new Date(currYear,eventObj.dates[0].month, eventObj.dates[0].day);
+       const newEnd   = selectedEnd
+        ? new Date(selectedEnd.year, selectedEnd.month, selectedEnd.day)
+        : newStart;
       
 
       const zeitraum = `${eventObj.dates[0].day}. ${eventObj.dates[0].month}` + `(${currYear})`;
