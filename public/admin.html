@@ -206,6 +206,7 @@
         <th>Benutzername</th>
         <th>Rolle</th>
         <th>Status</th>
+        <th>Logout</th>
       </tr>
     </thead>
     <tbody>
@@ -243,6 +244,10 @@
           <td>${user.username}</td>
           <td>${user.role}</td>
           <td>✅ online</td>
+          <td><button id="logoutBtn" class="logoutIconBtn">
+             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M19 22H5a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1zM6 20h12V4H6v16zm8-7a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+  </svg></button></td>
         </tr>
       `);
     });

@@ -301,6 +301,31 @@ img {
     position: relative;
     transform: translate(px, 3px);
   }
+
+.logoutIconBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #ff4b4b;
+  transition: transform 0.2s ease, color 0.2s ease;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoutIconBtn:hover {
+  transform: scale(1.1);
+  color: #ff2a2a;
+}
+
+.logoutIconBtn svg {
+  width: 32px;  /* ← Größe ändern */
+  height: 32px;
+}
+
+
         
 .calendar{
 position: relative;
