@@ -33,7 +33,7 @@ async function saveEventsSafe(events) {
 }
 
 app.use((req, res, next) => {
-  console.log(`➡️ Request: ${req.method} ${req.url}`);
+  
   next();
 });
 app.use(express.json());
@@ -78,7 +78,7 @@ function loadEvents() {
     if (!fs.existsSync(dataFile)) {
       // Datei existiert nicht → leere Struktur zurückgeben
 
-      console.log("DataFileZumLaden:  ",dataFile);
+     
       return { eventData: [], listofRegion: {} };
     }
     return JSON.parse(fs.readFileSync(dataFile, "utf-8"));
@@ -103,7 +103,7 @@ function mergeEventData(existing, incoming, username, role) {
           owner: evObj.owner || username,
           isWeekly: evObj.isWeekly === true
         };
-        console.log("MonthCopy, wird hier etwas überschrieben?",monthCopy);
+        
       });
 
       existing.eventData.push(monthCopy);
@@ -175,7 +175,7 @@ function mergeEventData(existing, incoming, username, role) {
 // POST-Routen zuerst
 app.post('/save-event', authMiddleware("user"), async(req, res) => {
   try {
-    console.log("📥 Endgültiges payload angekommen:", req.body);
+    
 
     const { eventData: incomingEventData, listofRegion: incomingList, oldName, newName } = req.body;
     const username = req.user.username;
@@ -183,13 +183,13 @@ app.post('/save-event', authMiddleware("user"), async(req, res) => {
 
 // alle Events dieses Monats
  incomingEventData.forEach(monthObj => {
-  console.log(`--- ${monthObj.month} ---`);
+ 
   monthObj.events.forEach(evName => {
     const evObj = monthObj[evName];
     if (evObj) {
-      console.log("Event:", evName, "Dates:", evObj.dates);
+     
     } else {
-      console.warn("⚠️ Keine Eventdaten vorhanden für:", evName);
+      
     }
   });
 });
@@ -267,8 +267,8 @@ app.post('/save-event', authMiddleware("user"), async(req, res) => {
     // 4️⃣ Datei speichern
    // fs.writeFileSync(dataFile, JSON.stringify(merged, null, 2));
      await saveEventsSafe(merged);
-    console.log("✅ Struktur gespeichert (inkl. Umbenennung & Owner).,", incomingWithOwner);
-    console.log(JSON.stringify(merged, null, 2));
+   
+   
 
     res.json({ message: "✅ Struktur gespeichert (inkl. Umbenennung & Owner)." });
   } catch (err) {
@@ -279,7 +279,7 @@ app.post('/save-event', authMiddleware("user"), async(req, res) => {
 
 
 app.get('/userDaten', authMiddleware("user"), (req, res) => {
-  console.log('userDaten wurde aufgerufen!')
+ 
     try {
         const filePath = path.join(__dirname, 'daten', 'userDaten.json');
         if (!fs.existsSync(filePath)) {
@@ -289,16 +289,8 @@ app.get('/userDaten', authMiddleware("user"), (req, res) => {
         const rawData = fs.readFileSync(filePath, 'utf-8');
         const userData = JSON.parse(rawData);
 
-        /* Optional: nur Daten des eingeloggten Users zurückgeben
-        const username = req.user.username;
-        console.log(username);
-         const filteredData = userData.find(u => u.username === username) || {};
-
-        res.json(filteredData);
-        console.log(filteredData);*/
-
          res.json(userData);  // alle Benutzer zurückgeben
-    console.log(userData);
+   
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Fehler beim Lesen der Datei" });
@@ -316,11 +308,11 @@ app.post("/delete-event", authMiddleware("user"), async (req, res) => {
     let errorResponse = null; // Variable für Fehler innerhalb des Mutex
     let events;
 
-    console.log("delete event ausgelöst!");
+  
 
     // Sperre beim Zugriff auf die Datei
     await fileMutex.runExclusive(async () => {
-      console.log(`🔒 Mutex von ${username} übernommen`);
+      
       events = loadEvents(); // aktuelle Daten laden
 
       const eventObjs = [];
@@ -383,7 +375,7 @@ app.post("/delete-event", authMiddleware("user"), async (req, res) => {
         if (region.regions.length === 0) delete events.listofRegion[regionName];
       }
 
-      console.log(`🔓 Mutex von ${username} wird freigegeben`);
+      
     });
 
     // Fehler nach Mutex prüfen
@@ -410,178 +402,15 @@ app.post("/delete-event", authMiddleware("user"), async (req, res) => {
 });
 
 
-/*app.post("/delete-event", authMiddleware("user"), async (req, res) => {
-  try {
-    const username = req.user.username;
-    const role = req.user.role;
-    const { month, eventName } = req.body;
 
-    let found = false;
-
-    // Sperre beim Zugriff auf die Datei
-    await fileMutex.runExclusive(async () => {
-      const events = loadEvents(); // aktuelle Daten laden
-
-      const eventObjs = [];
-
-      // -------------------------------
-      // Fall 1: bestimmter Monat und kein Wochenmarkt
-      // -------------------------------
-      if (month) {
-        const monthObj = events.eventData.find(m => m.month === month);
-        if (!monthObj)
-          return res.status(404).json({ message: "❌ Monat nicht gefunden" });
-
-        const eventObj = monthObj[eventName];
-        if (!eventObj)
-          return res.status(404).json({ message: "❌ Event nicht gefunden" });
-
-        if (eventObj.isWeekly === false) {
-          if (role !== "admin" && eventObj.owner !== username)
-            return res.status(403).json({ message: "❌ Keine Berechtigung" });
-
-          monthObj.events = monthObj.events.filter(e => e !== eventName);
-          delete monthObj[eventName];
-          found = true;
-        } else {
-          // Wochenmarkt → alle Monate markieren
-          events.eventData.forEach(m => {
-            if (m[eventName]) eventObjs.push(m);
-          });
-        }
-      } else {
-        // Wenn kein Monat angegeben → global
-        events.eventData.forEach(m => {
-          if (m[eventName]) eventObjs.push(m);
-        });
-      }
-
-      // -------------------------------
-      // Fall 2: global löschen (Wochenmarkt oder kein month)
-      // -------------------------------
-      eventObjs.forEach(monthObj => {
-        const eventObj = monthObj[eventName];
-        if (role === "admin" || eventObj.owner === username) {
-          monthObj.events = monthObj.events.filter(e => e !== eventName);
-          delete monthObj[eventName];
-          found = true;
-        }
-      });
-
-      if (!found) {
-        return res.status(404).json({ message: "❌ Event nicht gefunden oder keine Berechtigung" });
-      }
-
-      // Regionenliste bereinigen
-      for (const regionName in events.listofRegion) {
-        const region = events.listofRegion[regionName];
-        if (region.regions.includes(eventName)) {
-          region.regions = region.regions.filter(e => e !== eventName);
-        }
-        if (region.regions.length === 0) delete events.listofRegion[regionName];
-      }
-
-      // Datei sicher speichern
-      await saveEventsSafe(events);
-    });
-
-    res.json({ message: `✅ Event "${eventName}" erfolgreich gelöscht` });
-  } catch (err) {
-    console.error("❌ Fehler beim Löschen des Events:", err);
-    res.status(500).json({ message: "Fehler beim Löschen des Events" });
-  }
-});
-
-app.post("/delete-event", authMiddleware("user"), async (req, res) => {
-  console.log("BODY:", req.body);
-  console.log("🗑️ /delete-event wurde aufgerufen");
-
-  const username = req.user.username;
-  const { month, eventName } = req.body;
-
-  let events = loadEvents();
-  let found = false;
-
-  // -------------------------------
-  // Fall 1: bestimmter Monat
-  // -------------------------------
-  if (month) {
-   
-    const monthObj = events.eventData.find(m => m.month === month);
-    if (!monthObj) {
-      return res.status(404).json({ message: "❌ Monat nicht gefunden" });
-    }
-
-    const eventObj = monthObj[eventName];
-    if (!eventObj) {
-      return res.status(404).json({ message: "❌ Event nicht gefunden" });
-    }
-
-    if (eventObj.isWeekly === false) {
-       console.log("gehen hier rein, wenn du kein wochenmarkt bist oder in mehreren Monaten vorkommst",month)
-    // Berechtigung prüfen
-    if (req.user.role !== "admin" && eventObj.owner !== username) {
-      return res.status(403).json({ message: "❌ Keine Berechtigung zum Löschen dieses Events" });
-    }
-
-    monthObj.events = monthObj.events.filter(e => e !== eventName);
-    delete monthObj[eventName];
-    found = true;
-  }
-}
-
-  // -------------------------------
-  // Fall 2: global in allen Monaten
-  // -------------------------------
-  else {
-    events.eventData.forEach(monthObj => {
-      if (monthObj[eventName]) {
-        const eventObj = monthObj[eventName];
-console.log("Kommt er hier an?")
-        // Berechtigung prüfen
-        if (req.user.role === "admin" || eventObj.owner === username) {
-          console.log("hier sollen alle beteiligten Monate gelöscht werden!")
-          monthObj.events = monthObj.events.filter(e => e !== eventName);
-          delete monthObj[eventName];
-          found = true;
-        }
-      }
-    });
-  }
-
-  if (!found) {
-    return res.status(404).json({ message: "❌ Event nicht gefunden oder keine Berechtigung" });
-  }
-
-  // Regionenliste bereinigen
-  for (const regionName in events.listofRegion) {
-    const region = events.listofRegion[regionName];
-    if (region.regions.includes(eventName)) {
-      region.regions = region.regions.filter(e => e !== eventName);
-    }
-    if (region.regions.length === 0) delete events.listofRegion[regionName];
-  }
-
-  try {
-   // fs.writeFileSync(dataFile, JSON.stringify(events, null, 2));
-    await saveEventsSafe(events);
-    res.json({ message: month ? 
-      `✅ Event "${eventName}" im Monat "${month}" gelöscht` : 
-      `✅ Event "${eventName}" in allen Monaten gelöscht` 
-    });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: "❌ Fehler beim Schreiben der Datei" });
-  }
-});*/
 
 app.post("/login", (req, res) => {
   const { username, password } = req.body;
   const userFile = path.join(__dirname, "daten", "userDaten.json");
   const users = JSON.parse(fs.readFileSync(userFile, "utf-8"));
-console.log(users);
+
   const user = users.find(u => u.username === username && u.password === password);
- console.log(user);
+
    if (!user) {
    
     return res.status(401).json({ message: "Ungültiger Benutzername oder Passwort" });
@@ -620,7 +449,7 @@ broadcastUsers();
 });
 // Socket.IO: Client verbindet sich
 io.on("connection", (socket) => {
-  console.log("🔌 Client verbunden");
+  
 
   // Direkt aktuelle Liste senden
  socket.emit(
@@ -632,7 +461,7 @@ io.on("connection", (socket) => {
   );
 
   socket.on("disconnect", () => {
-    console.log("❌ Client getrennt");
+    
   });
 });
 
@@ -641,10 +470,10 @@ setInterval(() => {
   const now = Date.now();
   let changed = false;
   for (const [username, info] of Object.entries(onlineUsers)) {
-    if (now - info.lastActive > 1000 * 60 * 5) { // 5 Minuten
+    if (now - info.lastActive > 1000 * 60 * 10) { // 5 Minuten
       delete onlineUsers[username];
       changed = true;
-      console.log(`⏰ Benutzer ${username} automatisch abgemeldet`);
+      
     }
   }
   if (changed) io.emit("updateUsers", Object.entries(onlineUsers).map(([username, info]) => ({ 
