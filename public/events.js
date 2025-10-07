@@ -492,18 +492,19 @@ if ( selectedFromClick) {
     showConfirmation(region, eventnametmp, zeitraum, finalName, currMonth, currYear, isWeekly,newStart, newEnd);
 
 } else if(isUpdate && isUpdate == true){
-  selectedStart= null;
-  //selectedEnd=null;
+ 
    const monatName = getMonatsname(currMonth + 1);
       let monatObj = eventDataGlobal.find(m => m.month === monatName);
       let eventObj =monatObj[marktNameGlobal];
        const  newStart = new Date(currYear,eventObj.dates[0].month, eventObj.dates[0].day);
-       const newEnd   = selectedEnd
-        ? new Date(selectedEnd.year, selectedEnd.month, selectedEnd.day)
-        : newStart;
+       const endOfArray   = eventObj.dates[eventObj.dates.length - 1];
+       const newEnd = new Date(currYear,endOfArray.month, endOfArray.day);
+    
       
 
-      const zeitraum = `${eventObj.dates[0].day}. ${eventObj.dates[0].month}` + `(${currYear})`;
+      const zeitraum = `${eventObj.dates[0].day}. ${eventObj.dates[0].month+1}` + 
+      (newEnd ?` - ${endOfArray .day}. ${endOfArray.month+1}.` : '' ) +
+        `(${currYear})`;
 
       showConfirmation(region, eventnametmp, zeitraum, finalName, currMonth, currYear, isWeekly,newStart, newEnd);
 
@@ -558,10 +559,13 @@ if (selectedStart) {
     newEnd   = selectedEnd
       ? new Date(selectedEnd.year, selectedEnd.month, selectedEnd.day)
       : newStart;
-  } else {
-    // Fallback: heute
-    newStart = new Date();
-    newEnd   = newStart;
+  } 
+  else {
+     const  newStart = new Date(currYear,eventObj.dates[0].month, eventObj.dates[0].day);
+       const endOfArray   = eventObj.dates[eventObj.dates.length - 1];
+       const newEnd = new Date(currYear,endOfArray.month, endOfArray.day);
+      
+      
   }
   
 
@@ -865,7 +869,7 @@ function parseDate(d, fallbackYear) {
 }
 
 async function speichernEvent(name, month, region, isWeekly, oldName, newStart, newEnd) {
- 
+ console.log("speichern aufgerufen");
 
     const token = localStorage.getItem("jwt");
     if (!token) {
@@ -1434,7 +1438,7 @@ if(window.location.pathname.endsWith("admin.html")){
       resetEventState();
       getFormAttributes();
   
-     // datesOfEvents.length = 0;
+  
 
 
    });
@@ -1642,8 +1646,13 @@ const endDate = new Date(
         console.warn("Kein Monatsobjekt gefunden:", monatName);
         return;
       }
-       
-        zeitraum = `${eventObj.dates[0].day}. ${eventObj.dates[0].month}` + `(${currYear})`;  
+     
+       const endOfArray   = eventObj.dates[eventObj.dates.length - 1];
+      
+
+       zeitraum = `${eventObj.dates[0].day}. ${eventObj.dates[0].month+1}` + 
+      (endOfArray ?` - ${endOfArray.day}. ${endOfArray.month+1}.` : '' ) +
+        `(${currYear})`;
 
        
 
