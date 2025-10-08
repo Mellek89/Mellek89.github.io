@@ -231,6 +231,7 @@
 
   async function verifyToken() {
   const token = localStorage.getItem("jwt");
+   
   if (!token) {
     // Kein Token → zurück zum Login
     window.location.href = "/login.html";
@@ -263,15 +264,21 @@ async function startApp() {
   const user = await verifyToken();
   if (!user) return; // Abbruch, falls ungültig
 
-  const socket = io({
-    auth: {
-      token: localStorage.getItem("token")
-    }
-  });
-
-  socket.on("connect", () => {
+  const socket = io();
+ const token = localStorage.getItem("jwt");
+  socket.emit("registerUser", token);
+ 
+  // ⚠️ forceLogout: wenn der Server die Sitzung beendet
+socket.on("forceLogout", () => {
+  console.warn("🚫 Sitzung abgelaufen. Du wirst ausgeloggt...");
+  localStorage.removeItem("jwt");
+  alert("Deine Sitzung ist abgelaufen. Bitte melde dich erneut an.");
+  window.location.href = "/login.html";
+});
+ socket.on("connect", () => {
     console.log("🔌 Verbunden als:", user.username);
   });
+
 
   socket.on("updateUsers", (users) => {
     const tbody = document.querySelector("#userTable tbody");

@@ -200,6 +200,15 @@ if (!token) {
 
 }
 
+let createButtonActive = false;
+
+// 🟢 Nur einmal definieren, außerhalb von renderCalendar()
+document.addEventListener("click", (e) => {
+  if (e.target && e.target.id === "create") {
+    createButtonActive = true;
+    console.log("✳️ Create-Modus aktiviert");
+  }
+});
 const renderCalendar = () => {
     const firstDateOfMonth = new Date(currYear, currMonth, 1).getDay();
     const lastDateOfMonth = new Date(currYear, currMonth + 1, 0).getDate();
@@ -276,13 +285,28 @@ if ((!weekmarketGlobal || weekmarketGlobal == false) && startDate && endDate && 
     currentDate.innerText = `${months[currMonth]} ${currYear}`;
     daysTag.innerHTML = liTag;
 
-    // Klick-Events neu binden
-    document.querySelectorAll(".days li").forEach(li => {
-        const day = parseInt(li.dataset.day, 10);
-        if (!isNaN(day)) {
-            li.onclick = () => onDayClick(day); // direkte Bindung
-        }
+
+
+
+
+// Klicks auf Tage nur zulassen, wenn Create-Modus aktiv ist
+document.querySelectorAll(".days li").forEach(li => {
+  const day = parseInt(li.dataset.day, 10);
+  if (!isNaN(day)) {
+    li.addEventListener("click", () => {
+      if (!createButtonActive && !isUpdate) {
+        console.warn("⚠️ Erst 'Create' klicken, um einen Tag zu wählen.");
+        return;
+      }
+      onDayClick(day);
+      // optional: Create-Modus wieder deaktivieren, wenn du nur 1x klicken willst
+      // createButtonActive = false;
     });
+  }
+});
+
+  
+   
 };
 
 
@@ -395,42 +419,51 @@ async function ladeDatenFürRegion(region) {
 	
 
 oberrhein.addEventListener('change', async () => {
+  
   datesOfEvents.length= 0;
     let createBtn = document.getElementById("create");
       if (createBtn) {
         createBtn.style.display = "block";
       }
-    let prevView = document.getElementById("prevView");
-      if (prevView) {
-        prevView.style.display = "none";
-      }
-       let eventName = document.getElementById("eventName");
-      if (eventName) {
-        eventName.style.display = "none";
-      }
-     let  weekmarket = document.getElementById("Weekmarket");
-      if (weekmarket) {
-        weekmarket.style.display = "none";
-      }
-  if (oberrhein.checked) {
+          if(createButtonActive == false){
+            let prevView = document.getElementById("prevView");
+              if (prevView) {
+                prevView.style.display = "none";
+              }
+              let eventName = document.getElementById("eventName");
+              if (eventName) {
+                eventName.style.display = "none";
+              }
+            let  weekmarket = document.getElementById("Weekmarket");
+              if (weekmarket) {
+                weekmarket.style.display = "none";
+              }
+            }
+        
+       
+  if (oberrhein.checked ) {
+    if(createButtonActive == false){  resetEventState(); }
    
-    resetEventState(); // 👉 Zustände leeren
     region = oberrhein.value;
 
-    try {
-      await ladeDatenFürRegion(region);  // lädt Daten + baut Dropdown
-      renderCalendar();                  // danach Kalender zeichnen
-    } catch (err) {
-      console.error("❌ Fehler beim Laden der Oberrhein-Daten:", err);
+      try {
+        await ladeDatenFürRegion(region);  // lädt Daten + baut Dropdown
+        //renderCalendar();                  // danach Kalender zeichnen
+      } catch (err) {
+        console.error("❌ Fehler beim Laden der Oberrhein-Daten:", err);
+      }
     }
-  }
 });
 
 mittelrhein.addEventListener('change', async () => {
+
+  
     let createBtn = document.getElementById("create");
       if (createBtn) {
         createBtn.style.display = "block";
       }
+
+      if(createButtonActive == false){
    let prevView = document.getElementById("prevView");
       if (prevView) {
         prevView.style.display = "none";
@@ -443,18 +476,24 @@ mittelrhein.addEventListener('change', async () => {
       if (weekmarket) {
         weekmarket.style.display = "none";
       }
-   datesOfEvents.length= 0;
-  if (mittelrhein.checked) {
-    resetEventState(); 
-    region = mittelrhein.value;
-
-    try {
-      await ladeDatenFürRegion(region);  // lädt Daten + baut Dropdown
-      renderCalendar();
-    } catch (err) {
-      console.error("❌ Fehler beim Laden der Mittelrhein-Daten:", err);
     }
-  }
+   datesOfEvents.length= 0;
+  
+
+     
+      if (mittelrhein.checked ) {
+         if(createButtonActive == false){  resetEventState(); }
+    
+   
+          region = mittelrhein.value;
+
+          try {
+            await ladeDatenFürRegion(region);  // lädt Daten + baut Dropdown
+          // renderCalendar();
+          } catch (err) {
+            console.error("❌ Fehler beim Laden der Mittelrhein-Daten:", err);
+          }
+      }
 });
 
 
@@ -963,7 +1002,7 @@ async function speichernEvent(name, month, region, isWeekly, oldName, newStart, 
             });
         });
     } else {
-        // 🔵 normale Events → Zeitraum durchlaufen
+        //  normale Events → Zeitraum durchlaufen
         while (current <= newEnd) {
             const monthName = months[current.getMonth()];
             let monatObj = eventData.find(m => m.month === monthName);
@@ -1071,6 +1110,7 @@ async function speichernEvent(name, month, region, isWeekly, oldName, newStart, 
         await renderEvents();
         await showDropdownMenu(listofRegionGlobal, region);
         renderCalendar();
+        createButtonActive = false;
 
     } catch (err) {
         console.error("❌ Fehler in speichernEvent:", err);
@@ -1742,6 +1782,7 @@ document.addEventListener("click", (e) => {
     isUpdate = true;
   }
 });
+
 
 prevNextIcon.forEach(icon => {
   

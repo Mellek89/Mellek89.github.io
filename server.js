@@ -450,6 +450,32 @@ broadcastUsers();
 // Socket.IO: Client verbindet sich
 io.on("connection", (socket) => {
   
+ console.log("🔌 Neuer Socket verbunden:", socket.id);
+
+  // Benutzer meldet sich mit Token an (nach Login auf Client-Seite)
+  socket.on("registerUser", (token) => {
+     console.log("🔑 registerUser aufgerufen mit Token:", token);
+    try {
+      const payload = jwt.verify(token, "DEIN_SECRET_KEY");
+      // Nutzer aktiv halten oder neu hinzufügen
+      if (!onlineUsers[payload.username]) {
+        onlineUsers[payload.username] = { 
+          role: payload.role, 
+          lastActive: Date.now(),
+          socketId: socket.id
+        };
+           console.log(`✅ ${payload.username} registriert, Socket: ${socket.id}`);
+           broadcastUsers(); // sofort aktuelle Liste senden
+      } else {
+        onlineUsers[payload.username].socketId = socket.id;
+        onlineUsers[payload.username].lastActive = Date.now();
+      }
+    
+
+    } catch (err) {
+      console.warn("❌ Ungültiger Token bei registerUser");
+    }
+  });
 
   // Direkt aktuelle Liste senden
  socket.emit(
@@ -461,7 +487,7 @@ io.on("connection", (socket) => {
   );
 
   socket.on("disconnect", () => {
-    
+    console.log("disconnected",socket.id);
   });
 });
 
@@ -470,7 +496,11 @@ setInterval(() => {
   const now = Date.now();
   let changed = false;
   for (const [username, info] of Object.entries(onlineUsers)) {
-    if (now - info.lastActive > 1000 * 60 * 10) { // 5 Minuten
+    if (now - info.lastActive > 1000 * 60 * 0.5) { 
+       if (info.socketId) {
+         console.log(`⏰ ForceLogout an ${username}`);
+        io.to(info.socketId).emit("forceLogout"); // Client ausloggen
+      }
       delete onlineUsers[username];
       changed = true;
       
