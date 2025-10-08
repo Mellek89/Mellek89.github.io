@@ -496,7 +496,7 @@ setInterval(() => {
   const now = Date.now();
   let changed = false;
   for (const [username, info] of Object.entries(onlineUsers)) {
-    if (now - info.lastActive > 1000 * 60 * 0.5) { 
+    if (now - info.lastActive > 1000 * 60 * 15) { 
        if (info.socketId) {
          console.log(`⏰ ForceLogout an ${username}`);
         io.to(info.socketId).emit("forceLogout"); // Client ausloggen
