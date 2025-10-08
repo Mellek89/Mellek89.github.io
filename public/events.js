@@ -190,6 +190,16 @@ function resetEventState() {
   document.getElementById('eventname').value = period; // Eventname leeren
 }
 
+if (window.location.pathname.endsWith("admin.html")){
+const token = localStorage.getItem("jwt");
+if (!token) {
+  // kein Login vorhanden → zurück zur Login-Seite
+  window.location.href = "/login.html";
+}
+
+
+}
+
 const renderCalendar = () => {
     const firstDateOfMonth = new Date(currYear, currMonth, 1).getDay();
     const lastDateOfMonth = new Date(currYear, currMonth + 1, 0).getDate();

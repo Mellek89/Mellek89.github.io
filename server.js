@@ -483,14 +483,21 @@ setInterval(() => {
 
 }, 1000 * 60);
 
+app.post("/verify", (req, res) => {
+  const token = req.headers.authorization?.split(" ")[1];
+  if (!token) return res.status(401).json({ message: "Kein Token" });
+
+  try {
+    const payload = jwt.verify(token, "DEIN_SECRET_KEY");
+    res.json({ username: payload.username, role: payload.role });
+  } catch {
+    res.status(401).json({ message: "Ungültiges oder abgelaufenes Token" });
+  }
+});
+
+
 server.listen(PORT, () => console.log("Server läuft auf http://localhost:3000"));
 
-
-
-// GET: Datei herunterladen
-app.get('/download-events', (req, res) => {
-  res.download(dataFile, 'events.json');
-});
 
 app.get('/events.json', (req, res) => {
   res.json(loadEvents());

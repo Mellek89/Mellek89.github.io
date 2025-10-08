@@ -228,30 +228,91 @@
     </div>
 <script src="/socket.io/socket.io.js"></script>
 <script>
-  const socket = io(); // Verbindung herstellen
+
+  async function verifyToken() {
+  const token = localStorage.getItem("jwt");
+  if (!token) {
+    // Kein Token → zurück zum Login
+    window.location.href = "/login.html";
+    return null;
+  }
+
+  try {
+    const res = await fetch("/verify", {
+      method: "POST",
+      headers: { "Authorization": "Bearer " + token }
+    });
+
+    if (!res.ok) {
+      // Token abgelaufen oder ungültig
+      localStorage.removeItem("jwt");
+      window.location.href = "/login.html";
+      return null;
+    }
+
+    const data = await res.json();
+    console.log("✅ Token gültig für Benutzer:", data.username);
+    return data;
+  } catch (err) {
+    console.error("Verbindungsfehler bei Tokenprüfung:", err);
+    window.location.href = "/login.html";
+  }
+}
+
+async function startApp() {
+  const user = await verifyToken();
+  if (!user) return; // Abbruch, falls ungültig
+
+  const socket = io({
+    auth: {
+      token: localStorage.getItem("token")
+    }
+  });
 
   socket.on("connect", () => {
-    console.log("✅ Mit Socket.IO verbunden:", socket.id);
+    console.log("🔌 Verbunden als:", user.username);
   });
 
   socket.on("updateUsers", (users) => {
-    console.log("👥 Benutzerliste empfangen:", users);
     const tbody = document.querySelector("#userTable tbody");
     tbody.innerHTML = "";
-    users.forEach(user => {
+    users.forEach(u => {
       tbody.insertAdjacentHTML("beforeend", `
         <tr>
-          <td>${user.username}</td>
-          <td>${user.role}</td>
+          <td>${u.username}</td>
+          <td>${u.role}</td>
           <td>✅</td>
-          <td><button id="logoutBtn" class="logoutIconBtn">
-             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M19 22H5a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1zM6 20h12V4H6v16zm8-7a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
-  </svg></button></td>
+          <td>${
+            u.username === user.username
+              ? `<button class="logoutIconBtn" title="Abmelden">
+                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                     <path d="M19 22H5a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1zM6 20h12V4H6v16zm8-7a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                   </svg>
+                 </button>`
+              : "–"
+          }</td>
         </tr>
       `);
     });
+
+    // Logout-Event für den eigenen Button
+    const logoutBtn = document.querySelector(".logoutIconBtn");
+    if (logoutBtn) {
+      logoutBtn.addEventListener("click", async () => {
+        const token = localStorage.getItem("jwt");
+        const res = await fetch("/logout", {
+          method: "POST",
+          headers: { "Authorization": "Bearer " + token }
+        });
+        localStorage.removeItem("jwt");
+        window.location.href = "/login.html";
+      });
+    }
   });
+}
+
+// Startet alles, nachdem verifyToken erfolgreich war
+startApp();
 </script>
 
 
