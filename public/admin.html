@@ -228,7 +228,11 @@
     </div>
 <script src="/socket.io/socket.io.js"></script>
 <script>
-
+document.getElementById("create").addEventListener("click", function() {
+    document.getElementById("zeitraumForm").scrollIntoView({
+      behavior: "smooth"
+    });
+  });
   async function verifyToken() {
   const token = localStorage.getItem("jwt");
    
@@ -270,7 +274,7 @@ async function startApp() {
  
   // ⚠️ forceLogout: wenn der Server die Sitzung beendet
 socket.on("forceLogout", () => {
-  console.warn("🚫 Sitzung abgelaufen. Du wirst ausgeloggt...");
+  console.warn(" Sitzung abgelaufen. Du wirst ausgeloggt...");
   localStorage.removeItem("jwt");
   alert("Deine Sitzung ist abgelaufen. Bitte melde dich erneut an.");
   window.location.href = "/login.html";

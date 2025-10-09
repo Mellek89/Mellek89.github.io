@@ -878,25 +878,6 @@ if (!weekmarket && isUpdate && selectedStart) {
             delete monatObj[oldName];
         }
 
-    } else if (monatObj[newName]) {
-
-      
-
-        // Event existiert bereits unter neuem Namen → nur Datum & Flags updaten
-        event = monatObj[newName];
-        event.owner = event.owner || username;
-        event.isWeekly = weekmarket === true;
-
-        if (tagString && typeof tagString === "object") {
-            if (!event.dates.some(d =>
-                d.day === tagString.day &&
-                d.month === tagString.month &&
-                d.year === tagString.year
-            )) {
-                event.dates.push(tagString);
-            }
-        }
-
     } else {
         // Neues Event anlegen
         monatObj[newName] = {
