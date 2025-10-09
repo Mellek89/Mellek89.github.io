@@ -766,8 +766,9 @@ const oldEnd = opts.oldEnd;
     let event = null;
 
     // Event existiert unter altem Namen?
-    if (oldName && monatObj[oldName]) {
-        event = monatObj[oldName];
+   if ((oldName && monatObj[oldName]) || monatObj[newName]) {
+
+        event = monatObj[oldName] || monatObj[newName];
         event.owner = event.owner || username;
         event.isWeekly = weekmarket === true;
 
@@ -808,7 +809,15 @@ if (!weekmarket && isUpdate && selectedStart) {
            let current = new Date(tagString.start.year, tagString.start.month, tagString.start.day);
            const last = tagString.end ? new Date(tagString.end.year, tagString.end.month, tagString.end.day) : current;
 
-            while (current <= last) {
+ if (current.getTime() === endDate.getTime()) {
+        const day = current.getDate();
+        const month = current.getMonth();
+        const year = current.getFullYear();
+
+        if (!event.dates.some(d => d.day === day && d.month === month && d.year === year)) {
+            event.dates.push({ day, month, year });
+        }
+ }else{  while (current <= last) {
                 if (!event.dates.some(d =>
                     d.day === current.getDate() &&
                     d.month === current.getMonth() &&
@@ -822,6 +831,10 @@ if (!weekmarket && isUpdate && selectedStart) {
                 }
                 current.setDate(current.getDate() + 1);
             }
+          
+          }
+
+          
 
         } else if (!weekmarket && tagString) {
             // Einzelne Tage hinzufügen (kein Update)
@@ -984,7 +997,7 @@ async function speichernEvent(name, month, region, isWeekly, oldName, newStart, 
     let current = new Date(newStart);
 
     if (isWeekly) {
-        // 🟢 Wochenmarkt → delegieren
+        
         weekmarketGlobal = isWeekly;
         const { eventData: weeklyData, listofRegion: weeklyRegions } =
             await dateOfRecurringEvents(name, username);
