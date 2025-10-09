@@ -1596,6 +1596,14 @@ const monthObj = eventDataGlobal.find(m => m.month === months[currMonth]);
 
 
 	dropdownList.innerHTML = singleEvent;
+
+   document.getElementById("update-btn").addEventListener("click", function() {
+  if (window.innerWidth < 768) {
+    document.getElementById("calendar").scrollIntoView({
+      behavior: "smooth"
+    });
+  }
+  });
   	
 
 dropdownList.addEventListener("click", async function(e) {
