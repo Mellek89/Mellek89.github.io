@@ -128,6 +128,7 @@ function mergeEventData(existing, incoming, username, role) {
           // Neues Event anlegen
           oldMonth[evName] = newEvent;
         } else if (role === "admin" || oldEvent.owner === username) {
+           const wasWeekly = oldEvent.isWeekly;
           // Event bearbeiten: Termine ersetzen oder ergänzen
           oldEvent.dates = Array.isArray(newEvent.dates) 
             ? [...newEvent.dates]   // oder: [...oldEvent.dates, ...newEvent.dates] für additive Änderung
@@ -138,22 +139,21 @@ function mergeEventData(existing, incoming, username, role) {
 
           // Owner bleibt unverändert, außer es ist admin, dann kann ggf. geändert werden
           if (role === "admin") oldEvent.owner = newEvent.owner || oldEvent.owner;
-        }
+        
 
 
         // ✅ Wenn Wochenmarkt deaktiviert → alle anderen Monate updaten
-        if (oldEvent?.isWeekly === true && newEvent.isWeekly === false &&  oldMonth[evName] == newEvent[evName] ) {
-          
-          existing.eventData.forEach(month => {
-            if (month !== oldMonth && month[evName]) {
-              month[evName].isWeekly = false;
-
-              // Optional: Event aus events-Array entfernen
-              month.events = month.events.filter(e => e !== evName);
-              delete month[evName];
-            }
-          });
+     if (wasWeekly === true && newEvent.isWeekly === false) {
+  existing.eventData.forEach(month => {
+    if (month !== oldMonth && month[evName]?.isWeekly) {
+      month[evName].isWeekly = false;
+      month.events = month.events.filter(e => e !== evName);
+      delete month[evName];
+    }
+  });
+}
         }
+
       });
     }
   });
@@ -273,6 +273,7 @@ app.post('/save-event', authMiddleware("user"), async(req, res) => {
     res.json({ message: "✅ Struktur gespeichert (inkl. Umbenennung & Owner)." });
   } catch (err) {
     console.error("❌ Fehler im save-event Handler:", err);
+    console.error("❌ Fehler beim Speichern:", err.message, err.stack);
     res.status(500).json({ message: "Fehler beim Speichern" });
   }
 });
