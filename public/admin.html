@@ -228,11 +228,15 @@
     </div>
 <script src="/socket.io/socket.io.js"></script>
 <script>
+    
 document.getElementById("create").addEventListener("click", function() {
+  if (window.innerWidth < 768) {
     document.getElementById("zeitraumForm").scrollIntoView({
       behavior: "smooth"
     });
+  }
   });
+
   async function verifyToken() {
   const token = localStorage.getItem("jwt");
    
