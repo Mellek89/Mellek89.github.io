@@ -1596,15 +1596,19 @@ const monthObj = eventDataGlobal.find(m => m.month === months[currMonth]);
 
 
 	dropdownList.innerHTML = singleEvent;
-if (window.location.pathname.endsWith("/admin.html")){
-   document.getElementById("update-btn").addEventListener("click", function() {
-  if (window.innerWidth < 768) {
-    document.getElementById("calendar").scrollIntoView({
-      behavior: "smooth"
-    });
-  }
+if (window.location.pathname.endsWith("/admin.html")) {
+  dropdownList.addEventListener("click", function(e) {
+    if (e.target && e.target.classList.contains("update-btn")) {
+      if (window.innerWidth < 768) {
+        document.getElementById("calendar").scrollIntoView({
+          behavior: "smooth"
+        });
+      }
+      // ggf. weitere Logik hier
+    }
   });
 }
+
   	
 
 dropdownList.addEventListener("click", async function(e) {
