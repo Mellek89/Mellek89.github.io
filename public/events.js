@@ -1152,7 +1152,7 @@ async function loeschenEvent(name, region) {
    
 
     try {
-        const response = await fetch('/delete-event', {
+        const response = await fetch('/delete-event', {  
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
