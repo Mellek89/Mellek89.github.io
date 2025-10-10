@@ -1596,7 +1596,7 @@ const monthObj = eventDataGlobal.find(m => m.month === months[currMonth]);
 
 
 	dropdownList.innerHTML = singleEvent;
-
+if (window.location.pathname.endsWith("/admin.html")){
    document.getElementById("update-btn").addEventListener("click", function() {
   if (window.innerWidth < 768) {
     document.getElementById("calendar").scrollIntoView({
@@ -1604,6 +1604,7 @@ const monthObj = eventDataGlobal.find(m => m.month === months[currMonth]);
     });
   }
   });
+}
   	
 
 dropdownList.addEventListener("click", async function(e) {
