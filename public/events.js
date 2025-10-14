@@ -291,7 +291,7 @@ if ((!weekmarketGlobal || weekmarketGlobal == false) && startDate && endDate && 
 
 
 // Klicks auf Tage nur zulassen, wenn Create-Modus aktiv ist
-document.querySelectorAll(".days li").forEach(li => {
+/*document.querySelectorAll(".days li").forEach(li => {
   const day = parseInt(li.dataset.day, 10);
   if (!isNaN(day)) {
     li.addEventListener("click", () => {
@@ -304,7 +304,23 @@ document.querySelectorAll(".days li").forEach(li => {
       // createButtonActive = false;
     });
   }
+});*/
+// Nur einmal am Anfang setzen:
+document.querySelector(".days").addEventListener("click", (e) => {
+  const li = e.target.closest("li[data-day]");
+  if (!li) return;
+
+  const day = parseInt(li.dataset.day, 10);
+  if (isNaN(day)) return;
+
+  if (!createButtonActive && !isUpdate) {
+    console.warn("⚠️ Erst 'Create' klicken, um einen Tag zu wählen.");
+    return;
+  }
+
+  onDayClick(day);
 });
+
 
   
    
