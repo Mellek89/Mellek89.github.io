@@ -1820,18 +1820,25 @@ const monthObj = eventDataGlobal.find(m => m.month === months[currMonth]);
 
 
 	dropdownList.innerHTML = singleEvent;
+
 if (window.location.pathname.endsWith("/admin.html")) {
   dropdownList.addEventListener("click", function(e) {
-    if (e.target && e.target.classList.contains("update-btn")) {
-      if (window.innerWidth < 768) {
-        document.getElementById("calendar").scrollIntoView({
-          behavior: "smooth"
-        });
-      }
-      // ggf. weitere Logik hier
+    const btn = e.target.closest(".update-btn");
+    if (!btn) return; // Klick war nicht auf einen Update-Button
+isUpdate = true;
+    // optional: nur Buttons innerhalb des dropdowns
+    if (!dropdownList.contains(btn)) return;
+
+    // Scroll-Logik
+    if (window.innerWidth < 768) {
+      document.getElementById("calendar").scrollIntoView({ behavior: "smooth" });
     }
+
+    console.log("Update Button geklickt!", btn.dataset.id); // debug
+    
   });
 }
+
 
   	
 
