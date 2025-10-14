@@ -937,8 +937,8 @@ function mergeOrUpdateEvent(
   username,
   weekmarket,
   isUpdate,
-  opts = {}
-) {
+  opts = {},
+ isExistingWeekly = false) {
   // Hilfsfunktionen
   const toDate = o => new Date(Number(o.year), Number(o.month), Number(o.day));
   const addDateRangeToEvent = (event, startObj, endObj) => {
@@ -1054,10 +1054,16 @@ console.log("🧭 oldEnd:", oldEnd);
         event.dates.push({ day: tagString.day, month: tagString.month, year: tagString.year });
       }
     } else if (event.isWeekly && tagString) {
-      // Wöchentliche Events (push, falls nicht vorhanden)
-      if (!event.dates.some(d => d.day === tagString.day && d.month === tagString.month && d.year === tagString.year)) {
+    // Wöchentliche Events (push, falls nicht vorhanden)
+    if (isExistingWeekly) {
+        // Wochenmarkt existiert schon → nur Datum aktualisieren
+        const exists = event.dates.some(d => d.day === tagString.day && d.month === tagString.month && d.year === tagString.year);
+        if (!exists) {
+            event.dates.push(tagString);
+        }
+    } else {
+        // Neuer Wochenmarkt → Datum hinzufügen
         event.dates.push(tagString);
-      }
     }
 
     // Rename, falls nötig
@@ -1091,6 +1097,7 @@ console.log("🧭 oldEnd:", oldEnd);
 
   // Globale Daten zurückschreiben
   eventDataGlobal = eventData;
+  }
 }
 
 
@@ -1137,6 +1144,10 @@ async function speichernEvent(name, month, region, isWeekly, oldName = null, new
 
     let eventData = [...eventDataGlobal];
     let listofRegion = { ...listofRegionGlobal };
+
+    const existingWeeklyEvent = eventData.find(m => m[oldName || newName]);
+    const isExistingWeekly = existingWeeklyEvent?.isWeekly === true;
+
 
     // ggf. alte Daten sichern (wenn umbenannt wurde)
     let oldEventData = null;
@@ -1187,7 +1198,7 @@ if (!isWeekly && oldEventData?.isWeekly) {
 }
 
 
-    if (isWeekly) {
+    if (isWeekly ) {
         
         weekmarketGlobal = isWeekly;
         const { eventData: weeklyData, listofRegion: weeklyRegions } =
@@ -1212,9 +1223,10 @@ if (!isWeekly && oldEventData?.isWeekly) {
         }
     }
             weekMonth.events.forEach(evName => {
+               const isExistingWeekly = oldEventData?.isWeekly && oldName === evName;
                 weekMonth[evName].dates.forEach(d => {
-                    mergeOrUpdateEvent(monatObj, oldName, evName, d, username, true, true,opts);
-                });
+                    mergeOrUpdateEvent(monatObj, oldName, evName, d, username, true, true,opts,isExistingWeekly);
+                    });
             });
         });
     } else {
