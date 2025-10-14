@@ -506,19 +506,7 @@ header .chooseItem{
 
  }
  
-/*.dropdown-menu{
- display: block;
- min-width: 160px;
- z-index: 1;
 
- grid-row: 2;
- margin-bottom: 10%;
-
- text-align: center;
- 
-
- 
-}*/
 .dropdown-menu span{
 
   font-size: 110%;
@@ -640,7 +628,10 @@ font-size: 25px;
 }
 
 .slideshow-container {
-  margin-left: 1%;
+  width: 100%;
+       /* oder feste Höhe, z.B. 500px */
+  position: relative;
+  overflow: hidden;     /* versteckt überlaufende Inhalte */
 }
 .unterstrichen{
   border-bottom: 1px solid #ffeb3b; 
@@ -670,35 +661,32 @@ p,
 
   }
 
-   .Wagen1984Span img {
-    width: 120%;
-    margin-left: -2em;
-     max-width: 650px
-   }
-   .HolzhütteSpan img{
-    width: 120%;
-    margin-left: -2em;
-   }
 
-  .Wagen1978Text,
-  .ersterWagen,
-  .Wagen1984,
-  .Holzhütte,
-  .Speyer,
-  .Shoppegässle,
-  .DM,
-  .EU,
-  .EttlingenWeihnachtsmarkt,
-  .KarlsruheWeihnachtsmarkt,
-  .Hexenhaus,
-  .Hänger,
-  .WagenJan {
-    margin: 0em auto;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    text-align: center;
-    max-width: 700px; 
+.slide {
+  display: flex;              /* alle sichtbar */
+  flex-direction: column;
+  justify-content: center; /* Text oben, Bild darunter */
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: auto;               /* Höhe passt sich an Inhalt an */
+  padding: 1rem;
+  box-sizing: border-box;
+  margin-bottom: 2rem;        /* Abstand zwischen Slides */
+}
+
+.slide-bild {
+  max-width: 80%;             /* Bilder kleiner auf Mobil */
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0em auto;
+}
+  .slide.active {
+    display: flex;            /* aktuelle Slide sichtbar */
   }
+
+
   .Wagen1978Text{
     margin-top: 0;  
     padding: 1em;
@@ -751,6 +739,9 @@ p,
   .HängerBlock {
     grid-column: span 2;
   }
+
+  /* Mobile: Alle sichtbar */ @media (max-width: 1024px) { .Geschichte .slide { display: block !important; } .Geschichte .uns_prev { display: none !important; } .Geschichte .uns_next { display: none !important; } }
+
 
 
 
@@ -1038,7 +1029,7 @@ p,
 
 
 
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 769px) and (max-width: 1024px) {
   .formContainer {
     display: flex;              /* Flexbox aktivieren */
     flex-direction: column;     /* Inhalte untereinander */
@@ -1114,6 +1105,16 @@ p,
 dialog.modal::backdrop {
   background: rgba(0,0,0,0.5);
 }
+
+  .slide-bild {
+    max-width: 200px;         /* Bildgröße für Desktop */
+    margin-top: 1rem;
+  }
+
+  .uns_prev,
+  .uns_next {
+    display: block;           /* Navigation nur auf Desktop */
+  }
 
 
 
@@ -1308,73 +1309,6 @@ header .icons span:hover{
   grid-column: 3;
 }
 
-.slideEventcontainer{
-  position: absolute;
-  top:15%;
-  left:18%;
-}
-.slideshow{
-  display: none;
-  position: absolute; 
-  grid-column: 2/3;
-  background-color: black;
- top: 20%;
-  border: 2px solid #F0E801;
-  border-radius: 10px;
- width: 25%;
- right: 19%;
- cursor: pointer;
- color: #fff;
- 
- font-size: 20px;
- padding: 5%;
- }
- .slideshowHeadline{ 
-  position: relative;
-  color: #ffeb3b;
-  font-size: 200%;
-  left: 65%;
-  
-           
-  }
-
- .slideEvents{
-  position: absolute;
-  right: 2%;
-  display: inline-block;
-  position: relative;
-  width: 121%;
-  color: #fff;
-  padding: 5%;
-  font-size: 130%;
-
-  
- }
- .slideshowIcons{
-  position: absolute;
-  left: 15%;
-  z-index: 1;
-  top: 40%;
- }
-
- .slideshowIcons span{
-  cursor: default;
-  
- }
-
-  #slideNext{
-  position: relative;
-  left: 270%;
- }
- #slidePrev{
-  position: relative;
-  right: 61%;
-  
-  
- }
-
-
-
  .events {
   
   display: grid;
@@ -1425,8 +1359,15 @@ header .icons span:hover{
 
 .slide {
   display: none;
+   justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 80vh;
   
 }
+ .slide.active {
+    display: flex;
+  }
 
 .slide img {
   width: 100%;
@@ -1434,10 +1375,11 @@ header .icons span:hover{
   object-fit: contain;
   margin-bottom: 1em;
 }
+  .slide-bild {
+    max-width: 200px;
+  }
 
-.slide.active {
-  display: block;
-}
+
 
 .uns_prev,
 .uns_next {
@@ -1480,18 +1422,7 @@ header .icons span:hover{
 
 
 
-/* Mobile: Alle sichtbar */
-@media (max-width: 1024px) {
-  .Geschichte .slide {
-    display: block !important;
-  }
-   .Geschichte .uns_prev {
-    display: none !important;
-  }
-     .Geschichte .uns_next {
-    display: none !important;
-  }
-}
+
 .hUns{
   position: relative;
   color: #ffeb3b;
@@ -1639,7 +1570,6 @@ font-size: 25px;
   width: 100%;
   text-align: center;
 }
-
 
 
 
