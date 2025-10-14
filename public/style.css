@@ -676,7 +676,7 @@ p,
 }
 
 .slide-bild {
-  max-width: 80%;             /* Bilder kleiner auf Mobil */
+  max-width: 160px;             /* Bilder kleiner auf Mobil */
   width: 100%;
   height: auto;
   display: block;
@@ -1107,8 +1107,8 @@ dialog.modal::backdrop {
 }
 
   .slide-bild {
-    max-width: 200px;         /* Bildgröße für Desktop */
-    margin-top: 1rem;
+    max-width: 150px;         /* Bildgröße für Desktop */
+    margin-top: 2rem;
   }
 
   .uns_prev,
