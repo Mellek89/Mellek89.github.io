@@ -1751,13 +1751,12 @@ function showEvents(currMonth) {
     e.preventDefault();
     recurringDaysOfEvents.length = 0;
 
+    // ✅ Alle Items zurücksetzen und geklicktes Item markieren
+    menu.querySelectorAll(".dropdown-item.active").forEach(el => el.classList.remove("active"));
+    item.classList.add("active");
+
     const createBtn = document.getElementById("create");
     if (createBtn) createBtn.style.display = "block";
-
-    // Nur ein aktives Item markieren
-    menu.querySelectorAll(".dropdown-item").forEach(el => {
-      el.classList.toggle("active", el === item);
-    });
 
     // Eventdaten holen
     const a = await getData();
@@ -1780,6 +1779,7 @@ function showEvents(currMonth) {
     }
   });
 }
+
 
 
 
