@@ -1524,7 +1524,7 @@ datesOfEvents = monatObj[name].dates;
         // 🔹 Nach erfolgreichem Speichern: State sauber zurücksetzen
 oldName = null;
 oldEventData = null;
-isUpdate = false;
+//isUpdate = false;
 selectedStart = null;
 selectedEnd = null;
 weekmarketGlobal = false;
@@ -2085,7 +2085,9 @@ dropdownList.addEventListener("click", async function(e) {
  const btn = e.target.closest(".update-btn");
  
 
-     if (btn== true){isUpdate = true;// Klick war nicht auf einen Update-Button
+     if (btn){
+      isUpdate = true;// Klick war nicht auf einen Update-Button
+      console.log("Update Button geklicked!")
       
  
     // Scroll-Logik
