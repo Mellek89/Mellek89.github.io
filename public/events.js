@@ -1885,7 +1885,7 @@ async function getRegions(){
 		
 	}
 }
-async function loadRegionData(){
+async function loadRegionData(){ 
 	try {
 	 
     const data = await getData();  
