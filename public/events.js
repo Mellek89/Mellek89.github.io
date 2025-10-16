@@ -2085,8 +2085,8 @@ dropdownList.addEventListener("click", async function(e) {
  const btn = e.target.closest(".update-btn");
  
 
-     if (!btn) return; // Klick war nicht auf einen Update-Button
-      isUpdate = true;
+     if (btn== true){isUpdate = true;// Klick war nicht auf einen Update-Button
+      
  
     // Scroll-Logik
     if (window.innerWidth < 768) {
@@ -2094,6 +2094,8 @@ dropdownList.addEventListener("click", async function(e) {
     }
 
     console.log("Update Button geklickt!", btn.dataset.id); // debug
+  }
+
     const item = e.target.closest(".dropdown-item");
     const marktName = item.dataset.name;
     marktNameGlobal = marktName;
