@@ -1352,6 +1352,17 @@ if (!isWeekly && oldEventData?.isWeekly) {
         weekmarketGlobal = isWeekly;
         const { eventData: weeklyData, listofRegion: weeklyRegions } =
             await dateOfRecurringEvents(name, username, true,oldName, oldEventData);
+            // === direkt nach:
+
+if (oldName && oldName === name && oldEventData?.isWeekly) {
+ 
+  eventData.forEach(m => {
+    if (m[oldName] && Array.isArray(m[oldName].dates)) {
+      m[oldName].dates = [];
+    }
+  });
+}
+
 
         weeklyData.forEach(weekMonth => {
             let monatObj = eventData.find(m => m.month === weekMonth.month);
@@ -1508,6 +1519,16 @@ if (!monatObj[name]) {
 datesOfEvents = monatObj[name].dates;
 
         datesOfEvents = monatObj?.[name]?.dates || [];
+
+
+        // 🔹 Nach erfolgreichem Speichern: State sauber zurücksetzen
+oldName = null;
+oldEventData = null;
+isUpdate = false;
+selectedStart = null;
+selectedEnd = null;
+weekmarketGlobal = false;
+marktNameGlobal = null;
 
         await renderEvents();
         await showDropdownMenu(listofRegionGlobal, region);
@@ -1746,7 +1767,7 @@ function showEvents(currMonth) {
     const monatObj = eventDataGlobal.find(m => m.month === monatName);
     const marktName = item.dataset.name;
 
-    if (isUpdate) marktNameGlobal = marktName;
+    //if (isUpdate) marktNameGlobal = marktName;
 
     if (monatObj && monatObj[marktName]) {
       weekmarketGlobal = monatObj[marktName].isWeekly;
@@ -2053,33 +2074,29 @@ const monthObj = eventDataGlobal.find(m => m.month === months[currMonth]);
 
 	dropdownList.innerHTML = singleEvent;
 
-if (window.location.pathname.endsWith("/admin.html")) {
-  dropdownList.addEventListener("click", function(e) {
-    const btn = e.target.closest(".update-btn");
-    if (!btn) return; // Klick war nicht auf einen Update-Button
-isUpdate = true;
-    // optional: nur Buttons innerhalb des dropdowns
-    if (!dropdownList.contains(btn)) return;
+/*if (window.location.pathname.endsWith("/admin.html")) {
 
+}*/
+
+
+  	
+
+dropdownList.addEventListener("click", async function(e) {
+ const btn = e.target.closest(".update-btn");
+ 
+
+     if (!btn) return; // Klick war nicht auf einen Update-Button
+      isUpdate = true;
+ 
     // Scroll-Logik
     if (window.innerWidth < 768) {
       document.getElementById("calendar").scrollIntoView({ behavior: "smooth" });
     }
 
     console.log("Update Button geklickt!", btn.dataset.id); // debug
-    
-  });
-}
-
-
-  	
-
-dropdownList.addEventListener("click", async function(e) {
-
     const item = e.target.closest(".dropdown-item");
     const marktName = item.dataset.name;
-
-    
+    marktNameGlobal = marktName;
 
 if (window.location.pathname.endsWith("/admin.html")){
    noneFormAttributes();
@@ -2089,12 +2106,6 @@ if (window.location.pathname.endsWith("/admin.html")){
       }
     // Formular mit Eventnamen füllen
     document.getElementById("eventname").value = marktName;
-
-   
-     
-
-  
-   
 
     // Daten laden & normalisieren
     await loadEvents();
@@ -2139,11 +2150,6 @@ function getOldRange(datesArray = [], refYear) {
   parsed.sort((a,b) => a - b);
   return { start: parsed[0], end: parsed[parsed.length - 1] };
 }
-
-
-
-
-
 
       const startDate = new Date(
   selectedStart.year,
