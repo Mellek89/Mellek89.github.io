@@ -1160,17 +1160,7 @@ function mergeOrUpdateEvent(
         .map(d => ({ day: d.day, month: d.month, year: d.year }));
     }
 
-    // Einzel-Event: alte Termine löschen, neue hinzufügen
-   /* const { oldStart, oldEnd } = opts;
-    if (!event.isWeekly && isUpdate && oldStart && oldEnd && !isExistingWeekly) {
-      const startDate = new Date(oldStart.year, oldStart.month, oldStart.day);
-      const endDate = new Date(oldEnd.year, oldEnd.month, oldEnd.day);
-      event.dates = event.dates.filter(d => {
-        if (!d) return false;
-        const date = new Date(d.year, d.month, d.day);
-        return date < startDate || date > endDate;
-      });
-    }*/
+   
 
   if (!event.isWeekly && tagString) {
   const exists = event.dates.some(d =>
@@ -1255,6 +1245,9 @@ function parseDate(d, fallbackYear) {
 
 async function speichernEvent(name, month, region, isWeekly, oldName = null, newStart, newEnd) {
  console.log("speichern aufgerufen");
+ if (!isUpdate) {
+  oldName = null;
+}
 
     const token = localStorage.getItem("jwt");
     if (!token) {
