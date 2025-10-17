@@ -183,6 +183,7 @@ function onDayClick(day) {
 }
 // 👉 kleine Hilfsfunktion
 function resetEventState() {
+  isUpdate = false;
   eventId = '';
   selectedStart = null;
   selectedEnd = null;
