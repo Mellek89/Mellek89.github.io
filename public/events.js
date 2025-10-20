@@ -183,6 +183,9 @@ function onDayClick(day) {
 }
 // 👉 kleine Hilfsfunktion
 function resetEventState() {
+  //oldName = null; in create setzen
+
+marktNameGlobal = null;
   isUpdate = false;
   eventId = '';
   selectedStart = null;
@@ -901,6 +904,9 @@ async function speichernEvent(name, month, region, isWeekly, oldName = null, new
   oldName = null;
 }
 
+
+
+
     const token = localStorage.getItem("jwt");
     if (!token) {
         console.error("❌ Kein Token gefunden, bitte einloggen!");
@@ -943,10 +949,11 @@ async function speichernEvent(name, month, region, isWeekly, oldName = null, new
         for (const monat of eventData) {
             if (monat[oldName]) {
                 oldEventData = JSON.parse(JSON.stringify(monat[oldName]));
-                break;
+               
             }
         }
     }
+
     // Existiert dieses Event bereits in irgendeinem Monat?
 const existingWeeklyEvent = eventData
   .map(m => m[oldName || name])
@@ -1035,18 +1042,44 @@ if (oldName && oldName === name && oldEventData?.isWeekly) {
             });
         });
     } else {
-      // Nur alte Termine des Einzel-Events löschen, wenn sich der Zeitraum geändert hat
-if (!isWeekly && oldEventData && oldStart && oldEnd && (changeType === "start" || changeType === "end")) {
+
+if (!isWeekly && oldName) {
+  // Alte Termine des Einzel-Events komplett löschen
   eventData.forEach(monat => {
-    const e = monat[name];
-    if (e && !e.isWeekly) {
-      e.dates = e.dates.filter(d => {
-        const date = new Date(d.year, d.month, d.day);
-        return date < oldStart || date > oldEnd;
-      });
+    const e = monat[oldName];
+    if (e && !e.isWeekly && Array.isArray(e.dates)) {
+      e.dates = [];
     }
   });
+
+  // Neues Datum eintragen
+  const monthName = months[newStart.getMonth()];
+  let monatObj = eventData.find(m => m.month === monthName);
+  if (!monatObj) {
+    monatObj = { month: monthName, events: [] };
+    eventData.push(monatObj);
+  }
+
+  if (!monatObj[oldName]) {
+    monatObj[oldName] = {
+      dates: [],
+      owner: username,
+      isWeekly: false
+    };
+    if (!monatObj.events.includes(oldName)) monatObj.events.push(oldName);
+  }
+
+  monatObj[oldName].dates.push({
+    day: newStart.getDate(),
+    month: newStart.getMonth(),
+    year: newStart.getFullYear()
+  });
 }
+
+
+
+
+
 
       
         //  normale Events → Zeitraum durchlaufen
@@ -1167,13 +1200,7 @@ datesOfEvents = monatObj[name].dates;
 
 
         // 🔹 Nach erfolgreichem Speichern: State sauber zurücksetzen
-oldName = null;
-oldEventData = null;
-//isUpdate = false;
-selectedStart = null;
-selectedEnd = null;
-weekmarketGlobal = false;
-marktNameGlobal = null;
+
 
         await renderEvents();
         await showDropdownMenu(listofRegionGlobal, region);
@@ -1211,46 +1238,52 @@ async function loeschenEvent(name, region) {
         return;
     }
 
-    // 🔹 Monat finden
-    const monatObj = eventData.find(m => Array.isArray(m.events) && m.events.includes(name));
-    if (!monatObj) {
+    // 🔹 Alle Monate sammeln, die dieses Event enthalten
+    const monateMitEvent = eventData.filter(m => Array.isArray(m.events) && m.events.includes(name));
+    if (monateMitEvent.length === 0) {
         console.warn(`⚠️ Event "${name}" nicht gefunden!`);
         return;
     }
 
-    // 🔹 Payload nur für dieses Event
-    const payload = {
-        month: monatObj.month,
-        eventName: name
-    };
-   
-
     try {
-        const response = await fetch('/delete-event', {  
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-            body: JSON.stringify(payload)
+        // 🔹 Server-Payload vorbereiten: alle Monate auf einmal oder einzeln
+        for (const monatObj of monateMitEvent) {
+            const payload = {
+                month: monatObj.month,
+                eventName: name
+            };
+
+            const response = await fetch('/delete-event', {  
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify(payload)
+            });
+
+            if (!response.ok) throw new Error(`Server-Fehler: ${response.status}`);
+        }
+
+        // 🔹 Lokale Daten: Event in allen Monaten löschen
+        eventData.forEach(monat => {
+            if (Array.isArray(monat.events) && monat.events.includes(name)) {
+                monat.events = monat.events.filter(ev => ev !== name);
+                if (monat[name]) delete monat[name];
+            }
         });
-        if (!response.ok) throw new Error(`Server-Fehler: ${response.status}`);
-        const data = await response.json();
-      
 
-        // 🔹 Lokale Daten anpassen
-        monatObj.events = monatObj.events.filter(ev => ev !== name);
-        delete monatObj[name];
-
+        // 🔹 Regionsliste bereinigen
         if (region && listofRegion[region] && Array.isArray(listofRegion[region].regions)) {
             listofRegion[region].regions = listofRegion[region].regions.filter(ev => ev !== name);
             if (listofRegion[region].regions.length === 0) delete listofRegion[region];
         }
 
+        // 🔹 Globale Daten setzen
         eventDataGlobal = eventData;
         listofRegionGlobal = listofRegion;
 
-        // 🔹 UI aktualisieren
+        // 🔹 UI zurücksetzen
         period = '';
         selectedStart = null;
         selectedEnd = null;
@@ -1269,6 +1302,7 @@ async function loeschenEvent(name, region) {
         console.error('❌ Fehler beim Löschen:', error);
     }
 }
+
 
 
 
