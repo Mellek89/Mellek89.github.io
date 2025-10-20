@@ -1307,6 +1307,8 @@ header .icons span:hover{
 }
 .dropdown-menu{
   grid-column: 3;
+ grid-row: 2;
+ 
 }
 
  .events {
