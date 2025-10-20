@@ -1229,47 +1229,60 @@ function checkEventConsistency(eventData) {
 }
 async function loeschenEvent(name, region) {
     await loadRegionData();
-    let eventData = [...eventDataGlobal];
-    let listofRegion = { ...listofRegionGlobal };
-
     const token = localStorage.getItem("jwt");
     if (!token) {
         console.error("❌ Kein Token gefunden, bitte einloggen!");
         return;
     }
 
-    // 🔹 Alle Monate sammeln, die dieses Event enthalten
-    const monateMitEvent = eventData.filter(m => Array.isArray(m.events) && m.events.includes(name));
+    // 🔹 Kopien der globalen Daten
+    let eventData = [...eventDataGlobal];
+    let listofRegion = { ...listofRegionGlobal };
+
+    // 🔹 Alle Monate, die dieses Event enthalten
+    const monateMitEvent = eventData.filter(m => m[name]); // Direkt auf Eventobjekt prüfen
+
     if (monateMitEvent.length === 0) {
         console.warn(`⚠️ Event "${name}" nicht gefunden!`);
         return;
     }
 
     try {
-        // 🔹 Server-Payload vorbereiten: alle Monate auf einmal oder einzeln
-        for (const monatObj of monateMitEvent) {
-            const payload = {
-                month: monatObj.month,
-                eventName: name
-            };
+        // 🔹 Server-Requests parallel
+        await Promise.all(monateMitEvent.map(async (monatObj) => {
+            const payload = { month: monatObj.month, eventName: name };
+            try {
+                const res = await fetch('/delete-event', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify(payload)
+                });
+                if (!res.ok) {
+                    console.warn(`Server-Fehler für ${monatObj.month}: ${res.status}`);
+                }
+            } catch (error) {
+                console.error(`❌ Fehler beim Löschen von ${monatObj.month}:`, error);
+            }
+        }));
 
-            const response = await fetch('/delete-event', {  
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                },
-                body: JSON.stringify(payload)
-            });
-
-            if (!response.ok) throw new Error(`Server-Fehler: ${response.status}`);
-        }
-
-        // 🔹 Lokale Daten: Event in allen Monaten löschen
+        // 🔹 Lokale Daten aktualisieren
         eventData.forEach(monat => {
-            if (Array.isArray(monat.events) && monat.events.includes(name)) {
-                monat.events = monat.events.filter(ev => ev !== name);
-                if (monat[name]) delete monat[name];
+            const e = monat[name];
+            if (e) {
+                // Wochenmärkte: global löschen
+                if (e.isWeekly) {
+                    delete monat[name];
+                    monat.events = monat.events.filter(ev => ev !== name);
+                } else {
+                    // Normale Events: nur aus dem aktuellen Monat löschen
+                    if (monat.events.includes(name)) {
+                        delete monat[name];
+                        monat.events = monat.events.filter(ev => ev !== name);
+                    }
+                }
             }
         });
 
@@ -1283,7 +1296,7 @@ async function loeschenEvent(name, region) {
         eventDataGlobal = eventData;
         listofRegionGlobal = listofRegion;
 
-        // 🔹 UI zurücksetzen
+        // 🔹 UI aktualisieren
         period = '';
         selectedStart = null;
         selectedEnd = null;
@@ -1302,6 +1315,7 @@ async function loeschenEvent(name, region) {
         console.error('❌ Fehler beim Löschen:', error);
     }
 }
+
 
 
 
