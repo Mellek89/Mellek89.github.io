@@ -13,6 +13,9 @@ html, body {
   box-sizing: border-box;
   font-family: 'Poppins', 'san-serifs'}
 
+ 
+
+
 .hidden {
   display: none !important;
 }
@@ -106,12 +109,15 @@ img {
         
           
         }
+
         header .icons span{
           position: relative;
           left: 20%;
           cursor: default;
           border-radius: 50%;
         }
+
+
       
         .nav{
           display: flow-root;
@@ -873,8 +879,7 @@ p,
 /*****Create and update Events*****/
 .regionsAdmin{
  font-size: 1.3em;
-    margin-top: -5%;
-    margin-bottom: 10%;
+ 
 
 }
 
@@ -970,6 +975,8 @@ p,
     cursor: pointer;
     font-size: 1rem;
     width: 2em;
+    grid-column: 1/5;
+    
 
   }
 
@@ -1107,7 +1114,7 @@ dialog.modal::backdrop {
 }
 
   .slide-bild {
-    max-width: 150px;         /* Bildgröße für Desktop */
+    max-width: 190px;         /* Bildgröße für Desktop */
     margin-top: 2rem;
   }
 
@@ -1157,7 +1164,7 @@ grid-template-columns: repeat(4, 1fr);
 grid-auto-rows: minmax(100px, auto);
 
 }
-/* .container .main.hidden { display: none; }*/
+
 .container .footer {
 
  bottom: 0px;
@@ -1420,7 +1427,11 @@ header .icons span:hover{
   margin: 0 auto; /* Container mittig */
   align-items: start; /* Inhalte oben ausrichten */
 }
-
+.inputEvents,
+.calendar,
+.period {
+  align-self: start; /* sorgt dafür, dass alle oben bündig sind */
+}
 
 
 
@@ -1554,13 +1565,6 @@ header .icons span:hover{
 
 
 }
-.inputEvents {
-
-  align-self: start; /* ebenfalls oben ausrichten */
-  margin-top: 7em;
-  
-  grid-column: 1;
-}
 
 .hAdmin{
   grid-column: 1/5;
@@ -1572,418 +1576,6 @@ font-size: 25px;
   width: 100%;
   text-align: center;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

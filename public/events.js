@@ -1627,276 +1627,119 @@ function regionExistsInList(eventName,regionObj) {
     regionObj.regions.includes(eventName)
  
 }
-async function showDropdownMenu(listofRegion,regionName){
-
-
- if (typeof listofRegion !== 'object' || listofRegion === null || Array.isArray(listofRegion)) {
+async function showDropdownMenu(listofRegion, regionName) {
+    if (typeof listofRegion !== 'object' || listofRegion === null || Array.isArray(listofRegion)) {
         console.error("❌ Fehler: listofRegion ist kein gültiges Objekt:", listofRegion);
-		 alert(`⚠️ Für diese Region existiert noch kein Eintrag.`);
+        alert(`⚠️ Für diese Region existiert noch kein Eintrag.`);
         return;
-}
-	const regionData = listofRegion[regionName];
-if(selectedStart == null){
-   if (!regionData || !Array.isArray(regionData.regions)) {
+    }
+
+    const regionData = listofRegion[regionName];
+    if (selectedStart == null && (!regionData || !Array.isArray(regionData.regions))) {
         console.warn(`⚠️ Region "${regionName}" enthält keine Events oder Wochenmärkte.`);
-        //alert(`⚠️ Diese Region enthält keine Events oder Wochenmärkte.`);
-
-         // ✅ Menü zurücksetzen
-            let dropdownList = document.querySelector(".dropdown-menu");
-            dropdownList.innerHTML = "";
+        document.querySelector(".dropdown-menu").innerHTML = "";
         return;
     }
-  }
 
-   
+    const renderDropdown = () => {
+        const dropdownList = document.querySelector(".dropdown-menu");
+        dropdownList.innerHTML = ""; // immer leeren
+        let singleEvent = "";
 
-  
+        const currMonthName = months[currMonth];
+        const monthObj = eventDataGlobal.find(m => m.month === currMonthName);
+        if (!monthObj) return;
 
-	
-	let dropdownList = document.querySelector(".dropdown-menu");
-	 dropdownList.innerHTML = ""; // immer leeren
-		let singleEvent = "";
+        const actualEvents = monthObj.events.filter(evName => regionData.regions.includes(evName));
 
-  for (let y = 0; y < eventDataGlobal.length; y++) {
-  if (months[currMonth] === eventDataGlobal[y].month) {
-    const monthObj = eventDataGlobal[y];
+        actualEvents.forEach(marktName => {
+            const evObj = monthObj[marktName];
+            if (!evObj || !Array.isArray(evObj.dates) || evObj.dates.length === 0) return;
 
-    // alle Events dieses Monats durchgehen
-    monthObj.events.forEach(eventName => {
-      const evObj = monthObj[eventName];
-      
-    });
+            const displayName = marktName;
+            // 🔹 Aktiv-Status anhand globaler Variable
+            const isActive = (eventId === marktName) ? "active" : "";
 
-    break;
-  }
+            const owner = evObj.owner || null;
+            const currentOwner = localStorage.getItem("currentOwner");
+            const isOwner = owner === currentOwner || currentOwner === "admin";
+
+            singleEvent += `
+                <div class="dropdown-item ${isActive}"
+                     data-name="${marktName}"
+                     style="display:flex; justify-content:space-between; align-items:center; padding:4px 8px;">
+                    <span class="name">${displayName}</span>`;
+
+            if (window.location.pathname.endsWith("admin.html") && isOwner) {
+                singleEvent += `
+                    <div style="display:flex; gap:6px;">
+                        
+<button type="button" class="update-btn" title="Bearbeiten" aria-label="Bearbeiten"
+                                style="background:#4CAF50; border:none; color:white; padding:4px 6px; border-radius:4px; cursor:pointer;">✎</button>
+                        <button type="button" class="delete-btn" title="Löschen" aria-label="Löschen"
+                                style="background:#f44336; border:none; color:white; padding:4px 6px; border-radius:4px; cursor:pointer;">🗑</button>
+
+                       
+                    </div>`;
+            }
+
+            singleEvent += `</div>`;
+        });
+
+        dropdownList.innerHTML = singleEvent;
+
+        // 🔹 Event Listener
+        dropdownList.addEventListener("click", async (e) => {
+            const item = e.target.closest(".dropdown-item");
+            if (!item) return;
+
+            // 🔹 Setze globale Event-Variable → bleibt aktiv
+            eventId = item.dataset.name;
+            renderDropdown(); // sofort neu rendern, damit active-Klasse übernommen wird
+
+            if (e.target.classList.contains("update-btn")) {
+                await handleUpdateClick(eventId);
+            } else if (e.target.classList.contains("delete-btn")) {
+                const isWeekly = item.dataset.weekly === "true";
+                showDeleteConfirmation(regionName, eventId, currMonth, currYear, isWeekly);
+            }
+        });
+    };
+
+    renderDropdown();
 }
-		if(actualEvents.length != 0){
-	   // --- Wochenmärkte der Region hinzufügen ---
-   if (Array.isArray(actualEvents) && actualEvents.length) {
-    for (const marktName of regionData.regions) {
-      const monthObj = eventDataGlobal.find(m => m.month === months[currMonth]);
-      const evObj = monthObj?.[marktName];
-      if (actualEvents.includes(marktName) && evObj.dates.length >0) {
-         const displayName = marktName; 
 
-
-        // EIN Wrapper, Buttons darin; name zusätzlich als data-Attribut
-        const isActive = (window.location.pathname.endsWith("admin.html") && eventId === marktName ) ? "active" : "";
-const monthObj = eventDataGlobal.find(m => m.month === months[currMonth]);
-// ➜ Owner für diesen Markt im aktuellen Monat auslesen
-    const owner = monthObj[marktName]?.owner || null;
-   
-
-        // Wenn du den aktuell eingeloggten User prüfen willst:
-    const currentOwner = localStorage.getItem("currentOwner"); // z.B. aus Login
-    const isOwner = owner === currentOwner;
-
-        singleEvent += `
-           <div class="dropdown-item ${isActive}"
-               data-name="${marktName}"
-               style="display:flex; justify-content:space-between; align-items:center; padding:4px 8px; ">
-            <span class="name">${displayName}</span>`
-        if (window.location.pathname.endsWith("admin.html") && (isOwner || (currentOwner == "admin"))) {
-
-             singleEvent += `<div style="display:flex; gap:6px;">
-              <button type="button" class="update-btn" id="update-btn" title="Bearbeiten" aria-label="Bearbeiten"
-                      style="background:#4CAF50; border:none; color:white; padding:4px 6px; border-radius:4px; cursor:pointer;">✎</button>
-              <button type="button" class="delete-btn" title="Löschen" aria-label="Löschen"
-                      style="background:#f44336; border:none; color:white; padding:4px 6px; border-radius:4px; cursor:pointer;">🗑</button>
-            </div>
-          `;
-        }
-           singleEvent += `</div>`;
-      }
-    }
-  }
-}
-
-
-	dropdownList.innerHTML = singleEvent;
-
-/*if (window.location.pathname.endsWith("/admin.html")) {
-
-}*/
-
-
-  	
-
-dropdownList.addEventListener("click", async function(e) {
- const btn = e.target.closest(".update-btn");
- 
-
-     if (btn){
-      isUpdate = true;// Klick war nicht auf einen Update-Button
-      console.log("Update Button geklicked!")
-      
- 
-    // Scroll-Logik
-    if (window.innerWidth < 768) {
-      document.getElementById("calendar").scrollIntoView({ behavior: "smooth" });
-    }
-
-    console.log("Update Button geklickt!", btn.dataset.id); // debug
-  }
-
-    const item = e.target.closest(".dropdown-item");
-    const marktName = item.dataset.name;
-    marktNameGlobal = marktName;
-
-if (window.location.pathname.endsWith("/admin.html")){
-   noneFormAttributes();
+// 🔹 Hilfsfunktion für Update-Klick
+async function handleUpdateClick(marktName) {
+    isUpdate = true;
+    noneFormAttributes();
     let period = document.getElementById("period");
-      if(period){
-      period.style.display = "block";
-      }
-    // Formular mit Eventnamen füllen
+    if (period) period.style.display = "block";
     document.getElementById("eventname").value = marktName;
 
-    // Daten laden & normalisieren
     await loadEvents();
 
-    // Monatsdaten holen
     const monatName = getMonatsname(currMonth + 1);
     const monatObj = eventDataGlobal.find(m => m.month === monatName);
+    if (!monatObj) return;
 
-    if (!monatObj) {
-      console.warn("Kein Monatsobjekt gefunden:", monatName);
-      return;
+    const eventObj = monatObj[marktName];
+    if (!eventObj) return;
+
+    const startDate = parseDate(eventObj.dates[0]);
+    const endDate = parseDate(eventObj.dates[eventObj.dates.length - 1]);
+
+    let zeitraum = "";
+    if (startDate.getTime && endDate.getTime) {
+        if (startDate.getTime() === endDate.getTime()) {
+            zeitraum = `${startDate.day}.${startDate.month + 1}.${startDate.year}`;
+        } else {
+            zeitraum = `${startDate.day}.${startDate.month + 1}.${startDate.year} - ${endDate.day}.${endDate.month + 1}.${endDate.year}`;
+        }
     }
 
-
-   
-    let zeitraum = "";
- let alleTermine = [];
-
-for (const m of eventDataGlobal) {
-  if (m.events?.includes(marktName) && m[marktName]?.dates) {
-    alleTermine = alleTermine.concat(m[marktName].dates);
-  }
+    document.getElementById("eventTemp").innerHTML = `<span><strong>Zeitraum: </strong></span>` + zeitraum;
 }
-
-// Jetzt die früheste und späteste Datumsangabe finden
-if (alleTermine.length > 0) {
-  // chronologisch sortieren
-  alleTermine.sort((a,b)=>{
-    const da = parseDate(a);
-    const db = parseDate(b);
-    return new Date(da.year, da.month, da.day) - new Date(db.year, db.month, db.day);
-  });
-
-  selectedStart = parseDate(alleTermine[0]);
-  selectedEnd   = parseDate(alleTermine[alleTermine.length - 1]);
-}
-function getOldRange(datesArray = [], refYear) {
-  const parsed = datesArray
-    .map(d => parseDate(d, refYear))
-    .map(p => new Date(p.year, p.month, p.day));
-  if (!parsed.length) return { start: null, end: null };
-  parsed.sort((a,b) => a - b);
-  return { start: parsed[0], end: parsed[parsed.length - 1] };
-}
-
-      const startDate = new Date(
-  selectedStart.year,
-  selectedStart.month,
-  selectedStart.day
-);
-const endDate = new Date(
-  selectedEnd.year,
-  selectedEnd.month,
-  selectedEnd.day
-);
-
-
-   if(isUpdate && isUpdate== true){
-      const monatName = getMonatsname(currMonth + 1);
-      let monatObj = eventDataGlobal.find(m => m.month === monatName);
-      let eventObj =monatObj[marktNameGlobal];
-      const finalName =  marktNameGlobal;
-      if (!monatObj) {
-        console.warn("Kein Monatsobjekt gefunden:", monatName);
-        return;
-      }
-     
-       const endOfArray   = eventObj.dates[eventObj.dates.length - 1];
-      
-
-       zeitraum = `${eventObj.dates[0].day}. ${eventObj.dates[0].month+1}` + 
-      (endOfArray ?` - ${endOfArray.day}. ${endOfArray.month+1}.` : '' ) +
-        `(${currYear})`;
-
-       
-
-
-    }else{
-          if (endDate.getTime() === startDate.getTime()) {
-            // ein einzelner Tag
-            zeitraum = `${startDate.getDate()}.${startDate.getMonth() + 1}.${startDate.getFullYear()}`;
-          } else if(weekmarket == true){
-        
-
-          }else {
-            // Zeitraum – Start und Ende jeweils mit eigenem Monat & Jahr
-            zeitraum =
-              `${startDate.getDate()}.${startDate.getMonth() + 1}.${startDate.getFullYear()} - ` +
-              `${endDate.getDate()}.${endDate.getMonth() + 1}.${endDate.getFullYear()}`;
-          }
-        }
-
-    
-  
-
-    // Zeitraum ins Formular schreiben
-    document.getElementById("eventTemp").innerHTML = `<span><strong>Zeitraum: </strong></span>`+ zeitraum;
-
-    if (e.target.classList.contains("update-btn")) {
-        getFormAttributes();
-
-  } else if (e.target.classList.contains("delete-btn")) {
-    const regionDel = region || null;  // falls du Region als data-Attr mitgibst
-    const isWeekly = item.dataset.weekly === "true"; // Beispiel für boolean-Flag
-    showDeleteConfirmation(region, marktName, currMonth, currYear, isWeekly);
-  }
-  }
-});
-
-
-	// Wait one frame to allow layout update
-	await new Promise(requestAnimationFrame);
-
-	const height = dropdownList.getBoundingClientRect().height;
-	
-
-	const calendar = document.querySelector(".calendar");
-	let positionOfCalendar = calendar.getBoundingClientRect();
-	const percentTop = (positionOfCalendar.top / window.innerHeight) * 100;
-	const isMobile = window.matchMedia("(max-width: 768px)").matches;
-
-
-
-	if (isMobile) {
-		let newTop;
-  
-		if(height > 253){
-			newTop = 10;
-			
-		}
-		else if (height > 157 && height <= 252){
-			newTop = 8;
-			
-
-		}else if (height > 252 && height <= 253){
-			newTop = 15;
-	
-		}
-		 // Apply style with !important to override CSS
-		 calendar.style.setProperty("position", "relative", "important");
-		 calendar.style.setProperty("top", newTop + "%", "important");
-	}
-
-}
-
-
 
 
 prevNextIcon.forEach(icon => {
