@@ -1695,6 +1695,10 @@ async function showDropdownMenu(listofRegion, regionName) {
 
         // 3️⃣ Prüfen ob Update oder Delete
         if (e.target.closest(".update-btn")) {
+
+          if (window.innerWidth < 768) {
+                    document.getElementById("calendar").scrollIntoView({ behavior: "smooth" });
+                }
             isUpdate = true;
             noneFormAttributes();
             const period = document.getElementById("period");
