@@ -210,14 +210,7 @@ if (!token) {
 
 let createButtonActive = false;
 
-// 🟢 Nur einmal definieren, außerhalb von renderCalendar()
-/*document.addEventListener("click", (e) => {
-  if (e.target && e.target.id === "create") {
-    createButtonActive = true;
-    console.log("✳️ Create-Modus aktiviert");
-    
-  }
-});*/
+
 const renderCalendar = () => {
     const firstDateOfMonth = new Date(currYear, currMonth, 1).getDay();
     const lastDateOfMonth = new Date(currYear, currMonth + 1, 0).getDate();
@@ -417,6 +410,8 @@ async function ladeDatenFürRegion(region) {
 
   if (!regionData) {
     console.warn(`❌ Keine Daten für Region "${region}" gefunden.`);
+      // 🔹 Benutzerfreundliche Meldung im Dropdown anzeigen:
+
     showDropdownMenu({}, region); // leeres Objekt anzeigen
     return;
   } 
@@ -1497,8 +1492,8 @@ async function getRegions(){
 			await loadRegionData();
 		 if (!listofRegionGlobal[currentRegion]) {
             console.warn(`Region "${currentRegion}" nicht gefunden.`);
-            navigateToRegionDisplay();
-            return;
+            //navigateToRegionDisplay();
+           // return;
           }
 			selectRegions(currentRegion);
 			// ✅ Sicherstellen, dass Events erst dann geladen und angezeigt werden
@@ -1616,28 +1611,48 @@ function regionExistsInList(eventName,regionObj) {
  
 }
 async function showDropdownMenu(listofRegion, regionName) {
+
+     const dropdownList = document.querySelector(".dropdown-menu");
+    dropdownList.innerHTML = ""; // immer leeren
     if (typeof listofRegion !== 'object' || listofRegion === null || Array.isArray(listofRegion)) {
         console.error("❌ Fehler: listofRegion ist kein gültiges Objekt:", listofRegion);
         alert(`⚠️ Für diese Region existiert noch kein Eintrag.`);
         return;
     }
 
-    const regionData = listofRegion[regionName];
+   const regionData = listofRegion[regionName];
     if (!regionData || !Array.isArray(regionData.regions)) {
         console.warn(`⚠️ Region "${regionName}" enthält keine Events oder Wochenmärkte.`);
-        document.querySelector(".dropdown-menu").innerHTML = "";
+        dropdownList.innerHTML = `
+            <div class="dropdown-item" style="text-align:center; color:#999;">
+                ⚠️ Für diese Region wurden noch keine Termine eingetragen.
+            </div>
+        `;
         return;
     }
 
-    const dropdownList = document.querySelector(".dropdown-menu");
-    dropdownList.innerHTML = ""; // immer leeren
+ 
 
     const currMonthName = months[currMonth];
     const monthObj = eventDataGlobal.find(m => m.month === currMonthName);
-    if (!monthObj) return;
+    if (!monthObj) { dropdownList.innerHTML = `
+            <div class="dropdown-item" style="text-align:center; color:#999;">
+                ⚠️ Für diesen Monat gibt es noch keine Veranstaltungen.
+            </div>
+        `;
+        return;
+    }
 
     const actualEvents = monthObj.events.filter(evName => regionData.regions.includes(evName));
-    if (!actualEvents.length) return;
+    if (!actualEvents.length){dropdownList.innerHTML = `
+        <div class="dropdown-item" style="text-align:center; color:#999;">
+            ⚠️ Für diese Region wurden noch keine Termine im aktuellen Monat eingetragen.
+        </div>
+    `;
+   return;
+  }
+      
+     
 
     // 🔹 Dropdown Items erzeugen
     actualEvents.forEach(marktName => {
