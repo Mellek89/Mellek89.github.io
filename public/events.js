@@ -193,6 +193,9 @@ marktNameGlobal = null;
   period = '';
   document.getElementById('eventTemp').innerHTML = period; // Zeitraum leeren
   document.getElementById('eventname').value = period; // Eventname leeren
+   datesOfEvents = [];
+
+  renderCalendar();
 }
 
 if (window.location.pathname.endsWith("admin.html")){
@@ -208,12 +211,13 @@ if (!token) {
 let createButtonActive = false;
 
 // 🟢 Nur einmal definieren, außerhalb von renderCalendar()
-document.addEventListener("click", (e) => {
+/*document.addEventListener("click", (e) => {
   if (e.target && e.target.id === "create") {
     createButtonActive = true;
     console.log("✳️ Create-Modus aktiviert");
+    
   }
-});
+});*/
 const renderCalendar = () => {
     const firstDateOfMonth = new Date(currYear, currMonth, 1).getDay();
     const lastDateOfMonth = new Date(currYear, currMonth + 1, 0).getDate();
@@ -291,21 +295,6 @@ if ((!weekmarketGlobal || weekmarketGlobal == false) && startDate && endDate && 
     daysTag.innerHTML = liTag;
 
 
-/* Nur einmal am Anfang setzen:
-document.querySelector(".days").addEventListener("click", (e) => {
-  const li = e.target.closest("li[data-day]");
-  if (!li) return;
-
-  const day = parseInt(li.dataset.day, 10);
-  if (isNaN(day)) return;
-
-  if (!createButtonActive && !isUpdate) {
-    console.warn("⚠️ Erst 'Create' klicken, um einen Tag zu wählen.");
-    return;
-  }
-
-  onDayClick(day);
-});*/
 if (!window.daysClickBound) {
   document.querySelector(".days").addEventListener("click", (e) => {
     const li = e.target.closest("li[data-day]");
@@ -470,7 +459,7 @@ oberrhein.addEventListener('change', async () => {
 
       try {
         await ladeDatenFürRegion(region);  // lädt Daten + baut Dropdown
-        //renderCalendar();                  // danach Kalender zeichnen
+        
       } catch (err) {
         console.error("❌ Fehler beim Laden der Oberrhein-Daten:", err);
       }
@@ -511,7 +500,7 @@ mittelrhein.addEventListener('change', async () => {
 
           try {
             await ladeDatenFürRegion(region);  // lädt Daten + baut Dropdown
-          // renderCalendar();
+         
           } catch (err) {
             console.error("❌ Fehler beim Laden der Mittelrhein-Daten:", err);
           }
@@ -1594,15 +1583,14 @@ function normalizeEventData(eventData, year) {
 
 if(window.location.pathname.endsWith("admin.html")){
   const create = document.getElementById("create");
+
    create.addEventListener( "click", e => {
-     
+    console.log("create button geklickt!");
+     createButtonActive = true;
       e.preventDefault(); 
       resetEventState();
       getFormAttributes();
   
-  
-
-
    });
    renderCalendar();
 }
