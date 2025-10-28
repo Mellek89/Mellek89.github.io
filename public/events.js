@@ -1666,7 +1666,7 @@ async function showDropdownMenu(listofRegion, regionName) {
 
         let singleEvent = `
             <div class="dropdown-item ${isActive}" data-name="${marktName}"
-                 style="display:flex; justify-content:space-between; align-items:center; padding:4px 8px;">
+                 style="display:flex; justify-content:space-between; align-items:center; padding:12px 8px;">
                 <span class="name">${marktName}</span>`;
 
         if (window.location.pathname.endsWith("admin.html") && isOwner) {
