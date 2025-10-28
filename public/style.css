@@ -635,16 +635,17 @@ font-size: 25px;
 
 .slideshow-container {
   width: 100%;
-       /* oder feste Höhe, z.B. 500px */
+ place-items: center;
   position: relative;
   overflow: hidden;     /* versteckt überlaufende Inhalte */
 }
-.unterstrichen{
-  border-bottom: 1px solid #ffeb3b; 
-  padding-bottom: 2em;
+.unterstrichen {
+  border-bottom: 1px solid #ffeb3b;
+  padding-bottom: 0.3em;
   display: inline-block;
-  
+  margin-bottom: 1.5em; /* zusätzlicher Abstand zum Bild */
 }
+
 p,
  .Wagen1978Span img,
   .Wagen1984Span img,
@@ -691,7 +692,11 @@ p,
   .slide.active {
     display: flex;            /* aktuelle Slide sichtbar */
   }
+.UweWagen{
+   max-width: 300px;
 
+  
+}
 
   .Wagen1978Text{
     margin-top: 0;  
@@ -713,7 +718,8 @@ p,
   .KarlsruheWeihnachtsmarktSpan,
   .HexenhausSpan,
   .HängerSpan,
-  .WagenJanSpan {
+  .WagenJanSpan,
+  .UweWagenSpan {
     display: block;
     
     margin: 0 auto;
@@ -728,7 +734,7 @@ p,
     padding: 1em;
   display: grid;
   grid-template-columns: 1fr;
-  /*justify-items: center;*/
+  justify-content: center;
   margin-top: 0;
 
   }
@@ -742,8 +748,10 @@ p,
   .EttlingenWeihnachtsmarktBlock,
   .KarlsruheWeihnachtsmarktBlock,
   .HexenhausBlock,
-  .HängerBlock {
+  .HängerBlock,
+  .UweWagenBlock {
     grid-column: span 2;
+    display: grid;
   }
 
   /* Mobile: Alle sichtbar */ @media (max-width: 1024px) { .Geschichte .slide { display: block !important; } .Geschichte .uns_prev { display: none !important; } .Geschichte .uns_next { display: none !important; } }
@@ -1495,7 +1503,8 @@ header .icons span:hover{
   .EttlingenWeihnachtsmarktSpan img,
   .KarlsruheWeihnachtsmarktSpan img,
   .HexenhausSpan img,
-  .HängerSpan img {
+  .HängerSpan img,
+  .UweWagen img {
    
     max-width: 700px;
     height: auto;
@@ -1515,7 +1524,8 @@ header .icons span:hover{
   .EttlingenWeihnachtsmarkt,
   .KarlsruheWeihnachtsmarkt,
   .Hexenhaus,
-  .Hänger {
+  .Hänger,
+  .UweWagen {
   margin: 0em auto;
   max-width: 700px;
  font-size: 15px;
@@ -1532,7 +1542,8 @@ header .icons span:hover{
   .EttlingenWeihnachtsmarktSpan,
   .KarlsruheWeihnachtsmarktSpan,
   .HexenhausSpan,
-  .HängerSpan {
+  .HängerSpan,
+  .UweWagenSpan {
    display: block;
   text-align: center;
   grid-column: 1 / -1;
