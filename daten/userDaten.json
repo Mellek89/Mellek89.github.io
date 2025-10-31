@@ -1,37 +1,44 @@
 [
   {
     "username": "admin",
-    "password": "admin123",  
-    "role": "admin"
+    "password": "$2b$12$2NEsikHtPsrHAphVeMptg.kkiGPi44MqH56YKOoi.C4i2Tk.mrOVS",
+    "role": "admin",
+    "mustChangePassword": true
   },
   {
     "username": "Gernot",
-    "password": "GernotLänge",
-    "role": "user"
+    "password": "$2b$12$pBY5qqJXw6qeoBdKl9DqYu8fCcY6361FExrX/nB2tt1xZG/aKu9nG",
+    "role": "user",
+    "mustChangePassword": true
   },
-   {
+  {
     "username": "Uwe",
-    "password": "UweLänge",
-    "role": "user"
+    "password": "$2b$12$qtSgu7WwwIR.4.ez5t3G7u4hMZmilGEhBBxzHWd7NpeFQyVGkBCEO",
+    "role": "user",
+    "mustChangePassword": false
   },
-   {
+  {
     "username": "Jan",
-    "password": "JanLänge",
-    "role": "user"
+    "password": "$2b$12$gFUwSYXTvYixytlUMd19QeWG7MbmCIa5cPT9rOSB4M9qPAS7GJ2o.",
+    "role": "user",
+    "mustChangePassword": true
   },
-   {
+  {
     "username": "Jens",
-    "password": "JensLänge",
-    "role": "user"
+    "password": "$2b$12$k252WQB.DZkNxNrRut.ZzuTCm4vvKkDn6k0pv9uMAqjyTrHmvN4m6",
+    "role": "user",
+    "mustChangePassword": false
   },
-   {
+  {
     "username": "Antonia",
-    "password": "AntoniaLänge",
-    "role": "user"
+    "password": "$2b$12$dmRVOab1xYvc4IuJmfoEN.D7hJCPvzRq2SrL/YTC9SDz6Jh2Oi.Yi",
+    "role": "user",
+    "mustChangePassword": true
   },
   {
     "username": "Joy",
-    "password": "JoyLänge",
-    "role": "user"
+    "password": "$2b$12$O1.XJFwdWwgkiyAagvxAZ.aSP8RNwuyzliuZHLR9HZeddCt7NvPVO",
+    "role": "user",
+    "mustChangePassword": true
   }
 ]
