@@ -6,7 +6,7 @@ const http = require('http');
 const { Server } = require("socket.io");
 const jwt = require("jsonwebtoken");
 const path = require('path');
-
+ const bcrypt = require("bcryptjs");
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
@@ -405,12 +405,35 @@ app.post("/delete-event", authMiddleware("user"), async (req, res) => {
 
 
 
-app.post("/login", (req, res) => {
+app.post("/login",async (req, res) => {
   const { username, password } = req.body;
   const userFile = path.join(__dirname, "daten", "userDaten.json");
   const users = JSON.parse(fs.readFileSync(userFile, "utf-8"));
 
-  const user = users.find(u => u.username === username && u.password === password);
+  //const user = users.find(u => u.username === username && u.password === password);
+ 
+
+  const user = users.find(u => u.username === username);
+  if (!user) return res.status(401).json({ message: "❌ Benutzername nicht gefunden" });
+
+  const passwordOK = await bcrypt.compare(password, user.password);
+  if (!passwordOK) return res.status(401).json({ message: "❌ Passwort falsch" });
+
+ if (user.mustChangePassword) {
+  // ⚠️ Temporäres Token erstellen – nur zum Passwort ändern gültig
+  const tempToken = jwt.sign(
+    { username, role: user.role, mustChangePassword: true },
+    "DEIN_SECRET_KEY",
+    { expiresIn: "5m" } // 5 Minuten Gültigkeit
+  );
+
+  return res.status(403).json({
+    message: "⚠️ Passwort muss geändert werden",
+    token: tempToken
+  });
+}
+
+
 
    if (!user) {
    
@@ -431,6 +454,31 @@ broadcastUsers();
 
   res.json({ token });
 });
+app.post("/change-password", authMiddleware("user"), async (req, res) => {
+  const { oldPassword, newPassword } = req.body;
+ const username = req.user.username; 
+  const userFile = path.join(__dirname, "daten", "userDaten.json");
+  const users = JSON.parse(fs.readFileSync(userFile, "utf8"));
+
+   console.log("Request Body:", req.body); // zeigt username, oldPassword, newPassword
+  const user = users.find(u => u.username === username);
+
+  if (!user){
+
+   
+   return res.status(404).json({ message: "User nicht gefunden"});
+  }
+
+  const match = await bcrypt.compare(oldPassword, user.password);
+  if (!match) return res.status(403).json({ message: "Falsches altes Passwort" });
+
+  user.password = await bcrypt.hash(newPassword, 12);
+  user.mustChangePassword = false;
+
+  fs.writeFileSync(userFile, JSON.stringify(users, null, 2));
+  res.json({ message: "✅ Passwort erfolgreich geändert" });
+});
+
 
 // Logout
 app.post("/logout", (req, res) => {
@@ -438,7 +486,7 @@ app.post("/logout", (req, res) => {
   if (!token) return res.status(401).json({ message: "Kein Token" });
 
   try {
-    const payload = jwt.verify(token, "DEIN_SECRET_KEY");
+    const payload = jwt.verify(token,"DEIN_SECRET_KEY");
     delete onlineUsers[payload.username];
 
 broadcastUsers();
@@ -457,7 +505,7 @@ io.on("connection", (socket) => {
   socket.on("registerUser", (token) => {
      console.log("🔑 registerUser aufgerufen mit Token:", token);
     try {
-      const payload = jwt.verify(token, "DEIN_SECRET_KEY");
+      const payload = jwt.verify(token,"DEIN_SECRET_KEY");
       // Nutzer aktiv halten oder neu hinzufügen
       if (!onlineUsers[payload.username]) {
         onlineUsers[payload.username] = { 
@@ -519,7 +567,8 @@ app.post("/verify", (req, res) => {
   if (!token) return res.status(401).json({ message: "Kein Token" });
 
   try {
-    const payload = jwt.verify(token, "DEIN_SECRET_KEY");
+    const payload = jwt.verify(token,"DEIN_SECRET_KEY");
+    console.log("Payload:", payload);
     res.json({ username: payload.username, role: payload.role });
   } catch {
     res.status(401).json({ message: "Ungültiges oder abgelaufenes Token" });
