@@ -175,14 +175,10 @@ img {
           
           
         }
-         .menu .news{
-          
-          grid-row: 5/6;
-         
-        }
+     
         .menu  .kontakt{
          
-          grid-row: 6/7;
+          grid-row: 5/6;
           
         }
         .menu  .logo{
@@ -1251,11 +1247,7 @@ grid-column: 2/4;*/
    grid-row: 1/2;
   
 }
-.menu .news{
-  grid-column: 7;
-   grid-row: 1/2;
-   
-}
+
 .menu .kontakt{
   grid-column: 8;
    grid-row: 1/2;
