@@ -8,6 +8,12 @@ html, body {
   overflow: auto;
   min-height: 100%;
 }
+body{
+   background-image: url('./imagesOptimized/images/webp/Lango_laenge_Home.webp');
+  background-size: cover;       /* Bild auf gesamte Fläche anpassen */
+  background-repeat: no-repeat; /* Kein Wiederholen des Bildes */
+  background-position: center;  /* Bild zentrieren */
+}
 *{margin: 0;
   padding:0;
   box-sizing: border-box;
@@ -30,13 +36,7 @@ html, body {
 
 .container{
   max-width: 100%;
-  
-  min-height: 100vh;
-  background-image: url('./imagesOptimized/images/webp/Lango_laenge_Home.webp');
-  background-size: cover;       /* Bild auf gesamte Fläche anpassen */
-  background-repeat: no-repeat; /* Kein Wiederholen des Bildes */
-  background-position: center;  /* Bild zentrieren */
-  display: grid;  
+ 
   grid-template-columns: repeat(9, 1fr);
   grid-auto-rows: minmax(100px, auto);         /* Höhe des Viewports */
   color: white;                 /* Text besser lesbar bei dunklem Bild */
@@ -60,6 +60,21 @@ img {
   height: auto;
   display: block;
 }
+/* ==== SVG-Styling ==== */
+.social-icon {
+  width: 28px;          /* gewünschte Breite */
+  height: 28px;         /* gewünschte Höhe */
+  color: white;         /* Icon-Farbe (wirkt über currentColor) */
+  transition: transform 0.2s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hover-Effekt */
+.social-icon:hover {
+  color: #ffeb3b;       /* z. B. Gelb */
+  transform: scale(1.2);
+}
+
 
 
         .container {
@@ -97,11 +112,22 @@ img {
         position: relative;
           place-items: center; /* zentriert horizontal & vertikal */
         display: grid ; 
-      
+      margin-top: 4em;
         grid-template-columns: repeat(1, 1fr);
        }
+       footer.footer {
+  background: rgba(0, 0, 0, 0.6); /* transparentes Overlay */
+  color: white;
+  padding: 0.5rem 1rem;   /* Weniger Innenabstand (statt 2rem) */
+  line-height: 1.2;       /* Kompakterer Textabstand */
+  font-size: 0.9rem;  
+  text-align: center;
+  position: relative; 
+  max-height: 300px;
+  overflow: hidden; 
+}
       
-    
+  
      
         .container .header .nav .menu{
           list-style: none;
@@ -1041,6 +1067,9 @@ p,
 
 
 @media (min-width: 769px) and (max-width: 1024px) {
+  .footer.footer{
+    max-height: 200px;
+  }
   .formContainer {
     display: flex;              /* Flexbox aktivieren */
     flex-direction: column;     /* Inhalte untereinander */
@@ -1168,15 +1197,11 @@ grid-template-columns: repeat(4, 1fr);
 grid-auto-rows: minmax(100px, auto);
 
 }
-
-.container .footer {
-
- bottom: 0px;
-  left: 0px;
-  grid-area: footer;
- 
-  
+.footer.footer{
+  max-height: 300px;
 }
+
+
 .container .header .nav {
   grid-column: 1/4; /* ← mittlere Spalte */
   justify-self: center; /* ← zentriert horizontal */
