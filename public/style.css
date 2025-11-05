@@ -602,9 +602,7 @@ font-size: 1.2em;
 .treuetaler{
   max-width: 300px;
 }
-.langosTreuetaler{
-  text-align: center;
-}
+
 .imageTreuetaler{
 
    margin-top: 10%;
@@ -632,8 +630,7 @@ table {
 
 .langosTreuetaler{
   grid-row: 7/8;
- font-size: 1.2em;
-
+ font-size: 1.1em;
  padding-bottom: 1em;
 }
 

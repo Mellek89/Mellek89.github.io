@@ -25,8 +25,12 @@ if(zaehler >=maxKlicks){
 }
  
 }
- document.getElementById("logo").addEventListener("click", handleClicksOnLogo);
- document.getElementById("logoDiv").addEventListener("click", handleClicksOnLogo);
+
+const isMobile = window.matchMedia("(max-width: 768px)").matches;
+        if (isMobile) { document.getElementById("logoDiv").addEventListener("click", handleClicksOnLogo);
+        }else{ document.getElementById("logo").addEventListener("click", handleClicksOnLogo);}
+
+
 
                 
  document.addEventListener("DOMContentLoaded", () => {
@@ -58,6 +62,7 @@ if(zaehler >=maxKlicks){
     }
   });
 
+if (!window.location.pathname.endsWith("events.html")){	
 document.addEventListener('DOMContentLoaded', () => {
   
   const checkbox = document.getElementById('side-menu');
@@ -78,4 +83,5 @@ document.addEventListener('DOMContentLoaded', () => {
     footer.classList.remove('open');
   });
 });
+}
 

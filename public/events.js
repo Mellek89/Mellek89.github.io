@@ -2027,7 +2027,8 @@ document.addEventListener("DOMContentLoaded", async function () {
   
 	
 renderEvents();
-   
+
+
 document.addEventListener('DOMContentLoaded', () => {
   
   const checkbox = document.getElementById('side-menu');
