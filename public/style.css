@@ -13,6 +13,7 @@ body{
   background-size: cover;       /* Bild auf gesamte Fläche anpassen */
   background-repeat: no-repeat; /* Kein Wiederholen des Bildes */
   background-position: center;  /* Bild zentrieren */
+   background-attachment: fixed; 
 }
 *{margin: 0;
   padding:0;
@@ -108,11 +109,18 @@ img {
        }
        .container .main{
         position: relative;
-          place-items: center; /* zentriert horizontal & vertikal */
+        place-items: center; /* zentriert horizontal & vertikal */
         display: grid ; 
-      margin-top: 4em;
+       margin-top: 4em;
         grid-template-columns: repeat(1, 1fr);
        }
+       /*.container .main{
+        grid-area: main;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: minmax(100px, auto);
+
+        }*/
        footer.footer {
  
   color: white;
@@ -125,7 +133,13 @@ img {
   overflow: hidden; 
   margin-top: 10em;
 }
-      
+footer.footer .impressum a,
+.kontaktImpressum{
+  color: inherit;       /* nimmt die Textfarbe des Umfelds */
+  text-decoration: none; /* keine Unterstreichung */
+}
+
+    
   
      
         .container .header .nav .menu{
@@ -529,7 +543,7 @@ header .chooseItem{
   padding: 1em;
   text-align: center;
   font-size: 18px;
-  margin-bottom: 10%;
+ 
 
  }
  
@@ -1175,12 +1189,17 @@ dialog.modal::backdrop {
   
 
 }
-.container .main{
+/*.container .main{
 grid-area: main;
 display: grid;
 grid-template-columns: repeat(4, 1fr);
 grid-auto-rows: minmax(100px, auto);
 
+}*/
+.impressumInhalt{
+  display: grid;
+  
+ place-items: center;
 }
  footer.footer {
   display: flex;
@@ -1204,6 +1223,7 @@ footer.footer .impressum .title {
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
+
 
 /* Social Media Icons */
 footer.footer .social-media {
@@ -1313,7 +1333,7 @@ grid-column: 2/4;*/
 
 /***Home***/
 .mainContainer{
-  grid-column: 2/4;
+ 
   display: grid;
   place-items: center;
 
@@ -1360,17 +1380,9 @@ grid-column: 2/4;*/
 header .icons span:hover{
   background: #f2f2f2
 }
-.dropdownText{
-  grid-column: 2/4;
-}
-.calendar{
-  grid-column: 2;
-}
-.dropdown-menu{
-  grid-column: 3;
- grid-row: 2;
- 
-}
+
+
+
 
  .events {
   
@@ -1405,10 +1417,8 @@ header .icons span:hover{
  }
 
 
-/*Langos*/
-.langosAngebot{
-  grid-column: 2/4;
-}
+
+
 /*Ueber Uns*/
 
 .slideshow-container {
@@ -1416,7 +1426,7 @@ header .icons span:hover{
   max-width: 800px;
   border-radius: 10px;
   color: white;
-  grid-column: 2/4;
+
   margin-left: 10%;
 }
 
@@ -1486,6 +1496,10 @@ header .icons span:hover{
 .period {
   align-self: start; /* sorgt dafür, dass alle oben bündig sind */
 }
+.calendar{
+  min-width: 550px;
+  min-height: 550px
+}
 
 
 
@@ -1495,7 +1509,7 @@ header .icons span:hover{
   color: #ffeb3b;
   text-align: center;
   font-size: 30px;
-  grid-column: 2/4 ;
+
   margin-bottom: 2em;
  
 
