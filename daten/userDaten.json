@@ -3,13 +3,13 @@
     "username": "admin",
     "password": "$2b$12$2NEsikHtPsrHAphVeMptg.kkiGPi44MqH56YKOoi.C4i2Tk.mrOVS",
     "role": "admin",
-    "mustChangePassword": true
+    "mustChangePassword": false
   },
   {
     "username": "Gernot",
     "password": "$2b$12$pBY5qqJXw6qeoBdKl9DqYu8fCcY6361FExrX/nB2tt1xZG/aKu9nG",
     "role": "user",
-    "mustChangePassword": true
+    "mustChangePassword": false
   },
   {
     "username": "Uwe",
@@ -21,7 +21,7 @@
     "username": "Jan",
     "password": "$2b$12$gFUwSYXTvYixytlUMd19QeWG7MbmCIa5cPT9rOSB4M9qPAS7GJ2o.",
     "role": "user",
-    "mustChangePassword": true
+    "mustChangePassword": false
   },
   {
     "username": "Jens",
@@ -33,12 +33,12 @@
     "username": "Antonia",
     "password": "$2b$12$dmRVOab1xYvc4IuJmfoEN.D7hJCPvzRq2SrL/YTC9SDz6Jh2Oi.Yi",
     "role": "user",
-    "mustChangePassword": true
+    "mustChangePassword": false
   },
   {
     "username": "Joy",
     "password": "$2b$12$O1.XJFwdWwgkiyAagvxAZ.aSP8RNwuyzliuZHLR9HZeddCt7NvPVO",
     "role": "user",
-    "mustChangePassword": true
+    "mustChangePassword": false
   }
 ]
