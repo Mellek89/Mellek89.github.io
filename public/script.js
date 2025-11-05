@@ -1,3 +1,6 @@
+let zaehler = 0;
+const maxKlicks = 8;
+
 console.log("script");
  let currentSlide = 0;
 document.addEventListener('DOMContentLoaded', () => {
@@ -12,12 +15,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-/*document.querySelectorAll('#nav a').forEach(link => {
-  link.addEventListener('click', () => {
-    checkbox.checked = false;
-    main.classList.remove('hidden');
-  });
-});*/
+
+
+function handleClicksOnLogo(){
+  console.log("klicke auf logo!!");
+zaehler++;
+if(zaehler >=maxKlicks){
+   window.location.href = "admin.html";
+}
+ 
+}
+ document.getElementById("logo").addEventListener("click", handleClicksOnLogo);
+ document.getElementById("logoDiv").addEventListener("click", handleClicksOnLogo);
 
                 
  document.addEventListener("DOMContentLoaded", () => {

@@ -142,6 +142,11 @@ let startDate = null;
 let endDate = null;
 let period = "";
 let selectedFromClick = false; // globales Flag
+
+
+
+
+
 // Klick-Handler für Tage
 function onDayClick(day) {
     eventId = '';
