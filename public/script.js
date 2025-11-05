@@ -58,5 +58,24 @@ if(zaehler >=maxKlicks){
     }
   });
 
+document.addEventListener('DOMContentLoaded', () => {
+  
+  const checkbox = document.getElementById('side-menu');
+  const main = document.getElementById('main');
+  const footer = document.getElementById('footer');
 
+  checkbox.addEventListener('change', () => {
+    console.log("toggle");
+    // Body overflow toggeln
+    document.body.style.overflow = checkbox.checked ? 'hidden' : 'auto';
+
+    // Main ausblenden
+    main.classList.toggle('hidden', checkbox.checked);
+    main.classList.remove('open');
+
+    // Footer ausblenden
+    footer.classList.toggle('hidden', checkbox.checked);
+    footer.classList.remove('open');
+  });
+});
 
