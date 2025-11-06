@@ -493,7 +493,10 @@ header .chooseItem{
   grid-column: 2/3;
   min-width: 87%;
 }
-     
+    
+.langosIcon{
+  max-width: 120px;
+}
 
       .logoDiv{
         display: block;
@@ -1030,7 +1033,7 @@ p,
     grid-template-columns: 1fr; /* alles untereinander */
     grid-auto-rows: auto;
     justify-items: center;       /* Inhalte horizontal zentrieren */
-    text-align: center;       
+    text-align: left;       
   }
 
   .calendar,
@@ -1205,7 +1208,7 @@ grid-auto-rows: minmax(100px, auto);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.6);
+  
   color: white;
   padding: 2rem 1rem;
  

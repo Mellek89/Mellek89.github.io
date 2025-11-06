@@ -1703,14 +1703,40 @@ async function showDropdownMenu(listofRegion, regionName) {
     dropdownList.onclick = async (e) => {
         const item = e.target.closest(".dropdown-item");
         if (!item) return;
-
+     
         //  EventId setzen
         eventId = item.dataset.name;
         marktNameGlobal = eventId;
 
         //  Active-Klasse setzen
-        dropdownList.querySelectorAll(".dropdown-item").forEach(el => el.classList.remove("active"));
-        item.classList.add("active");
+      dropdownList.querySelectorAll(".dropdown-item").forEach(el => {
+    // Active-Klasse entfernen
+    el.classList.remove("active");
+
+    // Bild ausblenden, falls vorhanden
+    const img = el.querySelector(".langosIcon");
+    if (img) img.style.display = "none";
+});
+
+  item.classList.add("active");
+      
+ // Bild ausblenden, falls vorhanden
+      
+      
+        let img = item.querySelector(".langosIcon");
+         
+    if (!img) {
+        // Bild noch nicht erstellt? Dann anfügen
+        img = document.createElement("img");
+        img.src = "./imagesOptimized/images/langosIcon.png";
+        img.alt = "langosIcon";
+        img.classList.add("langosIcon");
+        img.style.marginLeft = "2em";
+        img.style.marginTop = "2em";
+        
+        item.appendChild(img);
+    }
+    img.style.display = "block";
 
         //  Prüfen ob Update oder Delete
         if (e.target.closest(".update-btn")) {
@@ -1782,164 +1808,6 @@ function renderEventTimeRange(marktName) {
     if (eventTemp) eventTemp.innerHTML = `<span><strong>Zeitraum: </strong></span>` + zeitraum;
 }
 
-/*async function showDropdownMenu(listofRegion, regionName) {
-    if (typeof listofRegion !== 'object' || listofRegion === null || Array.isArray(listofRegion)) {
-        console.error("❌ Fehler: listofRegion ist kein gültiges Objekt:", listofRegion);
-        alert(`⚠️ Für diese Region existiert noch kein Eintrag.`);
-        return;
-    }
-
-    const regionData = listofRegion[regionName];
-
-    if (selectedStart == null) {
-        if (!regionData || !Array.isArray(regionData.regions)) {
-            console.warn(`⚠️ Region "${regionName}" enthält keine Events oder Wochenmärkte.`);
-            let dropdownList = document.querySelector(".dropdown-menu");
-            dropdownList.innerHTML = "";
-            return;
-        }
-    }
-
-    requestAnimationFrame(() => {
-        const dropdownList = document.querySelector(".dropdown-menu");
-        dropdownList.innerHTML = ""; // immer leeren
-        let singleEvent = "";
-
-        const currMonthName = months[currMonth];
-        const monthObj = eventDataGlobal.find(m => m.month === currMonthName);
-        if (!monthObj) return;
-
-        const actualEvents = monthObj.events.filter(evName => regionData.regions.includes(evName));
-
-        actualEvents.forEach(marktName => {
-            const evObj = monthObj[marktName];
-            if (!evObj || !Array.isArray(evObj.dates) || evObj.dates.length === 0) return;
-
-            const displayName = marktName;
-            const isActive = (window.location.pathname.endsWith("admin.html") && eventId === marktName) ? "active" : "";
-
-            const owner = evObj.owner || null;
-            const currentOwner = localStorage.getItem("currentOwner");
-            const isOwner = owner === currentOwner || currentOwner === "admin";
-
-            singleEvent += `
-                <div class="dropdown-item ${isActive}"
-                     data-name="${marktName}"
-                     style="display:flex; justify-content:space-between; align-items:center; padding:4px 8px;">
-                    <span class="name">${displayName}</span>`;
-
-            if (window.location.pathname.endsWith("admin.html") && isOwner) {
-                singleEvent += `
-                    <div style="display:flex; gap:6px;">
-                        <button type="button" class="update-btn" title="Bearbeiten" aria-label="Bearbeiten"
-                                style="background:#4CAF50; border:none; color:white; padding:4px 6px; border-radius:4px; cursor:pointer;">✎</button>
-                        <button type="button" class="delete-btn" title="Löschen" aria-label="Löschen"
-                                style="background:#f44336; border:none; color:white; padding:4px 6px; border-radius:4px; cursor:pointer;">🗑</button>
-                    </div>`;
-            }
-
-            singleEvent += `</div>`;
-        });
-
-        dropdownList.innerHTML = singleEvent;
-
-        // 🔹 Event Listener für Klicks
-        dropdownList.addEventListener("click", async function (e) {
-            const btn = e.target.closest(".update-btn");
-            if (btn) {
-                isUpdate = true;
-                console.log("Update Button geklickt!");
-                if (window.innerWidth < 768) {
-                    document.getElementById("calendar").scrollIntoView({ behavior: "smooth" });
-                }
-            }
-
-            const item = e.target.closest(".dropdown-item");
-            if (!item) return;
-
-            const marktName = item.dataset.name;
-            marktNameGlobal = marktName;
-
-            if (window.location.pathname.endsWith("/admin.html")) {
-                noneFormAttributes();
-                let period = document.getElementById("period");
-                if (period) period.style.display = "block";
-
-                document.getElementById("eventname").value = marktName;
-                await loadEvents();
-
-                const monatName = getMonatsname(currMonth + 1);
-                const monatObj = eventDataGlobal.find(m => m.month === monatName);
-                if (!monatObj) return;
-
-                let zeitraum = "";
-                let alleTermine = [];
-
-                for (const m of eventDataGlobal) {
-                    if (m.events?.includes(marktName) && m[marktName]?.dates) {
-                        alleTermine = alleTermine.concat(m[marktName].dates);
-                    }
-                }
-
-                if (alleTermine.length > 0) {
-                    alleTermine.sort((a, b) => {
-                        const da = parseDate(a);
-                        const db = parseDate(b);
-                        return new Date(da.year, da.month, da.day) - new Date(db.year, db.month, db.day);
-                    });
-                    selectedStart = parseDate(alleTermine[0]);
-                    selectedEnd = parseDate(alleTermine[alleTermine.length - 1]);
-                }
-
-                const startDate = new Date(selectedStart.year, selectedStart.month, selectedStart.day);
-                const endDate = new Date(selectedEnd.year, selectedEnd.month, selectedEnd.day);
-
-                if (isUpdate) {
-                    const eventObj = monatObj[marktNameGlobal];
-                    const endOfArray = eventObj.dates[eventObj.dates.length - 1];
-                    zeitraum = `${eventObj.dates[0].day}. ${eventObj.dates[0].month + 1}` +
-                        (endOfArray ? ` - ${endOfArray.day}. ${endOfArray.month + 1}.` : '') +
-                        `(${currYear})`;
-                } else {
-                    if (endDate.getTime() === startDate.getTime()) {
-                        zeitraum = `${startDate.getDate()}.${startDate.getMonth() + 1}.${startDate.getFullYear()}`;
-                    } else {
-                        zeitraum = `${startDate.getDate()}.${startDate.getMonth() + 1}.${startDate.getFullYear()} - ` +
-                            `${endDate.getDate()}.${endDate.getMonth() + 1}.${endDate.getFullYear()}`;
-                    }
-                }
-
-                document.getElementById("eventTemp").innerHTML = `<span><strong>Zeitraum: </strong></span>` + zeitraum;
-
-                if (e.target.classList.contains("update-btn")) {
-                    getFormAttributes();
-                } else if (e.target.classList.contains("delete-btn")) {
-                    const regionDel = region || null;
-                    const isWeekly = item.dataset.weekly === "true";
-                    showDeleteConfirmation(region, marktName, currMonth, currYear, isWeekly);
-                }
-            }
-        });
-
-        // 🔹 Mobile Layout Anpassung
-        requestAnimationFrame(() => {
-            const height = dropdownList.getBoundingClientRect().height;
-            const calendar = document.querySelector(".calendar");
-            if (!calendar) return;
-
-            const isMobile = window.matchMedia("(max-width: 768px)").matches;
-            if (isMobile) {
-                let newTop = 10;
-                if (height > 253) newTop = 10;
-                else if (height > 157 && height <= 252) newTop = 8;
-                else if (height > 252 && height <= 253) newTop = 15;
-
-                calendar.style.setProperty("position", "relative", "important");
-                calendar.style.setProperty("top", newTop + "%", "important");
-            }
-        });
-    });
-}*/
 
 
 prevNextIcon.forEach(icon => {
