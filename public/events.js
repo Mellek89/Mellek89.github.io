@@ -1670,34 +1670,63 @@ async function showDropdownMenu(listofRegion, regionName) {
       
      
 
-    // 🔹 Dropdown Items erzeugen
-    actualEvents.forEach(marktName => {
-        const evObj = monthObj[marktName];
-        if (!evObj || !Array.isArray(evObj.dates) || evObj.dates.length === 0) return;
 
-        const isActive = (eventId === marktName) ? "active" : "";
-        const owner = evObj.owner || null;
-        const currentOwner = localStorage.getItem("currentOwner");
-        const isOwner = owner === currentOwner || currentOwner === "admin";
+actualEvents.forEach(marktName => {
+    const evObj = monthObj[marktName];
+    if (!evObj || !Array.isArray(evObj.dates) || evObj.dates.length === 0) return;
 
-        let singleEvent = `
-            <div class="dropdown-item ${isActive}" data-name="${marktName}"
-                 style="display:flex; justify-content:space-between; align-items:center; padding:12px 8px;">
-                <span class="name">${marktName}</span>`;
+    const isActive = (eventId === marktName);
+    const owner = evObj.owner || null;
+    const currentOwner = localStorage.getItem("currentOwner");
+    const isOwner = owner === currentOwner || currentOwner === "admin";
 
-        if (window.location.pathname.endsWith("admin.html") && isOwner) {
-            singleEvent += `
-               <div style="display:flex; gap:6px;">
-                        <button type="button" class="update-btn" title="Bearbeiten" aria-label="Bearbeiten"
-                                style="background:#4CAF50; border:none; color:white; padding:4px 6px; border-radius:4px; cursor:pointer;">✎</button>
-                        <button type="button" class="delete-btn" title="Löschen" aria-label="Löschen"
-                                style="background:#f44336; border:none; color:white; padding:4px 6px; border-radius:4px; cursor:pointer;">🗑</button>
-                    </div>`;
-        }
+    // Item-Container
+    const singleEvent = document.createElement("div");
+    singleEvent.className = "dropdown-item" + (isActive ? " active" : "");
+    singleEvent.dataset.name = marktName;
+    singleEvent.style.display = "flex";
+    singleEvent.style.justifyContent = "space-between";
+    singleEvent.style.alignItems = "center";
+    singleEvent.style.padding = "12px 8px";
 
-        singleEvent += `</div>`;
-        dropdownList.insertAdjacentHTML("beforeend", singleEvent);
-    });
+    // Name
+    const nameSpan = document.createElement("span");
+    nameSpan.className = "name";
+    nameSpan.textContent = marktName;
+
+
+    nameSpan.textContent = marktName.replace(/<br\s*\/?>/gi, " ");
+    singleEvent.appendChild(nameSpan);
+
+    // Admin Buttons (falls erlaubt)
+    if (window.location.pathname.endsWith("admin.html") && isOwner) {
+        const btnBox = document.createElement("div");
+        btnBox.style.display = "flex";
+        btnBox.style.gap = "6px";
+        btnBox.innerHTML = `
+            <button type="button" class="update-btn" title="Bearbeiten"
+                style="background:#4CAF50; border:none; color:white; padding:4px 6px; border-radius:4px; cursor:pointer;">✎</button>
+            <button type="button" class="delete-btn" title="Löschen"
+                style="background:#f44336; border:none; color:white; padding:4px 6px; border-radius:4px; cursor:pointer;">🗑</button>
+        `;
+        singleEvent.appendChild(btnBox);
+    }
+
+    // ⭐ Icon wenn aktiv
+    if (isActive) {
+        const img = document.createElement("img");
+        img.src = "./imagesOptimized/images/langosIcon.png";
+        img.alt = "langosIcon";
+        img.classList.add("langosIcon");
+        img.style.marginLeft = "2em";
+        img.style.marginTop = "2em";
+        singleEvent.appendChild(img);
+    }
+
+    dropdownList.appendChild(singleEvent);
+});
+
+    
 
     // 🔹 Klick-Handler für Dropdown (delegation)
     dropdownList.onclick = async (e) => {
