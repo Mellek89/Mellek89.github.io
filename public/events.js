@@ -1697,6 +1697,7 @@ actualEvents.forEach(marktName => {
 
     nameSpan.textContent = marktName.replace(/<br\s*\/?>/gi, " ");
     singleEvent.appendChild(nameSpan);
+   
 
     // Admin Buttons (falls erlaubt)
     if (window.location.pathname.endsWith("admin.html") && isOwner) {
@@ -1714,14 +1715,19 @@ actualEvents.forEach(marktName => {
 
     // ⭐ Icon wenn aktiv
     if (isActive) {
-        const img = document.createElement("img");
+        /*const img = document.createElement("img");
         img.src = "./imagesOptimized/images/langosIcon.png";
         img.alt = "langosIcon";
         img.classList.add("langosIcon");
         img.style.marginLeft = "2em";
         img.style.marginTop = "2em";
-        singleEvent.appendChild(img);
-    }
+        singleEvent.appendChild(img);*/
+        
+     
+  
+ }
+
+    
 
     dropdownList.appendChild(singleEvent);
 });
@@ -1743,29 +1749,41 @@ actualEvents.forEach(marktName => {
     el.classList.remove("active");
 
     // Bild ausblenden, falls vorhanden
-    const img = el.querySelector(".langosIcon");
-    if (img) img.style.display = "none";
+   const underline = el.querySelector(".dropdown-underline");
+    if (underline) underline.style.display = "none";
 });
 
   item.classList.add("active");
+    
+   let underline = item.querySelector(".dropdown-underline");
       
- // Bild ausblenden, falls vorhanden
-      
-      
-        let img = item.querySelector(".langosIcon");
+      //  let img = item.querySelector(".langosIcon");
          
-    if (!img) {
-        // Bild noch nicht erstellt? Dann anfügen
-        img = document.createElement("img");
-        img.src = "./imagesOptimized/images/langosIcon.png";
-        img.alt = "langosIcon";
-        img.classList.add("langosIcon");
-        img.style.marginLeft = "2em";
-        img.style.marginTop = "2em";
-        
-        item.appendChild(img);
+    if (!underline) {
+       
+      underline = document.createElement("div");
+      underline.className = "dropdown-underline";
+
+      const lineLeft = document.createElement("span");
+      lineLeft.className = "line";
+
+      const img = document.createElement("img");
+      img.src = "./imagesOptimized/images/langosIcon.png";   // <— hier dein Bild einsetzen
+      img.classList.add("langosIcon");
+
+      const lineRight = document.createElement("span");
+      lineRight.className = "line";
+
+      underline.appendChild(lineLeft);
+      underline.appendChild(img);
+      underline.appendChild(lineRight);
+
+      item.appendChild(underline);
+
+          //dropdownList.appendChild(singleEvent);
+     
     }
-    img.style.display = "block";
+    underline.style.display = "flex";
 
         //  Prüfen ob Update oder Delete
         if (e.target.closest(".update-btn")) {
