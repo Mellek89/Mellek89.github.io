@@ -1684,9 +1684,8 @@ actualEvents.forEach(marktName => {
     const singleEvent = document.createElement("div");
     singleEvent.className = "dropdown-item" + (isActive ? " active" : "");
     singleEvent.dataset.name = marktName;
-    singleEvent.style.display = "flex";
-    singleEvent.style.justifyContent = "space-between";
-    singleEvent.style.alignItems = "center";
+  
+   
     singleEvent.style.padding = "12px 8px";
 
     // Name
@@ -1715,16 +1714,24 @@ actualEvents.forEach(marktName => {
 
     // ⭐ Icon wenn aktiv
     if (isActive) {
-        /*const img = document.createElement("img");
-        img.src = "./imagesOptimized/images/langosIcon.png";
-        img.alt = "langosIcon";
-        img.classList.add("langosIcon");
-        img.style.marginLeft = "2em";
-        img.style.marginTop = "2em";
-        singleEvent.appendChild(img);*/
-        
-     
-  
+      const  underline = document.createElement("div");
+      underline.className = "dropdown-underline";
+
+      const lineLeft = document.createElement("span");
+      lineLeft.className = "line";
+
+      const img = document.createElement("img");
+      img.src = "./imagesOptimized/images/langosIcon.png";   // <— hier dein Bild einsetzen
+      img.classList.add("langosIcon");
+
+      const lineRight = document.createElement("span");
+      lineRight.className = "line";
+
+      underline.appendChild(lineLeft);
+      underline.appendChild(img);
+      underline.appendChild(lineRight);
+      singleEvent.appendChild(underline);
+
  }
 
     
@@ -1757,7 +1764,7 @@ actualEvents.forEach(marktName => {
     
    let underline = item.querySelector(".dropdown-underline");
       
-      //  let img = item.querySelector(".langosIcon");
+   
          
     if (!underline) {
        
@@ -1779,8 +1786,6 @@ actualEvents.forEach(marktName => {
       underline.appendChild(lineRight);
 
       item.appendChild(underline);
-
-          //dropdownList.appendChild(singleEvent);
      
     }
     underline.style.display = "flex";
