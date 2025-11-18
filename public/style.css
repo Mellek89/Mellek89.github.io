@@ -594,7 +594,7 @@ header .chooseItem{
   flex: 1;
   height: 1px;
   background-color: rgb(240, 255, 255);
-  color: rgb(255, 235, 59);
+ 
 }
 
     /*********Langos*********/
@@ -1434,13 +1434,13 @@ header .icons span:hover{
   position: relative;
   left: 10%;
  }
- .line{
+ /*.line{
   position: relative;
   border-bottom: solid;
   color: black;
   width: 60%;
   left: 15%;
- }
+ }/*
 
 
 
@@ -1505,6 +1505,10 @@ header .icons span:hover{
 .uns_next {
   right: 10px;
     top: 70%
+}
+.dropdown-underline .line{
+  background-color: rgb(240, 255, 255);
+
 }
 
 /*Admin*/
