@@ -1721,7 +1721,7 @@ actualEvents.forEach(marktName => {
       lineLeft.className = "line";
 
       const img = document.createElement("img");
-      img.src = "./imagesOptimized/images/langosIcon.png";   // <— hier dein Bild einsetzen
+      img.src = "./imagesOptimized/images/Lango-laenge-Logo.png";   
       img.classList.add("langosIcon");
 
       const lineRight = document.createElement("span");
@@ -1775,7 +1775,7 @@ actualEvents.forEach(marktName => {
       lineLeft.className = "line";
 
       const img = document.createElement("img");
-      img.src = "./imagesOptimized/images/langosIcon.png";   // <— hier dein Bild einsetzen
+      img.src = "./imagesOptimized/images/Lango-laenge-Logo.png";   // <— hier dein Bild einsetzen
       img.classList.add("langosIcon");
 
       const lineRight = document.createElement("span");

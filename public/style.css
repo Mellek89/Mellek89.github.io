@@ -502,7 +502,7 @@ header .chooseItem{
         display: block;
         position: absolute;
         z-index: 3;
-          margin-top: 110px; 
+         
         
         
                
@@ -586,7 +586,7 @@ header .chooseItem{
 }
 
 .dropdown-underline img {
-  max-width: 120px;
+  max-width: 55px;
   height: auto;
 }
 
