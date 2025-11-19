@@ -475,7 +475,7 @@ li.circleInactive::before {
 
 .days li.circleInactive::before{	
  
-  border-color: #ffeb3b;
+  border-color: #ffeb3b8c;
 }
 
 .inactive{

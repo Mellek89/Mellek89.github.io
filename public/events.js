@@ -215,7 +215,25 @@ if (!token) {
 
 let createButtonActive = false;
 
+// Datum sicher machen: Uhrzeit löschen → Zeitzonen neutralisieren
+function normalizeDate(date) {
+    return new Date(date.getFullYear(), date.getMonth(), date.getDate());
+}
 
+// Sicherer Bereichsvergleich (inklusive)
+function isBetween(date, start, end) {
+    if (!start || !end) return false;
+
+    const d = normalizeDate(date).getTime();
+    const s = normalizeDate(start).getTime();
+    const e = normalizeDate(end).getTime();
+
+    return d >= s && d <= e;
+}
+function toDate(obj) {
+  // month - 1, weil JavaScript-Monate 0-basiert sind
+  return new Date(obj.year, obj.month - 1, obj.day);
+}
 const renderCalendar = () => {
     const firstDateOfMonth = new Date(currYear, currMonth, 1).getDay();
     const lastDateOfMonth = new Date(currYear, currMonth + 1, 0).getDate();
@@ -233,16 +251,32 @@ const renderCalendar = () => {
         : startDate;
 
         }
-    // Vortage des Vormonats
-    for (let i = firstDateOfMonth; i > 0; i--) {
-        const inactiveLastDays = lastDateOfLastMonth - i + 1;
-        liTag += `<li class="inactive">${inactiveLastDays}</li>`;
-    }
+   // Vortage des Vormonats (mit Bereichsprüfung)
+for (let i = firstDateOfMonth; i > 0; i--) {
+    const inactiveLastDays = lastDateOfLastMonth - i + 1;
+
+    // echtes Datum des Vormonats
+    const datePrev = new Date(currYear, currMonth - 1, inactiveLastDays);
+
+    let className = "inactive";
+
+   if (isBetween(datePrev, startDate, endDate)) {
+    className += " circleInactive";
+}
+
+    liTag += `<li class="${className}" data-day="${inactiveLastDays}" data-prev="1">${inactiveLastDays}</li>`;
+}
+
 
     // Tage des aktuellen Monats
     for (let i = 1; i <= lastDateOfMonth; i++) {
         let className = "";
         const currentDate = new Date(currYear, currMonth, i);
+//if(startDate && endDate && currentDate >= startDate && currentDate <= endDate){
+ // className += (className ? " " : "") + "circle";}
+ if (isBetween(currentDate, startDate, endDate)) {
+    className += " circle";
+}
 
         // Heute hervorheben
         if (
@@ -284,10 +318,31 @@ if ((!weekmarketGlobal || weekmarketGlobal == false) && startDate && endDate && 
         liTag += `<li data-day="${i}" class="${className}">${i}</li>`;
     }
 
-    // Resttage des Monats
-    for (let i = lastDayOfMonth + 1; i <= 6; i++) {
-        liTag += `<li class="inactive">${i - lastDayOfMonth}</li>`;
-    }
+   // Nachfolgetage des nächsten Monats (mit Bereichsprüfung)
+for (let i = lastDayOfMonth + 1; i <= 6; i++) {
+    const nextDay = i - lastDayOfMonth;
+
+    const dateNext = new Date(currYear, currMonth + 1, nextDay);
+
+    let className = "inactive";
+   
+
+    if (datesOfEvents.length !== 0) {
+       const end = toDate(datesOfEvents[datesOfEvents.length-1].end);
+     const monthNext = dateNext.getMonth();
+     const yearNext = dateNext.getFullYear();
+    const monthOfEndDate = datesOfEvents[datesOfEvents.length-1].end.month;
+     const yearOfEndDate = datesOfEvents[datesOfEvents.length-1].end.year;
+
+
+    if (dateNext >= end && startDate && endDate && monthNext<=monthOfEndDate && yearNext==yearOfEndDate) {
+    className += " circleInactive";
+}
+}
+
+    liTag += `<li class="${className}" data-day="${nextDay}" data-next="1">${nextDay}</li>`;
+}
+
 
     currentDate.innerText = `${months[currMonth]} ${currYear}`;
     daysTag.innerHTML = liTag;
