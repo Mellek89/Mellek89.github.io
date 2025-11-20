@@ -122,7 +122,7 @@ img {
 
         }*/
        footer.footer {
- 
+ display: grid;
   color: white;
   padding: 0.5rem 1rem;   /* Weniger Innenabstand (statt 2rem) */
   line-height: 1.2;       /* Kompakterer Textabstand */
@@ -134,9 +134,15 @@ img {
   margin-top: 10em;
 }
 footer.footer .impressum a,
-.kontaktImpressum{
+ .datenschutz a{
   color: inherit;       /* nimmt die Textfarbe des Umfelds */
   text-decoration: none; /* keine Unterstreichung */
+ font-weight: 600;
+}
+
+.kontaktImpressum{
+  color: inherit;       /* nimmt die Textfarbe des Umfelds */
+  /*text-decoration: none; /* keine Unterstreichung */
 }
 
     
@@ -1240,9 +1246,9 @@ grid-auto-rows: minmax(100px, auto);
 
 /* Impressum */
 footer.footer .impressum {
-  text-align: left;
+ 
   width: 100%;
-  max-width: 800px;
+ 
   margin-bottom: 1rem;
 }
 
