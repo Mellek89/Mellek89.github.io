@@ -144,6 +144,16 @@ footer.footer .impressum a,
   color: inherit;       /* nimmt die Textfarbe des Umfelds */
   /*text-decoration: none; /* keine Unterstreichung */
 }
+.datenschutzerklärung{
+  padding: 2em;
+}
+.datenschutzerklärung p,
+.datenschutzerklärung h2{
+  text-align: left;
+}
+.datenschutzerklärung ul{
+  margin-left: 68px;
+}
 
     
   
