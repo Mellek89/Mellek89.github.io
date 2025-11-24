@@ -1767,27 +1767,43 @@ actualEvents.forEach(marktName => {
         singleEvent.appendChild(btnBox);
     }
 
-    // ⭐ Icon wenn aktiv
-    if (isActive) {
-      const  underline = document.createElement("div");
-      underline.className = "dropdown-underline";
+ 
+ if (isActive) {
+  const underline = document.createElement("div");
+  underline.className = "dropdown-underline";
 
-      const lineLeft = document.createElement("span");
-      lineLeft.className = "line";
+  const lineLeft = document.createElement("span");
+  lineLeft.className = "line";
 
-      const img = document.createElement("img");
-      img.src = "./imagesOptimized/images/Lango-laenge-Logo.png";   
-      img.classList.add("langosIcon");
+  const picture = document.createElement("picture");
 
-      const lineRight = document.createElement("span");
-      lineRight.className = "line";
+  const sourceAvif = document.createElement("source");
+  sourceAvif.srcset = "./imagesOptimized/images/avif/Lango-laenge-Logo.avif";
+  sourceAvif.type = "image/avif";
 
-      underline.appendChild(lineLeft);
-      underline.appendChild(img);
-      underline.appendChild(lineRight);
-      singleEvent.appendChild(underline);
+  const sourceWebp = document.createElement("source");
+  sourceWebp.srcset = "./imagesOptimized/images/webp/Lango-laenge-Logo.webp";
+  sourceWebp.type = "image/webp";
 
- }
+  const img = document.createElement("img");
+  img.src = "./imagesOptimized/images/Lango-laenge-Logo.png";
+  img.alt = "Lango-laenge-Logo";
+  img.classList.add("langoDropdown");
+
+  picture.appendChild(sourceAvif);
+  picture.appendChild(sourceWebp);
+  picture.appendChild(img);
+
+  const lineRight = document.createElement("span");
+  lineRight.className = "line";
+
+  underline.appendChild(lineLeft);
+  underline.appendChild(picture);   // ✔️ MUSS HIER HIN!
+  underline.appendChild(lineRight);
+
+  singleEvent.appendChild(underline);
+}
+
 
     
 
@@ -1821,28 +1837,45 @@ actualEvents.forEach(marktName => {
       
    
          
-    if (!underline) {
-       
-      underline = document.createElement("div");
-      underline.className = "dropdown-underline";
+  if (!underline) {
 
-      const lineLeft = document.createElement("span");
-      lineLeft.className = "line";
+  underline = document.createElement("div");
+  underline.className = "dropdown-underline";
 
-      const img = document.createElement("img");
-      img.src = "./imagesOptimized/images/Lango-laenge-Logo.png";   // <— hier dein Bild einsetzen
-      img.classList.add("langosIcon");
+  const lineLeft = document.createElement("span");
+  lineLeft.className = "line";
 
-      const lineRight = document.createElement("span");
-      lineRight.className = "line";
+  // --- <picture>-Struktur ---
+  const picture = document.createElement("picture");
 
-      underline.appendChild(lineLeft);
-      underline.appendChild(img);
-      underline.appendChild(lineRight);
+  const sourceAvif = document.createElement("source");
+  sourceAvif.srcset = "./imagesOptimized/images/avif/Lango-laenge-Logo.avif";
+  sourceAvif.type = "image/avif";
 
-      item.appendChild(underline);
-     
-    }
+  const sourceWebp = document.createElement("source");
+  sourceWebp.srcset = "./imagesOptimized/images/webp/Lango-laenge-Logo.webp";
+  sourceWebp.type = "image/webp";
+
+  const imgFallback = document.createElement("img");
+  imgFallback.src = "./imagesOptimized/images/Lango-laenge-Logo.png";
+  imgFallback.alt = "Lango-laenge-Logo";
+  imgFallback.classList.add("langosIcon");
+
+  picture.appendChild(sourceAvif);
+  picture.appendChild(sourceWebp);
+  picture.appendChild(imgFallback);
+
+  const lineRight = document.createElement("span");
+  lineRight.className = "line";
+
+  // --- Reihenfolge komplett korrekt ---
+  underline.appendChild(lineLeft);
+  underline.appendChild(picture);   // <--- WICHTIG! Bild ist zwischen den Linien
+  underline.appendChild(lineRight);
+
+  item.appendChild(underline);
+}
+
     underline.style.display = "flex";
 
         //  Prüfen ob Update oder Delete

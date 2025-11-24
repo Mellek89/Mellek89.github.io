@@ -525,8 +525,13 @@ header .chooseItem{
        }
        .logoMobil{
         display: block;
-        max-width: 150px; 
+        max-width: 130px; 
+        margin-top: 10px;
            
+       }
+       .langoDropdown{
+        max-width: 55px; 
+        margin-top: 10px;
        }
 
        .slogan{
