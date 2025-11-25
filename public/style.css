@@ -165,12 +165,15 @@ footer.footer .impressum a,
           
         }
 
-        header .icons span{
-          position: relative;
-          left: 20%;
-          cursor: default;
-          border-radius: 50%;
-        }
+      header .icons span {
+  display: inline-flex;       /* Flex, damit Inhalt zentriert wird */
+  align-items: center;        /* Vertikale Zentrierung */
+  justify-content: center;    /* Horizontale Zentrierung */
+  width: 38px;                /* Breite des Icons */
+  height: 38px;               /* Höhe des Icons */
+  border-radius: 50%;         /* optional: runde Hover-Fläche */
+}
+
 
 
       
@@ -1426,6 +1429,7 @@ grid-column: 2/4;*/
 
 header .icons span:hover{
   background: #f2f2f2
+
 }
 
 
