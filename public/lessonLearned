@@ -1,0 +1,17 @@
+package class:
+
+onchange vs addEventListener
+--> both methods which add an event handler to an element.
+-- onchange method attaches only one event handler to the element.
+++ addEventListener adds more than one event handler on the same element
+
+
+let generateID = ()=> {
+   return Math.random().toString(36).slice(2)    
+  } 
+  
+ Better with a constant value, because it should not be variable. curly brackets and return value are obsolete.
+ 
+const generateID = () => Math.random().toString(36).slice(2);
+
+

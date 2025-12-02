@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: red;
+}
+header, nav, footer, aside, section {
+    display: block;
+}
+body {
+    text-align: center;
+}
+
+
+header {
+    background-color: blue;
+    background-image: url(/home/briegel/Melle/Javascript/Kalenderprojekt/jardin.png);
+    height: 150px
+}
+
+nav {
+    background-color: white;
+}
+
+footer {
+    background-color: green;
+}
+
+aside {
+    background-color: yellow;
+    width: 300px;
+    float: right;
+}
+section {
+    background-color: orange;
+margin-left: 250px;
+    margin-right: 300px;
+}
+main {
+    background-color: orange;
+margin-left: 250px;
+    margin-right: 300px;
+}
+#steuerunglinks {
+    background-color: #808000;
+    float: left;
+    width: 220px;
+}
+#wrapper {
+    background-color: #eeeeee;
+    width: 900px;
+    border: 2px solid red;
+    margin: 0 auto;   
+}
+

@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+
+ class Request{
+	 
+ }
+ 
+ class Offer{
+	 
+	 
+ }
