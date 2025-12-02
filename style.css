@@ -158,24 +158,10 @@ body {
   border:1px solid #E6F0FF;
   cursor:pointer;
 }
-
-
-.ware-btn{
-  width: 140px;
-  display:inline-flex;
-  gap:8px;align-items:center;
-  padding:8px 10px;
-  border-radius:10px;
-  background:#E6F0FF;
-  cursor:pointer;
-}
-
 .lang-btn span{
   color: #E6F0FF;
 }
-.ware-btn span{
-  color: #141414;
-}
+
 
 .lang-btn:focus{outline:3px solid rgba(59,130,246,0.2)}
 .flag{width:20px;height:14px;display:inline-block}
@@ -192,27 +178,9 @@ body {
   box-shadow:0 8px 30px rgba(2,6,23,0.6);
   display:none}
 
-  .ware-picker{
-  position:relative;
-  margin-top:25px;
-  grid-row: 2;
-  grid-column: 2;
-  }
-.wareDropdown{
-  position:absolute;
-  color: #141414;
-  min-width:120px;
-  background-color:#E6F0FF;
-  border-radius:12px;
-  padding:8px;
-  border:1px 
-  solid rgba(255,255,255,0.03);
- 
-  
-  display:none}
+
 
 .langDropdown.show{display:block}
-.wareDropdown.show{display:block}
 .option,
 .optionItem{display:flex;gap:10px;align-items:center;padding:8px;border-radius:8px;cursor:pointer}
 .option:hover,
@@ -240,27 +208,33 @@ body {
   margin-top: 1.5rem;
   
 }
+.title-wrapper {
+  display: grid;
+  grid-template-columns: 1fr; /* mobile: alles untereinander */
+  gap: 1rem;
+}
+
+.bring{
+grid-row: 1;
+font-size: 1rem;
+text-align: center;
+max-width: 29em;
+grid-column: 1;
+
+}
+.pydeatch{
+    grid-row: 3;
+}
 .Wohin,
 .Was{
 position: relative;
 color:#141414;
-  grid-column: 1 / -1;
-  text-align: center;
+grid-column: 1 / -1;
+text-align: center;
 grid-row: 1;
 justify-self: center; 
 
 }
-
-.title-wrapper {
-  display: grid; /* inneres Grid für h1 + SVG */
-   grid-template-columns: max-content max-content;
-  justify-content: center;
-  align-items: center;   /* zentriert vertikal */
-  gap: 0.5rem;           /* Abstand zwischen Text und SVG */
-  grid-column: 1 / -1;   /* über alle Hauptspalten gehen */
-}
-
-
 
 .svgPackage,
 .svgDocument {
@@ -321,9 +295,7 @@ justify-self: center;
 }
 
 
-  .main p {
-    font-size: 1.5rem;
-  }
+ 
 
   .main .buttons {
     flex-direction: row;
@@ -337,11 +309,22 @@ justify-self: center;
   .hamb, .side-menu {
     display: none; 
   } 
+  .title-wrapper {
+  display: grid; /* inneres Grid für h1 + SVG */
+  grid-template-columns: max-content max-content;
+  justify-content: center;
+  align-items: center;   /* zentriert vertikal */
+  gap: 0.5rem;           /* Abstand zwischen Text und SVG */
+  grid-column: 1 / -1;   /* über alle Hauptspalten gehen */
+}
   .svgAirplane{
   padding: 3em;
   max-width: 900px;
   margin: 0 auto;
   grid-column: 1 /-1;
   
+}
+.pydeatch{
+    max-width: 100px;
 }
 }
