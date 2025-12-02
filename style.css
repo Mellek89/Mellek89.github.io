@@ -241,8 +241,7 @@ body {
   
 }
 .Wohin,
-.Was,
-.bring{
+.Was{
 position: relative;
 color:#141414;
   grid-column: 1 / -1;
@@ -251,6 +250,16 @@ grid-row: 1;
 justify-self: center; 
 
 }
+
+.title-wrapper {
+  display: grid; /* inneres Grid für h1 + SVG */
+   grid-template-columns: max-content max-content;
+  justify-content: center;
+  align-items: center;   /* zentriert vertikal */
+  gap: 0.5rem;           /* Abstand zwischen Text und SVG */
+  grid-column: 1 / -1;   /* über alle Hauptspalten gehen */
+}
+
 
 
 .svgPackage,
