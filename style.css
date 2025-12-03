@@ -43,9 +43,7 @@ body {
 }
 
 .side-menu {
-  opacity: 0;
-  width: 0;
-  height: 0;
+ display: none;
  } 
    .nav{
      display: flow-root;
@@ -53,7 +51,7 @@ body {
      height: 100%;
      position: fixed;
      inset: 0; /* shorthand for top, right, bottom, left: 0 */
-     /*overflow: hidden;*/
+     overflow: hidden;
       max-height: 0;
      transition: max-height .4s ease-out;
       z-index: 4;
@@ -81,7 +79,7 @@ body {
         position: relative;
         cursor: default;
         padding: 40px 20px; 
-        grid-column: 4; 
+        grid-column: 1; 
           z-index: 5; /* Set z-index to keep the icon at the top position */
         
         
@@ -218,7 +216,7 @@ body {
 grid-row: 1;
 font-size: 1rem;
 text-align: center;
-max-width: 24em;
+max-width: 20em;
 grid-column: 1;
 
 }
@@ -311,6 +309,11 @@ justify-self: center;
   .hamb, .side-menu {
     display: none; 
   } 
+  .side-menu {
+  opacity: 0;
+  width: 0;
+  height: 0;
+ } 
   .title-wrapper {
     position: relative;
   display: grid; /* inneres Grid für h1 + SVG */
