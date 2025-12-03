@@ -312,19 +312,41 @@ justify-self: center;
     display: none; 
   } 
   .title-wrapper {
+    position: relative;
   display: grid; /* inneres Grid für h1 + SVG */
-  grid-template-columns: max-content max-content;
+  grid-template-columns: 2fr 1fr;
   justify-content: center;
   align-items: center;   /* zentriert vertikal */
   gap: 0.5rem;           /* Abstand zwischen Text und SVG */
   grid-column: 1 / -1;   /* über alle Hauptspalten gehen */
 }
-  .svgAirplane{
-  padding: 3em;
-  max-width: 900px;
-  margin: 0 auto;
-  grid-column: 1 /-1;
-  
+.bring{
+display: grid;
+
+grid-row: 1;
+z-index: 3;
+font-size: 1rem;
+text-align: center;
+max-width: 29em;
+margin-left: 10px;
+grid-column: 1 / -1;
+justify-self: center;
+
+
+}
+/* SVG kann frei verschoben werden */
+.svgAirplane {
+grid-column: 1 / -1;
+justify-self: center;
+
+  grid-row: 2;
+
+  width: 450px;
+  height: auto;
+  z-index: 1;
+
+  /* unabhängig verschiebbar */
+  transform: translate(50px, 10px);
 }
 .pydeatch{
     max-width: 100px;
