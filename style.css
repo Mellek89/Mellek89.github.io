@@ -309,7 +309,7 @@ justify-self: center;
   .hamb, .side-menu {
     display: none; 
   } 
-  .side-menu {
+  .side-menu { 
   opacity: 0;
   width: 0;
   height: 0;
