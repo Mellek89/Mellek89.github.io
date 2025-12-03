@@ -248,10 +248,12 @@ justify-self: center;
   left: 88px;   /* rechts */
 }
 .svgAirplane{
+  
   padding: 3em;
   max-width: 500px;
+  justify-content: center;
   margin: 0 auto;
-  width: 600px;
+  width: 500px;
 }
 
 
