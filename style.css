@@ -254,11 +254,8 @@ justify-self: center;
   left: 88px;   /* rechts */
 }
 .svgAirplane{
-  
- 
   max-width: 400px;
-  justify-content: center;
-  margin: 0 auto;
+  margin-right: 3em;
   
 }
 
