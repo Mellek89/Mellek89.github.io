@@ -306,7 +306,7 @@ justify-self: center;
     width: 180px;
     padding: 1.2rem;
   }
-  .hamb, .side-menu {
+  .hamb, .side-menu {   
     display: none;  
   } 
   .side-menu { 
