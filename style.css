@@ -220,6 +220,14 @@ max-width: 20em;
 grid-column: 1;
 
 }
+.location{
+  grid-column: 1;
+text-align: center;
+margin-top: 3em;
+margin-right: 0;
+max-width: 20em;
+
+}
 .pydeatch{
     grid-row: 3;
 }
@@ -310,10 +318,14 @@ justify-self: center;
     display: none;  
   } 
   .side-menu { 
+   
   opacity: 0;
   width: 0;
   height: 0;
  } 
+ .menu{
+   display: block;
+ }
   .title-wrapper {
     position: relative;
   display: grid; /* inneres Grid für h1 + SVG */
@@ -335,6 +347,13 @@ margin-left: 10px;
 grid-column: 1 / -1;
 justify-self: center;
 
+
+}
+
+.location{
+grid-row: 2;
+grid-column: 1;
+margin-right: 4em;
 
 }
 /* SVG kann frei verschoben werden */
