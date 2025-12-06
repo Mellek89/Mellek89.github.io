@@ -255,6 +255,7 @@ grid-column: 1 / -1;
 text-align: center;
 grid-row: 1;
 justify-self: center; 
+font-size: 30px;
 
 }
 
@@ -265,7 +266,7 @@ justify-self: center;
    grid-column: 1; 
    grid-row: 1; 
   fill: #141414;
-   max-width: 40px; 
+   width: 70px; 
 }
 
 .svgAirplane{
@@ -370,9 +371,13 @@ justify-self: center;
 
 
 }
+.Was{
+  font-size: 30px;
+  margin-top: 2em;
+}
 
 .location{
-  grid-column: 1;
+grid-column: 1;
 grid-row: 3;
 margin: 0;
 }
@@ -393,7 +398,9 @@ margin-right: 28em;
   /* unabhängig verschiebbar */
   transform: translate(50px, 10px);
 }
-.pydeatch{
-    max-width: 100px;
-}
+
+    .svgPyToDe{
+    grid-row:3;
+    height: 650px;
+    }
 }
