@@ -281,7 +281,7 @@ font-size: 30px;
 }
 .svgPyToDe{
 grid-row:3;
- height: 400px;
+ width:  400px;
   vector-effect: non-scaling-stroke;
   shape-rendering: geometricPrecision;
   image-rendering: auto;
