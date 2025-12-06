@@ -15,79 +15,62 @@
 
   <div class="container">
     <header class="header">
-           <input class="side-menu" title="hamb" type="checkbox" id="side-menu"/>
-          <label class="hamb" id="hamb" for="side-menu"><span class="hamb-line"></span></label>
-          <!--Menu-->
-          <nav class="nav" id="nav">
-            <ul class="menu" id="menu">
-             <li class="home"> <a  href="index.html">Home</a></li>
-            </ul>
-          </nav>
-    
+      <input class="side-menu" title="hamb" type="checkbox" id="side-menu"/>
+      <label class="hamb" id="hamb" for="side-menu"><span class="hamb-line"></span></label>
+      <!--Menu-->
+      <nav class="nav" id="nav">
+        <ul class="menu" id="menu">
+          <li class="home"><a href="index.html">Home</a></li>
+        </ul>
+      </nav>
+
       <div class="lang-picker">
-<button id="langBtn" class="lang-btn" aria-haspopup="menu" aria-expanded="false">
-<span id="currentFlag" class="flag">🇩🇪</span>
-<span id="currentName">Deutsch</span>
-<svg class="chev" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 8l4 4 4-4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
-</button>
+        <button id="langBtn" class="lang-btn" aria-haspopup="menu" aria-expanded="false">
+          <span id="currentFlag" class="flag">🇩🇪</span>
+          <span id="currentName">Deutsch</span>
+          <svg class="chev" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 8l4 4 4-4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
 
-
-<div id="langDropdown" class="langDropdown" role="menu" aria-label="Sprachen">
-<div class="option" role="menuitem" data-lang="de" tabindex="0">
-<span class="flag">🇩🇪</span>
-<div>
-<div class="name">Deutsch</div>
-
-</div>
-</div>
-<div class="option" role="menuitem" data-lang="es" tabindex="0">
-<span class="flag">🇪🇸</span>
-<div>
-<div class="name">Español</div>
-
-</div>
-</div>
-<div class="option" role="menuitem" data-lang="en" tabindex="0">
-<span class="flag">🇬🇧</span>
-<div>
-<div class="name">English</div>
-
-</div>
-</div>
-</div>
-</div>
+        <div id="langDropdown" class="langDropdown" role="menu" aria-label="Sprachen">
+          <div class="option" role="menuitem" data-lang="de" tabindex="0">
+            <span class="flag">🇩🇪</span>
+            <div><div class="name">Deutsch</div></div>
+          </div>
+          <div class="option" role="menuitem" data-lang="es" tabindex="0">
+            <span class="flag">🇪🇸</span>
+            <div><div class="name">Español</div></div>
+          </div>
+          <div class="option" role="menuitem" data-lang="en" tabindex="0">
+            <span class="flag">🇬🇧</span>
+            <div><div class="name">English</div></div>
+          </div>
+        </div>
+      </div>
     </header>
 
     <main class="main">
-     
+      <p class="Was">Was möchten Sie nach XYZ versenden?</p>
 
-       <p class="Was">Was möchten Sie nach XYZ versenden?</p> 
-  
-
-   <div class="Items">
-          <object class="svgPackage"   type="image/svg+xml"  data="img/package-svgrepo-com(1).svg"  aria-label="Graphic"></object>
-          <object class="svgDocument" data="img/document.svg"  aria-label="Graphic"></object>
-    </div> 
-    <object 
-      class="svgPyToDe" 
-      type="image/svg+xml" 
-      data="img/pyToDe.svg" 
-      aria-label="Graphic">
-<   /object>   
-          
-        
-          
-
-
+      <div class="Items">
+        <object class="svgPackage" type="image/svg+xml" data="img/package-svgrepo-com(1).svg" aria-label="Graphic"></object>
+        <object class="svgDocument" data="img/document.svg" aria-label="Graphic"></object>
       </div>
-    </div>
-    
+
+      <object
+        class="svgPyToDe"
+        type="image/svg+xml"
+        data="img/pyToDe.svg"
+        aria-label="Graphic">
+      </object>
     </main>
 
     <footer class="footer">
       <p>© 2025 Melle Piribebuy</p>
     </footer>
-  </div>
-<script type= "module" src="chooseItems.js"></script>
+  </div> <!-- .container -->
+
+  <script type="module" src="chooseItems.js"></script>
 </body>
 </html>
