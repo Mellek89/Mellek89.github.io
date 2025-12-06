@@ -63,7 +63,11 @@ body {
     .nav li a{
       text-decoration:none;
       color: #E6F0FF;
+      
     
+    }
+    .nav{
+      overflow:inherit;
     }
      .menu {
             position: relative;
@@ -292,7 +296,8 @@ width: 650px;
   align-items: center;
   justify-content: center;
   gap: 3em ;
-  margin-top: 3em ;
+  grid-row: 2;
+
 }
 
 
