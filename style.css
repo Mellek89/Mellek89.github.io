@@ -384,7 +384,7 @@ justify-self: center;
   margin-top: 2em;
 }
 
-.location{
+.location{ 
 grid-column: 1;
 grid-row: 3;
 margin: 0;
