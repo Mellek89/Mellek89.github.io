@@ -281,10 +281,7 @@ font-size: 20px;
 }
 .svgPyToDe{
 grid-row:3;
-
-  vector-effect: non-scaling-stroke;
-  shape-rendering: geometricPrecision;
-  image-rendering: auto;
+width: 400px;
 }
 .Items{
   display: flex;
