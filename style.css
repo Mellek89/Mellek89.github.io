@@ -264,14 +264,17 @@ font-size: 20px;
 
 }
 
-.svgPackage,
+
 .svgDocument {
   position: relative; 
   z-index: 9;
    grid-column: 1; 
    grid-row: 1; 
   fill: #141414;
-   width: 60px; 
+   width: 100px; 
+}
+.svgPackage{
+width: 100px; 
 }
 
 .svgAirplane{
@@ -288,8 +291,8 @@ width: 650px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 80px;
-  margin-top: 3em 
+  gap: 3em ;
+  margin-top: 3em ;
 }
 
 
@@ -407,6 +410,7 @@ margin-right: 28em;
 
     .svgPyToDe{
     grid-row:3;
-    height: 650px;
+    width:  850px;
+    height: 700px;
     }
 }
