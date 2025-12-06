@@ -260,7 +260,7 @@ grid-column: 1 / -1;
 text-align: center;
 grid-row: 1;
 justify-self: center; 
-font-size: 30px;
+font-size: 20px;
 
 }
 
@@ -281,7 +281,7 @@ font-size: 30px;
 }
 .svgPyToDe{
 grid-row:3;
- width:  400px;
+
   vector-effect: non-scaling-stroke;
   shape-rendering: geometricPrecision;
   image-rendering: auto;
