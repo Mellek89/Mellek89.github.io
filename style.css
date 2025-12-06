@@ -39,6 +39,9 @@ body {
   padding: 2rem 1rem;
   color: #141414;
   gap: 1rem;
+  justify-items: center; /* horizontal zentrieren */
+  align-items: center;   /* optional: vertikal zentrieren */
+  flex: 1;
   
 }
 
@@ -216,7 +219,6 @@ body {
 grid-row: 1;
 font-size: 1rem;
 text-align: center;
-margin-right: 1em;
 grid-column: 1;
 
 }
@@ -263,13 +265,23 @@ justify-self: center;
    grid-column: 1; 
    grid-row: 1; 
   fill: #141414;
+   max-width: 40px; 
 }
-.svgDocument {
-  left: 88px;   /* rechts */
-}
+
 .svgAirplane{
   max-width: 400px;  
   justify-self: center; 
+  
+}
+.svgPyToDe{
+grid-row:3;
+}
+.Items{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 3em 
 }
 
 
