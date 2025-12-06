@@ -269,12 +269,13 @@ justify-self: center;
 }
 
 .svgAirplane{
-  max-width: 400px;  
+  max-width: 800px;  
   justify-self: center; 
   
 }
 .svgPyToDe{
 grid-row:3;
+ height: 400px;
 }
 .Items{
   display: flex;
