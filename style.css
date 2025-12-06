@@ -234,6 +234,9 @@ grid-column: 1;
 .location{
 grid-column: 1;
 text-align: center;
+ vector-effect: non-scaling-stroke;
+  shape-rendering: geometricPrecision;
+  image-rendering: auto;
 
 margin-right: 0;
 font-size: 20px;
@@ -241,7 +244,9 @@ font-size: 20px;
 
 .svgLocation{
   width: 45px;  
-
+ vector-effect: non-scaling-stroke;
+  shape-rendering: geometricPrecision;
+  image-rendering: auto;
 }
 
 .pydeatch{
@@ -277,6 +282,9 @@ font-size: 30px;
 .svgPyToDe{
 grid-row:3;
  height: 400px;
+  vector-effect: non-scaling-stroke;
+  shape-rendering: geometricPrecision;
+  image-rendering: auto;
 }
 .Items{
   display: flex;
