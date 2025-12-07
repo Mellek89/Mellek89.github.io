@@ -245,10 +245,8 @@ font-size: 20px;
 }
 
 .svgLocation{
-  width: 65px;  
- vector-effect: non-scaling-stroke;
-  shape-rendering: geometricPrecision;
-  image-rendering: auto;
+  width: 85px;  
+
 }
 
 .pydeatch{
