@@ -286,7 +286,7 @@ width: 100px;
 }
 .svgPyToDe{
 grid-row:3;
-width: 500px;
+
 
 }
 .Items{
@@ -415,7 +415,6 @@ margin-right: 28em;
 
     .svgPyToDe{
     grid-row:3;
-    width:  850px;
-    height: 700px;
+   
     }
 }
