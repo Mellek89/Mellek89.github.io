@@ -36,12 +36,14 @@ body {
   background-color: #F5F5F5;
   display: grid;
   grid-template-columns: 1fr;   /* nur EINE Spalte auf Mobil */
+   grid-template-rows: auto auto auto; 
+  align-content:center;
   padding: 2rem 1rem;
   color: #141414;
   gap: 1rem;
   justify-items: center; /* horizontal zentrieren */
-  align-items: center;   /* optional: vertikal zentrieren */
-  flex: 1;
+   min-height: calc(100vh - 120px); 
+
   
 }
 
@@ -234,7 +236,7 @@ grid-column: 1;
   justify-content: center;
   gap: 15px;
   height: 40%;
-  margin-top: 2em;
+  margin-top: 0;
 }
 .location{
 grid-column: 1;
@@ -255,20 +257,20 @@ font-size: 20px;
 }
 .Wohin,
 .Was{
-position: relative;
+
 color:#141414;
 grid-column: 1 / -1;
 text-align: center;
-grid-row: 1;
+grid-row: 2;
 justify-self: center; 
 font-size: 20px;
+
 
 }
 
 
 .svgDocument {
   position: relative; 
-   
    grid-column: 1; 
    grid-row: 1; 
   fill: #141414;
@@ -282,8 +284,8 @@ font-size: 20px;
   
 }
 .svgPyToDe{
-grid-row:3;
-
+grid-row:1;
+justify-self: center;
 
 }
 .Items{
@@ -292,9 +294,10 @@ grid-row:3;
   align-items: center;
   justify-content: center;
   gap: 3em ;
-  grid-row: 2;
+  grid-row: 3;
   width: 165px;
-  top: 80px;
+  margin-top: 6em; 
+ 
 }
 
 
@@ -311,6 +314,7 @@ grid-row:3;
   .main .buttons {
     flex-direction: row;
     gap: 2rem;
+     
   }
 }
 
@@ -387,9 +391,9 @@ justify-self: center;
 }
 .Items{
   width: 200px;
-  /*margin-top: 180px;*/
-   position: relative;
-  top: 80px;
+   margin-top: 0.2rem; 
+   /*position: relative;
+  top: 80px;*/
 }
 
 .location{ 
