@@ -297,6 +297,63 @@ grid-row:2;
 justify-self: center;
 
 }
+
+/* Checkbox komplett unsichtbar */
+.toggle {
+  display: none;
+}
+
+/* Standard: Formular ausblenden */
+.formular {
+    display: none;
+    margin-top: 1rem;
+    animation: fadein .3s ease;
+}
+/* Kleiner Fade-in Effekt */
+@keyframes fadein {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.paket-toggle:checked ~ .Items .document {
+  display: none; /* NUR wenn Paket aktiv ist! */
+}
+
+.paket-toggle:checked ~ .Items .paket {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.paket-toggle:checked ~ .paket-formular {
+  display: block;
+}
+
+.paket-toggle:checked ~ .document-formular {
+  display: none;
+}
+
+
+/* ---------------------- */
+/*   DOKUMENT-AKTIONEN    */
+/* ---------------------- */
+
+.document-toggle:checked ~ .Items .paket {
+  display: none; /* NUR wenn Dokument aktiv ist! */
+}
+
+.document-toggle:checked ~ .Items .document {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.document-toggle:checked ~ .document-formular {
+  display: block;
+}
+
+.document-toggle:checked ~ .paket-formular {
+  display: none;
+}
+
 .Items{
   position: relative;
   display: flex;
@@ -409,61 +466,6 @@ justify-self: center;
 .Was{
   font-size: 25px;
 
-}
-/* Checkbox komplett unsichtbar */
-.toggle {
-  display: none;
-}
-
-/* Standard: Formular ausblenden */
-.formular {
-    display: none;
-    margin-top: 1rem;
-    animation: fadein .3s ease;
-}
-/* Kleiner Fade-in Effekt */
-@keyframes fadein {
-    from { opacity: 0; transform: translateY(10px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
-
-.paket-toggle:checked ~ .Items .document {
-  display: none; /* NUR wenn Paket aktiv ist! */
-}
-
-.paket-toggle:checked ~ .Items .paket {
-  transform: scale(1.1);
-  opacity: 1;
-}
-
-.paket-toggle:checked ~ .paket-formular {
-  display: block;
-}
-
-.paket-toggle:checked ~ .document-formular {
-  display: none;
-}
-
-
-/* ---------------------- */
-/*   DOKUMENT-AKTIONEN    */
-/* ---------------------- */
-
-.document-toggle:checked ~ .Items .paket {
-  display: none; /* NUR wenn Dokument aktiv ist! */
-}
-
-.document-toggle:checked ~ .Items .document {
-  transform: scale(1.1);
-  opacity: 1;
-}
-
-.document-toggle:checked ~ .document-formular {
-  display: block;
-}
-
-.document-toggle:checked ~ .paket-formular {
-  display: none;
 }
 
 .Items{
