@@ -242,13 +242,14 @@ grid-column: 1;
 grid-column: 1;
 text-align: center;
 margin-right: 0;
-font-size: 20px;
+font-size: 16px;
+font-weight: bold;
 
 }
 
 .svgLocation{
   width: 85px;  
-  height: 65px;
+  height: 75px;
 
 }
 .page-title {
@@ -304,6 +305,7 @@ justify-self: center;
   gap: 3em ;
   grid-row: 4;
   width: 165px;
+  margin-bottom: 3em;;
    
  
 }
@@ -315,6 +317,7 @@ justify-self: center;
   text-align: center;
   padding: 1rem;
   color: #fff;
+  
 }
 
 /* Tablet */
@@ -407,6 +410,62 @@ justify-self: center;
   font-size: 25px;
 
 }
+/* Checkbox komplett unsichtbar */
+.toggle {
+  display: none;
+}
+
+/* Standard: Formular ausblenden */
+.formular {
+    display: none;
+    margin-top: 1rem;
+    animation: fadein .3s ease;
+}
+/* Kleiner Fade-in Effekt */
+@keyframes fadein {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.paket-toggle:checked ~ .Items .document {
+  display: none; /* NUR wenn Paket aktiv ist! */
+}
+
+.paket-toggle:checked ~ .Items .paket {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.paket-toggle:checked ~ .paket-formular {
+  display: block;
+}
+
+.paket-toggle:checked ~ .document-formular {
+  display: none;
+}
+
+
+/* ---------------------- */
+/*   DOKUMENT-AKTIONEN    */
+/* ---------------------- */
+
+.document-toggle:checked ~ .Items .paket {
+  display: none; /* NUR wenn Dokument aktiv ist! */
+}
+
+.document-toggle:checked ~ .Items .document {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.document-toggle:checked ~ .document-formular {
+  display: block;
+}
+
+.document-toggle:checked ~ .paket-formular {
+  display: none;
+}
+
 .Items{
   width: 200px;
 
