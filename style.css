@@ -233,19 +233,20 @@ grid-column: 1;
   align-items: center;
   justify-content: center;
   gap: 15px;
-  margin-top: 3em             /* EXAKT 10px Abstand */
+  height: 40%;
+  margin-top: 2em;
 }
 .location{
 grid-column: 1;
 text-align: center;
-
-
 margin-right: 0;
 font-size: 20px;
+
 }
 
 .svgLocation{
   width: 85px;  
+  height: 65px;
 
 }
 
@@ -267,15 +268,13 @@ font-size: 20px;
 
 .svgDocument {
   position: relative; 
-  z-index: 9;
+   
    grid-column: 1; 
    grid-row: 1; 
   fill: #141414;
-   width: 100px; 
+  
 }
-.svgPackage{
-width: 100px; 
-}
+
 
 .svgAirplane{
   max-width: 800px;  
@@ -283,7 +282,7 @@ width: 100px;
   
 }
 .svgPyToDe{
-grid-row:3;
+grid-row:2;
 
 
 }
@@ -292,7 +291,8 @@ grid-row:3;
   align-items: center;
   justify-content: center;
   gap: 3em ;
-  grid-row: 2;
+  grid-row: 3;
+  width: 165px;
 
 }
 
