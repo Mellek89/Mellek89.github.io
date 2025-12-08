@@ -287,13 +287,14 @@ grid-row:3;
 
 }
 .Items{
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 3em ;
   grid-row: 2;
   width: 165px;
-  margin-top: 80px;
+  top: 80px;
   
 
 }
@@ -352,7 +353,6 @@ grid-row:3;
     display: none;  
   } 
   .side-menu { 
-   
   opacity: 0;
   width: 0;
   height: 0;
@@ -386,6 +386,12 @@ justify-self: center;
 .Was{
   font-size: 30px;
   margin-top: 2em;
+}
+.Items{
+  width: 200px;
+  /*margin-top: 180px;*/
+   position: relative;
+  top: 80px;
 }
 
 .location{ 
