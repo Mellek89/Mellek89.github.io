@@ -51,10 +51,14 @@
     </header>
 
     <main class="main">
-      <h1 class="page-title">Von Paraguay nach Deutschland versenden</h1>
-
+      <h1 class="page-title">Ihre Sendung auf einem Blick</h1>
+<input type="checkbox" id="togglePaket" class="toggle paket-toggle">
+<input type="checkbox" id="toggleDokument" class="toggle document-toggle">
       <p class="Was">Was möchten Sie versenden?</p>
-<div class="Items">    
+
+
+<div class="Items"> 
+     <label for="togglePaket" class="item paket">
 <svg
    fill="#000000"
    version="1.1"
@@ -98,7 +102,8 @@
          y="301.11615">Paket</tspan></text>
   </g>
 </svg>
-
+ <span>Paket</span></label>   
+<label for="toggleDokument" class="item document">
 <svg
    fill="#000000"
    version="1.1"
@@ -129,11 +134,24 @@
      x="21.864101"
      y="38.504951"
      style="stroke-width:3.69548">Dokument</tspan></text></g>
+    
 </svg>
+  <span>Dokument</span>
+</label>
+</div>
+<!-- Paket Formular -->
+<div class="formular paket-formular">
+    <h3>Paketdaten</h3>
+    <input type="text" placeholder="Gewicht (kg)">
+    <input type="text" placeholder="Maße (cm)">
+</div>
 
-      </div>
-
- 
+<!-- Dokument Formular -->
+<div class="formular document-formular">
+    <h3>Dokumentdaten</h3>
+    <input type="text" placeholder="Seitenanzahl">
+    <input type="text" placeholder="Format">
+</div>
 
 <svg
    viewBox="0 70 300 80"
