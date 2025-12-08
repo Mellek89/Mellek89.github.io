@@ -282,7 +282,7 @@ font-size: 20px;
   
 }
 .svgPyToDe{
-grid-row:2;
+grid-row:3;
 
 
 }
@@ -291,8 +291,10 @@ grid-row:2;
   align-items: center;
   justify-content: center;
   gap: 3em ;
-  grid-row: 3;
+  grid-row: 2;
   width: 165px;
+  margin-top: 80px;
+  
 
 }
 
@@ -412,7 +414,7 @@ margin-right: 28em;
 }
 
     .svgPyToDe{
-    grid-row:3;
+    
    width: 800px;
     }
 }
