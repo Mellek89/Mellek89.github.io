@@ -322,15 +322,23 @@ justify-self: center;
 .paket-toggle:checked ~ .Items .paket {
   transform: scale(1.1);
   opacity: 1;
+  margin-bottom: -2em;
 }
 
 .paket-toggle:checked ~ .paket-formular {
   display: block;
 }
+.paket-toggle:checked ~ .Items{
+  margin-bottom: -2em;
+}
 
 .paket-toggle:checked ~ .document-formular {
   display: none;
 }
+.paket-formular{
+margin-bottom: 3em;
+}
+
 
 
 /* ---------------------- */
@@ -349,9 +357,15 @@ justify-self: center;
 .document-toggle:checked ~ .document-formular {
   display: block;
 }
+.document-toggle:checked ~ .Items{
+   margin-bottom: -2em;
+}
 
 .document-toggle:checked ~ .paket-formular {
   display: none;
+}
+.document-formular{
+  margin-bottom: 3em;
 }
 
 .Items{
