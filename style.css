@@ -235,7 +235,7 @@ padding: 1em;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px;
+  gap: 1em;
   height: 40%;
   margin-top: 1em;
   margin-left: 3em;
@@ -250,8 +250,9 @@ font-weight: bold;
 }
 
 .svgLocation{
-  width: 85px;  
+  width: 73px;  
   height: 75px;
+  margin-bottom: 2em ;
 
 }
 .page-title {
