@@ -374,7 +374,7 @@ margin-bottom: 3em;
 .document-toggle:checked ~ .paket-formular {
   display: none;
 }
-.document-formular{
+.document-formular{ 
   margin-bottom: 3em;
 }
 
@@ -522,8 +522,7 @@ margin-right: 28em;
   transform: translate(50px, 10px);
 }
 
-    .svgPyToDe{
-    
-   width: 800px;
+    .svgPyToDe{ 
+   width: 700px;
     }
 }
