@@ -255,6 +255,10 @@ font-weight: bold;
   margin-bottom: 2em ;
 
 }
+.svgPackage{
+   width: 75px;  
+  height: 75px;
+}
 .page-title {
   grid-row: 1;
   text-align: center;
