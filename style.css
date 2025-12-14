@@ -259,6 +259,7 @@ font-weight: bold;
    width: 75px;  
   height: 75px;
 }
+
 .page-title {
   grid-row: 1;
   text-align: center;
@@ -290,6 +291,8 @@ font-size: 20px;
    grid-column: 1; 
    grid-row: 1; 
   fill: #141414;
+  width: 65px;  
+  height: 70px;
   
 }
 
