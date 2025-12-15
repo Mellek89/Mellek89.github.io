@@ -333,6 +333,13 @@ justify-self: center;
   transform: scale(1.1);
   opacity: 1;
   margin-bottom: -2em;
+  display: flex;
+  flex-direction: column;
+  
+}
+.paket-toggle:checked ~ .Items .paket span {
+  margin-left: 0.5em;
+  
 }
 
 .paket-toggle:checked ~ .paket-formular {
@@ -350,7 +357,6 @@ margin-bottom: 3em;
 }
 
 
-
 /* ---------------------- */
 /*   DOKUMENT-AKTIONEN    */
 /* ---------------------- */
@@ -362,6 +368,12 @@ margin-bottom: 3em;
 .document-toggle:checked ~ .Items .document {
   transform: scale(1.1);
   opacity: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+.document-toggle:checked ~ .Items .document span{
+margin-top: 0.5em;
 }
 
 .document-toggle:checked ~ .document-formular {
