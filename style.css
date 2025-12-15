@@ -322,9 +322,37 @@ justify-self: center;
   margin-top: 1em;
   margin-left: 3em;
 }
-.sendung-wrapper:has(.searchTravelers:checked) .loc-row {
-  display: flex;
+
+.send,
+.offer
+{
+  display: none;
 }
+.main:has(.searchTravelers:checked) .offer{
+  display: block;
+  grid-row: 3;
+}
+.main:has(.takeItemsWithMe:checked) .send{
+  display: block;
+  grid-row: 3;
+}
+.main:has(.searchTravelers:checked) .sendung-wrapper{
+  display: none;
+  
+}
+.main:has(.takeItemsWithMe:checked) .sendung-wrapper{
+  display: none;
+ 
+}
+
+.main:has(.searchTravelers:checked) .pleaseChoose{
+  display: none;
+  
+}
+.main:has(.takeItemsWithMe:checked) .pleaseChoose{
+  display: none;
+}
+
 
 /* Checkbox komplett unsichtbar */
 .toggle {
