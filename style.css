@@ -231,14 +231,7 @@ padding: 1em;
 }
 
 .loc-row {
-  grid-column: 1;  /* über beide Spalten deines Grids */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1em;
-  height: 40%;
-  margin-top: 1em;
-  margin-left: 3em;
+ display: none;
 }
 .location{
 grid-column: 1;
@@ -300,12 +293,37 @@ font-size: 20px;
 .svgAirplane{
   max-width: 800px;  
   justify-self: center; 
+  grid-row: 2;
+  margin-top: -3em;
   
 }
 .svgPyToDe{
 grid-row:2;
 justify-self: center;
 
+}
+
+.sendung-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
+  grid-row: 3;
+ 
+}
+
+
+.loc-row{
+ grid-column: 1;  /* über beide Spalten deines Grids */
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  height: 40%;
+  margin-top: 1em;
+  margin-left: 3em;
+}
+.sendung-wrapper:has(.searchTravelers:checked) .loc-row {
+  display: flex;
 }
 
 /* Checkbox komplett unsichtbar */
@@ -466,16 +484,7 @@ margin-top: 0.5em;
  .menu{
    display: block;
  }
-  .title-wrapper {
- 
-  display: grid; /* inneres Grid für h1 + SVG */
-  grid-template-columns: 1fr 1fr;
-  justify-items: center;
-  align-items: center;   /* zentriert vertikal */
-  gap: 0.5rem; 
-            /* Abstand zwischen Text und SVG */
-  
-}
+
 .bring{
 display: grid;
 grid-row: 1;
@@ -522,19 +531,15 @@ margin: 0;
 
 .svgAirplane {
   position: relative;
-grid-column: 2;
-  grid-row: 2;
-margin-right: 28em;
   width: 450px;
   height: auto;
   z-index: 8;
- 
 
-  /* unabhängig verschiebbar */
-  transform: translate(50px, 10px);
 }
 
     .svgPyToDe{ 
    width: 700px;
     }
+
+
 }
