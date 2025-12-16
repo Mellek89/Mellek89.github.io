@@ -310,6 +310,27 @@ justify-self: center;
   grid-row: 3;
  
 }
+.reverse-wrapper {
+  display: flex;
+  align-items: center; 
+  gap: 0.8em;
+  grid-row: 1;
+  
+ 
+}
+.reverse-wrapper h3 {
+  margin: 0;                 /* 🔑 Standard-Margins entfernen */
+  white-space: nowrap;       /* 🔑 kein Zeilenumbruch */
+}
+.reverseArrows {
+  width: 2.2em;          /* passt sich der Schrift an */
+  height: auto;
+  flex-shrink: 0;        /* nicht zusammendrücken */
+  display: block;
+  color: #141414;
+   
+}
+
 
 
 .loc-row{
@@ -324,34 +345,51 @@ justify-self: center;
 }
 
 .send,
-.offer
+.offer,
+.reverseArrows
 {
   display: none;
 }
+
+
 .main:has(.searchTravelers:checked) .offer{
   display: block;
-  grid-row: 3;
-}
-.main:has(.takeItemsWithMe:checked) .send{
-  display: block;
-  grid-row: 3;
+  grid-row: 1;
 }
 .main:has(.searchTravelers:checked) .sendung-wrapper{
   display: none;
   
 }
-.main:has(.takeItemsWithMe:checked) .sendung-wrapper{
+
+.main:has(.searchTravelers:checked) .bring{
+  display: none;
+}
+.main:has(.searchTravelers:checked) .reverseArrows{
+  display: block;
+ 
+}
+.main:has(.takeItemsWithMe:checked) .send{
+  display: block;
+  grid-row: 1;
+}
+
+.main:has(.takeItemsWithMe:checked) .bring{
   display: none;
  
 }
-
-.main:has(.searchTravelers:checked) .pleaseChoose{
+.main:has(.takeItemsWithMe:checked) .sendung-wrapper{
   display: none;
   
 }
 .main:has(.takeItemsWithMe:checked) .pleaseChoose{
   display: none;
+  
 }
+.main:has(.takeItemsWithMe:checked) .reverseArrows{
+  display: block;
+ 
+}
+
 
 
 /* Checkbox komplett unsichtbar */
