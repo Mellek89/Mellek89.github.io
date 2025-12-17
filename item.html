@@ -51,14 +51,88 @@
     </header>
 
     <main class="main">
-      <h1 class="page-title">Ihre Sendung auf einem Blick</h1>
-<input type="checkbox" id="togglePaket" class="toggle paket-toggle">
-<input type="checkbox" id="toggleDokument" class="toggle document-toggle">
-      <p class="Was">Was möchten Sie versenden?</p>
+      <h1 class="page-title">Ihre Sendung auf einen Blick</h1>
+      <div class="sendung-wrapper">
+  <h3 class="pleaseChoose" >Bitte wählen Sie Ihre Art der Sendung</h3>
+  <label class="radio-option">
+    <input class="takeItemsWithMe" type="radio" name="sendung" >
+    <span>Sendung versenden</span>
+  </label>
 
+  <label class="radio-option">
+    <input class="searchTravelers" type="radio" name="sendung">
+    <span>Sendung anbieten</span>
+  </label>
 
-<div class="Items"> 
-     <label for="togglePaket" class="item paket">
+ 
+</div>
+ <div class="reverse-wrapper">    
+  <div class="reverse-head">
+<h3 class="send">Sendung versenden</h3>
+<h3 class="offer">Sendung anbieten</h3>
+<svg
+   viewBox="0 0 50 50"
+   version="1.1"
+   id="svg1"
+   class="reverseArrows" 
+   role="button" tabindex="0" aria-label="Sendung wechseln"
+   xml:space="preserve"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   sodipodi:docname="reverseArrows.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.0721378"
+     inkscape:cx="6.5290117"
+     inkscape:cy="323.18608"
+     inkscape:window-width="1920"
+     inkscape:window-height="1111"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g7" /><defs
+     id="defs1" /><g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"><g
+       id="g5"
+       transform="translate(-174.50059,-21.987074)"><g
+         id="g6"
+         transform="matrix(0.64910033,0,0,0.63573898,63.463292,83.075328)"><g
+           id="g7"
+           transform="matrix(1.1011546,0,0,1.1316934,-141.58779,6.9964599)"><g
+             id="g8"
+             transform="matrix(0.49278819,0,0,0.46573423,127.75023,-67.848658)"><path
+               style="fill:currentColor;stroke:#000000;stroke-linecap:round; stroke-width:2.5;stroke-miterlimit:3.4;stroke-dasharray:none;stroke-opacity:1" stroke-linecap="round"
+               d="M 439.30477,25.757269 C 426.6106,-7.7490176 397.65115,-16.862193 366.6674,-0.9533375 l 6.37469,5.104741 c 0,0 -29.88966,6.8576255 -32.14961,7.3496055 -2.25994,0.491979 -0.35941,-33.066506 -0.32079,-34.736144 0.0386,-1.669638 9.97126,6.821907 10.45452,7.531932 0.9721,1.428254 71.40018,-54.114567 87.85012,39.762508 0.19128,1.091645 0.55796,2.6277 0.42844,1.697964 z"
+               id="path6-6"
+               sodipodi:nodetypes="cccssssc" /><path
+               style="fill:currentColor;stroke:#000000;stroke-width:2.5;stroke-miterlimit:3.4;stroke-dasharray:none;stroke-opacity:1"stroke-linecap="round"
+               d="m 336.96351,28.422754 c 12.69418,33.506287 41.65363,42.619463 72.63738,26.710606 l -6.37469,-5.10474 c 0,0 29.88966,-6.857626 32.14961,-7.349606 2.25994,-0.491979 0.35941,33.066507 0.32079,34.736145 -0.0386,1.669638 -9.97126,-6.821907 -10.45452,-7.531932 -0.9721,-1.428254 -71.40018,54.114563 -87.85012,-39.762509 -0.19128,-1.091645 -0.55796,-2.6277 -0.42845,-1.697964 z"
+               id="path6-6-2"
+               sodipodi:nodetypes="cccssssc" /></g></g></g></g></g></svg>
+
+               </div>
+  
+
+</div>  
+
+    
+         <input type="checkbox" id="togglePaket" class="toggle paket-toggle">
+         <input type="checkbox" id="toggleDokument" class="toggle document-toggle">
+         <p class="Was">Was möchten Sie versenden?</p>
+<div class="Items">  
+       <label for="togglePaket" class="item paket">
 <svg
    fill="#000000"
    version="1.1"
