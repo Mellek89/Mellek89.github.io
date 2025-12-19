@@ -270,8 +270,12 @@ text-align: center;
 justify-self: center; 
 font-size: 20px;
 }
+.calendarIcon{
+  width: 1.5em;
+}
 .calendarToggle{
   grid-row: 3;
+  font-size: 1.5em;
 }
 .calendar{
 position: relative;
