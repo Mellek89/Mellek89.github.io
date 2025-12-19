@@ -399,7 +399,7 @@ li.circleInactive::before {
 .svgAirplane{
   max-width: 800px;  
   justify-self: center; 
-  grid-row: 2;
+
   margin-top: -3em;
   
 }
@@ -413,7 +413,7 @@ justify-self: center;
   display: flex;
   flex-direction: column;
   gap: 0.8em;
-  grid-row: 2;
+  
  
 }
 .reverse-wrapper {
