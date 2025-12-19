@@ -1,10 +1,8 @@
 
 
-import { inputfieldweight,inputfieldheight,
-	inputfieldwidth, inputfieldlength,
-	inputfielddescription,formgetInputfields,uniqueID} from '../Classes/airmail.js'
 
-// getting new date, current year and month
+if (window.location.pathname.endsWith('item.html')) {
+// Calendar Logik
 let date = new Date(),
 currYear = date.getFullYear(),
 currMonth = date.getMonth();
@@ -76,7 +74,7 @@ prevNextIcon.forEach(icon => {
 
 	});
 
-	const selectDate = () =>{
+	/*const selectDate = () =>{
 
 	//let formHeading = document.querySelector(".formHeading");
 	let dSelector = document.querySelectorAll('.days li');
@@ -93,8 +91,43 @@ prevNextIcon.forEach(icon => {
 
 	}
 
-	selectDate();
+	selectDate();*/
 
+const toggleBtn = document.getElementById("calendarToggle");
+  const calendar = document.getElementById("calendarDropdown");
+
+  toggleBtn.addEventListener("click", () => {
+    calendar.classList.toggle("hidden");
+  });
+
+  // optional: schließen bei Klick außerhalb
+  document.addEventListener("click", (e) => {
+    if (!toggleBtn.contains(e.target) && !calendar.contains(e.target)) {
+      calendar.classList.add("hidden");
+    }
+  });
+}
+
+	//reverseArrows
+	const reverse = document.querySelector('.reverseArrows');
+  const send = document.querySelector('.takeItemsWithMe');
+  const offer = document.querySelector('.searchTravelers');
+
+  function toggleSendung() {
+    if (send.checked) {
+      offer.checked = true;
+    } else {
+      send.checked = true;
+    }
+  }
+
+  reverse.addEventListener('click', toggleSendung);
+  reverse.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleSendung();
+    }
+  });
 	
 
 	  
