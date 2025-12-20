@@ -274,8 +274,7 @@ font-size: 18px;
 .calendar{
 position: relative;
 grid-row: 4;
-padding: 0;
-
+padding: 1em;
 max-width: 600px;
 background-color: #F5F5F5;
 border-radius: 10px;
@@ -717,6 +716,8 @@ margin: 0;
     .svgPyToDe{ 
    width: 700px;
     }
-
+.calendar{
+  padding: 0em;
+}
 
 }
