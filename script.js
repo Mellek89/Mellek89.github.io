@@ -68,32 +68,42 @@ prevNextIcon.forEach(icon => {
 			}
 			
 			renderCalender();
-			selectDate();
+			
 
 		});
 
 	});
 
-	/*const selectDate = () =>{
+	const selectDate = () =>{
 
-	//let formHeading = document.querySelector(".formHeading");
+
 	let dSelector = document.querySelectorAll('.days li');
+	const calendar = document.getElementById("calendarDropdown");
+	const calendarText = document.getElementById("calendarText");
+	
 
 	dSelector.forEach( day => {
 		
 		day.addEventListener('click', () => {		
 				currentDate.innerText = `${months[currMonth]} ${currYear}`;					
-				document.getElementById("formHeading").innerHTML =  "Anfrage für den " + day.id + " " +currentDate.innerText;
-				
+				 calendarText.textContent =
+    				day.id + " " + currentDate.innerText;
+
+				calendar.classList.add("hidden");
 				
 		});
+		
 	  });
 
+		
 	}
 
-	selectDate();*/
+	selectDate();
+	toggleCalendar();
+	
 
-const toggleBtn = document.getElementById("calendarToggle");
+function toggleCalendar(){
+  const toggleBtn = document.getElementById("calendarToggle");
   const calendar = document.getElementById("calendarDropdown");
 
   toggleBtn.addEventListener("click", () => {
@@ -107,9 +117,10 @@ const toggleBtn = document.getElementById("calendarToggle");
     }
   });
 }
+}
 
 	//reverseArrows
-	const reverse = document.querySelector('.reverseArrows');
+  const reverse = document.querySelector('.reverseArrows');
   const send = document.querySelector('.takeItemsWithMe');
   const offer = document.querySelector('.searchTravelers');
 
