@@ -68,9 +68,7 @@ body {
       
     
     }
-    .nav{
-      overflow:inherit;
-    }
+  
      .menu {
             position: relative;
             display: grid;
@@ -638,6 +636,9 @@ margin-top: 0.5em;
     text-align: left;
     padding: 2rem;
   }
+    .nav{
+      overflow:inherit;
+    }
 
 
   .main {
