@@ -268,7 +268,7 @@ font-size: 18px;
 .calendarToggle{
   display: inline-flex;
   grid-row: 3;
-  font-size: 1.5em;
+  font-size: 1.2em;
   gap: 1em; 
 }
 .calendar{
@@ -444,12 +444,12 @@ justify-self: center;
 }
 
 .reverseArrows {
-  width: 2.2em;          /* passt sich der Schrift an */
+  width: 1.3em;          /* passt sich der Schrift an */
   height: auto;
   flex-shrink: 0;        /* nicht zusammendrücken */
   display: block;
   color: #141414;
-   
+  
 }
 
 
@@ -470,6 +470,7 @@ justify-self: center;
 .reverseArrows
 {
   display: none;
+  font-size: 1.2em;
 }
 
 
@@ -715,6 +716,10 @@ margin: 0;
     }
 .calendar{
   padding: 0em;
+}
+.calendarToggle{
+  font-size: 1.5em;
+ 
 }
 
 }
