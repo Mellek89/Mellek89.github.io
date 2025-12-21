@@ -245,8 +245,14 @@ font-size: 18px;
 
 }
 .svgPackage{
-   width: 75px;  
+  width: 75px;  
   height: 75px;
+  grid-row: 1;
+}
+.spanPackage{
+  display: grid;
+  grid-row: 2;
+
 }
 
 .page-title {
@@ -403,6 +409,10 @@ li.circleInactive::before {
   width: 65px;  
   height: 70px;
   
+}
+.spanDocument{
+  display: grid;
+  grid-row: 2;
 }
 
 
@@ -601,6 +611,7 @@ margin-top: 0.5em;
   position: relative;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+   gap: 5em;  
   margin-bottom: 3em;
    
  
