@@ -161,6 +161,15 @@ function toggleCalendar(){
 			takeItems.addEventListener("change", showItems);
 			}
 toggleItems();
+document.addEventListener("DOMContentLoaded", () => {
+  const items = document.getElementById("Items");
+  items.style.display = "block";
+   items.style.display = "grid";
+    items.style.gridTemplateColumns = "repeat(2, 1fr)";
+   items.style.gap =  "5em";
+
+});
+
 const paket = document.querySelector(".paket");
 const dokument = document.querySelector(".document")
 const packageFormular = document.querySelector(".paket-formular");
@@ -207,6 +216,8 @@ const documentFormular = document.querySelector(".document-formular");
 
 		}
 		chooseItems();
+		
+
 		
 		
 			
