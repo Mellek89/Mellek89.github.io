@@ -245,8 +245,8 @@ font-size: 18px;
 
 }
 .svgPackage{
-  width: 75px;  
-  height: 75px;
+  width: 105px;  
+  height: 105px;
   grid-row: 1;
 }
 .spanPackage{
@@ -406,8 +406,8 @@ li.circleInactive::before {
    grid-column: 1; 
    grid-row: 1; 
   fill: #141414;
-  width: 65px;  
-  height: 70px;
+  width: 95px;  
+  height: 100px;
   
 }
 .spanDocument{
@@ -548,7 +548,6 @@ justify-self: center;
 
 
 .Items {
-
   display: none;
 }
 
@@ -667,6 +666,10 @@ margin: 0;
 .calendarToggle{
   font-size: 1.5em;
  
+}
+.send,
+.offer {
+  font-size: 1.4em;
 }
 
 }
