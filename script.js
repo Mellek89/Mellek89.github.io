@@ -18,7 +18,29 @@ console.log(date, currYear,currMonth);
 
 const months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September",
 				"Oktober", "November", "Dezember"]
+const selectDate = () =>{
 
+
+	let dSelector = document.querySelectorAll('.days li');
+	const calendar = document.getElementById("calendarDropdown");
+	const calendarText = document.getElementById("calendarText");
+	
+
+	dSelector.forEach( day => {
+		
+		day.addEventListener('click', () => {		
+				currentDate.innerText = `${months[currMonth]} ${currYear}`;					
+				 calendarText.textContent =
+    				day.id + " " + currentDate.innerText;
+
+				calendar.classList.add("hidden");
+				
+		});
+		
+	  });
+
+		
+	}
 const renderCalender = () => {
 	let firstDateOfMonth = new Date(currYear, currMonth, 1).getDay(), //get first Day of Month
 	lastDateOfMonth = new Date(currYear, currMonth + 1, 0).getDate(), //get last Date of Month
@@ -47,6 +69,7 @@ const renderCalender = () => {
 	
 	currentDate.innerText = `${months[currMonth]} ${currYear}`;
 	daysTag.innerHTML = liTag;
+	selectDate();
 }
 
 renderCalender();
@@ -74,49 +97,30 @@ prevNextIcon.forEach(icon => {
 
 	});
 
-	const selectDate = () =>{
-
-
-	let dSelector = document.querySelectorAll('.days li');
-	const calendar = document.getElementById("calendarDropdown");
-	const calendarText = document.getElementById("calendarText");
 	
-
-	dSelector.forEach( day => {
-		
-		day.addEventListener('click', () => {		
-				currentDate.innerText = `${months[currMonth]} ${currYear}`;					
-				 calendarText.textContent =
-    				day.id + " " + currentDate.innerText;
-
-				calendar.classList.add("hidden");
-				
-		});
-		
-	  });
-
-		
-	}
-
-	selectDate();
+	
+	
 	toggleCalendar();
+	
+	
 	
 
 function toggleCalendar(){
   const toggleBtn = document.getElementById("calendarToggle");
   const calendar = document.getElementById("calendarDropdown");
 
-  toggleBtn.addEventListener("click", () => {
+  toggleBtn.addEventListener("click", (e) => {
+	e.stopPropagation();
     calendar.classList.toggle("hidden");
   });
 
   // optional: schließen bei Klick außerhalb
-  document.addEventListener("click", (e) => {
-    if (!toggleBtn.contains(e.target) && !calendar.contains(e.target)) {
-      calendar.classList.add("hidden");
-    }
-  });
-}
+	document.addEventListener("click", (e) => {
+		if (!toggleBtn.contains(e.target) && !calendar.contains(e.target)) {
+		calendar.classList.add("hidden");
+		}
+	});
+	}
 }
 
 	//reverseArrows
@@ -139,6 +143,74 @@ function toggleCalendar(){
       toggleSendung();
     }
   });
+  function toggleItems(){
+
+		const sendItems = document.getElementById("sendItemsWithMe");
+		const takeItems = document.getElementById("takeItemsWithMe");
+		const items = document.querySelector(".Items");
+			if (!sendItems || !takeItems || !items) return;
+
+			  const showItems = () => {
+					items.style.display = "grid";
+					items.style.gridTemplateColumns = "repeat(2, 1fr)";
+					items.style.gap = "5em";
+					
+				};
+
+			sendItems.addEventListener("change", showItems);
+			takeItems.addEventListener("change", showItems);
+			}
+toggleItems();
+const paket = document.querySelector(".paket");
+const dokument = document.querySelector(".document")
+const packageFormular = document.querySelector(".paket-formular");
+const documentFormular = document.querySelector(".document-formular");
+	function chooseItems(){
+			let paketAktiv = false;
+  			let dokumentAktiv = false;
+
+				paket.addEventListener("click", () => {
+
+				if(paketAktiv == true  ){
+					dokument.style.display = "block";
+					paket.style.display = "none";
+					documentFormular.style.display ="block";
+					packageFormular.style.display ="none";
+					dokumentAktiv = true;
+					paketAktiv = false;
+					return;
+				}
+				paket.style.display = "block";
+				dokument.style.display = "none";
+					documentFormular.style.display ="none";
+					packageFormular.style.display ="block";
+				paketAktiv = true;
+				dokumentAktiv = false;
+				});
+
+				dokument.addEventListener("click", () => {
+					if(dokumentAktiv == true  ){
+					paket.style.display = "block";
+					dokument.style.display = "none";
+					documentFormular.style.display ="none";
+					packageFormular.style.display ="block";
+					paketAktiv = true;
+					return;
+				}
+				 dokument.style.display = "block";
+    			 paket.style.display = "none";
+				 documentFormular.style.display ="block";
+				 packageFormular.style.display ="none";
+				 paketAktiv = false;
+				 dokumentAktiv = true;
+			});
+
+		}
+		chooseItems();
+		
+		
+			
+	
 	
 
 	  
