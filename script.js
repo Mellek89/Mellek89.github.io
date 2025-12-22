@@ -189,6 +189,8 @@ const documentFormular = document.querySelector(".document-formular");
 					packageFormular.style.display ="none";
 					dokumentAktiv = true;
 					paketAktiv = false;
+					items.style.marginLeft = "60px";
+				    items.style.gap =  "0em";
 					return;
 				}
 				paket.style.display = "block";
@@ -199,6 +201,7 @@ const documentFormular = document.querySelector(".document-formular");
 				dokumentAktiv = false;
 
 				items.style.marginLeft = "60px";
+				items.style.gap =  "0em";
 				});
 
 				dokument.addEventListener("click", () => {
@@ -208,6 +211,9 @@ const documentFormular = document.querySelector(".document-formular");
 					documentFormular.style.display ="none";
 					packageFormular.style.display ="block";
 					paketAktiv = true;
+
+					items.style.marginLeft = "60px";
+				 	items.style.gap =  "0em";
 					return;
 				}
 				 dokument.style.display = "block";
@@ -217,6 +223,7 @@ const documentFormular = document.querySelector(".document-formular");
 				 paketAktiv = false;
 				 dokumentAktiv = true;
 				 items.style.marginLeft = "60px";
+				 items.style.gap =  "0em";
 			});
 
 		}
