@@ -55,14 +55,16 @@
       <div class="sendung-wrapper">
   <h3 class="pleaseChoose" >Bitte wählen Sie Ihre Art der Sendung</h3>
   <label class="radio-option">
-    <input class="takeItemsWithMe" type="radio" name="sendung" >
-    <span>Sendung versenden</span>
+    <input class="takeItemsWithMe" id="takeItemsWithMe" type="radio" name="sendung" >
+    <span>Sendung mitnehmen</span>
   </label>
 
   <label class="radio-option">
-    <input class="searchTravelers" type="radio" name="sendung">
-    <span>Sendung mitnehmen</span>
+    <input class="searchTravelers" id="sendItemsWithMe" type="radio" name="sendung">
+    <span>Sendung versenden</span>
   </label>
+
+  
       </div>
 
 
@@ -188,11 +190,9 @@
 
 </div>
     
-         <input type="checkbox" id="togglePaket" class="toggle paket-toggle">
-         <input type="checkbox" id="toggleDokument" class="toggle document-toggle">
-      
+    
 <div class="Items">  
-       <label for="togglePaket" class="item paket">
+<label class="item paket">
 <svg
    fill="#000000"
    version="1.1"
@@ -248,7 +248,8 @@
   </g>
 </svg>
  <span class="spanPackage">Paket</span></label>   
-<label for="toggleDokument" class="item document">
+
+<label class="item document">
 <svg
    fill="#000000"
    version="1.1"

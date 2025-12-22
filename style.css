@@ -441,7 +441,11 @@ justify-self: center;
   border-radius: 8px;
 }
 
+.pleaseChoose{
 
+  font-size: 1.2em;
+  margin-top: -em;
+}
 .reverse-wrapper {
   display: flex;
   flex-direction: column;
@@ -490,7 +494,7 @@ justify-self: center;
 }
 
 
-.main:has(.searchTravelers:checked) .offer{
+.main:has(.searchTravelers:checked) .send{
   display: block;
   grid-row: 1;
 }
@@ -507,7 +511,7 @@ justify-self: center;
  
 }
 
-.main:has(.takeItemsWithMe:checked) .send{
+.main:has(.takeItemsWithMe:checked) .offer{
   display: block;
   grid-row: 1;
 }
@@ -529,9 +533,6 @@ justify-self: center;
  
 }
 
-
-
-
 /* Checkbox komplett unsichtbar */
 .toggle {
   display: none;
@@ -544,85 +545,11 @@ justify-self: center;
     animation: fadein .3s ease;
    
 }
-/* Kleiner Fade-in Effekt */
-@keyframes fadein {
-    from { opacity: 0; transform: translateY(10px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
 
-.paket-toggle:checked ~ .Items .document {
-  display: none; /* NUR wenn Paket aktiv ist! */
-}
 
-.paket-toggle:checked ~ .Items .paket {
-  transform: scale(1.1);
-  opacity: 1;
-  margin-bottom: -2em;
-  display: flex;
-  flex-direction: column;
-  
-}
-.paket-toggle:checked ~ .Items .paket span {
-  margin-left: 0.5em;
-  
-}
+.Items {
 
-.paket-toggle:checked ~ .paket-formular {
-  display: block;
-}
-.paket-toggle:checked ~ .Items{
-  margin-bottom: -2em;
-}
-
-.paket-toggle:checked ~ .document-formular {
   display: none;
-}
-.paket-formular{
-margin-bottom: 3em;
-}
-
-
-/* ---------------------- */
-/*   DOKUMENT-AKTIONEN    */
-/* ---------------------- */
-
-.document-toggle:checked ~ .Items .paket {
-  display: none; /* NUR wenn Dokument aktiv ist! */
-}
-
-.document-toggle:checked ~ .Items .document {
-  transform: scale(1.1);
-  opacity: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center; 
-}
-.document-toggle:checked ~ .Items .document span{
-margin-top: 0.5em;
-}
-
-.document-toggle:checked ~ .document-formular {
-  display: block;
-}
-.document-toggle:checked ~ .Items{
-   margin-bottom: -2em;
-}
-
-.document-toggle:checked ~ .paket-formular {
-  display: none;
-}
-.document-formular{ 
-  margin-bottom: 3em;
-}
-
-.Items{
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-   gap: 5em;  
-  margin-bottom: 3em;
-   
- 
 }
 
 
