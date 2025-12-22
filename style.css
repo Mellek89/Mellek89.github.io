@@ -541,7 +541,7 @@ justify-self: center;
 /* Standard: Formular ausblenden */
 .formular {
     display: none;
-    margin-top: 1rem;
+    margin-bottom: 4em;
     animation: fadein .3s ease;
    
 }
