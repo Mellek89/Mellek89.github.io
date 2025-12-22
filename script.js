@@ -165,8 +165,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const items = document.getElementById("Items");
   items.style.display = "block";
    items.style.display = "grid";
-    items.style.gridTemplateColumns = "repeat(2, 1fr)";
-   items.style.gap =  "5em";
+   items.style.gridTemplateColumns = "repeat(2, 1fr)";
+   items.style.gap =  "0em";
+   
 
 });
 
@@ -174,6 +175,7 @@ const paket = document.querySelector(".paket");
 const dokument = document.querySelector(".document")
 const packageFormular = document.querySelector(".paket-formular");
 const documentFormular = document.querySelector(".document-formular");
+ const items = document.getElementById("Items");
 	function chooseItems(){
 			let paketAktiv = false;
   			let dokumentAktiv = false;
@@ -191,10 +193,12 @@ const documentFormular = document.querySelector(".document-formular");
 				}
 				paket.style.display = "block";
 				dokument.style.display = "none";
-					documentFormular.style.display ="none";
-					packageFormular.style.display ="block";
+				documentFormular.style.display ="none";
+				packageFormular.style.display ="block";
 				paketAktiv = true;
 				dokumentAktiv = false;
+
+				items.style.marginLeft = "60px";
 				});
 
 				dokument.addEventListener("click", () => {
@@ -212,6 +216,7 @@ const documentFormular = document.querySelector(".document-formular");
 				 packageFormular.style.display ="none";
 				 paketAktiv = false;
 				 dokumentAktiv = true;
+				 items.style.marginLeft = "60px";
 			});
 
 		}
