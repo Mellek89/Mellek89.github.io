@@ -18,6 +18,8 @@ console.log(date, currYear,currMonth);
 
 const months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September",
 				"Oktober", "November", "Dezember"]
+let selectedDate = null; 
+
 const selectDate = () =>{
 
 
@@ -31,8 +33,8 @@ const selectDate = () =>{
 		day.addEventListener('click', () => {		
 				currentDate.innerText = `${months[currMonth]} ${currYear}`;					
 				 calendarText.textContent =
-    				day.id + " " + currentDate.innerText;
-
+    			day.id + " " + currentDate.innerText;
+ 				selectedDate = day.dataset.isoDate; 
 				calendar.classList.add("hidden");
 				
 		});
@@ -59,7 +61,11 @@ const renderCalender = () => {
 		//adding active class to list if the current day , month and year matched
 		let isToday = i === date.getDate() && currMonth === new Date().getMonth() && currYear === new Date().getFullYear() ? "active" : "";
 		
-		liTag += `<li id = ${i} class="${isToday}" >${i}</li>`;
+		//liTag += `<li id = ${i} class="${isToday}" >${i}</li>`;
+		// ISO-Datum für jedes li erzeugen
+			let isoDate = `${currYear}-${String(currMonth + 1).padStart(2,'0')}-${String(i).padStart(2,'0')}`;
+
+			liTag += `<li id="${i}" class="${isToday}" data-iso-date="${isoDate}">${i}</li>`;
 		
 	}
 	for (let i =lastDayOfMonth; i < 6; i++){
@@ -121,7 +127,7 @@ function toggleCalendar(){
 		}
 	});
 	}
-}
+
 
 	//reverseArrows
   const reverse = document.querySelector('.reverseArrows');
@@ -228,10 +234,88 @@ const documentFormular = document.querySelector(".document-formular");
 
 		}
 		chooseItems();
-		
+		const selectedItem = localStorage.getItem("selectedItem") || "";
+
+		const submitBtn = document.getElementById("submitSendung");
+
+if (submitBtn) {
+		submitBtn.addEventListener("click", () => {
+
+
+	
+		const data = {
+		start_py: selectedItem === "start_py" ? selectedItem : "",
+		goal_py: selectedItem === "goal_py" ? selectedItem : "",
+		start_de: selectedItem === "start_de" ? selectedItem : "",
+		goal_de: selectedItem === "goal_de" ? selectedItem : "",
+		date: selectedDate || "",
+		item_pa: selectedItem === "package" ? selectedItem : "",
+		item_pa_weight: document.getElementById("item_pa_weight")?.value || null,
+		item_pa_measurement: document.getElementById("item_pa_measurement")?.value || "",
+		item_pa_description: document.getElementById("item_pa_description")?.value || "",
+		item_doc: selectedItem === "document" ? selectedItem : "",
+		item_doc_weight: document.getElementById("item_doc_weight")?.value || null,
+		item_doc_measurement: document.getElementById("item_doc_measurement")?.value || "",
+		item_doc_description: document.getElementById("item_doc_description")?.value || "",
 
 		
+		};
+
+		if (!data.datum) {
+		alert("Bitte und Datum auswählen");
+		return;
+		}
+
+		fetch("http://127.0.0.1:8000/api/consignment/", {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify(data)
+		})
+		.then(async res => {
+		const text = await res.text();
+		try {
+			const json = JSON.parse(text);
+			console.log(json);
+		} catch {
+			console.error("Response is not JSON:", text);
+		}
+		})
+		.catch(err => console.error(err));
+	});
+}
 		
+	}
+		
+/*let selectedItem = null;
+
+document.querySelectorAll("[data-item]").forEach(el => {
+  el.addEventListener("click", e => {
+	 e.preventDefault();
+    
+    selectedItem = el.dataset.item;
+	 console.log("Selected item:", selectedItem);
+  });
+});*/
+
+if (window.location.pathname.endsWith('index.html')) {
+console.log("SVG:", document.querySelector(".svgAirplane"));
+
+document.querySelector(".svgAirplane").addEventListener("click", e => {
+  const g = e.target.closest("g[data-item]");
+  if (!g) return;
+
+  e.preventDefault();
+
+  const item = g.dataset.item;
+  console.log("Selected:", item);
+
+  localStorage.setItem("selectedItem", item);
+  window.location.href = "./item.html";
+});
+}
+
+
+
 			
 	
 	
