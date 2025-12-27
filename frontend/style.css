@@ -426,7 +426,14 @@ li.circleInactive::before {
 .svgPyToDe{
 grid-row: 2;
 justify-self: center;
-
+display: none;
+}
+.chooseStart{
+  grid-row: 2;
+}
+.chooseStart h3{
+  text-align: center;
+  margin-bottom: 1.5em;
 }
 
 .sendung-wrapper {
