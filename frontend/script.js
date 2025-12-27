@@ -8,6 +8,7 @@ currYear = date.getFullYear(),
 currMonth = date.getMonth();
 
 
+
 const currentDate = document.querySelector(".current-date");
 const daysTag = document.querySelector(".days");
 let prevNextIcon = document.querySelectorAll(".icons span");
@@ -19,6 +20,22 @@ console.log(date, currYear,currMonth);
 const months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September",
 				"Oktober", "November", "Dezember"]
 let selectedDate = null; 
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const item = localStorage.getItem("selectedItem");
+  const chooseStart = document.getElementById("chooseStart");
+  const svgPyToDe = document.getElementById("svgPyToDe");
+
+  if (item === "goal_py" && chooseStart) {
+    chooseStart.style.display = "block";
+	svgPyToDe.style.display = "none";
+
+  } else{
+	 chooseStart.style.display = "none";
+	svgPyToDe.style.display = "block";
+  }
+});
 
 const selectDate = () =>{
 
@@ -286,32 +303,22 @@ if (submitBtn) {
 		
 	}
 		
-/*let selectedItem = null;
-
-document.querySelectorAll("[data-item]").forEach(el => {
-  el.addEventListener("click", e => {
-	 e.preventDefault();
-    
-    selectedItem = el.dataset.item;
-	 console.log("Selected item:", selectedItem);
-  });
-});*/
 
 if (window.location.pathname.endsWith('index.html')) {
-console.log("SVG:", document.querySelector(".svgAirplane"));
 
-document.querySelector(".svgAirplane").addEventListener("click", e => {
-  const g = e.target.closest("g[data-item]");
-  if (!g) return;
 
-  e.preventDefault();
+	document.querySelector(".svgAirplane").addEventListener("click", e => {
+	const g = e.target.closest("g[data-item]");
+	if (!g) return;
 
-  const item = g.dataset.item;
-  console.log("Selected:", item);
+	e.preventDefault();
 
-  localStorage.setItem("selectedItem", item);
-  window.location.href = "./item.html";
-});
+	const item = g.dataset.item;
+	console.log("Selected:", item);
+	localStorage.setItem("selectedItem", item);
+	window.location.href = "./item.html";
+
+	});
 }
 
 
