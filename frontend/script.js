@@ -23,19 +23,27 @@ let selectedDate = null;
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  const item = localStorage.getItem("selectedItem");
-  const chooseStart = document.getElementById("chooseStart");
-  const svgPyToDe = document.getElementById("svgPyToDe");
 
-  if (item === "goal_py" && chooseStart) {
-    chooseStart.style.display = "block";
-	svgPyToDe.style.display = "none";
+	
+	const item = localStorage.getItem("selectedItem");
+	const chooseStart = document.getElementById("chooseStart");
+	const svgPyToDe = document.getElementById("svgPyToDe");
 
-  } else{
-	 chooseStart.style.display = "none";
-	svgPyToDe.style.display = "block";
-  }
+	if (item === "goal_py" && chooseStart) {
+		chooseStart.style.display = "block";
+		svgPyToDe.style.display = "none";
+
+	} 
+	if(item === "goal_de" && chooseStart){
+		chooseStart.style.display = "none";
+		svgPyToDe.style.display = "block";
+	}
+	
+	
 });
+
+
+
 
 const selectDate = () =>{
 
@@ -299,9 +307,30 @@ if (submitBtn) {
 		})
 		.catch(err => console.error(err));
 	});
-}
-		
+}   
+function chooseItem(){
+	const item = localStorage.getItem("selectedItem");
+	const chooseStart = document.getElementById("chooseStart");
+	const svgDeToPy = document.getElementById("svgDeToPy");
+
+	
+	if(item === "start_de" && chooseStart){
+		chooseStart.style.display = "none";
+		svgDeToPy.style.display = "block";
 	}
+	}
+	document.querySelector(".svgChooseStart").addEventListener("click", e => {
+		const g = e.target.closest("g[data-item]");
+		if (!g) return;
+
+		e.preventDefault();
+
+		const item = g.dataset.item;
+		console.log("Selected:", item);
+		localStorage.setItem("selectedItem", item);
+		chooseItem();
+	});
+}
 		
 
 if (window.location.pathname.endsWith('index.html')) {
@@ -316,6 +345,7 @@ if (window.location.pathname.endsWith('index.html')) {
 	const item = g.dataset.item;
 	console.log("Selected:", item);
 	localStorage.setItem("selectedItem", item);
+	
 	window.location.href = "./item.html";
 
 	});
