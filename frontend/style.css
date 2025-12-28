@@ -435,6 +435,16 @@ grid-row: 2;
 display: none;
 
 }
+.svgEsToPy{
+  display: none;
+  grid-row: 2;
+}
+
+.svgAtToPy{
+  display: none;
+  grid-row: 2;
+}
+
 .chooseStart{
   display: none;
   grid-row: 2;
