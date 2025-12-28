@@ -680,13 +680,16 @@ margin: 0;
 
 }
 
-.svgPyToDe{ 
-   width: 700px;
-}
-.svgDeToPy{
-width: 900px;
 
+.svgEsToPy,
+.svgAtToPy,
+.svgDeToPy,
+.svgPyToDe
+{
+ width: 700px;
 }
+
+
 .calendar{
   padding: 0em;
 }
