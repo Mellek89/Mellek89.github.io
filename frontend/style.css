@@ -431,7 +431,7 @@ display: none;
 }
 .svgDeToPy{
 grid-row: 2;
-width: 900px;
+
 display: none;
 
 }
@@ -610,9 +610,6 @@ display: none;
   gap: 5rem !important;
 }
 
-
- 
-
   .main .buttons {
     flex-direction: row;
     gap: 2rem;
@@ -673,9 +670,13 @@ margin: 0;
 
 }
 
-    .svgPyToDe{ 
+.svgPyToDe{ 
    width: 700px;
-    }
+}
+.svgDeToPy{
+width: 900px;
+
+}
 .calendar{
   padding: 0em;
 }
