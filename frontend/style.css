@@ -423,15 +423,24 @@ li.circleInactive::before {
   margin-top: -3em;
   
 }
+/* SVGs Sendungsweg*/
 .svgPyToDe{
 grid-row: 2;
 justify-self: center;
 display: none;
 }
+.svgDeToPy{
+grid-row: 2;
+width: 900px;
+display: none;
+
+}
 .chooseStart{
+  display: none;
   grid-row: 2;
 }
 .chooseStart h3{
+  
   text-align: center;
   margin-bottom: 1.5em;
 }
