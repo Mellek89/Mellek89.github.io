@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	const item = localStorage.getItem("selectedItem");
 	const chooseStart = document.getElementById("chooseStart");
 	const svgPyToDe = document.getElementById("svgPyToDe");
+	
 
 	if (item === "goal_py" && chooseStart) {
 		chooseStart.style.display = "block";
@@ -38,6 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		chooseStart.style.display = "none";
 		svgPyToDe.style.display = "block";
 	}
+	
 	
 	
 });
@@ -308,28 +310,38 @@ if (submitBtn) {
 		.catch(err => console.error(err));
 	});
 }   
-function chooseItem(){
-	const item = localStorage.getItem("selectedItem");
-	const chooseStart = document.getElementById("chooseStart");
-	const svgDeToPy = document.getElementById("svgDeToPy");
+	function chooseItem(){
+		const item = localStorage.getItem("selectedItem");
+		const chooseStart = document.getElementById("chooseStart");
+		const svgDeToPy = document.getElementById("svgDeToPy");
+		const svgAtToPy = document.getElementById("svgAtToPy");
+		const svgEsToPy = document.getElementById("svgEsToPy");
 
-	
-	if(item === "start_de" && chooseStart){
-		chooseStart.style.display = "none";
-		svgDeToPy.style.display = "block";
+		
+		if(item === "start_de" && chooseStart){
+			chooseStart.style.display = "none";
+			svgDeToPy.style.display = "block";
+		} else if (item === "start_at" && chooseStart){
+			chooseStart.style.display = "none";
+			svgAtToPy.style.display = "block";
+		} else if (item === "start_es" && chooseStart){
+			chooseStart.style.display = "none";
+			svgEsToPy.style.display = "block";
+		}
+
+		document.querySelector(".svgChooseStart").addEventListener("click", e => {
+			const g = e.target.closest("g[data-item]");
+			if (!g) return;
+
+			e.preventDefault();
+
+			const item = g.dataset.item;
+			console.log("Selected:", item);
+			localStorage.setItem("selectedItem", item);
+			chooseItem();
+		});
 	}
-	}
-	document.querySelector(".svgChooseStart").addEventListener("click", e => {
-		const g = e.target.closest("g[data-item]");
-		if (!g) return;
-
-		e.preventDefault();
-
-		const item = g.dataset.item;
-		console.log("Selected:", item);
-		localStorage.setItem("selectedItem", item);
-		chooseItem();
-	});
+chooseItem();
 }
 		
 
