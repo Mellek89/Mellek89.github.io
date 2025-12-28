@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		svgPyToDe.style.display = "none";
 
 	} 
-	if(item === "goal_de" && chooseStart){
+	if(item === "goal_de" && chooseStart){ 
 		chooseStart.style.display = "none";
 		svgPyToDe.style.display = "block";
 	}
