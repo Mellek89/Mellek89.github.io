@@ -196,6 +196,7 @@ function toggleCalendar(){
 					items.style.display = "grid";
 					items.style.gridTemplateColumns = "repeat(2, 1fr)";
 					items.style.gap = "5em";
+					items.style.marginTop = "-80px"
 					
 				};
 
@@ -209,6 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
    items.style.display = "grid";
    items.style.gridTemplateColumns = "repeat(2, 1fr)";
    items.style.gap =  "0em";
+   items.style.marginTop = "-80px"
    
 
 });
