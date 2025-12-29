@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	const item = localStorage.getItem("selectedItem");
 	const chooseStart = document.getElementById("chooseStart");
 	const svgPyToDe = document.getElementById("svgPyToDe");
-	
+	const svgPyToAt = document.getElementById("svgPyToAt");
 
 	if (item === "goal_py" && chooseStart) {
 		chooseStart.style.display = "block";
@@ -38,6 +38,10 @@ document.addEventListener("DOMContentLoaded", () => {
 	if(item === "goal_de" && chooseStart){ 
 		chooseStart.style.display = "none";
 		svgPyToDe.style.display = "block";
+	}
+	if(item === "goal_at" && chooseStart){ 
+		chooseStart.style.display = "none";
+		svgPyToAt.style.display = "block";
 	}
 	
 	
