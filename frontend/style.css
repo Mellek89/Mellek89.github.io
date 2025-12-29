@@ -424,25 +424,14 @@ li.circleInactive::before {
   
 }
 /* SVGs Sendungsweg*/
-.svgPyToDe{
+.svgPyToDe,
+.svgDeToPy,
+.svgEsToPy,
+.svgAtToPy,
+.svgPyToAt{
 grid-row: 2;
 justify-self: center;
 display: none;
-}
-.svgDeToPy{
-grid-row: 2;
-
-display: none;
-
-}
-.svgEsToPy{
-  display: none;
-  grid-row: 2;
-}
-
-.svgAtToPy{
-  display: none;
-  grid-row: 2;
 }
 
 .chooseStart{
@@ -684,7 +673,8 @@ margin: 0;
 .svgEsToPy,
 .svgAtToPy,
 .svgDeToPy,
-.svgPyToDe
+.svgPyToDe,
+.svgPyToAt
 {
  width: 700px;
 }
