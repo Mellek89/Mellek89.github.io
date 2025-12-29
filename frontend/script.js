@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	const chooseStart = document.getElementById("chooseStart");
 	const svgPyToDe = document.getElementById("svgPyToDe");
 	const svgPyToAt = document.getElementById("svgPyToAt");
+	const svgPyToEs = document.getElementById("svgPyToEs");
 
 	if (item === "goal_py" && chooseStart) {
 		chooseStart.style.display = "block";
@@ -42,6 +43,10 @@ document.addEventListener("DOMContentLoaded", () => {
 	if(item === "goal_at" && chooseStart){ 
 		chooseStart.style.display = "none";
 		svgPyToAt.style.display = "block";
+	}
+	if(item === "goal_es" && chooseStart){ 
+		chooseStart.style.display = "none";
+		svgPyToEs.style.display = "block";
 	}
 	
 	

@@ -428,7 +428,8 @@ li.circleInactive::before {
 .svgDeToPy,
 .svgEsToPy,
 .svgAtToPy,
-.svgPyToAt{
+.svgPyToAt,
+.svgPyToEs{
 grid-row: 2;
 justify-self: center;
 display: none;
@@ -674,7 +675,8 @@ margin: 0;
 .svgAtToPy,
 .svgDeToPy,
 .svgPyToDe,
-.svgPyToAt
+.svgPyToAt,
+.svgPyToEs
 {
  width: 700px;
 }
