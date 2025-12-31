@@ -434,6 +434,12 @@ grid-row: 2;
 justify-self: center;
 display: none;
 }
+.svgEsToPy,
+.svgAtToPy{
+
+  width: 400px;
+}
+
 
 .chooseStart{
   display: none;
@@ -671,14 +677,22 @@ margin: 0;
 }
 
 
-.svgEsToPy,
-.svgAtToPy,
-.svgDeToPy,
+
+
+
 .svgPyToDe,
 .svgPyToAt,
 .svgPyToEs
 {
  width: 700px;
+}
+.svgEsToPy,
+.svgAtToPy{
+  grid-row: 2;
+  width: 500px;
+}
+.svgDeToPy{
+width: 800px;
 }
 
 
