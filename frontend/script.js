@@ -206,11 +206,18 @@ function toggleCalendar(){
 toggleItems();
 document.addEventListener("DOMContentLoaded", () => {
   const items = document.getElementById("Items");
-  items.style.display = "block";
+  const reverseHeadSendAndOffer = document.querySelector('.reverse-head');
+  const sendungWrapper = document.querySelector('.sendung-wrapper');
+ 
    items.style.display = "grid";
    items.style.gridTemplateColumns = "repeat(2, 1fr)";
    items.style.gap =  "0em";
-   items.style.marginTop = "-80px"
+  if (getComputedStyle(reverseHeadSendAndOffer).display === 'flex') {
+   items.style.marginTop = "0px"
+  }
+    if(getComputedStyle(sendungWrapper).display == 'flex' )
+   		items.style.marginTop = "-80px"
+   
    
 
 });
@@ -257,6 +264,7 @@ const documentFormular = document.querySelector(".document-formular");
 					paketAktiv = true;
 
 					items.style.marginLeft = "60px";
+					
 				 	items.style.gap =  "0em";
 					return;
 				}
