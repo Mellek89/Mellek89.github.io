@@ -71,7 +71,7 @@
 
 
  <div class="reverseWrapper">    
-  <div class="reverse-head">
+  <div class="reverse-head" id="reverse-head"">
 <h3 class="send">Was möchten sie versenden?</h3>
 <h3 class="offer">Was möchten sie mitnehmen?</h3>
 <svg
@@ -194,7 +194,7 @@
     
     
 <div class="Items" id="Items">  
-<label class="item paket">
+<label class="item paket" data-typ="PACKAGE">
 <svg
    fill="#000000"
    version="1.1"
@@ -252,7 +252,7 @@
 </svg>
  <span class="spanPackage">Paket</span></label>   
 
-<label class="item document">
+<label class="item document" data-typ="LETTER" >
 <svg
    fill="#000000"
    version="1.1"
@@ -282,12 +282,14 @@
 <!-- Paket Formular -->
 <div class="formular paket-formular">
     <h3>Paketdaten</h3>
-    <input type="text" placeholder="Gewicht (kg)" id="item_pa_weight"><br><br>
-    <input type="text" placeholder="Maße (cm)" id="item_pa_measurement">
-    <!--h3>Anfrage / Beschreibung</!--h3>
-    <textarea placeholder="Beschreibe dein Anliegen oder gib zusätzliche Informationen an..."></textarea>
+    <input type="text" placeholder="Gewicht (kg)" id="weight"><br><br>
+    <input type="text" placeholder="Maße (cm)" id="measurement"><br><br>
+    <input type="text" placeholder="Inhalt" id="titel"><br><br>
+   
+    
+    <textarea id="description" placeholder="Beschreibe dein Anliegen oder gib zusätzliche Informationen an..."></textarea>
 
-    <h3>Bild hochladen</h3>
+    <!--h3>Bild hochladen</!h3>
     <label-- class="upload-box">
         <input type="file" accept="image/*">
         <span>📷 Bild auswählen</span>
@@ -297,8 +299,13 @@
 <!-- Dokument Formular -->
 <div class="formular document-formular">
     <h3>Dokumentdaten</h3>
-    <input type="text" placeholder="Seitenanzahl" id="item_doc__weight"><br><br>
-    <input type="text" placeholder="Format" id="item_doc_measurement">
+    <input type="text" placeholder="Seitenanzahl" id="item_doc_weight"><br><br>
+     <select id="letter_format">
+    <option value="">Bitte wählen</option>
+    <option value="A3">DIN A3</option>
+    <option value="A4">DIN A4</option>
+    <option value="A5">DIN A5</option>
+  </select>
     <!--h3>Anfrage / Beschreibung</!--h3>
     <textarea-- placeholder="Beschreibe dein Anliegen oder gib zusätzliche Informationen an..."></textarea-->
 </div>
@@ -349,7 +356,7 @@
      inkscape:groupmode="layer"
      id="layer1">
     <g
-       id="start_de"  data-item="start_de" class="clickable"
+       id="start_de"  data-item="1" class="clickable"
        transform="matrix(0.06467149,0,0,0.06333079,37.499003,-11.157802)">
       <path
          style="fill:#ff6243;stroke-width:0.492175"
@@ -375,13 +382,13 @@
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.42843px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.998567"
          x="39.872345"
          y="22.770613">es</tspan></text>
-    <g id="start_es"  data-item="start_es" class="clickable"> 
+    <g id="start_es"  data-item="3" class="clickable"> 
     <path
        style="fill:#ff6243;stroke-width:0.0314981"
        d="m 40.243287,2.6317103 c -3.345607,0 -6.067759,2.4739329 -6.067759,5.5148052 0,2.0127235 0.560216,2.7743975 4.921058,8.7014345 l 0.633698,0.861655 0.05439,0.07394 c 0.102351,0.139218 0.204897,0.213285 0.389114,0.213285 0.184236,0 0.425736,-0.07409 0.528125,-0.213261 l 0.573864,-0.780082 c 4.462109,-6.0661 5.035278,-6.845521 5.035278,-8.8569532 0,-3.0409024 -2.722154,-5.5148354 -6.06776,-5.5148354 z m 0,8.0215297 c -1.520871,0 -2.758067,-1.1244519 -2.758067,-2.5067245 0,-1.382275 1.237196,-2.5067241 2.758067,-2.5067241 1.520869,0 2.758065,1.1244491 2.758065,2.5067241 0,1.3822726 -1.237196,2.5067245 -2.758065,2.5067245 z"
        id="path1-9-4" /></g>
     <g
-       id="start_at"  data-item="start_at" class="clickable"
+       id="start_at"  data-item="2" class="clickable"
        transform="matrix(0.40752873,0,0,0.35362481,-113.51467,-108.52147)">
       <g
          id="g2-2"
@@ -13516,7 +13523,7 @@
 
 
 
-<button id="submitSendung">Sendung speichern</button>
+<button id="submitSendung">Reisende suchen</button>
 
     </main>
 

@@ -24,15 +24,16 @@ body {
 
 /* Header */
 .header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   background-color: #141414;
-  padding: 1rem;
+  padding: 1rem; 
   text-align: center;
   color: #fff;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-
+  gap: 1.5em;
+ 
 }
-.main {
+.main,.mainDosCol {
   background-color: #F5F5F5;
   display: grid;
   grid-template-columns: 1fr;   /* nur EINE Spalte auf Mobil */
@@ -43,23 +44,23 @@ body {
   gap: 5rem;
   justify-items: center; /* horizontal zentrieren */
    min-height: calc(100vh - 120px); 
-
-  
 }
+
+
 
 .side-menu {
  display: none;
  } 
    .nav{
+   
      display: flow-root;
      width: auto;
-     height: 100%;
-     position: fixed;
+    place-items: center;
      inset: 0; /* shorthand for top, right, bottom, left: 0 */
      overflow: hidden;
-      max-height: 0;
+ 
      transition: max-height .4s ease-out;
-      z-index: 4;
+    z-index: 4;
   
     }
     .nav li a{
@@ -70,23 +71,27 @@ body {
     }
   
      .menu {
-            position: relative;
+           
             display: grid;
             gap: 3rem; /* Use rem for better scalability */
-            margin-top: 4rem;
-            left: 0; /* Align to center with flex parent */
             text-align: center;
             font-weight: bold;
             font-size: 150%;
+             padding: 0;
+  margin: 0;
+  list-style: none;
           
           }
+
+    
     
   /* Menu Icon */
       .hamb{ 
         position: relative;
         cursor: default;
         padding: 40px 20px; 
-        grid-column: 1; 
+          grid-column: 1;
+         justify-self: start;
           z-index: 5; /* Set z-index to keep the icon at the top position */
         
         
@@ -94,6 +99,7 @@ body {
       /* Style label tag */
 
       .hamb-line {
+     
         background: white;
         display: block;
         height: 2px;
@@ -275,29 +281,32 @@ font-size: 18px;
   font-size: 1.2em;
   gap: 1em; 
 }
-.calendar{
+.calendar, .calendarDosCol{
 position: relative;
 grid-row: 4;
 margin: 1em;
 max-width: 600px;
 background-color: #F5F5F5;
 border-radius: 10px;
-
 color: #141414;
 }
-
-.calendar header{
+.calendarDosCol{
+grid-row: 3;
+}
+.calendar header,
+.calendarDosCol header{
   position: relative;
   padding: 25px 30px 10px;
   display: grid;
   grid-template-columns: 1fr;
   background-color:  #f0dad4;
   border-radius: 10px 10px 0 0;   /* 👈 nur oben */
-    color: #1f1f1f;
+  color: #1f1f1f;
 
 }
 /* gefüllter „Rand“ unten */
-.calendar header::after {
+.calendar header::after,
+.calendarDosCol header::after {
   content: "";
   position: absolute;
   left: 0;
@@ -306,7 +315,8 @@ color: #141414;
   height: 3px;
   background-color: #e94417;
 }
-.calendar .calendar-body {
+.calendar .calendar-body,
+.calendarDosCol .calendar-body {
   padding: 16px 20px 25px;
   background-color: #f4f1f1;
 }
@@ -315,15 +325,19 @@ color: #141414;
 .hidden {
   display: none;
 }
-.calendar header p{
+.calendar header p,
+.calendarDosCol header p
+{
   font-size: 120%;
-   font-weight: bold;
+  font-weight: bold;
 }
-.calendar header .icons{
+.calendar header .icons,
+.calendarDosCol header .icons{
 grid-column: 3/4;
 
 }
-.calendar ul{
+.calendar ul,
+.calendarDosCol ul{
 	display:flex;
 	list-style: none;
 	flex-wrap: wrap;
@@ -332,13 +346,15 @@ grid-column: 3/4;
 
 }
 
-.calendar .weeks li {
+.calendar .weeks li,
+.calendarDosCol .weeks li {
 	font-weight: 500;
 
 }
-.calendar .days li{
+.calendar .days li,
+.calendarDosCol
+ .days li{
 	z-index: 1;
-	
 	margin-top: 25px;
   
 }
@@ -361,11 +377,13 @@ color: #141414;
   border-color: #e94417;
 	
 }
-.calendar ul li{
+.calendar ul li,
+.calendarDosCol ul li{
 	position: relative;
 	width: calc(100% /7);
 }
-.calendar .days li::before{
+.calendar .days li::before,
+.calendarDosCol .days li::before{
 	position: absolute;
 	content: "";
 	height: 40px;
@@ -479,7 +497,7 @@ display: none;
 }
 
 .reverse-head {
-  display: flex;
+  display: none;
   align-items: center;
   gap: 0.8rem;
 }
@@ -572,6 +590,95 @@ display: none;
   display: none;
 }
 
+.showTravelersHeadline{
+  font-size: 1.8rem;
+  color: #141414;
+  grid-column: 1/-1;
+}
+.documentAccordion,
+.packageAccordion{
+width: 50px;
+}
+.documentAccordion{
+  grid-column: 3;
+  fill: #E6F0FF;
+ 
+}
+.accordion {
+  max-width: 500px;
+  align-self: start;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  grid-row: 4;
+}
+
+.accordion-item {
+  border-bottom: 1px solid #ddd;
+}
+
+.accordion-item:last-of-type {
+  border-bottom: none;
+}
+
+.accordion-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;   /* vertikal zentriert */
+  padding: 12px 16px;
+  background-color: #f7f7f7;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.1s ease;
+}
+
+.accordion-header:hover {
+  background-color: #eaeaea;
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  padding: 0 16px;
+  background-color: #fff;
+}
+
+.accordion-content p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.accordion-item input {
+  display: none;
+}
+
+.accordion-item input:checked ~ .accordion-content {
+  max-height: 500px; /* adjust for content height */
+  
+}
+
+.rating{
+  grid-column: 1;
+  grid-row: 2;
+}
+.City{
+  grid-column: 2;
+  justify-self: center;  /* horizontal zentriert */
+  margin: 0;
+}
+
+/* Grid layout for content */
+.grid-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+
 
 /* Footer */
 .footer {
@@ -614,6 +721,11 @@ display: none;
   color: #141414;
   gap: 5rem !important;
 }
+.mainDosCol{
+   grid-template-columns: 1fr 1fr;  
+   grid-template-rows: auto auto auto; 
+
+}
 
   .main .buttons {
     flex-direction: row;
@@ -632,9 +744,6 @@ display: none;
   width: 0;
   height: 0;
  } 
- .menu{
-   display: block;
- }
 
 .bring{
 display: grid;
@@ -696,15 +805,31 @@ width: 800px;
 
 
 .calendar{
-  padding: 0em;
+  padding: 0em; 
 }
+
+.calendarDosCol{
+position: relative;
+grid-column: 1;
+grid-row: 3;
+}
+
 .calendarToggle{
   font-size: 1.5em;
  
 }
+.accordion{
+  grid-row: 3;
+}
+
 .send,
 .offer {
   font-size: 1.4em;
+}
+
+.createQuestion{
+  grid-column: 2;
+  grid-row: 4;
 }
 
 }
