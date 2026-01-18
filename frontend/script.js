@@ -31,26 +31,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	
 	const item = localStorage.getItem("selectedItem");
-	const chooseStart = document.getElementById("chooseStart");
+	const chooseStart = document.getElementById("chooseStart-card");
+	const routeCard = document.getElementById("route-card");
 	const svgPyToDe = document.getElementById("svgPyToDe");
 	const svgPyToAt = document.getElementById("svgPyToAt");
 	const svgPyToEs = document.getElementById("svgPyToEs");
 
 	if (item === "4" && chooseStart) {
 		chooseStart.style.display = "block";
+		chooseStart.style.gridRow = "2";
 		svgPyToDe.style.display = "none";
+		routeCard.style.display = "none";
 
 	} 
 	if(item === "1" && chooseStart){ 
 		chooseStart.style.display = "none";
+		routeCard.style.display = "block";
 		svgPyToDe.style.display = "block";
 	}
 	if(item === "2" && chooseStart){ 
 		chooseStart.style.display = "none";
+		routeCard.style.display = "block";
 		svgPyToAt.style.display = "block";
 	}
 	if(item === "3" && chooseStart){ 
 		chooseStart.style.display = "none";
+		routeCard.style.display = "block";
 		svgPyToEs.style.display = "block";
 	}
 	
@@ -206,8 +212,8 @@ function toggleCalendar(){
 					reverseHeadSendAndOffer.style.display = 'flex'
 					items.style.display = "grid";
 					items.style.gridTemplateColumns = "repeat(2, 1fr)";
-					items.style.gap = "5em";
-					items.style.marginTop = "0px"
+					items.style.gap = "3em";
+				    items.style.justifyItems = "center";
 									
 				};
 
@@ -225,16 +231,12 @@ toggleItems();
 document.addEventListener("DOMContentLoaded", () => {
   const items = document.getElementById("Items");
   const reverseHeadSendAndOffer = document.querySelector('.reverse-head');
-  const sendungWrapper = document.querySelector('.sendung-wrapper');
- 
    items.style.display = "grid";
    items.style.gridTemplateColumns = "repeat(2, 1fr)";
-   items.style.gap =  "0em";
-  if (getComputedStyle(reverseHeadSendAndOffer).display === 'flex') {
-   items.style.marginTop = "0px"
-  }
-    if(getComputedStyle(sendungWrapper).display == 'flex' )
-   		items.style.marginTop = "-80px"
+   items.style.gap =  "3em";
+   items.style.justifyItems = "center";
+
+   
    
    
 
@@ -253,7 +255,9 @@ function render() {
   documentFormular.style.display = isPackage ? "none" : "block";
 
   items.style.marginLeft = "60px";
-  items.style.gap = "0em";
+  items.style.gap = "3em";
+  items.style.justifyItems = "center";
+  
 }
 
 
@@ -356,21 +360,25 @@ if (typ === "PACKAGE") {
 } 
 	function chooseItem(){
 		const item = localStorage.getItem("selectedItem");
-		const chooseStart = document.getElementById("chooseStart");
+		const chooseStart = document.getElementById("chooseStart-card");
+		const routeCard = document.getElementById("route-card");
 		const svgDeToPy = document.getElementById("svgDeToPy");
 		const svgAtToPy = document.getElementById("svgAtToPy");
 		const svgEsToPy = document.getElementById("svgEsToPy");
 
 		
-		if(item === "1" && chooseStart){
+		if(item === "5" && chooseStart){
 			chooseStart.style.display = "none";
 			svgDeToPy.style.display = "block";
-		} else if (item === "2" && chooseStart){
+			routeCard.style.display = "block"
+		} else if (item === "6" && chooseStart){
 			chooseStart.style.display = "none";
 			svgAtToPy.style.display = "block";
-		} else if (item === "3" && chooseStart){
+			routeCard.style.display = "block"
+		} else if (item === "7" && chooseStart){
 			chooseStart.style.display = "none";
 			svgEsToPy.style.display = "block";
+			routeCard.style.display = "block"
 		}
 
 		document.querySelector(".svgChooseStart").addEventListener("click", e => {

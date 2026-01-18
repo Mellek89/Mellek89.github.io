@@ -37,13 +37,15 @@ body {
   background-color: #F5F5F5;
   display: grid;
   grid-template-columns: 1fr;   /* nur EINE Spalte auf Mobil */
-   grid-template-rows: auto auto auto; 
+  grid-template-rows: auto auto auto auto auto; 
+  gap: 5rem;
+  min-height: auto;
   align-content:start;
   padding-top: 3rem;  
   color: #141414;
   gap: 5rem;
   justify-items: center; /* horizontal zentrieren */
-   min-height: calc(100vh - 120px); 
+
 }
 
 
@@ -240,14 +242,28 @@ grid-column: 1;
 text-align: center;
 margin-right: 0;
 font-size: 18px;
-
-
 }
 
 .svgLocation{
   width: 73px;  
   height: 75px;
   margin-bottom: 2em ;
+
+}
+
+
+.item.paket,
+.item.document{
+ border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 24px;
+  background: #fff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 1.2rem;
+  transition: all 0.2s ease;
 
 }
 .svgPackage{
@@ -274,12 +290,30 @@ font-size: 18px;
 
 .calendarIcon{
   width: 1.5em;
+   flex-shrink: 0;
 }
-.calendarToggle{
-  display: inline-flex;
-  grid-row: 3;
-  font-size: 1.2em;
-  gap: 1em; 
+
+.card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  width: 100%;
+  max-width: 850px;
+}
+.route-card {
+  display: grid;
+  gap: 16px;
+
+}
+.route {
+  display: grid;
+  grid-template-rows: auto auto;
+  justify-items: center; 
+}
+.calendarToggle {
+  font-size: 1.0em;
+  
 }
 .calendar, .calendarDosCol{
 position: relative;
@@ -321,6 +355,23 @@ grid-row: 3;
   background-color: #f4f1f1;
 }
 
+.cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.primary-btn {
+  background: #2563eb;
+  color: #fff;
+  font-size: 1.1rem;
+  padding: 16px 32px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(37,99,235,0.3);
+  transition: transform 0.15s ease;
+}
 
 .hidden {
   display: none;
@@ -459,25 +510,53 @@ display: none;
 
 
 .chooseStart{
-  display: none;
-  grid-row: 2;
+  display: grid;
+  justify-items: center;
 }
 .chooseStart h3{
-  
   text-align: center;
   margin-bottom: 1.5em;
 }
 
+.type-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+
+.wrapper-card{
+  grid-row: 3;
+}
+.route-card{
+grid-row: 2;  
+}
+.items-card{
+grid-row: 5; 
+}
+.chooseStart-card{
+  display: none;
+}
 .sendung-wrapper {
   display: flex;
   flex-direction: column;
   gap: 0.8em;
-   align-items: center; 
+  align-items: center; 
 }
 .radio-option {
+  max-width: 100%;
+  width: auto;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 24px;
+  background: #fff;
   cursor: pointer;
-  padding: 0.6em 1em;
-  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 1.2rem;
+  transition: all 0.2s ease;
+
 }
 
 .pleaseChoose{
@@ -773,20 +852,16 @@ margin: 0;
 
 .svgLocation{
   width: 65px;  
-
 }
-
+.svgChooseStart{
+  max-width: 300px;
+}
 .svgAirplane {
   position: relative;
   width: 450px;
   height: auto;
   z-index: 8;
-
 }
-
-
-
-
 
 .svgPyToDe,
 .svgPyToAt,
@@ -814,9 +889,18 @@ grid-column: 1;
 grid-row: 3;
 }
 
-.calendarToggle{
-  font-size: 1.5em;
- 
+.calendarToggle {
+  display: inline-flex;      /* 🔑 */
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.95rem;
+  cursor: pointer;
+  white-space: nowrap;       
+  width: fit-content;
 }
 .accordion{
   grid-row: 3;
