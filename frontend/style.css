@@ -311,7 +311,7 @@ font-size: 18px;
   padding: 24px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
   width: 100%;
-  max-width: 850px;
+  max-width: 450px;
 }
 .route-card {
   display: grid;
@@ -329,11 +329,28 @@ font-size: 18px;
   font-size: 1.2rem;
   justify-self: start; 
 }
+.calendarCard {
+  grid-row: 4;
+}
+
+.calendarCard.is-open {
+  grid-row: 3;
+}
+
+.wrapperCard {
+  grid-row: 3;
+}
+
+.wrapperCard.is-shifted {
+  grid-row: 4;
+}
+
+
 .calendar, .calendarDosCol{
 position: relative;
 grid-row: 4;
 margin: 1em;
-max-width: 600px;
+max-width: 400px;
 background-color: #F5F5F5;
 border-radius: 10px;
 color: #141414;
@@ -524,9 +541,13 @@ max-width: 460px;
 }
 
 
-.chooseStart{
+.chooseStart-card{
   display: grid;
   justify-items: center;
+padding: 5em;}
+
+.chooseStart{
+  max-width: 300px ;
 }
 .chooseStart h3{
   text-align: center;
@@ -867,8 +888,8 @@ margin: 0;
 .svgLocation{
   width: 65px;  
 }
-.svgChooseStart{
-  max-width: 300px;
+.chooseStart{
+  max-width: 400px;
 }
 .svgAirplane {
   position: relative;
@@ -892,7 +913,10 @@ margin: 0;
 .svgDeToPy{
 max-width: 800px;
 }
+.card {
 
+  max-width: 850px;
+}
 
 .calendar{
   padding: 0em; 

@@ -162,16 +162,26 @@ if (window.location.pathname.endsWith('item.html')){
 function toggleCalendar(){
   const toggleBtn = document.getElementById("calendarToggle");
   const calendar = document.getElementById("calendarDropdown");
+  const calenderCard = document.getElementById("calendar-card");
+  const wrapperCard = document.getElementById("wrapper-card");
 
   toggleBtn.addEventListener("click", (e) => {
 	e.stopPropagation();
     calendar.classList.toggle("hidden");
+	//calenderCard.classList.toggle("hidden");
+  calenderCard.classList.toggle("is-open");
+  wrapperCard.classList.toggle("is-shifted");
+	//calenderCard.style.gridRow = "3";
+	//wrapperCard.style.gridRow = "4";
+
   });
 
   // optional: schließen bei Klick außerhalb
 	document.addEventListener("click", (e) => {
 		if (!toggleBtn.contains(e.target) && !calendar.contains(e.target)) {
 		calendar.classList.add("hidden");
+	//	calenderCard.classList.remove("is-open");
+    wrapperCard.classList.remove("is-shifted");
 		}
 	});
 	}
