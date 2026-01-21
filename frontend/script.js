@@ -233,14 +233,32 @@ function toggleWrapper(){
 			if (!sendItems || !takeItems || !items) return;
 
 			  const showItems = () => {
-				 	
-					reverseHeadSendAndOffer.style.display = 'flex'
-					items.style.display = "grid";
-					items.style.gridTemplateColumns = "repeat(2, 1fr)";
-					items.style.gap = "3em";
-				    items.style.justifyItems = "center";
-									
-				};
+  reverseHeadSendAndOffer.style.display = 'flex';
+
+  if (window.innerWidth < 1024) {
+    // 📱 MOBILE
+    items.style.display = 'flex';
+    items.style.flexDirection = 'column';
+    items.style.gap = '1.5em';
+    items.style.alignItems = 'center';
+
+    // Grid zurücksetzen (wichtig!)
+    items.style.gridTemplateColumns = '';
+    items.style.justifyItems = '';
+
+  } else {
+    // 🖥 DESKTOP
+    items.style.display = 'grid';
+    items.style.gridTemplateColumns = 'repeat(2, 1fr)';
+    items.style.gap = '3em';
+    items.style.justifyItems = 'center';
+
+    // Flex zurücksetzen
+    items.style.flexDirection = '';
+    items.style.alignItems = '';
+  }
+};
+
 
 			sendItems.addEventListener("change", () => {
 				sendItem = true;
@@ -255,17 +273,35 @@ function toggleWrapper(){
 toggleItems();
 document.addEventListener("DOMContentLoaded", () => {
   const items = document.getElementById("Items");
-  const reverseHeadSendAndOffer = document.querySelector('.reverse-head');
-   items.style.display = "grid";
-   items.style.gridTemplateColumns = "repeat(2, 1fr)";
-   items.style.gap =  "3em";
-   items.style.justifyItems = "center";
+    
+if (window.innerWidth < 1024) {
+    // 📱 MOBILE
+    items.style.display = 'flex';
+    items.style.flexDirection = 'column';
+    items.style.gap = '1.5em';
+    items.style.alignItems = 'center';
 
-   
-   
-   
+    // Grid zurücksetzen (wichtig!)
+    items.style.gridTemplateColumns = '';
+    items.style.justifyItems = '';
 
+  } else {
+    // 🖥 DESKTOP
+    items.style.display = 'grid';
+    items.style.gridTemplateColumns = 'repeat(2, 1fr)';
+    items.style.gap = '3em';
+    items.style.justifyItems = 'center';
+
+    // Flex zurücksetzen
+    items.style.flexDirection = '';
+    items.style.alignItems = '';
+  }
 });
+
+   
+   
+
+
 let activeItem = null;
 function render() {
   const isPackage = activeItem === "PACKAGE";
