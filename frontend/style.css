@@ -339,24 +339,25 @@ font-size: 18px;
  
 
 
-  .route-center{
-    display: flex;
-   flex-direction: row;      /* nebeneinander */
-    align-items: center;
-    gap: 8px;
+ .route-center {
+  position: relative;      /* Bezug für absolute Plane */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(90deg);
+  transform-origin: center;
+}
+.arrow{
+width: 30px;
+}
+.plane{
+width: 30px;
+}
 
-  }
-  .plane{
-    order: 2;  
-    width: 20px;
-    transform: rotate(90deg);
-   
-  
-  }
 
 .calendarToggle {
   font-size: 1.2rem;
- 
   grid-row: 1;
 }
 .calendarCard {
@@ -962,33 +963,24 @@ grid-row: 3;
   align-items: center;
   gap: 24px;
 }
-  .route-center{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
 
-  }
+
 .pyUb,
 .deUb{
  
   height: 50px;
 }
 
- .arrow {
-  width: 48px;
-  height: auto;
-  color: #6b7280; /* Booking-like */
+ .route-center {
+  transform: rotate(0deg);
+ gap: 1px;
 }
-
-
-}
-
-
 .plane{
   transform: rotate(0deg);
-  grid-row: 1;
-  grid-column: 2;
   width: 30px;
- 
+}
+.arrow{
+  width: 50px;
 }
 
 
