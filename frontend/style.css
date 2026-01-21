@@ -362,7 +362,7 @@ font-size: 18px;
 .plane {
   position: absolute;
   top: 50%;
-  left: 55%;
+  left: 53%;
   transform:
     translate(-50%, -50%)
     rotate(90deg);
