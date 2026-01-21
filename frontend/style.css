@@ -307,7 +307,7 @@ font-size: 18px;
   padding: 24px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
   width: 100%;
-  max-width: 450px;
+  max-width: 350px;
 }
 .route-card {
   display: grid;
@@ -1001,6 +1001,7 @@ grid-row: 3;
   background: #9ca3af;
   grid-row: 2;
   grid-column: 2;
+  margin-left: 0;
 }
 .arrow::after {
   content: "";
@@ -1011,9 +1012,10 @@ grid-row: 3;
 }
 
 .plane{
-   transform: rotate(0deg);
+  transform: rotate(0deg);
   grid-row: 1;
   grid-column: 2;
+  width: 30px;
  
 }
 
