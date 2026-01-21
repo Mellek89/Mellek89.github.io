@@ -340,21 +340,40 @@ font-size: 18px;
  
 
 
- .route-center {
-  position: relative;      /* Bezug für absolute Plane */
+.route-center {
+  position: relative;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  height: 60px;   /* definierte Höhe = stabil */
+}
+
+
+.arrow {
+  height: 36px;
+  width: 5dvh;
   transform: rotate(90deg);
   transform-origin: center;
 }
-.arrow{
-width: 30px;
+
+
+
+.plane {
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  transform:
+    translate(-50%, -50%)
+    rotate(90deg);
+  width: 23px;
+  z-index: 2;
+  background: #fff;          /* 🔑 verhindert „Verschlucken“ */
+  padding: 2px;
+  padding-left: 5px;
+   padding-right: 5px;
+  border-radius: 50%;
 }
-.plane{
-width: 20px;
-}
+
 
 
 .calendarToggle {
@@ -981,8 +1000,17 @@ grid-row: 3;
   transform: rotate(0deg);
   width: 30px;
 }
+
+
 .arrow{
   width: 50px;
+   transform: rotate(0deg);
+}
+
+.plane{
+  padding: 0;
+  top: 5px;
+  left: 2px;
 }
 
 
