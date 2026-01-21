@@ -211,9 +211,6 @@ body {
 
 .option .meta{font-size:12px;color:var(--muted)}
 
-
-
-
 .main .buttons {
   display: flex;
   flex-direction: column;
@@ -328,6 +325,17 @@ font-size: 18px;
   justify-items: center; 
 }
 
+.pyUb,
+.deUb{
+  height: 30px;
+}
+.location.to,
+.location.from {
+  display: flex;
+ flex-direction: column;
+  align-items: center;
+  gap: 4px; /* Abstand zwischen SVG und Text */
+}
   .arrow {
     position: relative;
     grid-column: 1;
@@ -335,33 +343,42 @@ font-size: 18px;
     height: 32px;
     margin: 0 auto;
     background: #9ca3af;
+    order: 1;
   }
   .arrow::after {
-     content: "";
+    content: "";
     position: absolute;
     top: auto;
+    width: 6px;
+    height: 6px;
     bottom: 0;
     right: -3px;
-    transform: rotate(-45deg);
+      border-right: 1.5px solid #9ca3af;
+  border-bottom: 1.5px solid #9ca3af;
+    transform: rotate(45deg);
+    
+    
   }
 
 
   .route-center{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    height: 30px;
+    display: flex;
+   flex-direction: row;      /* nebeneinander */
+    align-items: center;
+    gap: 8px;
 
   }
   .plane{
-    width: 30px;
+    order: 2;  
+    width: 20px;
     transform: rotate(90deg);
-    grid-row: 2;
-    grid-column: 2;
+   
+  
   }
 
 .calendarToggle {
   font-size: 1.2rem;
-  justify-self: start; 
+ 
   grid-row: 1;
 }
 .calendarCard {
@@ -990,10 +1007,6 @@ grid-row: 3;
   position: absolute;
   right: 0;
   top: -3px;
-  width: 6px;
-  height: 6px;
-  border-right: 1.5px solid #9ca3af;
-  border-bottom: 1.5px solid #9ca3af;
   transform: rotate(-45deg);
 }
 
@@ -1013,7 +1026,7 @@ grid-row: 3;
 }
 
 .location.to {
-  display: grid;
+  display: flex;
   grid-template-rows: auto auto auto;
   justify-self: end;
   font-weight: 500;
