@@ -336,29 +336,7 @@ font-size: 18px;
   align-items: center;
   gap: 4px; /* Abstand zwischen SVG und Text */
 }
-  .arrow {
-    position: relative;
-    width: 1px;
-    height: 32px;
-    margin: 0 auto;
-    background: #9ca3af;
-    order: 1;
-    margin-left: 25px;
-  }
-  .arrow::after {
-    content: "";
-    position: absolute;
-    top: auto;
-    width: 6px;
-    height: 6px;
-    bottom: 0;
-    right: -3px;
-      border-right: 1.5px solid #9ca3af;
-  border-bottom: 1.5px solid #9ca3af;
-    transform: rotate(45deg);
-    
-    
-  }
+ 
 
 
   .route-center{
@@ -994,22 +972,16 @@ grid-row: 3;
  
   height: 50px;
 }
-.arrow {
-  position: relative;
-  width: 40px;
-  height: 1px;
-  background: #9ca3af;
-  grid-row: 2;
-  grid-column: 2;
-  margin-left: 0;
+
+ .arrow {
+  width: 48px;
+  height: auto;
+  color: #6b7280; /* Booking-like */
 }
-.arrow::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  top: -3px;
-  transform: rotate(-45deg);
+
+
 }
+
 
 .plane{
   transform: rotate(0deg);
