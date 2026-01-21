@@ -27,7 +27,7 @@ const months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "A
 
 
 
-document.addEventListener("DOMContentLoaded", () => {
+/*document.addEventListener("DOMContentLoaded", () => {
 
 	
 	const item = localStorage.getItem("selectedItem");
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	const svgPyToEs = document.getElementById("svgPyToEs");
 
 	if (item === "4" && chooseStart) {
-		chooseStart.style.display = "block";
+		chooseStart.style.display = "grid";
 		chooseStart.style.gridRow = "2";
 		svgPyToDe.style.display = "none";
 		routeCard.style.display = "none";
@@ -46,23 +46,23 @@ document.addEventListener("DOMContentLoaded", () => {
 	} 
 	if(item === "1" && chooseStart){ 
 		chooseStart.style.display = "none";
-		routeCard.style.display = "block";
+		routeCard.style.display = "grid";
 		svgPyToDe.style.display = "block";
 	}
 	if(item === "2" && chooseStart){ 
 		chooseStart.style.display = "none";
-		routeCard.style.display = "block";
+		routeCard.style.display = "grid";
 		svgPyToAt.style.display = "block";
 	}
 	if(item === "3" && chooseStart){ 
 		chooseStart.style.display = "none";
-		routeCard.style.display = "block";
+		routeCard.style.display = "grid";
 		svgPyToEs.style.display = "block";
 	}
 	
 	
 	
-});
+});*/
 
 
 
@@ -73,6 +73,7 @@ const selectDate = () =>{
 	let dSelector = document.querySelectorAll('.days li');
 	const calendar = document.getElementById("calendarDropdown");
 	const calendarText = document.getElementById("calendarText");
+	const svgDeToPy = document.getElementById("svgDeToPy")
 	
 
 	dSelector.forEach( day => {
@@ -85,6 +86,7 @@ const selectDate = () =>{
     			day.id + " " + currentDate.innerText;
  				selectedDate = day.dataset.isoDate; 
 				calendar.classList.add("hidden");
+				svgDeToPy.style.gridRow = "2";
 				
 		});
 		
@@ -158,33 +160,46 @@ if (window.location.pathname.endsWith('item.html')){
 	 goal = localStorage.getItem("selectedItem");
    console.log("Goal from storage:", goal);	
 	toggleCalendar();	
+	toggleWrapper();
 
 function toggleCalendar(){
   const toggleBtn = document.getElementById("calendarToggle");
-  const calendar = document.getElementById("calendarDropdown");
-  const calenderCard = document.getElementById("calendar-card");
+  const calendarDropdown = document.getElementById("calendarDropdown");
+  const calendar = document.getElementById("calendar");
+  const wrapperCard = document.getElementById("wrapper-card");
+  
+  const svgDeToPy = document.getElementById("svgDeToPy");
+
+  let isOpen = false;
+
+toggleBtn.addEventListener("click", (e) => {
+	e.stopPropagation();
+
+	isOpen = !isOpen;
+
+	calendarDropdown.classList.toggle("hidden", !isOpen);
+	calendar.classList.toggle("is-open", isOpen);
+	wrapperCard.classList.toggle("is-shifted", isOpen);
+
+	svgDeToPy.style.gridRow = isOpen ? "1" : "2";
+  
+	});
+}
+
+function toggleWrapper(){
+  const toggleBtn = document.getElementById("type-grid");
   const wrapperCard = document.getElementById("wrapper-card");
 
-  toggleBtn.addEventListener("click", (e) => {
+  let isOpen = false;
+
+  toggleBtn.addEventListener("change", (e) => {
 	e.stopPropagation();
-    calendar.classList.toggle("hidden");
-	//calenderCard.classList.toggle("hidden");
-  calenderCard.classList.toggle("is-open");
-  wrapperCard.classList.toggle("is-shifted");
-	//calenderCard.style.gridRow = "3";
-	//wrapperCard.style.gridRow = "4";
 
-  });
-
-  // optional: schließen bei Klick außerhalb
-	document.addEventListener("click", (e) => {
-		if (!toggleBtn.contains(e.target) && !calendar.contains(e.target)) {
-		calendar.classList.add("hidden");
-	//	calenderCard.classList.remove("is-open");
-    wrapperCard.classList.remove("is-shifted");
-		}
+	isOpen = !isOpen;
+  	wrapperCard.classList.toggle("is-shifted", isOpen);
+  
 	});
-	}
+}
 
 
 	//reverseArrows
@@ -380,15 +395,15 @@ if (typ === "PACKAGE") {
 		if(item === "5" && chooseStart){
 			chooseStart.style.display = "none";
 			svgDeToPy.style.display = "block";
-			routeCard.style.display = "block"
+			routeCard.style.display = "grid"
 		} else if (item === "6" && chooseStart){
 			chooseStart.style.display = "none";
 			svgAtToPy.style.display = "block";
-			routeCard.style.display = "block"
+			routeCard.style.display = "grid"
 		} else if (item === "7" && chooseStart){
 			chooseStart.style.display = "none";
 			svgEsToPy.style.display = "block";
-			routeCard.style.display = "block"
+			routeCard.style.display = "grid"
 		}
 
 		document.querySelector(".svgChooseStart").addEventListener("click", e => {
@@ -403,7 +418,7 @@ if (typ === "PACKAGE") {
 			chooseItem();
 		});
 	}
-chooseItem();
+//chooseItem();
 }
 		
 
