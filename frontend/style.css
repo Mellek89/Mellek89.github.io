@@ -444,6 +444,7 @@ grid-row: 3;
   display: flex;
   justify-content: center;
   margin-top: 16px;
+  grid-row: 6;
 }
 
 .primary-btn {
@@ -962,7 +963,6 @@ margin: 0;
 
 
 .card {
-
   max-width: 850px;
 }
 
@@ -1031,6 +1031,14 @@ grid-row: 3;
   justify-self: end;
   font-weight: 500;
   grid-column: 3;
+}
+.sendung-wrapper {
+  display: grid;
+  grid-template-columns: 2;   
+}
+.type-grid{
+  display: grid;
+  grid-template-columns: auto auto; 
 }
 
 .pleaseChoose{

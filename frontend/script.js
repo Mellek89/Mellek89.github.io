@@ -179,7 +179,7 @@ toggleBtn.addEventListener("click", (e) => {
 
 	calendarDropdown.classList.toggle("hidden", !isOpen);
 	calendar.classList.toggle("is-open", isOpen);
-	wrapperCard.classList.toggle("is-shifted", isOpen);
+	//wrapperCard.classList.toggle("is-shifted", isOpen);
 
 	svgDeToPy.style.gridRow = isOpen ? "1" : "2";
   
@@ -189,6 +189,7 @@ toggleBtn.addEventListener("click", (e) => {
 function toggleWrapper(){
   const toggleBtn = document.getElementById("type-grid");
   const wrapperCard = document.getElementById("wrapper-card");
+  const itemsCard = document.querySelector(".card.items-card");
 
   let isOpen = false;
 
@@ -197,7 +198,7 @@ function toggleWrapper(){
 
 	isOpen = !isOpen;
   	wrapperCard.classList.toggle("is-shifted", isOpen);
-  
+    itemsCard.style.gridRow = "3";
 	});
 }
 
