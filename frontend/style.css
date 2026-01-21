@@ -286,7 +286,7 @@ font-size: 18px;
 }
 .calendarToggle {
   display: inline-flex; 
-  font-size: 1.2rem;     /* 🔑 */
+  font-size: 1.2rem; 
   align-items: center;
   gap: 6px;
   background: none;
@@ -295,6 +295,7 @@ font-size: 18px;
   cursor: pointer;
   white-space: nowrap;       
   width: fit-content;
+  justify-self: start;
 }
 .calendarIcon{
   width: 1.5em;
@@ -359,6 +360,7 @@ width: 20px;
 .calendarToggle {
   font-size: 1.2rem;
   grid-row: 1;
+  justify-self: center;
 }
 .calendarCard {
   grid-row: 4;
