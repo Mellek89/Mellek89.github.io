@@ -351,7 +351,7 @@ font-size: 18px;
 
 .arrow {
   height: 36px;
-  width: 5dvh;
+  width: 8dvh;
   transform: rotate(90deg);
   transform-origin: center;
 }
@@ -361,11 +361,11 @@ font-size: 18px;
 .plane {
   position: absolute;
   top: 50%;
-  left: 60%;
+  left: 55%;
   transform:
     translate(-50%, -50%)
     rotate(90deg);
-  width: 23px;
+  width: 30px;
   z-index: 2;
   background: #fff;          /* 🔑 verhindert „Verschlucken“ */
   padding: 2px;
