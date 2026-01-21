@@ -338,12 +338,12 @@ font-size: 18px;
 }
   .arrow {
     position: relative;
-    grid-column: 1;
     width: 1px;
     height: 32px;
     margin: 0 auto;
     background: #9ca3af;
     order: 1;
+    margin-left: 25px;
   }
   .arrow::after {
     content: "";
