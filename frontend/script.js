@@ -236,19 +236,6 @@ function toggleWrapper(){
 			  const showItems = () => {
   reverseHeadSendAndOffer.style.display = 'flex';
 
-  if (window.innerWidth < 1024) {
-    // 📱 MOBILE
-    items.style.display = 'flex';
-    items.style.flexDirection = 'column';
-    items.style.gap = '1.5em';
-    items.style.alignItems = 'center';
-
-    // Grid zurücksetzen (wichtig!)
-    items.style.gridTemplateColumns = '';
-    items.style.justifyItems = '';
-
-  } else {
-    // 🖥 DESKTOP
     items.style.display = 'grid';
     items.style.gridTemplateColumns = 'repeat(2, 1fr)';
     items.style.gap = '3em';
@@ -257,7 +244,7 @@ function toggleWrapper(){
     // Flex zurücksetzen
     items.style.flexDirection = '';
     items.style.alignItems = '';
-  }
+  
 };
 
 
@@ -276,11 +263,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const items = document.getElementById("Items");
     
 if (window.innerWidth < 1024) {
-    // 📱 MOBILE
-    items.style.display = 'flex';
-    items.style.flexDirection = 'column';
-    items.style.gap = '1.5em';
-    items.style.alignItems = 'center';
+ 
+       items.style.display = 'grid';
+    items.style.gridTemplateColumns = 'repeat(2, 1fr)';
+    items.style.gap = '3em';
+    items.style.justifyItems = 'center';
+   
 
     // Grid zurücksetzen (wichtig!)
     items.style.gridTemplateColumns = '';
@@ -290,7 +278,7 @@ if (window.innerWidth < 1024) {
     // 🖥 DESKTOP
     items.style.display = 'grid';
     items.style.gridTemplateColumns = 'repeat(2, 1fr)';
-    items.style.gap = '3em';
+    items.style.gap = '35em';
     items.style.justifyItems = 'center';
 
     // Flex zurücksetzen
