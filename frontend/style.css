@@ -258,14 +258,15 @@ font-size: 18px;
   transition: all 0.2s ease;
 
 }
-.item.document{
+.item.document,
+.item.paket
+{
    padding: 9px;
-   height: 100px
+   height: 102px;
+   width: 90px;
+   grid-row: 1;
 }
-.item.paket{
-   padding: 9px;
-   height: 100px
-}
+
 .svgPackage,
 .svgDocument{
   max-width: 50px; 
@@ -1071,8 +1072,10 @@ grid-row: 3;
 .item.paket,
 .item.document{
   font-size: 1.2rem;
-  height: 150px
-
+  height: 160px;
+  width: 300px;
+  place-items: center;
+  
 }
 .svgPackage,
 .svgDocument{

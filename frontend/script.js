@@ -237,7 +237,7 @@ function toggleWrapper(){
   reverseHeadSendAndOffer.style.display = 'flex';
 
     items.style.display = 'grid';
-    items.style.gridTemplateColumns = 'repeat(2, 1fr)';
+    items.style.gridTemplateColumns = '1fr, 1fr';
     items.style.gap = '3em';
     items.style.justifyItems = 'center';
 
@@ -264,15 +264,13 @@ document.addEventListener("DOMContentLoaded", () => {
     
 if (window.innerWidth < 1024) {
  
-       items.style.display = 'grid';
-    items.style.gridTemplateColumns = 'repeat(2, 1fr)';
+    items.style.display = 'grid';
+    items.style.gridTemplateColumns = '1fr, 1fr';
     items.style.gap = '3em';
-    items.style.justifyItems = 'center';
+    
    
 
-    // Grid zurücksetzen (wichtig!)
-    items.style.gridTemplateColumns = '';
-    items.style.justifyItems = '';
+
 
   } else {
     // 🖥 DESKTOP
