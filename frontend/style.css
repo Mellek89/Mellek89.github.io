@@ -55,14 +55,8 @@ body {
  } 
    .nav{
    
-     display: flow-root;
-     width: auto;
-    place-items: center;
-     inset: 0; /* shorthand for top, right, bottom, left: 0 */
-     overflow: hidden;
- 
-     transition: max-height .4s ease-out;
-    z-index: 4;
+  
+    display: none;
   
     }
     .nav li a{
@@ -80,8 +74,8 @@ body {
             font-weight: bold;
             font-size: 150%;
              padding: 0;
-  margin: 0;
-  list-style: none;
+            margin: 0;
+            list-style: none;
           
           }
 
@@ -131,6 +125,7 @@ body {
 
       /* Toggle menu icon */
       .side-menu:checked ~ nav{
+        display: block;
         max-height: 100vh;
       }
       .side-menu:checked ~ .hamb .hamb-line {
@@ -263,9 +258,13 @@ font-size: 18px;
   transition: all 0.2s ease;
 
 }
-.svgPackage{
-  width: 105px;  
-  height: 105px;
+.item.document{
+   padding: 9px;
+}
+.svgPackage,
+.svgDocument{
+  max-width: 50px; 
+  height: 50px;
   grid-row: 1;
 }
 .spanPackage{
@@ -888,6 +887,12 @@ width: 50px;
   }
     .nav{
       overflow:inherit;
+      display: flow-root;
+      width: auto;
+      place-items: center;
+      inset: 0; /* shorthand for top, right, bottom, left: 0 */
+      transition: max-height .4s ease-out;
+      z-index: 4;
     }
 
 
@@ -1058,4 +1063,10 @@ grid-row: 3;
   grid-row: 4;
 }
 
+.svgPackage,
+.svgDocument{
+  max-width: 95px; 
+  height: 100px;
+  grid-row: 1;
+}
 }
