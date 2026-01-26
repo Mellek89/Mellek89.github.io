@@ -273,7 +273,7 @@ if (window.innerWidth < 1024) {
     // 🖥 DESKTOP
     items.style.display = 'grid';
     items.style.gridTemplateColumns = 'repeat(2, 1fr)';
-    items.style.gap = '0em';
+    items.style.gap = '12em';
     items.style.justifyItems = 'center';
 
     // Flex zurücksetzen
@@ -299,7 +299,7 @@ function render() {
   packageFormular.style.display = isPackage ? "block" : "none";
   documentFormular.style.display = isPackage ? "none" : "block";
 
-  items.style.marginLeft = "60px";
+  //items.style.marginLeft = "60px";
   items.style.gap = "3em";
   items.style.justifyItems = "center";
   
