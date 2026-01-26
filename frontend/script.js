@@ -267,16 +267,13 @@ if (window.innerWidth < 1024) {
     items.style.display = 'grid';
     items.style.gridTemplateColumns = '1fr, 1fr';
     items.style.gap = '3em';
-    
    
-
-
 
   } else {
     // 🖥 DESKTOP
     items.style.display = 'grid';
     items.style.gridTemplateColumns = 'repeat(2, 1fr)';
-    items.style.gap = '35em';
+    items.style.gap = '0em';
     items.style.justifyItems = 'center';
 
     // Flex zurücksetzen
