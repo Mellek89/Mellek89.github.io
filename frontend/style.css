@@ -268,7 +268,7 @@ font-size: 18px;
 }
 .item.document
 {
-   gap: 11px;
+   gap: 15px;
 }
 .item.paket
 {
@@ -288,11 +288,11 @@ font-size: 18px;
   max-height: 25px;
   grid-row: 1;
   margin-top: 7px;
+
 }
 .spanPackage{
   display: grid;
   grid-row: 2;
-  
 }
 
 .page-title {
@@ -741,7 +741,7 @@ align-items: center;
   display: block;
   grid-row: 1;
 }
-.main:has(.searchTravelers:checked) .sendung-wrapper{
+.main:has(.searchTravelers:checked) .card.wrapperCard{
   display: none;
   
 }
@@ -763,7 +763,7 @@ align-items: center;
   display: none;
  
 }
-.main:has(.takeItemsWithMe:checked) .sendung-wrapper{
+.main:has(.takeItemsWithMe:checked)  .card.wrapperCard{
   display: none;
   
 }
@@ -1088,13 +1088,19 @@ grid-row: 3;
   grid-column: 2;
   grid-row: 4;
 }
+
+.reverseWrapper {
+  grid-row: 1;
+
+ 
+}
 .items-card{
 display: grid;
 grid-template-columns: 1fr 1fr;
 
 }
 .Items{
-  grid-row: 1;
+  grid-row: 2;
  
 }
 
@@ -1119,9 +1125,14 @@ grid-template-columns: 1fr 1fr;
 .svgDocument{
   max-width: 30px; 
   grid-row: 1;
+  
 }
 
 .svgDocument{
    max-width: 20px; 
+   margin-top: 14px;
+}
+.spanDocument{
+  gap: 7px;
 }
 }
