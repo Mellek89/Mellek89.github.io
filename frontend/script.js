@@ -2,7 +2,8 @@
 let sendItem = null;
 let selectedDate = null; 
 let goal = null;
-if (window.location.pathname.endsWith('item.html') || window.location.pathname.endsWith('showTravelers.html') ) {
+if (window.location.pathname.endsWith('item.html') || 
+	window.location.pathname.endsWith('showTravelers.html') ) {
 
   goal = localStorage.getItem("selectedItem");
   console.log("Goal from storage:", goal);
@@ -27,45 +28,6 @@ const months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "A
 
 
 
-/*document.addEventListener("DOMContentLoaded", () => {
-
-	
-	const item = localStorage.getItem("selectedItem");
-	const chooseStart = document.getElementById("chooseStart-card");
-	const routeCard = document.getElementById("route-card");
-	const svgPyToDe = document.getElementById("svgPyToDe");
-	const svgPyToAt = document.getElementById("svgPyToAt");
-	const svgPyToEs = document.getElementById("svgPyToEs");
-
-	if (item === "4" && chooseStart) {
-		chooseStart.style.display = "grid";
-		chooseStart.style.gridRow = "2";
-		svgPyToDe.style.display = "none";
-		routeCard.style.display = "none";
-
-	} 
-	if(item === "1" && chooseStart){ 
-		chooseStart.style.display = "none";
-		routeCard.style.display = "grid";
-		svgPyToDe.style.display = "block";
-	}
-	if(item === "2" && chooseStart){ 
-		chooseStart.style.display = "none";
-		routeCard.style.display = "grid";
-		svgPyToAt.style.display = "block";
-	}
-	if(item === "3" && chooseStart){ 
-		chooseStart.style.display = "none";
-		routeCard.style.display = "grid";
-		svgPyToEs.style.display = "block";
-	}
-	
-	
-	
-});*/
-
-
-
 
 const selectDate = () =>{
 
@@ -73,7 +35,7 @@ const selectDate = () =>{
 	let dSelector = document.querySelectorAll('.days li');
 	const calendar = document.getElementById("calendarDropdown");
 	const calendarText = document.getElementById("calendarText");
-	const svgDeToPy = document.getElementById("svgDeToPy")
+
 	
 
 	dSelector.forEach( day => {
@@ -86,7 +48,7 @@ const selectDate = () =>{
     			day.id + " " + currentDate.innerText;
  				selectedDate = day.dataset.isoDate; 
 				calendar.classList.add("hidden");
-				svgDeToPy.style.gridRow = "2";
+				
 				
 		});
 		
@@ -157,10 +119,26 @@ prevNextIcon.forEach(icon => {
 }
 	
 if (window.location.pathname.endsWith('item.html')){
-	 goal = localStorage.getItem("selectedItem");
+
+   goal = localStorage.getItem("selectedItem");
+   const chooseStart = document.getElementById("chooseStart-card");
+   const routeCard = document.getElementById("route-card");
    console.log("Goal from storage:", goal);	
+
+   if(goal == "4"){
+	chooseStart.style.display = "grid";
+	chooseStart.style.gridRow = "2";
+	routeCard.style.display = "none";
+
+   }
+
 	toggleCalendar();	
 	toggleWrapper();
+
+
+
+
+
 
 function toggleCalendar(){
   const toggleBtn = document.getElementById("calendarToggle");
@@ -168,7 +146,7 @@ function toggleCalendar(){
   const calendar = document.getElementById("calendar");
   const wrapperCard = document.getElementById("wrapper-card");
   
-  const svgDeToPy = document.getElementById("svgDeToPy");
+  const routeCard = document.getElementById("route-card");
 
   let isOpen = false;
 
@@ -181,7 +159,7 @@ toggleBtn.addEventListener("click", (e) => {
 	calendar.classList.toggle("is-open", isOpen);
 	//wrapperCard.classList.toggle("is-shifted", isOpen);
 
-	svgDeToPy.style.gridRow = isOpen ? "1" : "2";
+	//routeCard.style.gridRow = isOpen ? "1" : "2";
   
 	});
 }
@@ -403,26 +381,41 @@ if (typ === "PACKAGE") {
     .catch(err => console.error(err));
   });
 } 
-	function chooseItem(){
-		const item = localStorage.getItem("selectedItem");
+	function chooseStartCountry(){
+		const start = localStorage.getItem("selectedItem");
 		const chooseStart = document.getElementById("chooseStart-card");
 		const routeCard = document.getElementById("route-card");
-		const svgDeToPy = document.getElementById("svgDeToPy");
-		const svgAtToPy = document.getElementById("svgAtToPy");
-		const svgEsToPy = document.getElementById("svgEsToPy");
+		const fromGermany = document.querySelector(".fromGermany");
+		const fromAustria = document.querySelector(".fromAustria");
+		const fromEspana = document.querySelector(".fromEspana");
+		const atUb = document.querySelector(".atUb");
 
 		
-		if(item === "5" && chooseStart){
+		if (window.innerWidth < 1024) {   
+			routeCard.style.gridRow = "2"
+			routeCard.style.gap = "16px";
+			routeCard.style.gridTemplateRows = "auto";
+			routeCard.style.gridAutoColumns = "auto";
+			routeCard.style.justifyItems = "center"; 
+		}else{
+			routeCard.style.gridTemplateColumns = "1fr auto 1fr";
+			routeCard.style.alignItems = "center";
+			routeCard.style.gap = "24px";
+		}
+
+		if(start === "5" && chooseStart){
+			//Germany
+			 chooseStart.style.display = "none";
+			 routeCard.style.display = "grid"
+			 fromGermany.style.display = "block"
+		} else if (start === "6" && chooseStart){
 			chooseStart.style.display = "none";
-			svgDeToPy.style.display = "block";
+			 fromAustria.style.display = "block"
+			 atUb.style.display = "block"
 			routeCard.style.display = "grid"
-		} else if (item === "6" && chooseStart){
+		} else if (start === "7" && chooseStart){
 			chooseStart.style.display = "none";
-			svgAtToPy.style.display = "block";
-			routeCard.style.display = "grid"
-		} else if (item === "7" && chooseStart){
-			chooseStart.style.display = "none";
-			svgEsToPy.style.display = "block";
+			 fromEspana.style.display = "block"
 			routeCard.style.display = "grid"
 		}
 
@@ -435,10 +428,10 @@ if (typ === "PACKAGE") {
 			const item = g.dataset.item;
 			console.log("Selected:", item);
 			localStorage.setItem("selectedItem", item);
-			chooseItem();
+			chooseStartCountry();
 		});
 	}
-//chooseItem();
+chooseStartCountry();
 }
 		
 

@@ -332,7 +332,7 @@ font-size: 18px;
   width: 100%;
   max-width: 350px;
 }
-.route-card,
+/*.route-card,
 .wrapper-card {
   display: grid;
   grid-row: 2;
@@ -340,6 +340,12 @@ font-size: 18px;
   grid-template-rows: auto;
   grid-template-columns: auto;
   justify-items: center; 
+
+}*/
+
+.route-card,
+.wrapper-card {
+ display: none;
 
 }
 .route {
@@ -350,9 +356,22 @@ font-size: 18px;
 }
 
 .pyUb,
-.deUb{
-  height: 30px;
+.deUb,
+.atUb{
+  height: 50px;
 }
+.atUb,
+.esUb,
+.deUb{
+  display: none;
+}
+.fromGermany,
+.fromEspana,
+.fromAustria,
+.fromParaguay{
+  display: none;
+}
+
 .location.to,
 .location.from {
   display: flex;
@@ -1013,17 +1032,15 @@ grid-row: 3;
   justify-self: start;
   
 }
+
 .route-card {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  gap: 24px;
+  display: none;
 }
+
 
 
 .pyUb,
 .deUb{
- 
   height: 50px;
 }
 
