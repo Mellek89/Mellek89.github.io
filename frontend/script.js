@@ -389,6 +389,7 @@ if (typ === "PACKAGE") {
 		const fromAustria = document.querySelector(".fromAustria");
 		const fromEspana = document.querySelector(".fromEspana");
 		const atUb = document.querySelector(".atUb");
+		const esUb = document.querySelector(".esUb");
 
 		
 		if (window.innerWidth < 1024) {   
@@ -415,7 +416,8 @@ if (typ === "PACKAGE") {
 			routeCard.style.display = "grid"
 		} else if (start === "7" && chooseStart){
 			chooseStart.style.display = "none";
-			 fromEspana.style.display = "block"
+			fromEspana.style.display = "block"
+			esUb.style.display = "block"
 			routeCard.style.display = "grid"
 		}
 
