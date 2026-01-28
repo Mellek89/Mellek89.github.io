@@ -804,12 +804,34 @@ align-items: center;
 /* Standard: Formular ausblenden */
 .formular {
     display: none;
-    
     animation: fadein .3s ease;
-   
 }
 
+input,
+textarea{
+  border-radius: 8px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  width: 300px;
+}
 
+textarea{
+  height: 200px;
+}
+
+.checkbox-row{
+ display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+  font-size: 14px;
+
+}
+.checkbox-row input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
 
 
 .showTravelersHeadline{
@@ -1124,14 +1146,13 @@ grid-template-columns: 1fr 1fr;
 
 /* Standard: Formular ausblenden */
 .formular {
-   grid-row: 1;
+   grid-row: 2;
    
 }
 
 .item.paket,
 .item.document{
-   display: flex;
- 
+  display: flex;
   gap: 0px; 
   font-size: 1.2rem;
   height: 160px;

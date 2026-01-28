@@ -134,10 +134,32 @@ if (window.location.pathname.endsWith('item.html')){
 
 	toggleCalendar();	
 	toggleWrapper();
+	
 
+ document.addEventListener("DOMContentLoaded", () => {
+ const select = document.getElementById("onlyItems");
+    const otherInput = document.getElementById("otherItem");
 
+    if (!select || !otherInput) {
+      console.warn("Select oder Input nicht gefunden");
+      return;
+    }
 
+    function toggleOtherInput() {
+      if (select.value === "other") {
+        otherInput.style.display = "block";
+      } else {
+        otherInput.style.display = "none";
+        otherInput.value = "";
+      }
+    }
 
+    select.addEventListener("change", toggleOtherInput);
+
+    // Initialzustand setzen
+    toggleOtherInput();
+
+});
 
 
 function toggleCalendar(){
@@ -211,17 +233,22 @@ function toggleWrapper(){
 		 let reverseHeadSendAndOffer = document.querySelector('.reverse-head');
 			if (!sendItems || !takeItems || !items) return;
 
-			  const showItems = () => {
+const showItems = () => {
   reverseHeadSendAndOffer.style.display = 'flex';
-
+if (window.innerWidth < 1024) {
     items.style.display = 'grid';
     items.style.gridTemplateColumns = '1fr, 1fr';
     items.style.gap = '3em';
     items.style.justifyItems = 'center';
 
-    // Flex zurücksetzen
-    items.style.flexDirection = '';
-    items.style.alignItems = '';
+
+}else{
+ items.style.display = 'grid';
+    items.style.gridTemplateColumns = '1fr, 1fr';
+    items.style.gap = '12em';
+    items.style.justifyItems = 'center';
+
+}
   
 };
 
@@ -254,9 +281,7 @@ if (window.innerWidth < 1024) {
     items.style.gap = '12em';
     items.style.justifyItems = 'center';
 
-    // Flex zurücksetzen
-    items.style.flexDirection = '';
-    items.style.alignItems = '';
+ 
   }
 });
 
@@ -266,27 +291,31 @@ if (window.innerWidth < 1024) {
 
 let activeItem = null;
 function render() {
+
+  const itemsCard = document.querySelector(".card.items-card");
   const isPackage = activeItem === "PACKAGE";
+  const items = document.getElementById("Items");
 
   paket.classList.toggle("active", isPackage);
   dokument.classList.toggle("active", !isPackage);
 
-  paket.style.display = isPackage ? "block" : "none";
-  dokument.style.display = isPackage ? "none" : "block";
+  itemsCard.style.display = 'flex';
+  items.style.gridTemplateColumns = "1fr";
+  
+  paket.style.display = isPackage ? "flex" : "none";
+  dokument.style.display = isPackage ? "none" : "flex";
 
   packageFormular.style.display = isPackage ? "block" : "none";
   documentFormular.style.display = isPackage ? "none" : "block";
 
-  //items.style.marginLeft = "60px";
-  items.style.gap = "3em";
-  items.style.justifyItems = "center";
+
   
 }
 
 
 const paket = document.querySelector(".paket");
 const dokument = document.querySelector(".document")
-const items = document.getElementById("Items");
+
 const packageFormular = document.querySelector(".paket-formular");
 const documentFormular = document.querySelector(".document-formular");
 
@@ -390,6 +419,7 @@ if (typ === "PACKAGE") {
 		const fromEspana = document.querySelector(".fromEspana");
 		const atUb = document.querySelector(".atUb");
 		const esUb = document.querySelector(".esUb");
+		const deUb = document.querySelector(".deUb");
 
 		
 		if (window.innerWidth < 1024) {   
@@ -409,6 +439,7 @@ if (typ === "PACKAGE") {
 			 chooseStart.style.display = "none";
 			 routeCard.style.display = "grid"
 			 fromGermany.style.display = "block"
+			 deUb.style.display = "block"
 		} else if (start === "6" && chooseStart){
 			chooseStart.style.display = "none";
 			 fromAustria.style.display = "block"
