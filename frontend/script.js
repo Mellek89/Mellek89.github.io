@@ -258,11 +258,14 @@ function toggleReverseArrow(){
 		const sendItems = document.getElementById("sendItemsWithMe");
 		const takeItems = document.getElementById("takeItemsWithMe");
 		const items = document.querySelector(".Items");
+    const itemsCard = document.querySelector(".card.items-card");
 		 let reverseHeadSendAndOffer = document.querySelector('.reverse-head');
 			if (!sendItems || !takeItems || !items) return;
 
 const showItems = () => {
   reverseHeadSendAndOffer.style.display = 'flex';
+
+  itemsCard.style.display= "block";
 if (window.innerWidth < 1024) {
     items.style.display = 'grid';
     items.style.gridTemplateColumns = '1fr, 1fr';
@@ -306,11 +309,13 @@ document.addEventListener("DOMContentLoaded", () => {
   	if(wrapperCardDisplay == "none"){
 		itemsCard.style.gridRow = "3";
 	}
+
+  if(wrapperCardDisplay === "block"){
+    itemsCard.style.display = "none";
+  }
     
 if (window.innerWidth < 1024) {
 
-
-    
     items.style.display = 'grid';
     items.style.gridTemplateColumns = '1fr, 1fr';
     items.style.gap = '3em';
