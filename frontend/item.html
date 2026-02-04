@@ -58,12 +58,12 @@
       <div class="type-grid" id="type-grid">
 
       <label class="radio-option">
-         <input class="takeItemsWithMe" id="takeItemsWithMe" type="radio" name="sendung" >
+         <input class="takeItemsWithMe" data-item="takeItemsWithMe" id="takeItemsWithMe" type="radio" name="sendung" >
          <span>Sendung mitnehmen</span>
       </label>
 
       <label class="radio-option">
-         <input class="searchTravelers" id="sendItemsWithMe" type="radio" name="sendung">
+         <input class="searchTravelers" data-item="sendItemsWithMe" id="sendItemsWithMe" type="radio" name="sendung">
          <span>Sendung versenden</span>
       </label>
       </div>
@@ -77,8 +77,8 @@
     
       <div class="reverseWrapper">    
       <div class="reverse-head" id="reverse-head">
-      <h3 class="send">Was möchten sie versenden?</h3>
-      <h3 class="offer">Was möchten sie mitnehmen?</h3>
+      <h3 class="send" data-typ="SEND">Was möchten sie versenden?</h3>
+      <h3 class="offer" data-typ="OFFER">Was möchten sie mitnehmen?</h3>
       <svg
          viewBox="0 0 50 50"
          version="1.1"
@@ -247,15 +247,15 @@
 </label>
 </div>
 <!-- Paket Formular -->
-<div class="formular paket-formular">
-    <h3>Paketdaten</h3>
+<div class="formular takePaket-formular">
+  
     <input type="text" placeholder="Gewicht (kg)" id="weight"><br><br>
     <input type="text" placeholder="Max. Paketgröße (L × B × H cm)" id="measurement"><br><br>
     <input type="text" placeholder="Inhalt (z.B. Buch, Spielzeug, Küchengerät)" id="titel"><br><br>
     <input type="text" placeholder="Kontakt (Whatsapp/Telegram)" id="titel"><br><br>
     <label class="checkbox-row">
       <input class="forbiddenGoods" type="checkbox" id="forbiddenGoods">
-      <span>Ich transportiere keine<br> verbotenen Gegenstände</span>
+      <span>Ich transportiere keine<br> verbotenen oder gefährliche Gegenstände</span>
    </label>
     <textarea id="description" placeholder="Beschreibe dein Anliegen oder gib zusätzliche Informationen an..."></textarea>
 
@@ -281,6 +281,18 @@
    
     
     
+</div>
+<div class="formular sendPaket-formular">
+  
+    <input type="text" placeholder="Gewicht (kg)" id="sendWeight"><br><br>
+    <input type="text" placeholder="Max. Paketgröße (L × B × H cm)" id="sendMeasurement"><br><br>
+    <input type="text" placeholder="Inhalt (z.B. Buch, Spielzeug, Küchengerät)" id="sendTitel"><br><br>
+    <input type="text" placeholder="Kontakt (Whatsapp/Telegram)" id="sendKontakt"><br><br>
+    <label class="checkbox-row">
+      <input class="sendForbiddenGoods" type="checkbox" id="sendForbiddenGoods">
+      <span>Ich verschicke keine<br> verbotenen oder gefährliche Gegenstände</span>
+   </label>
+    <textarea id="sendDescription" placeholder="Beschreibe dein Anliegen oder gib zusätzliche Informationen an..."></textarea>
 </div>
 
 <!-- Dokument Formular -->

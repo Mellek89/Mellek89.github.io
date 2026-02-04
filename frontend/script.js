@@ -186,8 +186,16 @@ toggleBtn.addEventListener("click", (e) => {
 	});
 }
 
+/*const itemsCard = document.querySelector(".card.items-card");
+const wrapperCard = document.querySelector(".card.wrapperCard");
+
+if(wrapperCard.style.display === "none"){
+ itemsCard.style.gridRow = "3";
+}*/
+ 
+
 function toggleWrapper(){
-  const toggleBtn = document.getElementById("type-grid");
+  const toggleBtn = document.querySelector('.type-grid');
   const wrapperCard = document.getElementById("wrapper-card");
   const itemsCard = document.querySelector(".card.items-card");
 
@@ -195,6 +203,18 @@ function toggleWrapper(){
 
   toggleBtn.addEventListener("change", (e) => {
 	e.stopPropagation();
+  
+   const input = e.target.closest('input[type="radio"][data-item]');
+  if (!input) return;
+ const status = input.dataset.item;
+  console.log(status);
+ if (status === "takeItemsWithMe") {
+    activeReverse = "OFFER";
+  } else if (status === "sendItemsWithMe") {
+    activeReverse = "SEND";
+  }
+
+  console.log("activeReverse:", activeReverse);
 
 	isOpen = !isOpen;
   	wrapperCard.classList.toggle("is-shifted", isOpen);
@@ -207,22 +227,30 @@ function toggleWrapper(){
   const reverse = document.querySelector('.reverseArrows');
   const send = document.querySelector('.takeItemsWithMe');
   const offer = document.querySelector('.searchTravelers');
- 
-  function toggleSendung() {
-    if (send.checked) {
-      offer.checked = true;
-	  
-    } else {
-      send.checked = true;
-	  
-    }
-  }
+  let activeReverse = null;
+  
+function toggleReverseArrow(){
+  
+  //localStorage.setItem("status", activeReverse);
+  
+  activeReverse = activeReverse === "SEND" ? "OFFER" : "SEND";
+  const isSend = activeReverse === "SEND";
 
-  reverse.addEventListener('click', toggleSendung);
+  const send = document.querySelector(".send");
+  const offer = document.querySelector(".offer");
+
+  send.classList.toggle("active",isSend);
+  offer.classList.toggle("active", !isSend);
+  send.style.display = isSend ? "block" : "none";
+  offer.style.display = !isSend ? "block" : "none";
+
+}
+
+  reverse.addEventListener('click', toggleReverseArrow);
   reverse.addEventListener('keydown', e => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
-      toggleSendung();
+      toggleReverseArrow();
     }
   });
   function toggleItems(){
@@ -266,9 +294,23 @@ if (window.innerWidth < 1024) {
 toggleItems();
 document.addEventListener("DOMContentLoaded", () => {
   const items = document.getElementById("Items");
+  const reverseHead = document.querySelector('.reverse-head');
+  const wrapperCard = document.querySelector('.card.wrapperCard');
+  const itemsCard = document.querySelector('.items-card');
+  const wrapperCardDisplay= window.getComputedStyle(wrapperCard).display;
+  const display = window.getComputedStyle(reverseHead).display;
+
+  if (display === "none") {
+    reverseHead.style.display = "flex";
+  }
+  	if(wrapperCardDisplay == "none"){
+		itemsCard.style.gridRow = "3";
+	}
     
 if (window.innerWidth < 1024) {
- 
+
+
+    
     items.style.display = 'grid';
     items.style.gridTemplateColumns = '1fr, 1fr';
     items.style.gap = '3em';
@@ -290,22 +332,31 @@ if (window.innerWidth < 1024) {
 
 
 let activeItem = null;
+
 function render() {
 
   const itemsCard = document.querySelector(".card.items-card");
   const isPackage = activeItem === "PACKAGE";
   const items = document.getElementById("Items");
+  
+  
+
 
   paket.classList.toggle("active", isPackage);
   dokument.classList.toggle("active", !isPackage);
 
   itemsCard.style.display = 'flex';
+  itemsCard.style.gridRow = '3'
   items.style.gridTemplateColumns = "1fr";
+  items.style.marginBottom = "30px";
   
+
+
   paket.style.display = isPackage ? "flex" : "none";
   dokument.style.display = isPackage ? "none" : "flex";
 
-  packageFormular.style.display = isPackage ? "block" : "none";
+  takePackageFormular.style.display = isPackage ? "block" : "none";
+  sendPackageFormular.style.display = isPackage ? "block" : "none";
   documentFormular.style.display = isPackage ? "none" : "block";
 
 
@@ -316,7 +367,8 @@ function render() {
 const paket = document.querySelector(".paket");
 const dokument = document.querySelector(".document")
 
-const packageFormular = document.querySelector(".paket-formular");
+const takePackageFormular = document.querySelector(".takePaket-formular");
+const sendPackageFormular = document.querySelector(".takePaket-formular");
 const documentFormular = document.querySelector(".document-formular");
 
 paket.addEventListener("click", () => {
