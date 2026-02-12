@@ -164,7 +164,12 @@ body {
           display: none;
         }
 
+.menuAndLogo{
+display: flex;
+flex-direction: row-reverse;
+gap: 50px;
 
+}
  .logoContainer{
   display: flex;
   flex-direction: column;
@@ -178,19 +183,20 @@ body {
 
  .logoAndNombre{
   display: flex;
-  gap: 25px;
+  gap: 15px;
+  margin-top: 50px;
  }     
 .logo{
-width: 200px;
+width: 100px;
 }
 .nombre{
-  width:90px;
+  width: 140px;
 }
 
 .lang-picker{
   grid-area: lang;
   justify-self: end;
-  width: 140px;
+  width: 100px;
   
 }
 
@@ -201,16 +207,17 @@ width: 200px;
   gap:8px;align-items:center;
   padding:8px 10px;border-radius:10px;
   background:rgba(255,255,255,0.02);
-  border:1px solid rgba(10,99,157);;
+  border: none;
   cursor:pointer;
+   outline: none;
 }
 .lang-btn span{
   color:rgba(10,99,157);;
 }
 
 
-.lang-btn:focus{outline:3px solid rgba(59,130,246,0.2)}
-.flag{width:20px;height:14px;display:inline-block}
+
+.flag{width:20px;display:inline-block}
 .chev{width:14px;height:14px;opacity:0.8;color: #E6F0FF;}
 
 .langDropdown{position:absolute;
@@ -389,9 +396,20 @@ footer.en{
   grid-column: 3;
   
 }
+
+.menuAndLogo{
+display: flex;
+gap: 50px;
+
+}
   .logoContainer{
   grid-column: 2;
- 
  }
+  .logoAndNombre{
+  margin-top: 0;
+ }
+ .logo{
+width: 140px;
+}
 
 }
