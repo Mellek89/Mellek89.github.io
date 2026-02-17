@@ -24,20 +24,15 @@ body {
 }
 
 /* Header */
+
 .header {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto;
-  grid-template-areas:
-    "hamb lang"
-    "logo logo";
-
+  grid-template-columns: 1fr;
   align-items: center;
   padding: 1rem;
   background-color: #EDF5E1;
   height: 200px;
 }
-
 .header.en{
   background-color: #2C3E46;
 }
@@ -162,9 +157,11 @@ body {
 
 .logoAndMenu{
 display: flex;
-flex-direction: row;
+flex-direction: row-reverse;
 gap: 50px;
-
+grid-column: 1;
+grid-row: 1;
+ justify-self: start;
 }
  .logoContainer{
   display: flex;
@@ -190,7 +187,8 @@ width: 100px;
 }
 
 .lang-picker{
-  grid-area: lang;
+  grid-row: 1;
+  grid-column: 2;
   justify-self: end;
   width: 100px;
   
@@ -379,13 +377,27 @@ footer.en{
     margin: 0 auto;
   }
 
-  .header {
+ /* .header {
    display: grid;
   grid-template-columns: auto ;
   text-align: left;
   padding: 2rem;
   grid-template-columns: auto 1fr auto auto;
-  }
+  }*/
+
+  .header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "hamb lang"
+    "logo logo";
+
+  align-items: center;
+  padding: 1rem;
+  background-color: #EDF5E1;
+  height: 200px;
+}
     .nav{
       overflow:inherit;
       display: grid;
