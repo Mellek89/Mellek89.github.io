@@ -28,7 +28,6 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
-
   grid-template-areas:
     "hamb lang"
     "logo logo";
@@ -36,7 +35,7 @@ body {
   align-items: center;
   padding: 1rem;
   background-color: #EDF5E1;
-  gap: 1.5em;
+  height: 200px;
 }
 
 .header.en{
@@ -70,7 +69,6 @@ body {
  } 
    .nav{
    
-  
     display: none;
   
     }
@@ -96,8 +94,6 @@ body {
           
           }
 
-    
-    
   /* Menu Icon */
       .hamb{ 
         position: relative;
@@ -164,9 +160,9 @@ body {
           display: none;
         }
 
-.menuAndLogo{
+.logoAndMenu{
 display: flex;
-flex-direction: row-reverse;
+flex-direction: row;
 gap: 50px;
 
 }
@@ -183,14 +179,14 @@ gap: 50px;
 
  .logoAndNombre{
   display: flex;
-  gap: 15px;
-  margin-top: 50px;
+  gap: 10px;
+
  }     
 .logo{
 width: 100px;
 }
 .nombre{
-  width: 140px;
+  width: 40px;
 }
 
 .lang-picker{
@@ -270,34 +266,77 @@ color:  rgba(111, 185, 10);
   align-items: center;
     position: relative;
     width: 400px;
+    padding: 2em;
+    overflow: hidden; 
     
 }
 
 .spine{
-  width: 100px;
-   margin: auto;
+  width: 80px;
+  margin: auto;
 }
 /* Menü Punkte */
+
+.toggle {
+  position: relative;
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  overflow: hidden;
+ 
+}
+
+.toggle-header {
+  padding: 15px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.7em;
+  background: #e9f2f7;
+  transition: 0.3s;
+}
+
+.toggle-header:hover {
+  background: #d7e9f4;
+}
+
+.toggle-content {
+  max-height: 0;
+  overflow: hidden;
+  font-size: 0.7em;
+  transition: max-height 0.4s ease;
+  padding: 0 20px;
+}
+
+.toggle-content ul {
+  padding: 15px 0;
+  margin: 0;
+  list-style: none;
+}
+
+.toggle-content li {
+  margin-bottom: 8px;
+}
 .menu-item {
     position: absolute;
     color: #141414;
     padding: 8px 14px;
-   
+    width: 150px;
     border-radius: 8px;
     cursor: pointer;
     transition: 0.3s;
 }
 .menu-item.right {
-    left: 80%;
+    left: 200px;
 }
 .menu-item.left{
-  left: -10%;
+   right: 240px;
 }
 
 .menu-item::after {
     content: "";
     position: absolute;
-    top: 50%;
+    top: 30%;
     width: 60px;
     height: 2px;
     background: #7ace5b;
@@ -356,6 +395,7 @@ footer.en{
       inset: 0; /* shorthand for top, right, bottom, left: 0 */
       transition: max-height .4s ease-out;
       z-index: 4;
+      padding: 0;
     }
 
 .menu{
@@ -403,13 +443,16 @@ gap: 50px;
 
 }
   .logoContainer{
-  grid-column: 2;
+  grid-column: 1;
  }
   .logoAndNombre{
   margin-top: 0;
  }
  .logo{
 width: 140px;
+}
+.nombre{
+  width: 55px;
 }
 
 }
