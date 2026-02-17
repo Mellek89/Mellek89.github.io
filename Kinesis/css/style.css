@@ -74,7 +74,7 @@ body {
   left: 0;
   width: 100vw;  /* ganze Breite */
   height: 100vh; /* ganze Höhe */
-  background: rgba(255, 255, 255, 0.95); /* leicht transparent für Overlay-Effekt */
+  background: rgba(237, 245, 225, 1); /* leicht transparent für Overlay-Effekt */
   z-index: 4;
   padding-top: 4rem; /* Abstand von oben für Hamburger-Icon etc. */
 }
@@ -494,11 +494,50 @@ width: 140px;
 
     width: 600px;  
 }
+
+.menu-item {
+    position: absolute;
+    color: #141414;
+    padding: 8px 14px;
+    top: 100px;
+    width: 150px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
 .menu-item.right {
-    left: 450px;
+    left: 404px;
 }
 .menu-item.left{
-   right: 440px;
+   right: 400px;
 }
+
+
+.menu-item.salud{
+  top: 300px;
+  right: 420px;
+}
+
+.menu-item::after {
+    content: "";
+    position: absolute;
+    top: 35px;
+    width: 40px;
+    height: 2px;
+    background: #7ace5b;
+}
+.menu-item.left::after {
+    right: -55px;
+}
+
+.menu-item.right::after {
+    left: -40px;
+}
+
+.menu-item.salud::after {
+    left: 150px;
+}
+
 
 }
