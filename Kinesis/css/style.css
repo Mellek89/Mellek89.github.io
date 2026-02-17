@@ -172,7 +172,7 @@ p {
 .logoAndMenu{
 display: flex;
 flex-direction: row-reverse;
-gap: 7em;
+gap: 5em;
 grid-column: 1;
 grid-row: 1;
  justify-self: start;
