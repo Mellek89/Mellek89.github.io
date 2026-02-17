@@ -106,7 +106,7 @@ body {
         position: relative;
        
         cursor: default;
-        padding: 40px 20px; 
+        padding: 20px 5px; 
         z-index: 5; /* Set z-index to keep the icon at the top position */
         
       }
@@ -116,7 +116,7 @@ body {
      
         background: black;
         display: block;
-        height: 2px;
+        height: 1px;
         position: relative;
         width: 24px; 
       
@@ -169,7 +169,7 @@ body {
 .logoAndMenu{
 display: flex;
 flex-direction: row-reverse;
-
+gap: 1em;
 grid-column: 1;
 grid-row: 1;
  justify-self: start;
@@ -201,6 +201,8 @@ width: 80px;
   grid-row: 1;
   grid-column: 2;
   justify-self: end; 
+  width: 70px;
+  margin-top: -40px;
 }
 
 
@@ -470,7 +472,8 @@ footer.en{
  } 
 .lang-picker{
   grid-column: 3;
-  
+  width: 115px;
+  margin-top: 0;
 }
 .lang-btn .currentName{
 font-size:  12px;
