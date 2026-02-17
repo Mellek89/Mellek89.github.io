@@ -200,9 +200,10 @@ width: 80px;
 .lang-picker{
   grid-row: 1;
   grid-column: 2;
-  justify-self: end;
-   
+  justify-self: end; 
 }
+
+
 
 
 .lang-btn{
@@ -216,7 +217,11 @@ width: 80px;
    outline: none;
 }
 .lang-btn span{
-  color:rgba(10,99,157);;
+  color:rgba(10,99,157);
+ 
+}
+.lang-btn .currentName{
+font-size:  10px;
 }
 
 
