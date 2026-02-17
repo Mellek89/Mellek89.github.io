@@ -169,7 +169,7 @@ body {
 .logoAndMenu{
 display: flex;
 flex-direction: row-reverse;
-gap: 50px;
+
 grid-column: 1;
 grid-row: 1;
  justify-self: start;
@@ -191,18 +191,17 @@ grid-row: 1;
 
  }     
 .logo{
-width: 100px;
+width: 80px;
 }
 .nombre{
-  width: 40px;
+  width: 30px;
 }
 
 .lang-picker{
   grid-row: 1;
   grid-column: 2;
   justify-self: end;
-  width: 100px;
-  
+   
 }
 
 
