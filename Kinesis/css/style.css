@@ -56,8 +56,11 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 5em;
+  
 }
-
+p {
+  width: 100%;
+}
 
 .side-menu {
  display: none;
@@ -280,7 +283,7 @@ color:  rgba(111, 185, 10);
   flex-direction: column;
   align-items: center;
     position: relative;
-    width: 400px;
+    width: 100%;
     padding: 2em;
     overflow: hidden; 
     
@@ -299,7 +302,9 @@ color:  rgba(111, 185, 10);
   margin-bottom: 15px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   overflow: hidden;
- 
+  width: 100px;
+  left: 84px;
+  
 }
 
 .toggle-header {
@@ -362,7 +367,7 @@ color:  rgba(111, 185, 10);
     background: #7ace5b;
 }
 .menu-item.left::after {
-    right: -55px;
+    right: -85px;
 }
 
 .menu-item.right::after {
@@ -370,7 +375,7 @@ color:  rgba(111, 185, 10);
 }
 
 .menu-item.salud::after {
-    left: 150px;
+    left: 210px;
 }
 
 
