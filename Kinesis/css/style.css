@@ -285,7 +285,7 @@ color:  rgba(111, 185, 10);
     position: relative;
     width: 100%;
     padding: 2em;
-    overflow: hidden; 
+ 
     
 }
 
@@ -305,6 +305,14 @@ color:  rgba(111, 185, 10);
   width: 100px;
   left: 84px;
   
+}
+.toggle.left,
+.toggle.right{
+  width: 100px;
+}
+.toggle.right{
+  left: -70px;
+
 }
 
 .toggle-header {
@@ -348,14 +356,15 @@ color:  rgba(111, 185, 10);
 }
 .menu-item.right {
     left: 250px;
-    top: 150px;
+    top: 240px;
 }
 .menu-item.left{
-   right: 280px;
+   right: 250px;
+   top: 70px;
 }
 .menu-item.salud{
-  top: 300px;
-  right: 280px;
+  top: 392px;
+  right: 245px;
 }
 
 .menu-item::after {
@@ -367,11 +376,11 @@ color:  rgba(111, 185, 10);
     background: #7ace5b;
 }
 .menu-item.left::after {
-    right: -85px;
+    right: -80px;
 }
 
 .menu-item.right::after {
-    left: 0px;
+    left: -80px;
 }
 
 .menu-item.salud::after {
