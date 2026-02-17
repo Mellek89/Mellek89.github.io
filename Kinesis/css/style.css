@@ -62,11 +62,23 @@ body {
 .side-menu {
  display: none;
  } 
-   .nav{
-   
-    display: none;
+.nav {
+  display: none;
   
-    }
+}
+
+.side-menu:checked ~ .nav {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;  /* ganze Breite */
+  height: 100vh; /* ganze Höhe */
+  background: rgba(255, 255, 255, 0.95); /* leicht transparent für Overlay-Effekt */
+  z-index: 4;
+  padding-top: 4rem; /* Abstand von oben für Hamburger-Icon etc. */
+}
+
     .nav li a{
       text-decoration:none;
       color: rgba(10,99,157);
@@ -92,8 +104,7 @@ body {
   /* Menu Icon */
       .hamb{ 
         position: relative;
-        grid-area: hamb;
-        justify-self: start;
+       
         cursor: default;
         padding: 40px 20px; 
         z-index: 5; /* Set z-index to keep the icon at the top position */
@@ -133,7 +144,7 @@ body {
       /* Toggle menu icon */
       .side-menu:checked ~ nav{
         display: block;
-        max-height: 100vh;
+        
       }
       .side-menu:checked ~ .hamb .hamb-line {
         background: transparent;
@@ -325,26 +336,35 @@ color:  rgba(111, 185, 10);
     transition: 0.3s;
 }
 .menu-item.right {
-    left: 200px;
+    left: 250px;
+    top: 150px;
 }
 .menu-item.left{
-   right: 240px;
+   right: 280px;
+}
+.menu-item.salud{
+  top: 300px;
+  right: 280px;
 }
 
 .menu-item::after {
     content: "";
     position: absolute;
-    top: 30%;
-    width: 60px;
+    top: 35px;
+    width: 20px;
     height: 2px;
     background: #7ace5b;
 }
 .menu-item.left::after {
-    right: -68px;
+    right: -55px;
 }
 
 .menu-item.right::after {
-    left: -60px;
+    left: 0px;
+}
+
+.menu-item.salud::after {
+    left: 150px;
 }
 
 
@@ -352,10 +372,10 @@ color:  rgba(111, 185, 10);
 
 /* Footer */
 .footer{
-  background-color: #141414;
+   background-color: #EDF5E1;
   text-align: center;
   padding: 1rem;
-  color: #fff;
+  color: #141414;
   
 }
 footer.en{
@@ -399,7 +419,7 @@ footer.en{
   height: 200px;
 }
     .nav{
-      overflow:inherit;
+     
       display: grid;
       grid-row: 2;
       width: auto;
@@ -460,11 +480,25 @@ gap: 50px;
   .logoAndNombre{
   margin-top: 0;
  }
+ .logoAndMenu{
+  flex-direction: row;
+ }
  .logo{
 width: 140px;
 }
 .nombre{
   width: 55px;
+}
+
+.spine-menu {
+
+    width: 600px;  
+}
+.menu-item.right {
+    left: 450px;
+}
+.menu-item.left{
+   right: 440px;
 }
 
 }
