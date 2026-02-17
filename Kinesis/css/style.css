@@ -169,7 +169,7 @@ body {
 .logoAndMenu{
 display: flex;
 flex-direction: row-reverse;
-gap: 1em;
+gap: 7em;
 grid-column: 1;
 grid-row: 1;
  justify-self: start;
