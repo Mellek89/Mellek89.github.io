@@ -29,9 +29,9 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   align-items: center;
-  padding: 1rem;
+  padding: 2rem;
   background-color: #EDF5E1;
-  height: 200px;
+  height: 130px;
 }
 .header.en{
   background-color: #2C3E46;
