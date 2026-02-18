@@ -424,6 +424,7 @@ color:  rgba(111, 185, 10);
 }
 
 .menu-item.salud::after {
+  top: 50px;
     left: 210px;
 }
 
@@ -559,6 +560,9 @@ width: 140px;
 
     width: 600px;  
 }
+.spine{
+  width: 100px;
+}
 
 .menu-item {
     position: absolute;
@@ -572,16 +576,16 @@ width: 140px;
 }
 
 .menu-item.right {
-    left: 404px;
+    left: 450px;
 }
 .menu-item.left{
-   right: 400px;
+   right: 450px;
 }
 
 
 .menu-item.salud{
   top: 300px;
-  right: 420px;
+  right: 450px;
 }
 
 .menu-item::after {
@@ -593,15 +597,17 @@ width: 140px;
     background: #7ace5b;
 }
 .menu-item.left::after {
-    right: -55px;
+  top: 50px;
+    right: -115px;
 }
 
 .menu-item.right::after {
-    left: -40px;
+    left: -110px;
 }
 
 .menu-item.salud::after {
-    left: 150px;
+  top: 50px;
+   left: 208px;
 }
 
 
