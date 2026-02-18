@@ -272,11 +272,51 @@ font-size:  10px;
   margin-top: 1.5rem;
   
 }
+.indexFisio{
+  width: 100px;
+}
 
 .hServicio{
 color:  rgba(111, 185, 10);
-
 }
+
+.hBienvenidos{
+  color: white;
+   font-size: 3rem;
+}
+.sample{
+  width: 1000px;
+}
+.hero {
+  position: relative;
+  height: 80vh;
+  overflow: hidden;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  z-index: 2;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(72, 68, 68, 0.4);
+  z-index: 1;
+}
+
+
 
 .spine-menu {
   display: flex;
