@@ -273,7 +273,7 @@ font-size:  10px;
   
 }
 .indexFisio{
-  width: 100px;
+  width: 150px;
 }
 
 .hServicio{
@@ -281,7 +281,7 @@ color:  rgba(111, 185, 10);
 }
 
 .hBienvenidos{
-  color: white;
+  color: rgba(237, 245, 225);
    font-size: 3rem;
 }
 .sample{
@@ -299,6 +299,10 @@ color:  rgba(111, 185, 10);
   object-fit: cover;
 }
 .hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2em;
   position: absolute;
   top: 50%;
   left: 50%;
