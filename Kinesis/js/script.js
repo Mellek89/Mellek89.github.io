@@ -9,3 +9,19 @@ document.querySelectorAll(".toggle-header").forEach(header => {
     }
   });
 });
+
+function toggleElements(){
+    let nutricion = document.getElementById("nutricion");
+    let hNutricion = document.getElementById("hNutricion");
+
+   nutricion.addEventListener('click', () => {
+    if (hNutricion.style.display === 'none') {
+        hNutricion.style.display = 'block';
+    } else {
+        hNutricion.style.display = 'none';
+    }
+});
+}
+toggleElements();
+
+

@@ -337,6 +337,10 @@ color:  rgba(111, 185, 10);
   width: 80px;
   margin: auto;
 }
+
+.hNutricion{
+  display: none;
+}
 /* Menü Punkte */
 
 .toggle {
@@ -356,16 +360,16 @@ color:  rgba(111, 185, 10);
 }
 .toggle.right{
   left: 110px;
-
 }
 
 .toggle-header {
-  padding: 15px 20px;
+  padding: 40px 20px;
   cursor: pointer;
   font-weight: bold;
   font-size: 0.7em;
   background: #e9f2f7;
   transition: 0.3s;
+  text-align: center;
  
 }
 
@@ -374,6 +378,7 @@ color:  rgba(111, 185, 10);
 }
 
 .toggle-content {
+  text-align: center;
   max-height: 0;
   overflow: hidden;
   font-size: 0.7em;
@@ -463,13 +468,6 @@ footer.en{
     margin: 0 auto;
   }
 
- /* .header {
-   display: grid;
-  grid-template-columns: auto ;
-  text-align: left;
-  padding: 2rem;
-  grid-template-columns: auto 1fr auto auto;
-  }*/
 
   .header {
   display: grid;
@@ -613,6 +611,9 @@ width: 140px;
 .menu-item.salud::after {
   top: 50px;
    left: 208px;
+}
+.toggle.right{
+  left: -65px;
 }
 
 
