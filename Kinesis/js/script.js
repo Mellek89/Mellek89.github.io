@@ -17,6 +17,7 @@ function toggleElements(){
    nutricion.addEventListener('click', () => {
     if (hNutricion.style.display === 'none') {
         hNutricion.style.display = 'block';
+        hNutricion.style.marginTop = "80px"
     } else {
         hNutricion.style.display = 'none';
     }
