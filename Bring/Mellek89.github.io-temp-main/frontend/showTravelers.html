@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./img/pychde.svg">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"/>
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>travelers</title>
+</head>
+<body>
+
+  <div class="container">
+    <header class="header">
+      <input class="side-menu" title="hamb" type="checkbox" id="side-menu"/>
+      <label class="hamb" id="hamb" for="side-menu"><span class="hamb-line"></span></label>
+      <!--Menu-->
+      <nav class="nav" id="nav">
+        <ul class="menu" id="menu">
+          <li class="home"><a href="index.html">Home</a></li>
+        </ul>
+      </nav>
+  <svg class="documentAccordion"
+   fill="#000000"
+   version="1.1"
+   id="Layer_1"
+   viewBox="0 0 72 72"
+   enable-background="new 0 0 72 72"
+   xml:space="preserve"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+   id="defs12" />
+<g
+   id="g12">
+	<path
+   d="M 57.004087,32.63811 35.898989,12.835451 c -0.346635,-0.33164 -0.81865,-0.544029 -1.311867,-0.544029 H 16.043989 C 12.735283,12.291422 10,14.692113 10,18.186086 V 61.827663 C 10,65.085745 12.45779,68 16.043989,68 h 35.15857 c 3.379691,0 6.736336,-2.623526 6.736336,-6.172337 V 33.875014 c 0,-0.457856 -0.594627,-0.911358 -0.934808,-1.236904 z M 35.813251,17.611591 52.722776,33.182139 H 39.133942 c -2.082576,0 -3.320691,-1.756561 -3.320691,-3.600167 z m 15.389308,46.906623 h -35.15857 c -1.567234,0 -2.356382,-1.330913 -2.356382,-2.691421 V 18.186086 c 0,-1.350063 0.862901,-2.412878 2.356382,-2.412878 h 17.772423 l 0.153036,0.141012 v 13.667752 c 0,2.773242 2.093639,5.341059 5.164494,5.341059 h 15.117346 v 26.904632 c 0,1.36312 -1.576453,2.690551 -3.048729,2.690551 z"
+   id="path1"
+   style="stroke-width:0.895805" />
+
+	
+</g>
+</svg>
+      <div class="lang-picker">
+        <button id="langBtn" class="lang-btn" aria-haspopup="menu" aria-expanded="false">
+          <span id="currentFlag" class="flag">🇩🇪</span>
+          <span id="currentName">Deutsch</span>
+          <svg class="chev" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 8l4 4 4-4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <div id="langDropdown" class="langDropdown" role="menu" aria-label="Sprachen">
+          <div class="option" role="menuitem" data-lang="de" tabindex="0">
+            <span class="flag">🇩🇪</span>
+            <div><div class="name">Deutsch</div></div>
+          </div>
+          <div class="option" role="menuitem" data-lang="es" tabindex="0">
+            <span class="flag">🇪🇸</span>
+            <div><div class="name">Español</div></div>
+          </div>
+          <div class="option" role="menuitem" data-lang="en" tabindex="0">
+            <span class="flag">🇬🇧</span>
+            <div><div class="name">English</div></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+   <main class="main">
+      <h1 class="showTravelersHeadline">An folgenden tagen wird eine Mitnahme von Deutschland nach Paraguay angeboten</h1>
+      
+  <section class="card calendarDosCol-card" id="calendarDosCol-card">  
+    <div class="showTravelers">
+      <div class="calendarDosCol" id="calendar">
+        
+        <header>
+          <p class="current-date"></p>
+       <div class="icons">
+  <span id="prev" class="icon">
+    <svg viewBox="0 0 24 24" width="24" height="24">
+      <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+    </svg>
+  </span>
+
+  <span id="next" class="icon">
+    <svg viewBox="0 0 24 24" width="24" height="24">
+      <path d="M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6z"/>
+    </svg>
+  </span>
+</div>
+
+          </header> 
+<div class="calendar-body">
+        <ul class="weeks">
+          <li>So</li>
+          <li>Mo</li>
+          <li>Di</li>
+          <li>Mi</li>
+          <li>Do</li>
+         <li>Fr</li>
+          <li>Sa</li> 
+        </ul>
+        <ul class="days" id="days">
+
+          
+        </ul>
+        </div> 
+
+      </div>
+<div class="accordion">
+  <div class="accordion-item">
+    <input type="checkbox" id="item1">
+    <label for="item1" class="accordion-header">
+    
+    </label>
+    <div class="accordion-content">
+      <div class="grid-layout">
+        <p>Hallo zusammen, 
+Bei mir haben sich ein paar Pläne geändert, wodurch ich noch ein Gepäckstück dazugebucht habe. 
+
+Daher bin ich in der Lage etwas mitzubringen. Insgesamt 5 kg, wovon ein Teil bereits über die Mitbringselgruppe gebucht wurde.
+
+Bitte beachten, ich bin bereits in D und fliege am 03.05. zurück. Das bedeutet, ihr müsst die Sachen bis diesen Do, 02.05. hierher geschickt haben. 
+
+Kostenpunkt: 5 Eur je angefangene 500g.
+- und nein, der Preis ist nicht verhandelbar, AirEuropa verlangt 140 Eur für das zusätzliche Gepäckstück und ich kann nicht mehr mit der SBahn/ dem Zug von Stuttgart nach Ffm fahren, da ich keine 2 große und schwere Koffer und zusätzlich einen Handgepäckkoffer und einen Rucksack handeln kann und daher einen Mietwagen gebucht habe, der mehr kostet als die Bahn. Wem der Preis zu teuer ist, bitte einfach nicht melden, die Diskussion ist mir echt zu viel. 
+
+LG
+Mel</p>
+        <p>Column 2 content for item 1.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <input type="checkbox" id="item2">
+    <label for="item2" class="accordion-header">
+    <img src="./img/BeispielProfilbild.png" width="50px"/>
+    <form>
+  <div class="rating">
+    <input type="radio" id="star5" name="rating" value="5">
+    <label for="star5">★</label>
+
+    <input type="radio" id="star4" name="rating" value="4">
+    <label for="star4">★</label>
+
+    <input type="radio" id="star3" name="rating" value="3">
+    <label for="star3">★</label>
+
+    <input type="radio" id="star2" name="rating" value="2">
+    <label for="star2">★</label>
+
+    <input type="radio" id="star1" name="rating" value="1">
+    <label for="star1">★</label>
+  </div>
+</form>
+      <p class="City">Piribebuy</p>
+    </label>
+    <div class="accordion-content">
+      <div class="grid-layout">
+        <p>Hallo vielen Dank für die Aufnahme. Ich komme am 8. Aus Frankfurt an und könnte noch einen Brief oder was kleines mitnehmen.
+Bis dahin wünsche ich euch allen eine frohes neues Jahr und Gottes Segen ❤️</p>
+        <p>Column 2 content for item 2.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <input type="checkbox" id="item3">
+    <label for="item3" class="accordion-header">
+       <img src="./img/BeispielProfilbild.png" width="50px"/>
+      <p class="City">Caacupe</p>
+    </label>
+
+    <div class="accordion-content">
+      <div class="grid-layout">
+        <p>Column 1 content for item 3.</p>
+        <p>Column 2 content for item 3.</p>
+         <p>Column 2 content for item 3.</p>
+          <p>Column 2 content for item 3.</p>
+           <p>Column 2 content for item 3.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <section class="cta travelers">
+         <button class="primary-btn " id="createQuestion">
+             Nichts dabei? Anfrage aufgeben
+         </button>
+      </section>
+
+
+</div>
+</div>
+</section>
+    </main>
+
+    <footer class="footer">
+      <p>© 2025 Melle Piribebuy</p>
+    </footer>
+  </div> <!-- .container -->
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
