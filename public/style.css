@@ -9,7 +9,15 @@ html, body {
   min-height: 100%;
 }
 body{
-   background-image: url('./imagesOptimized/images/webp/Lango_laenge_Home.webp');
+  
+   background-image: 
+    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+    url('./imagesOptimized/images/Lango_laenge_HomeMobile.png');
+   background-image: image-set(
+    url('./imagesOptimized/images/avif/Lango_laenge_HomeMobile.avif') type("image/avif"),
+    url('./imagesOptimized/images/webp/Lango_laenge_HomeMobile.webp') type("image/webp"),
+    url('./imagesOptimized/images/Lango_laenge_HomeMobile.png') type("image/png")
+  );
   background-size: cover;       /* Bild auf gesamte Fläche anpassen */
   background-repeat: no-repeat; /* Kein Wiederholen des Bildes */
   background-position: center;  /* Bild zentrieren */
@@ -1225,7 +1233,10 @@ dialog.modal::backdrop {
 
 @media (min-width: 1025px) {
 
-
+body{
+ background-image: url('./imagesOptimized/images/webp/Lango_laenge_Home.webp');
+   background-attachment: fixed; 
+}
 
 .container .header {
  
@@ -1546,8 +1557,8 @@ header .icons span:hover{
   align-self: start; /* sorgt dafür, dass alle oben bündig sind */
 }
 .calendar{
-  min-width: 550px;
-  min-height: 550px
+  min-width: 450px;
+  min-height: 450px
 }
 
 
