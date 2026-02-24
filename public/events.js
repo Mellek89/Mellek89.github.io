@@ -27,7 +27,7 @@ let keyValueOfEvents = [];
 let recurringEventsOfCurrentMonth=[];
 let recurringEvents=[];
 let recurringMarketDates = [];
-
+let currentRegion = null;
 let prevNextSlideshow = document.querySelectorAll(".slideshowIcons span");
 let dropdownHeader = document.getElementById("dropdownMenu");
 let eventData = [];
@@ -205,6 +205,7 @@ marktNameGlobal = null;
 }
 
 if (window.location.pathname.endsWith("admin.html")){
+  await getRegions();
 const token = localStorage.getItem("jwt");
 if (!token) {
   // kein Login vorhanden → zurück zur Login-Seite
@@ -426,8 +427,6 @@ function clearMessage() {
 
 if (window.location.pathname.endsWith("admin.html")){
 	 // Formularauswertung
-  const mittelrhein = document.getElementById('MittelrheinAdmin');
-	const oberrhein = document.getElementById('OberrheinAdmin');
 
 document.getElementById('eventname').addEventListener('focus', () => {
     clearMessage() ;
@@ -437,8 +436,7 @@ document.getElementById('eventname').addEventListener('focus', () => {
 function handleWeekmarkets(){
 	const weekmarket = document.getElementById("weekmarket");
 	const marketname = document.getElementById("eventname");
-	const mittelrhein = document.getElementById("MittelrheinAdmin");
-	const oberrhein = document.getElementById("OberrheinAdmin");
+
 	let name = "";
 	let region = "";
 
@@ -513,15 +511,13 @@ async function ladeDatenFürRegion(region) {
     return;
   } 
 
-  //renderAdminDropdown();
+ 
   await renderEvents();
    
     showDropdownMenu({ [region]: regionData }, region);
 }
 
-	
-
-oberrhein.addEventListener('change', async () => {
+/*oberrhein.addEventListener('change', async () => {
   
   datesOfEvents.length= 0;
     let createBtn = document.getElementById("create");
@@ -597,6 +593,48 @@ mittelrhein.addEventListener('change', async () => {
             console.error("❌ Fehler beim Laden der Mittelrhein-Daten:", err);
           }
       }
+});*/
+
+console.log(document.querySelectorAll('input[name="region"]'));
+document.querySelectorAll('input[name="region"]').forEach(radio => {
+
+  radio.addEventListener('click', async (e) => {
+    console.log("Click:", e.target.value)
+  //radio.addEventListener('change', async (e) => {
+
+    if (!e.target.checked) return;   // wichtig bei Radio
+
+    // aktive Region setzen
+    region = e.target.value;
+  currentRegion= region;
+    // Events zurücksetzen
+    datesOfEvents.length = 0;
+
+    // Create Button anzeigen
+    const createBtn = document.getElementById("create");
+    if (createBtn) createBtn.style.display = "block";
+
+    // UI zurücksetzen wenn Create nicht aktiv
+    if (createButtonActive === false) {
+      const prevView = document.getElementById("prevView");
+      if (prevView) prevView.style.display = "none";
+
+      const eventName = document.getElementById("eventName");
+      if (eventName) eventName.style.display = "none";
+
+      const weekmarket = document.getElementById("Weekmarket");
+      if (weekmarket) weekmarket.style.display = "none";
+
+      resetEventState();
+    }
+
+    try {
+      await ladeDatenFürRegion(region);
+    } catch (err) {
+      console.error(`❌ Fehler beim Laden der Region ${region}:`, err);
+    }
+
+  });
 });
 
 
@@ -1522,8 +1560,8 @@ const renderEvents = async () => {
     let found = false;
     let isInEvents = false;
     actualEvents = [];
-  const mittelrhein = document.getElementById('MittelrheinAdmin');
-	const oberrhein = document.getElementById('OberrheinAdmin');
+  //const mittelrhein = document.getElementById('MittelrheinAdmin');
+	//const oberrhein = document.getElementById('OberrheinAdmin');
 
 const currentMonthName = months[currMonth]; // 0-basiert
 const monthObj = eventDataGlobal.find(m => m.month === currentMonthName);
@@ -1580,13 +1618,13 @@ window.location.href = "index.html#regionDisplay";
 }
 
 
-let currentRegion = null;
+
 async function getRegions(){
 
-   if (window.location.pathname.endsWith("/admin.html")) {
-   
-    currentRegion= region;
-    return;
+  if (window.location.pathname.endsWith("/admin.html")) {
+     const mittelrhein = document.querySelector('.Mittelrhein.MittelrheinAdmin input');
+  	const oberrhein = document.querySelector('.Oberrhein.OberrheinAdmin input');
+         return;
   }
 	const params = new URLSearchParams(window.location.search);
 	   currentRegion = params.get('region');
@@ -1999,8 +2037,9 @@ function renderEventTimeRange(marktName) {
 
 
 prevNextIcon.forEach(icon => {
-  
+ 
     icon.addEventListener("click", async handleClick => {
+
 
       console.time("Monatswechsel");   // ← START
         //await loadRegionData();
@@ -2019,7 +2058,7 @@ prevNextIcon.forEach(icon => {
     
       
     
-   // await getRegions();
+    //
     const monatName = getMonatsname(currMonth + 1);
     const monatObj = eventDataGlobal.find(m => m.month === monatName);
 
@@ -2034,7 +2073,7 @@ if (!monatObj || !eventId || !monatObj[eventId]) {
     await renderEvents();
     console.timeEnd("renderEvents");
     console.time("dropdown");
-    await showDropdownMenu(listofRegionGlobal, currentRegion);
+    await showDropdownMenu(listofRegionGlobal,currentRegion);
     console.timeEnd("dropdown");
     console.time("calendar");
     renderCalendar();   
@@ -2055,8 +2094,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 						dropdownMenu.addEventListener("click", async() => {
 							let region = "";
 							if (window.location.pathname.endsWith("admin.html")){	
-								let mittelrhein = document.getElementById("MittelrheinAdmin");
-								let oberrhein = document.getElementById("OberrheinAdmin");
+								
 								
 									if (mittelrhein.checked ) {   
 									region = mittelrhein.value;
