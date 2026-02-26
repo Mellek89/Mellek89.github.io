@@ -62,12 +62,14 @@ body {
   max-width: 380px;
   height: auto;
 
-  top: 0;
-  left: 0;
+
 }
 .menuWabe{
-   grid-area: hamb;
-   width: 400px;
+  position: relative;
+  grid-area: hamb;
+  width: 300px;
+  top: 0;
+  left: 0;
 }
 
 
