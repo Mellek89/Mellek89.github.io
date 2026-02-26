@@ -30,7 +30,6 @@ body {
   grid-template-rows: auto auto;
   grid-template-areas:
     "hamb lang"
-  
     "logo logo";
 
   align-items: center;
@@ -106,7 +105,7 @@ body {
     
   /* Menu Icon */
       .hamb{ 
-        display: none;
+        
         position: relative;
         grid-area: hamb;
         justify-self: start;
@@ -119,7 +118,7 @@ body {
 
       .hamb-line {
      
-        background: black;
+        background: rgb(238, 184, 52);
         display: block;
         height: 2px;
         position: relative;
@@ -131,7 +130,7 @@ body {
 
       .hamb-line::before,
       .hamb-line::after{
-         background: black;
+          background: rgb(238, 184, 52);
           content: '';
           display: block;
           height: 100%;
@@ -173,15 +172,13 @@ body {
 
 
  .logoContainer{
-  display: none;
-  flex-direction: column;
+  display: flex;
+  flex-direction: row-reverse;
   align-items: center;
   gap: 10px;
-  grid-area: logo;
-  justify-self: center;
+  grid-area: hamb;
   width: fit-content; /* wichtig */
-  margin-top: 65px;
-  margin-left: -320px;
+
  position: relative;
   
  }  
@@ -197,9 +194,9 @@ grid-column: 1;
 }
 
 .lang-picker{
-  position: fixed;
+  position: relative;
   grid-area: lang;
-  justify-self: start;
+  justify-self: end;
   width: 140px;
   left: 0;
   top: 0;
@@ -427,6 +424,7 @@ footer.en{
     display: flex;
  flex-direction: row;
  grid-area: hamb;
+ 
  margin-top: 0;
  margin-left: 0;
  
