@@ -58,17 +58,14 @@ body {
  
 }
 
-.wabenMenu,
-.wabeContact{
+.waben{
   width:150px;
   position: fixed;
   top: 0;
   
 }
 
-.wabenMenu{
-  display: none;
-}
+
 .side-menu {
  display: none;
  } 
