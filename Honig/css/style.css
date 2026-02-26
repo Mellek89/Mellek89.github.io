@@ -57,19 +57,19 @@ body {
 }
 
 .wabe{
- 
+ position: relative;
   width: 100%;
   max-width: 380px;
   height: auto;
-
+  top: -40px;
+  left: -11px;
 
 }
 .menuWabe{
-  position: relative;
+
   grid-area: hamb;
   width: 300px;
-  top: 0;
-  left: 0;
+
 }
 
 
