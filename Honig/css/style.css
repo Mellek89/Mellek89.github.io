@@ -56,19 +56,20 @@ body {
  
 }
 
-.wabe{
+.wabe,
+.wabe1{
  position: relative;
   width: 100%;
   max-width: 380px;
   height: auto;
-  top: -40px;
-  left: -11px;
+  top: 0;
+  left: 0;
 
 }
 .menuWabe{
-
+display: grid;
   grid-area: hamb;
-  width: 300px;
+  width: 400px;
 
 }
 
@@ -200,9 +201,8 @@ grid-column: 1;
   position: relative;
   grid-area: lang;
   justify-self: end;
-  width: 140px;
-  left: 0;
-  top: 0;
+
+grid-row: 1;
   
 }
 
