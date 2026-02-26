@@ -59,7 +59,7 @@ body {
 .wabe{
  
   width: 100%;
-  max-width: 280px;
+  max-width: 380px;
   height: auto;
 
   top: 0;
@@ -67,6 +67,7 @@ body {
 }
 .menuWabe{
    grid-area: hamb;
+   width: 400px;
 }
 
 
@@ -419,6 +420,7 @@ footer.en{
 .lang-picker{
   grid-column: 3;
   position: relative;
+  
 }
   .logoContainer{
     display: flex;
