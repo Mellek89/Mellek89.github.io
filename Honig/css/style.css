@@ -56,11 +56,11 @@ body {
  
 }
 
-.wabe,
-.wabe1{
+.wabe
+{
  position: relative;
-  width: 100%;
-  max-width: 380px;
+  width: 320px;
+  max-width: 400px;
   height: auto;
   grid-area: hamb;
 }
@@ -434,9 +434,7 @@ footer.en{
  margin-left: 0;
  
  }
- .wabenMenu{
-display: none;
-}
+
 
 
 }
