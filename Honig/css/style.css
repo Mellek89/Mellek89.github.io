@@ -62,15 +62,7 @@ body {
   width: 100%;
   max-width: 380px;
   height: auto;
-  top: 0;
-  left: 0;
-
-}
-.menuWabe{
-display: grid;
   grid-area: hamb;
-  width: 400px;
-
 }
 
 
@@ -202,7 +194,6 @@ grid-column: 1;
   grid-area: lang;
   justify-self: end;
 
-grid-row: 1;
   
 }
 
@@ -367,6 +358,7 @@ footer.en{
   }
 
   .header {
+    
    display: grid;
   grid-template-columns: auto ;
   text-align: left;
@@ -436,5 +428,6 @@ footer.en{
  .wabenMenu{
 display: none;
 }
+
 
 }
