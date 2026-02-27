@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
-<svg class="wabe"
+<svg
    version="1.1"
    id="svg1"
-
-   viewBox="0 0 219.03655 279.33481"
+   width="209.61592"
+   height="259.88348"
+   viewBox="0 0 209.61591 259.88349"
    xml:space="preserve"
    sodipodi:docname="wabe2.svg"
    inkscape:version="1.4 (86a8ad7, 2024-10-11)"
@@ -21,9 +22,9 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="13.098177"
-     inkscape:cx="116.42841"
-     inkscape:cy="124.33028"
+     inkscape:zoom="1.6372722"
+     inkscape:cx="-111.1605"
+     inkscape:cy="11.910054"
      inkscape:window-width="1920"
      inkscape:window-height="1111"
      inkscape:window-x="-9"
@@ -62,7 +63,7 @@
        height="41"
        id="rect3-8-3" /></defs><g
      id="g1"
-     transform="translate(-144.04585,-154.56527)"><path
+     transform="translate(-150.93137,-154.56527)"><path
        style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.45315;stroke-miterlimit:3.4;stroke-dasharray:none;stroke-opacity:1"
        id="path147"
        d="m 235.11989,278.64135 c 0.31828,-0.54938 -0.0536,-6.60833 0.67497,-7.23057 4.8087,-4.10687 17.49297,-9.17514 26.36726,-6.94668 10.21886,2.5661 18.12581,11.50457 20.66618,21.88382 1.99461,8.14943 -1.08429,23.82495 -10.1346,26.83477 -1.73603,0.57734 -3.32261,-35.04652 -4.98604,-33.42447"
