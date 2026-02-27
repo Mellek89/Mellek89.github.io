@@ -59,7 +59,7 @@ body {
 .wabe
 {
  position: relative;
-  width: 320px;
+  width: 250px;
   max-width: 400px;
   height: auto;
   grid-area: hamb;
