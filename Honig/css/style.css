@@ -192,7 +192,8 @@ grid-column: 1;
 .lang-picker{
   position: relative;
   grid-area: lang;
-  justify-self: end;
+   justify-self: end;   /* rechts */
+  align-self: start;   /* oben */
 
   
 }
