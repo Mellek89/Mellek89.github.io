@@ -56,13 +56,23 @@ body {
 }
 
 .wabe,
-.sobre
+.sobre,
+.productos,
+.contacto,
+.curso
 {
  position: relative;
   width: 250px;
   max-width: 400px;
   height: auto;
   grid-area: hamb;
+
+}
+.svgsobre,
+.svgproductos,
+.svgcontacto,
+.svgcurso{
+  display: none;
 }
 
 
