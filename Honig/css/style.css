@@ -31,7 +31,7 @@ body {
   grid-template-areas:
     "hamb lang"
     "logo logo";
-
+ padding: 0.5em;
   align-items: center;
   background-color: black;
 
@@ -55,7 +55,8 @@ body {
  
 }
 
-.wabe
+.wabe,
+.sobre
 {
  position: relative;
   width: 250px;
