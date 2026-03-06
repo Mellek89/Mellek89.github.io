@@ -45,7 +45,8 @@ let region = '';
 let marktNameGlobal = '';
 let weekmarketGlobal = null;
 let isUpdate = false;
-
+    const mittelrhein = document.querySelector('.Mittelrhein.MittelrheinAdmin input');
+  	const oberrhein = document.querySelector('.Oberrhein.OberrheinAdmin input');
 
 var endOfEvent= null;
 
@@ -1503,12 +1504,23 @@ function showEvents(currMonth) {
   // Neuer Handler
   const handler = async e => {
     if (e.target.closest(".update-btn") || e.target.closest(".delete-btn")) return;
+let menu;
 
-    const item = e.target.closest(".dropdown-item");
-    if (!item) return;
+ if (window.location.pathname.endsWith("/admin.html")) {
 
-    const menu = item.closest(".dropdown-menu");
-    if (!menu) return;
+   menu = document.querySelector(".dropdown-menu");
+if (!menu) return;
+ } else{
+     menu = e.target.closest(".dropdown-menu");
+if (!menu) return;
+ }
+
+
+
+
+
+const item = e.target.closest(".dropdown-item");
+if (!item) return;
 
     e.preventDefault();
     recurringDaysOfEvents.length = 0;
@@ -1591,7 +1603,8 @@ const hasEvents = actualEvents.length > 0;
     
     if (!found || !hasEvents){
 
-     if(mittelrhein && oberrhein && (mittelrhein.checked || oberrhein.checked)){
+     //if(mittelrhein && oberrhein && (mittelrhein.checked || oberrhein.checked)){
+     if(currentRegion){
       showError("Für diesen Monat gibt es noch keine Veranstaltungen.");
    } 
 }else{
@@ -1622,8 +1635,7 @@ window.location.href = "index.html#regionDisplay";
 async function getRegions(){
 
   if (window.location.pathname.endsWith("/admin.html")) {
-     const mittelrhein = document.querySelector('.Mittelrhein.MittelrheinAdmin input');
-  	const oberrhein = document.querySelector('.Oberrhein.OberrheinAdmin input');
+ 
          return;
   }
 	const params = new URLSearchParams(window.location.search);
@@ -1797,16 +1809,28 @@ async function showDropdownMenu(listofRegion, regionName) {
     `;
    return;
   }
-      
-     
 
-if (!eventId || !actualEvents.includes(eventId)) {
-    eventId = actualEvents[0];
-    datesOfEvents.length = 0;
-    selectedEnd= null;
-    selectedStart = null;
-    renderCalendar();   
+  if (window.location.pathname.endsWith("admin.html")){
+    if (startDate == null && eventId !== null && isUpdate == false) {
+  if ( !actualEvents.includes(eventId)) {
+      eventId = actualEvents[0];
+      datesOfEvents.length = 0;
+      selectedEnd= null;
+      selectedStart = null;
+      renderCalendar();   
+  }
 }
+
+  } else if (eventId !== null && isUpdate == false) {
+  if ( !actualEvents.includes(eventId)) {
+      eventId = actualEvents[0];
+      datesOfEvents.length = 0;
+      selectedEnd= null;
+      selectedStart = null;
+      renderCalendar();   
+  }
+}
+
 actualEvents.forEach(marktName => {
     const evObj = monthObj[marktName];
     if (!evObj || !Array.isArray(evObj.dates) || evObj.dates.length === 0) return;
@@ -1987,6 +2011,7 @@ actualEvents.forEach(marktName => {
             isUpdate = false;
             renderEventTimeRange(eventId);
         }
+       
     };
 
     // 🔹 Mobile Layout Anpassung
@@ -2062,13 +2087,27 @@ prevNextIcon.forEach(icon => {
     const monatName = getMonatsname(currMonth + 1);
     const monatObj = eventDataGlobal.find(m => m.month === monatName);
 
-   // prüfen ob Event im neuen Monat existiert
-if (!monatObj || !eventId || !monatObj[eventId]) {
-    eventId = null;   // wichtig
+if (window.location.pathname.endsWith("admin.html")){	
+  const eventName = document.getElementById("eventname").value;
+    if (startDate != null) {
+  eventId = eventName;
+}
+}
+  
+
+
+// nur prüfen wenn KEIN neues Event erstellt wird
+if (startDate == null && (!monatObj || !eventId || !monatObj[eventId])) {
+    eventId = null;
     datesOfEvents = [];
-} else {
+} else if (monatObj && monatObj[eventId]) {
     datesOfEvents = monatObj[eventId].dates || [];
 }
+
+if (eventId == null && actualEvents.length > 0) {
+    eventId = actualEvents[0];
+}
+
     console.time("renderEvents");
     await renderEvents();
     console.timeEnd("renderEvents");
