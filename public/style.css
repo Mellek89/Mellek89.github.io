@@ -589,6 +589,13 @@ header .chooseItem{
 
   
 }
+.dropdownContainer{
+display: flex;
+flex-direction: column;
+gap: 3em;
+align-items: center;
+}
+
 .dropdownAdmin-item.active {
   color: rgb(255, 235, 59);
   border-bottom: 1px solid rgb(240, 255, 255);
