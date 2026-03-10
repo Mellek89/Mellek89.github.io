@@ -249,7 +249,8 @@ body {
 
 }
 .svgHoneycup{
-  width: 100px;
+  width: 80px;
+  margin-top: 100px;
 }
 .hero {
   position: relative;
