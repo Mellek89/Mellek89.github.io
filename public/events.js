@@ -922,6 +922,7 @@ function mergeOrUpdateEvent(
   // 🔹 Prüfen, ob Event schon existiert
   let event = monatObj[oldName] || monatObj[newName];
 
+
   if (event && event.isWeekly === true) {
     console.log(newName);
     // 🔹 Update bestehendes Event
@@ -944,6 +945,36 @@ if (weekmarket !== undefined) {
     }
 
    
+    /*if (!event.isWeekly && tagString) {
+
+  if (tagString.start && tagString.end) {
+
+    addDateRangeToEvent(
+      event,
+      tagString.start,
+      tagString.end
+    );
+
+  } else {
+
+    const tagDate = {
+      day: Number(tagString.day),
+      month: Number(tagString.month),
+      year: Number(tagString.year)
+    };
+
+    const exists = event.dates.some(d =>
+      d.day === tagDate.day &&
+      d.month === tagDate.month &&
+      d.year === tagDate.year
+    );
+
+    if (!exists) {
+      event.dates.push(tagDate);
+    }
+  }
+
+}*/
 
   if (!event.isWeekly && tagString) {
   const exists = event.dates.some(d =>
@@ -954,23 +985,28 @@ if (weekmarket !== undefined) {
   if (!exists) {
      event.dates.push(tagString); //
   }
-} else if (event.isWeekly && tagString) {
+}
 
 
 
 
+else if (event.isWeekly && tagString) { //geändert 
 
- const tagDate = {
-  day: Number(tagString.day),
-  month: Number(tagString.month),
-  year: Number(tagString.year)
-};
+  const tagDate = {
+    day: Number(tagString.day),
+    month: Number(tagString.month),
+    year: Number(tagString.year)
+  };
 
-// Normalisiere vorhandene Daten
-//event.dates = event.dates.map(d => ({ day: Number(d.day), month: Number(d.month), year: Number(d.year) }));
+  const exists = event.dates.some(d =>
+    d.day === tagDate.day &&
+    d.month === tagDate.month &&
+    d.year === tagDate.year
+  );
 
-
-  event.dates.push(tagDate);
+  if (!exists) {
+    event.dates.push(tagDate);
+  }
 
 
 }
@@ -1009,7 +1045,26 @@ if (
   monatObj[newName] = event;
 
   // Datum normalisieren
-  if (tagString && tagString.day != null) {
+  /*if (tagString && tagString.day != null) {
+    const tagDate = {
+      day: Number(tagString.day),
+      month: Number(tagString.month),
+      year: Number(tagString.year)
+    };
+
+    event.dates.push(tagDate);
+  }*/
+
+    // Datum normalisieren
+if (tagString) {
+
+  // Mehrtages-Event
+  if (tagString.start && tagString.end) {
+    addDateRangeToEvent(event, tagString.start, tagString.end);
+  }
+
+  // Einzeltermin
+  else if (tagString.day != null) {
     const tagDate = {
       day: Number(tagString.day),
       month: Number(tagString.month),
@@ -1018,29 +1073,10 @@ if (
 
     event.dates.push(tagDate);
   }
+}
 
 }
-    /* Rename, falls nötig
-    if (newName !== oldName && oldName && monatObj[oldName]) {
-      monatObj[newName] = event;
-      delete monatObj[oldName];
-    }
 
-  } else {
-    // 🔹 Neues Event anlegen
-    event = monatObj[newName] = {
-      dates: [],
-      owner: username,
-      isWeekly: weekmarket === true
-    };
-
-    // Datum direkt hinzufügen
-    if (!event.isWeekly && tagString) {
-      event.dates.push({ day: tagString.day, month: tagString.month, year: tagString.year });
-    } else if (event.isWeekly && tagString) {
-      event.dates.push(tagString);
-    }
-  }*/
 
   // 🔹 Events-Array aktualisieren
   if (!Array.isArray(monatObj.events)) monatObj.events = [];
@@ -1159,7 +1195,7 @@ const opts = { oldStart, oldEnd, changeType };
 
     // Jetzt Events eintragen
     let current = new Date(newStart);
-     
+ 
 
    // Sonderfall: vorher Wochenmarkt → jetzt Einzeltermin
 if (!isWeekly && oldEventData?.isWeekly) {
@@ -1210,6 +1246,7 @@ if (oldName && oldName === name && oldEventData?.isWeekly) {
         }
     }
             weekMonth.events.forEach(evName => {
+              // if (evName !== name) return;
                const isExistingWeekly = oldEventData?.isWeekly && oldName === evName;
                 weekMonth[evName].dates.forEach(d => {
                  
