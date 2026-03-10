@@ -2,52 +2,1076 @@
   "eventData": [
     {
       "month": "Januar",
-      "events": []
+      "events": [
+        "halloWochenmarkt",
+        "pppp"
+      ],
+      "halloWochenmarkt": {
+        "dates": [
+          {
+            "day": 7,
+            "month": 0,
+            "year": 2026
+          },
+          {
+            "day": 14,
+            "month": 0,
+            "year": 2026
+          },
+          {
+            "day": 21,
+            "month": 0,
+            "year": 2026
+          },
+          {
+            "day": 28,
+            "month": 0,
+            "year": 2026
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": true
+      },
+      "pppp": {
+        "dates": [
+          {
+            "day": 5,
+            "month": 0,
+            "year": 2026
+          },
+          {
+            "day": 12,
+            "month": 0,
+            "year": 2026
+          },
+          {
+            "day": 19,
+            "month": 0,
+            "year": 2026
+          },
+          {
+            "day": 26,
+            "month": 0,
+            "year": 2026
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": true
+      }
     },
     {
       "month": "Februar",
-      "events": []
+      "events": [
+        "Durlacher Fastnachtsumzug<br/>",
+        "halloWochenmarkt",
+        "pppp"
+      ],
+      "Durlacher Fastnachtsumzug<br/>": {
+        "dates": [
+          {
+            "day": 15,
+            "month": 1,
+            "year": 2026
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": false
+      },
+      "halloWochenmarkt": {
+        "dates": [
+          {
+            "day": 4,
+            "month": 1,
+            "year": 2026
+          },
+          {
+            "day": 11,
+            "month": 1,
+            "year": 2026
+          },
+          {
+            "day": 18,
+            "month": 1,
+            "year": 2026
+          },
+          {
+            "day": 25,
+            "month": 1,
+            "year": 2026
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": true
+      },
+      "pppp": {
+        "dates": [
+          {
+            "day": 2,
+            "month": 1,
+            "year": 2026
+          },
+          {
+            "day": 9,
+            "month": 1,
+            "year": 2026
+          },
+          {
+            "day": 16,
+            "month": 1,
+            "year": 2026
+          },
+          {
+            "day": 23,
+            "month": 1,
+            "year": 2026
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": true
+      }
     },
     {
       "month": "März",
-      "events": []
+      "events": [
+        "Schriesheim Mathaisemarkt<br/><br/><br/><br/><br/>",
+        "Schriesheim Mathaisemarkt<br/>2",
+        "Karlsruher Frühlingsfest<br/>",
+        "halloWochenmarkt",
+        "pppp"
+      ],
+      "Schriesheim Mathaisemarkt<br/><br/><br/><br/><br/>": {
+        "dates": [
+          {
+            "day": 13,
+            "month": 2,
+            "year": 2026
+          },
+          {
+            "day": 14,
+            "month": 2,
+            "year": 2026,
+            "start": {
+              "year": 2026,
+              "month": 2,
+              "day": 13
+            },
+            "end": {
+              "year": 2026,
+              "month": 2,
+              "day": 17
+            }
+          },
+          {
+            "day": 15,
+            "month": 2,
+            "year": 2026,
+            "start": {
+              "year": 2026,
+              "month": 2,
+              "day": 13
+            },
+            "end": {
+              "year": 2026,
+              "month": 2,
+              "day": 17
+            }
+          },
+          {
+            "day": 16,
+            "month": 2,
+            "year": 2026,
+            "start": {
+              "year": 2026,
+              "month": 2,
+              "day": 13
+            },
+            "end": {
+              "year": 2026,
+              "month": 2,
+              "day": 17
+            }
+          },
+          {
+            "day": 17,
+            "month": 2,
+            "year": 2026,
+            "start": {
+              "year": 2026,
+              "month": 2,
+              "day": 13
+            },
+            "end": {
+              "year": 2026,
+              "month": 2,
+              "day": 17
+            }
+          }
+        ],
+        "owner": "Gernot",
+        "isWeekly": false
+      },
+      "Schriesheim Mathaisemarkt<br/>2": {
+        "dates": [
+          {
+            "day": 20,
+            "month": 2,
+            "year": 2026
+          },
+          {
+            "day": 21,
+            "month": 2,
+            "year": 2026,
+            "start": {
+              "year": 2026,
+              "month": 2,
+              "day": 20
+            },
+            "end": {
+              "year": 2026,
+              "month": 2,
+              "day": 22
+            }
+          },
+          {
+            "day": 22,
+            "month": 2,
+            "year": 2026,
+            "start": {
+              "year": 2026,
+              "month": 2,
+              "day": 20
+            },
+            "end": {
+              "year": 2026,
+              "month": 2,
+              "day": 22
+            }
+          }
+        ],
+        "owner": "Gernot",
+        "isWeekly": false
+      },
+      "Karlsruher Frühlingsfest<br/>": {
+        "dates": [
+          {
+            "day": 28,
+            "month": 2,
+            "year": 2026
+          },
+          {
+            "day": 29,
+            "month": 2,
+            "year": 2026,
+            "start": {
+              "year": 2026,
+              "month": 2,
+              "day": 28
+            },
+            "end": {
+              "year": 2026,
+              "month": 3,
+              "day": 6
+            }
+          },
+          {
+            "day": 30,
+            "month": 2,
+            "year": 2026,
+            "start": {
+              "year": 2026,
+              "month": 2,
+              "day": 28
+            },
+            "end": {
+              "year": 2026,
+              "month": 3,
+              "day": 6
+            }
+          },
+          {
+            "day": 31,
+            "month": 2,
+            "year": 2026,
+            "start": {
+              "year": 2026,
+              "month": 2,
+              "day": 28
+            },
+            "end": {
+              "year": 2026,
+              "month": 3,
+              "day": 6
+            }
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": false
+      },
+      "halloWochenmarkt": {
+        "dates": [
+          {
+            "day": 4,
+            "month": 2,
+            "year": 2026
+          },
+          {
+            "day": 11,
+            "month": 2,
+            "year": 2026
+          },
+          {
+            "day": 18,
+            "month": 2,
+            "year": 2026
+          },
+          {
+            "day": 25,
+            "month": 2,
+            "year": 2026
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": true
+      },
+      "pppp": {
+        "dates": [
+          {
+            "day": 2,
+            "month": 2,
+            "year": 2026
+          },
+          {
+            "day": 9,
+            "month": 2,
+            "year": 2026
+          },
+          {
+            "day": 16,
+            "month": 2,
+            "year": 2026
+          },
+          {
+            "day": 23,
+            "month": 2,
+            "year": 2026
+          },
+          {
+            "day": 30,
+            "month": 2,
+            "year": 2026
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": true
+      }
     },
     {
       "month": "April",
-      "events": []
+      "events": [
+        " Frühjahrsjahrmarkt Rastatt<br/>",
+        "Großflohmarkt auf dem<br/>Messplatz Karlsruhe",
+        "Karlsruher Frühlingsfest<br/>",
+        "halloWochenmarkt",
+        "pppp"
+      ],
+      " Frühjahrsjahrmarkt Rastatt<br/>": {
+        "dates": [
+          {
+            "day": 24,
+            "month": 3,
+            "year": 2026
+          },
+          {
+            "day": 25,
+            "month": 3,
+            "year": 2026,
+            "start": {
+              "year": 2026,
+              "month": 3,
+              "day": 24
+            },
+            "end": {
+              "year": 2026,
+              "month": 3,
+              "day": 28
+            }
+          },
+          {
+            "day": 26,
+            "month": 3,
+            "year": 2026,
+            "start": {
+              "year": 2026,
+              "month": 3,
+              "day": 24
+            },
+            "end": {
+              "year": 2026,
+              "month": 3,
+              "day": 28
+            }
+          },
+          {
+            "day": 27,
+            "month": 3,
+            "year": 2026,
+            "start": {
+              "year": 2026,
+              "month": 3,
+              "day": 24
+            },
+            "end": {
+              "year": 2026,
+              "month": 3,
+              "day": 28
+            }
+          },
+          {
+            "day": 28,
+            "month": 3,
+            "year": 2026,
+            "start": {
+              "year": 2026,
+              "month": 3,
+              "day": 24
+            },
+            "end": {
+              "year": 2026,
+              "month": 3,
+              "day": 28
+            }
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": false
+      },
+      "Großflohmarkt auf dem<br/>Messplatz Karlsruhe": {
+        "dates": [
+          {
+            "day": 18,
+            "month": 3,
+            "year": 2026
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": false
+      },
+      "Karlsruher Frühlingsfest<br/>": {
+        "dates": [
+          {
+            "day": 1,
+            "month": 3,
+            "year": 2026
+          },
+          {
+            "day": 2,
+            "month": 3,
+            "year": 2026,
+            "start": {
+              "year": 2026,
+              "month": 2,
+              "day": 28
+            },
+            "end": {
+              "year": 2026,
+              "month": 3,
+              "day": 6
+            }
+          },
+          {
+            "day": 3,
+            "month": 3,
+            "year": 2026,
+            "start": {
+              "year": 2026,
+              "month": 2,
+              "day": 28
+            },
+            "end": {
+              "year": 2026,
+              "month": 3,
+              "day": 6
+            }
+          },
+          {
+            "day": 4,
+            "month": 3,
+            "year": 2026,
+            "start": {
+              "year": 2026,
+              "month": 2,
+              "day": 28
+            },
+            "end": {
+              "year": 2026,
+              "month": 3,
+              "day": 6
+            }
+          },
+          {
+            "day": 5,
+            "month": 3,
+            "year": 2026,
+            "start": {
+              "year": 2026,
+              "month": 2,
+              "day": 28
+            },
+            "end": {
+              "year": 2026,
+              "month": 3,
+              "day": 6
+            }
+          },
+          {
+            "day": 6,
+            "month": 3,
+            "year": 2026,
+            "start": {
+              "year": 2026,
+              "month": 2,
+              "day": 28
+            },
+            "end": {
+              "year": 2026,
+              "month": 3,
+              "day": 6
+            }
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": false
+      },
+      "halloWochenmarkt": {
+        "dates": [
+          {
+            "day": 1,
+            "month": 3,
+            "year": 2026
+          },
+          {
+            "day": 8,
+            "month": 3,
+            "year": 2026
+          },
+          {
+            "day": 15,
+            "month": 3,
+            "year": 2026
+          },
+          {
+            "day": 22,
+            "month": 3,
+            "year": 2026
+          },
+          {
+            "day": 29,
+            "month": 3,
+            "year": 2026
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": true
+      },
+      "pppp": {
+        "dates": [
+          {
+            "day": 6,
+            "month": 3,
+            "year": 2026
+          },
+          {
+            "day": 13,
+            "month": 3,
+            "year": 2026
+          },
+          {
+            "day": 20,
+            "month": 3,
+            "year": 2026
+          },
+          {
+            "day": 27,
+            "month": 3,
+            "year": 2026
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": true
+      }
     },
     {
       "month": "Mai",
-      "events": []
+      "events": [
+        "Maimarkt Gaggenau",
+        "halloWochenmarkt",
+        "pppp"
+      ],
+      "Maimarkt Gaggenau": {
+        "dates": [
+          {
+            "day": 8,
+            "month": 4,
+            "year": 2026
+          },
+          {
+            "day": 9,
+            "month": 4,
+            "year": 2026,
+            "start": {
+              "year": 2026,
+              "month": 4,
+              "day": 8
+            },
+            "end": {
+              "year": 2026,
+              "month": 4,
+              "day": 11
+            }
+          },
+          {
+            "day": 10,
+            "month": 4,
+            "year": 2026,
+            "start": {
+              "year": 2026,
+              "month": 4,
+              "day": 8
+            },
+            "end": {
+              "year": 2026,
+              "month": 4,
+              "day": 11
+            }
+          },
+          {
+            "day": 11,
+            "month": 4,
+            "year": 2026,
+            "start": {
+              "year": 2026,
+              "month": 4,
+              "day": 8
+            },
+            "end": {
+              "year": 2026,
+              "month": 4,
+              "day": 11
+            }
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": false
+      },
+      "halloWochenmarkt": {
+        "dates": [
+          {
+            "day": 6,
+            "month": 4,
+            "year": 2026
+          },
+          {
+            "day": 13,
+            "month": 4,
+            "year": 2026
+          },
+          {
+            "day": 20,
+            "month": 4,
+            "year": 2026
+          },
+          {
+            "day": 27,
+            "month": 4,
+            "year": 2026
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": true
+      },
+      "pppp": {
+        "dates": [
+          {
+            "day": 4,
+            "month": 4,
+            "year": 2026
+          },
+          {
+            "day": 11,
+            "month": 4,
+            "year": 2026
+          },
+          {
+            "day": 18,
+            "month": 4,
+            "year": 2026
+          },
+          {
+            "day": 25,
+            "month": 4,
+            "year": 2026
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": true
+      }
     },
     {
       "month": "Juni",
-      "events": []
+      "events": [
+        "Grossflohmarkt auf dem<br/>Messplatz Karlsruhe",
+        "halloWochenmarkt",
+        "pppp"
+      ],
+      "Grossflohmarkt auf dem<br/>Messplatz Karlsruhe": {
+        "dates": [
+          {
+            "day": 20,
+            "month": 5,
+            "year": 2026
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": false
+      },
+      "halloWochenmarkt": {
+        "dates": [
+          {
+            "day": 3,
+            "month": 5,
+            "year": 2026
+          },
+          {
+            "day": 10,
+            "month": 5,
+            "year": 2026
+          },
+          {
+            "day": 17,
+            "month": 5,
+            "year": 2026
+          },
+          {
+            "day": 24,
+            "month": 5,
+            "year": 2026
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": true
+      },
+      "pppp": {
+        "dates": [
+          {
+            "day": 1,
+            "month": 5,
+            "year": 2026
+          },
+          {
+            "day": 8,
+            "month": 5,
+            "year": 2026
+          },
+          {
+            "day": 15,
+            "month": 5,
+            "year": 2026
+          },
+          {
+            "day": 22,
+            "month": 5,
+            "year": 2026
+          },
+          {
+            "day": 29,
+            "month": 5,
+            "year": 2026
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": true
+      }
     },
     {
       "month": "Juli",
-      "events": []
+      "events": [
+        "Grossflohmarkt auf dem<br/>Messplatz Karlsruhe",
+        "halloWochenmarkt",
+        "pppp"
+      ],
+      "Grossflohmarkt auf dem<br/>Messplatz Karlsruhe": {
+        "dates": [
+          {
+            "day": 18,
+            "month": 6,
+            "year": 2026
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": false
+      },
+      "halloWochenmarkt": {
+        "dates": [
+          {
+            "day": 1,
+            "month": 6,
+            "year": 2026
+          },
+          {
+            "day": 8,
+            "month": 6,
+            "year": 2026
+          },
+          {
+            "day": 15,
+            "month": 6,
+            "year": 2026
+          },
+          {
+            "day": 22,
+            "month": 6,
+            "year": 2026
+          },
+          {
+            "day": 29,
+            "month": 6,
+            "year": 2026
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": true
+      },
+      "pppp": {
+        "dates": [
+          {
+            "day": 6,
+            "month": 6,
+            "year": 2026
+          },
+          {
+            "day": 13,
+            "month": 6,
+            "year": 2026
+          },
+          {
+            "day": 20,
+            "month": 6,
+            "year": 2026
+          },
+          {
+            "day": 27,
+            "month": 6,
+            "year": 2026
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": true
+      }
     },
     {
       "month": "August",
-      "events": []
+      "events": [
+        "halloWochenmarkt",
+        "pppp"
+      ],
+      "halloWochenmarkt": {
+        "dates": [
+          {
+            "day": 5,
+            "month": 7,
+            "year": 2026
+          },
+          {
+            "day": 12,
+            "month": 7,
+            "year": 2026
+          },
+          {
+            "day": 19,
+            "month": 7,
+            "year": 2026
+          },
+          {
+            "day": 26,
+            "month": 7,
+            "year": 2026
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": true
+      },
+      "pppp": {
+        "dates": [
+          {
+            "day": 3,
+            "month": 7,
+            "year": 2026
+          },
+          {
+            "day": 10,
+            "month": 7,
+            "year": 2026
+          },
+          {
+            "day": 17,
+            "month": 7,
+            "year": 2026
+          },
+          {
+            "day": 24,
+            "month": 7,
+            "year": 2026
+          },
+          {
+            "day": 31,
+            "month": 7,
+            "year": 2026
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": true
+      }
     },
     {
       "month": "September",
-      "events": []
+      "events": [
+        "Grossflohmarkt auf dem<br/>Messplatz Karlsruhe",
+        "halloWochenmarkt",
+        "pppp"
+      ],
+      "Grossflohmarkt auf dem<br/>Messplatz Karlsruhe": {
+        "dates": [
+          {
+            "day": 12,
+            "month": 8,
+            "year": 2026
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": false
+      },
+      "halloWochenmarkt": {
+        "dates": [
+          {
+            "day": 2,
+            "month": 8,
+            "year": 2026
+          },
+          {
+            "day": 9,
+            "month": 8,
+            "year": 2026
+          },
+          {
+            "day": 16,
+            "month": 8,
+            "year": 2026
+          },
+          {
+            "day": 23,
+            "month": 8,
+            "year": 2026
+          },
+          {
+            "day": 30,
+            "month": 8,
+            "year": 2026
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": true
+      },
+      "pppp": {
+        "dates": [
+          {
+            "day": 7,
+            "month": 8,
+            "year": 2026
+          },
+          {
+            "day": 14,
+            "month": 8,
+            "year": 2026
+          },
+          {
+            "day": 21,
+            "month": 8,
+            "year": 2026
+          },
+          {
+            "day": 28,
+            "month": 8,
+            "year": 2026
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": true
+      }
     },
     {
       "month": "Oktober",
-      "events": []
+      "events": [
+        "halloWochenmarkt",
+        "pppp"
+      ],
+      "halloWochenmarkt": {
+        "dates": [
+          {
+            "day": 7,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 14,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 21,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 28,
+            "month": 9,
+            "year": 2026
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": true
+      },
+      "pppp": {
+        "dates": [
+          {
+            "day": 5,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 12,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 19,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 26,
+            "month": 9,
+            "year": 2026
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": true
+      }
     },
     {
       "month": "November",
       "events": [
-        "Mittelalterlicher Weihnachtsmarkt<br/>Durlach",
-        "Karlsruher Christkindlesmarkt<br/>",
-        "Ettlinger Sternlesmarkt<br/>",
-        "Weihnachtsmarkt Rastatt<br/><br/><br/>",
-        "Mannheimer Weihnachtsmarkt<br/>"
+        "halloWochenmarkt",
+        "pppp"
       ],
       "Mittelalterlicher Weihnachtsmarkt<br/>Durlach": {
         "dates": [
@@ -538,6 +1562,63 @@
         ],
         "owner": "Jan",
         "isWeekly": false
+      },
+      "halloWochenmarkt": {
+        "dates": [
+          {
+            "day": 4,
+            "month": 10,
+            "year": 2026
+          },
+          {
+            "day": 11,
+            "month": 10,
+            "year": 2026
+          },
+          {
+            "day": 18,
+            "month": 10,
+            "year": 2026
+          },
+          {
+            "day": 25,
+            "month": 10,
+            "year": 2026
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": true
+      },
+      "pppp": {
+        "dates": [
+          {
+            "day": 2,
+            "month": 10,
+            "year": 2026
+          },
+          {
+            "day": 9,
+            "month": 10,
+            "year": 2026
+          },
+          {
+            "day": 16,
+            "month": 10,
+            "year": 2026
+          },
+          {
+            "day": 23,
+            "month": 10,
+            "year": 2026
+          },
+          {
+            "day": 30,
+            "month": 10,
+            "year": 2026
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": true
       }
     },
     {
@@ -547,7 +1628,9 @@
         "Karlsruher Christkindlesmarkt<br/>",
         "Ettlinger Sternlesmarkt<br/>",
         "Weihnachtsmarkt Rastatt<br/><br/><br/>",
-        "Mannheimer Weihnachtsmarkt<br/>"
+        "Mannheimer Weihnachtsmarkt<br/>",
+        "halloWochenmarkt",
+        "pppp"
       ],
       "Mittelalterlicher Weihnachtsmarkt<br/>Durlach": {
         "dates": [
@@ -2473,6 +3556,63 @@
         ],
         "owner": "Jan",
         "isWeekly": false
+      },
+      "halloWochenmarkt": {
+        "dates": [
+          {
+            "day": 2,
+            "month": 11,
+            "year": 2026
+          },
+          {
+            "day": 9,
+            "month": 11,
+            "year": 2026
+          },
+          {
+            "day": 16,
+            "month": 11,
+            "year": 2026
+          },
+          {
+            "day": 23,
+            "month": 11,
+            "year": 2026
+          },
+          {
+            "day": 30,
+            "month": 11,
+            "year": 2026
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": true
+      },
+      "pppp": {
+        "dates": [
+          {
+            "day": 7,
+            "month": 11,
+            "year": 2026
+          },
+          {
+            "day": 14,
+            "month": 11,
+            "year": 2026
+          },
+          {
+            "day": 21,
+            "month": 11,
+            "year": 2026
+          },
+          {
+            "day": 28,
+            "month": 11,
+            "year": 2026
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": true
       }
     }
   ],
@@ -2483,7 +3623,19 @@
         "Karlsruher Christkindlesmarkt<br/>",
         "Ettlinger Sternlesmarkt<br/>",
         "Weihnachtsmarkt Rastatt<br/><br/><br/>",
-        "Mannheimer Weihnachtsmarkt<br/>"
+        "Mannheimer Weihnachtsmarkt<br/>",
+        "Durlacher Fastnachtsumzug<br/>",
+        "Flohmarkt auf dem Messplatz<br/>Karlsruhe",
+        "Flohmarkt Karlsruhe",
+        " Frühjahrsjahrmarkt Rastatt<br/>",
+        "Großflohmarkt auf dem<br/>Messplatz Karlsruhe",
+        "Grossflohmarkt auf dem<br/>Messplatz Karlsruhe",
+        "Maimarkt Gaggenau",
+        "Schriesheim Mathaisemarkt<br/><br/><br/><br/><br/>",
+        "Schriesheim Mathaisemarkt<br/>2",
+        "Karlsruher Frühlingsfest<br/>",
+        "halloWochenmarkt",
+        "pppp"
       ]
     }
   }
