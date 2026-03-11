@@ -245,7 +245,8 @@ body {
 }
 .allProductos{
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr
+  ;
 padding: 2em;
 }
 .svgHoneyCup{
@@ -266,16 +267,11 @@ padding: 2em;
 .hero .beispiel1,
 .hero .beispiel2
  {
-  
-  max-width: 400px;
- 
+  max-width: 300px;
   max-height: 200px;
   object-fit: cover;
 }
-.hero.img1,
-.hero.img2 {
- grid-row: 1;
-}
+
 .hero-text,
 .hero-beispiel {
   display: flex;
