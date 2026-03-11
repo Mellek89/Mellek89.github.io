@@ -267,9 +267,11 @@ padding: 2em;
 .hero .beispiel1,
 .hero .beispiel2
  {
+  position: relative;
   max-width: 300px;
   max-height: 200px;
   object-fit: cover;
+  z-index:5;
 }
 
 .hero-text,
@@ -299,7 +301,12 @@ padding: 2em;
  /* background: rgba(72, 68, 68, 0.4);*/
   z-index: 1;
 }
-
+.produkt-link{
+  display:block;
+  position:relative;
+  text-decoration:none;
+  color:white;
+}
 
 
 
