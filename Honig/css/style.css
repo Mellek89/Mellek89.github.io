@@ -259,6 +259,19 @@ gap: 3em;
   width: 200px;
   margin-top: 10px;
 }
+
+.cursoContainer{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2em;
+
+}
+.graduationHat{
+  position: relative;
+width: 60px;
+top: 10px;
+}
 .hero {
   position: relative;
   overflow: hidden;
