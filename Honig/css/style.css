@@ -279,8 +279,8 @@ gap: 3em;
 }
 
 .calendar{
-  margin-top: 5em;
-  width: 350px;
+
+  max-width: 350px;
   background:white;
   overflow:hidden; overflow:hidden; 
   box-shadow:0 4px 10px rgba(0,0,0,0.08);
