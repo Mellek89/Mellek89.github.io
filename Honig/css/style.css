@@ -307,9 +307,10 @@ position: relative;
 /* Text */
 .hero-text {
   position: absolute;
-  top: 180px;
+  top: 170px;
   left: 50%;
   transform: translate(-50%, -50%);
+   text-shadow: 0 4px 10px rgba(0,0,0,0.7);
   color: white;
   text-align: center;
   z-index: 3;
@@ -469,5 +470,10 @@ footer.en{
 .svgHoneyCup{
   width: 300px;
   margin-top: 10px;
+}
+.hero-text {
+
+  top: 190px;
+
 }
 }
