@@ -429,7 +429,7 @@ position: relative;
 /* Text */
 .hero-text {
   position: absolute;
-  top: 270px;
+  top: 320px;
   left: 50%;
   transform: translate(-50%, -50%);
   text-shadow: 0 3px 8px rgba(0,0,0,0.8),
