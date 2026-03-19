@@ -432,8 +432,8 @@ position: relative;
   top: 270px;
   left: 50%;
   transform: translate(-50%, -50%);
-    text-shadow: 0 2px 5px rgba(0,0,0,0.7),
-               0 4px 15px rgba(0,0,0,0.6);
+  text-shadow: 0 3px 8px rgba(0,0,0,0.8),
+               0 6px 20px rgba(0,0,0,0.7);
   color: white;
   text-align: center;
   z-index: 3;
