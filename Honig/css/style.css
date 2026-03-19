@@ -439,11 +439,12 @@ position: relative;
   z-index: 3;
 }
 .hero-text h1 {
-   font-size: 5.5vw;
+     font-size: clamp(25px, 5vw, 64px);
+  
 }
 
 .hero-text h2 {
-   font-size: clamp(18px, 3.2vw, 36px);
+  font-size: clamp(18px, 3.2vw, 36px);
 }
 
 /* optionales Overlay */
