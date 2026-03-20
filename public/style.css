@@ -1,15 +1,19 @@
-/* import Google Fonts Poppins*/
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
- /**{
-    outline: 1px solid red;
-  }*/
 
+/* Outfit Light lokal einbinden */
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 300; /* Light = 300 */
+  font-display: swap; /* sorgt dafür, dass Text sofort sichtbar ist */
+  src: url('../Outfit/static/Outfit-Light.woff') format('woff');
+}
 html, body {
   overflow: auto;
   min-height: 100%;
 }
 body{
-  
+   font-family: 'Outfit', sans-serif;
+  font-weight: 300; /* Light */
    background-image: 
     linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
     url('./imagesOptimized/images/Lango_laenge_HomeMobile.png');
@@ -26,7 +30,7 @@ body{
 *{margin: 0;
   padding:0;
   box-sizing: border-box;
-  font-family: 'Poppins', 'san-serifs'}
+ /* font-family: 'Poppins', 'san-serifs'*/}
 
  
 
@@ -145,7 +149,7 @@ footer.footer .impressum a,
  .datenschutz a{
   color: inherit;       /* nimmt die Textfarbe des Umfelds */
   text-decoration: none; /* keine Unterstreichung */
- font-weight: 600;
+
 }
 
 .kontaktImpressum{
@@ -207,7 +211,7 @@ footer.footer .impressum a,
             margin-top: 4rem;
             left: 0; /* Align to center with flex parent */
             text-align: center;
-            font-weight: bold;
+            
             font-size: 150%;
           
           }
@@ -1283,7 +1287,7 @@ footer.footer .impressum {
 }
 
 footer.footer .impressum .title {
-  font-weight: 600;
+  /*font-weight: 600;*/
   margin-bottom: 0.5rem;
 }
 
