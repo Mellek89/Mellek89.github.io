@@ -1,6 +1,9 @@
 
 
-
+let datesOfEvents = []; 
+let eventId = ""; 
+let actualEvents = [];
+let eventData = [];
 let date = new Date(),
 currYear = date.getFullYear(),
 currMonth = date.getMonth();
@@ -12,6 +15,12 @@ let daysInput = document.querySelector(".days ").children;
 
 const months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September",
 				"Oktober", "November", "Dezember"]
+
+function getMonatsname(monatNummer) {
+  const formatter = new Intl.DateTimeFormat('de-DE', { month: 'long' });
+  const date = new Date(2025, parseInt(monatNummer) - 1, 1);
+  return formatter.format(date); // z. B. "März"
+}
 const renderCalender = () => {
 	let firstDateOfMonth = new Date(currYear, currMonth, 1).getDay(), //get first Day of Month
 	lastDateOfMonth = new Date(currYear, currMonth + 1, 0).getDate(), //get last Date of Month
@@ -46,5 +55,55 @@ const renderCalender = () => {
 	daysTag.innerHTML = liTag;
 
 }
+
+prevNextIcon.forEach(icon => {
+ 
+    icon.addEventListener("click", async handleClick => {
+
+
+   
+   
+  
+ 
+        currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
+
+        if (currMonth < 0 || currMonth > 11) {
+            date = new Date(currYear, currMonth);
+            currYear = date.getFullYear();
+            currMonth = date.getMonth();
+        }
+    
+      
+    
+    //
+    const monatName = getMonatsname(currMonth + 1);
+    //const monatObj = eventDataGlobal.find(m => m.month === monatName);
+
+ 
+
+
+// nur prüfen wenn KEIN neues Event erstellt wird
+/*if (startDate == null && (!monatObj || !eventId || !monatObj[eventId])) {
+    eventId = null;
+    datesOfEvents = [];
+} else if (monatObj && monatObj[eventId]) {
+    datesOfEvents = monatObj[eventId].dates || [];
+}
+
+if (eventId == null && actualEvents.length > 0) {
+    eventId = actualEvents[0];
+}*/
+
+  
+    //await renderEvents();
+    
+
+   // await showDropdownMenu(listofRegionGlobal,currentRegion);
+
+    renderCalender();   
+
+    });
+});
+
 
 renderCalender();
