@@ -272,12 +272,12 @@ gap: 3em;
 
 }
 .calendarContainer{
-  max-width: 290px;
+ 
   display: flex;
   flex-direction: column;
   align-items: center; 
   font-size: 12px;
-  gap: -2m;
+  gap: 2em;
   padding: 1em;
 }
 
@@ -597,6 +597,10 @@ footer.en{
  margin-top: 0;
  margin-left: 0;
  
+ }
+ .calendarContainer{
+  flex-direction: row-reverse;
+  gap: 3em;
  }
 .wabe{
   max-width: 300px;
