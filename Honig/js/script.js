@@ -84,7 +84,7 @@ const renderCalender = () => {
             const eventDates = ev.dates.map(d => `${d.day}.${d.month+1}.${d.year}`).join(", ");
             const div = document.createElement("div");
             div.className = "event-item";
-            div.innerHTML = `<strong>${ev.name}</strong>: ${eventDates}`;
+            div.innerHTML = `<strong>${ev.name}</strong>`;
             eventListDiv.appendChild(div);
         });
     }
