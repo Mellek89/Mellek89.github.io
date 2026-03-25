@@ -437,7 +437,7 @@ position: relative;
 /* Text */
 .hero-text {
   position: absolute;
-  top: 320px;
+  top: 220px;
   left: 50%;
   transform: translate(-50%, -50%);
   text-shadow: 0 3px 8px rgba(0,0,0,0.8),
@@ -445,9 +445,10 @@ position: relative;
   color: white;
   text-align: center;
   z-index: 3;
+  width: 300px;
 }
 .hero-text h1 {
-     font-size: clamp(25px, 5vw, 64px);
+     font-size: clamp(25px, 3vw, 34px);
   
 }
 
