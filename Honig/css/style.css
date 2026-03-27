@@ -399,11 +399,23 @@ color: #141414;
 width: 60px;
 top: 10px;
 }
+.indexContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+.indexContainer h2{
+  padding: 2em;
+  text-align: center;
+  color: #42413fff;
+}
+
 .hero {
   position: relative;
   overflow: hidden;
   padding: 2em;
-  min-height: 90vh; 
+  
 }
 
 
@@ -437,7 +449,7 @@ position: relative;
 /* Text */
 .hero-text {
   position: absolute;
-  top: 220px;
+  top: 310px;
   left: 50%;
   transform: translate(-50%, -50%);
   text-shadow: 0 3px 8px rgba(0,0,0,0.8),
@@ -447,7 +459,8 @@ position: relative;
   z-index: 3;
   width: 300px;
 }
-.hero-text h1 {
+.hero-text h1,
+h1 {
      font-size: clamp(25px, 3vw, 34px);
   
 }

@@ -18,20 +18,35 @@
    <header class="header">
  
       <div class="lang-picker">
-<button id="langBtn" class="lang-btn" aria-haspopup="menu" aria-expanded="false">
+<!--button id="langBtn" class="lang-btn" aria-haspopup="menu" aria-expanded="false">
 
-<span class="flagEs">
+<span class="flagEn" id="flagEn">English
   <svg viewBox="0 0 640 480" width="20" height="14">
-    <rect width="640" height="160" fill="#AA151B"/> <!-- rot oben -->
-    <rect y="160" width="640" height="160" fill="#F1BF00"/> <!-- gelb Mitte -->
-    <rect y="320" width="640" height="160" fill="#AA151B"/> <!-- rot unten -->
+    <rect width="640" height="160" fill="#AA151B"/> 
+    <rect y="160" width="640" height="160" fill="#F1BF00"/> >
+    <rect y="320" width="640" height="160" fill="#AA151B"/>
   </svg>
 </span>
-
-
+<span class="flagEs" id="flagEs">Espanol
+  <svg viewBox="0 0 640 480" width="20" height="14">
+    <rect width="640" height="160" fill="#AA151B"/> 
+    <rect y="160" width="640" height="160" fill="#F1BF00"/> 
+    <rect y="320" width="640" height="160" fill="#AA151B"/> 
+  </svg>
+</span>
+<span class="flagDe" id="flagDe">Deutsch
+  <svg viewBox="0 0 640 480" width="20" height="14">
+    <rect width="640" height="160" fill="#AA151B"/> 
+    <rect y="160" width="640" height="160" fill="#F1BF00"/> 
+    <rect y="320" width="640" height="160" fill="#AA151B"/> 
+  </svg>
+</span>
 <svg class="chev" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 8l4 4 4-4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
-</button>
+</button-->
 
+<button data-lang="de">🇩🇪</button>
+<button data-lang="en">🇬🇧</button>
+<button data-lang="es">🇪🇸</button>
 
 <div id="langDropdown" class="langDropdown" role="menu" aria-label="Sprachen">
 <div class="option" role="menuitem" data-lang="de" tabindex="0">
@@ -57,10 +72,6 @@
 </div>
 </div>
 </div>
-
-
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
 
 
 <svg
@@ -206,9 +217,9 @@
        transform="scale(0.94664554,1.0563616)">
        <a href="contacto.html"><tspan
          id="tspan148-1"
-         x="317.10254"
+         x="319.10254"
          y="244.96178"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.3062px;font-family:Outfit;-inkscape-font-specification:'Calibri, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#eeb834;fill-opacity:1;stroke-width:0.404796">contacto</tspan>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.3062px;font-family:Outfit;-inkscape-font-specification:'Calibri, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#eeb834;fill-opacity:1;stroke-width:0.404796">Kontakt</tspan>
         </a></text>
           <a href="productos.html"><path
        d="m 220.40374,363.13646 7.24161,3.58347 c 4.50617,-2.88831 13.21792,-5.35995 19.31023,-11.7097 2.49213,-2.59743 2.87105,-7.62475 2.65829,-11.82074 -0.23326,-4.60016 0.14818,-9.81607 -0.0614,-13.96095 -9.72318,-1.76235 -16.01387,-7.82878 -22.79905,-14.16667 l -10.68794,6.28806 c -10.37393,6.10336 -10.69523,6.34926 -10.93724,8.37086 -0.23645,1.9751 -0.56947,24.21113 -0.29658,24.65124 0.0711,0.11441 2.49784,1.66655 4.56748,2.91363 l 4.20775,2.33796 z"
@@ -222,9 +233,9 @@
        id="text148"
        transform="scale(0.97086398,1.0300104)"><tspan
          id="tspan148"
-         x="213.025"
+         x="215.525"
          y="334.84991"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.99553px;font-family:Outfit;-inkscape-font-specification:'Calibri, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#eeb834;fill-opacity:1;stroke-width:0.476794">productos</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.99553px;font-family:Outfit;-inkscape-font-specification:'Calibri, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#eeb834;fill-opacity:1;stroke-width:0.476794">Produkte</tspan></text>
          </a>
          <a href="sobre.html"><path
        d="m 215.51377,310.8263 7.0604,-3.91928 c -3.55172,-9.27269 -2.59943,-15.5363 -0.58997,-25.19396 0.81794,-3.93112 -14.07821,-10.49077 -20.34521,-14.39617 l -2.57064,1.15986 c -1.41388,0.63789 -6.59222,3.21546 -11.50744,5.72794 l -8.93676,4.56813 -0.68268,12.25301 c -0.66258,11.89304 -0.63527,12.29317 0.92995,13.62061 1.52922,1.29693 20.79267,13.68596 21.31534,13.70874 0.13595,0.005 2.05155,-0.80383 4.2569,-1.7994 z"
@@ -234,14 +245,20 @@
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.3062px;font-family:Outfit;-inkscape-font-specification:'Calibri, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#eeb834;fill-opacity:1;stroke:none;stroke-width:0.449801;stroke-miterlimit:3.4;stroke-dasharray:none;stroke-opacity:1"
        x="186.53087"
-       y="298.10251"
+       y="295.10251"
        id="text148-80-4-7"
        transform="scale(1.0081352,0.99193045)">
        <a href="sobre.html"><tspan
          id="tspan148-1-7-4"
          x="186.53087"
-         y="298.10251"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.3062px;font-family:Outfit;-inkscape-font-specification:'Calibri, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#eeb834;fill-opacity:1;stroke-width:0.449801">sobre</tspan>
+         y="295.10251"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.3062px;font-family:Outfit;-inkscape-font-specification:'Calibri, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#eeb834;fill-opacity:1;stroke-width:0.449801">Über</tspan>
+          <tspan
+      x="173.53087"
+      y="310"  
+      style="fill:#eeb834; font-size:10.3062px; font-family:Outfit;">
+      Uns
+    </tspan>
        </a></text><text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.3062px;font-family:Outfit;-inkscape-font-specification:'Calibri, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#eeb834;fill-opacity:1;stroke:none;stroke-width:0.491613;stroke-miterlimit:3.4;stroke-dasharray:none;stroke-opacity:1"
@@ -252,7 +269,7 @@
          id="tspan148-1-7"
          x="213.55443"
          y="246.56288"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.3062px;font-family:Outfit;-inkscape-font-specification:'Calibri, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#eeb834;fill-opacity:1;stroke-width:0.491613">cursos</tspan></a></text><path
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.3062px;font-family:Outfit;-inkscape-font-specification:'Calibri, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#eeb834;fill-opacity:1;stroke-width:0.491613">Kurse</tspan></a></text><path
        style="fill:#eeb834;fill-opacity:1;stroke-width:7.29956"
        d="m 342.59247,305.88669 7.1775,-4.18036 0.14338,-7.10124 c 0.0742,-3.90596 0.098,-7.95687 0.0469,-9.00241 l -0.0964,-1.90121 -7.58021,-4.28092 c -4.16958,-2.35452 -7.67532,-4.28662 -7.79077,-4.29353 -0.11618,-0.007 -3.51904,1.91459 -7.56334,4.27003 l -7.35281,4.28259 -0.0465,0.99598 c -0.1125,2.30193 0.17022,16.41047 0.32661,16.697 0.0938,0.17186 3.47905,2.23876 7.52489,4.59314 l 7.35451,4.28055 0.33947,-0.0897 c 0.1849,-0.0482 3.57047,-1.97071 7.51752,-4.26991 z"
        id="path2-8-5" /><path
@@ -275,6 +292,8 @@
        id="path2-8-6-1"
        sodipodi:nodetypes="ccccccccsccccc" /></g></svg>
 
+
+
     </header>
 
     <main class="main">
@@ -284,7 +303,7 @@
        <section class="hero">
 
   <div class="hero-text">
-   <h1 >PiriMiel – Apicultura en Piribebuy, Paraguay</h1>
+   <h1 >PiriMiel – Imkerei in Piribebuy, Paraguay</h1>
 
   </div>
 
@@ -300,7 +319,7 @@
  <img src="../images/indexHonig.png" alt="Hero Bild" style="width:100%;">
 </picture>
 </section>
- <h2>Bienvenidos a nuestra producción artesanal de miel</h2>
+ <h2>Herzlich willkommen in unserer Imkerei</h2>
 </div>
 
 
@@ -312,6 +331,6 @@
       <p>© 2025 Melle Piribebuy</p>
     </footer>
   </div>
-
+<script type= "module" src="../js/script.js"></script>
 </body>
 </html>

@@ -1,0 +1,30 @@
+{
+  "eventData": [
+    { 
+      "month": "Januar", 
+      "events": [
+       
+      ]
+    },
+    { "month": "Februar", "events": [] },
+    { "month": "März", "events": [
+ {
+          "name": "First hive – what now?",
+          "dates": [
+            {"day": 1, "month": 2, "year": 2026}
+          ],
+          "isWeekly": false
+        }
+
+    ] },
+    { "month": "April", "events": [] },
+    { "month": "Mai", "events": [] },
+    { "month": "Juni", "events": [] },
+    { "month": "Juli", "events": [] },
+    { "month": "August", "events": [] },
+    { "month": "September", "events": [] },
+    { "month": "Oktober", "events": [] },
+    { "month": "November", "events": [] },
+    { "month": "Dezember", "events": [] }
+  ]
+}

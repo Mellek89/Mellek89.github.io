@@ -11,7 +11,10 @@ currMonth = date.getMonth();
 const currentDate = document.querySelector(".current-date");
 const daysTag = document.querySelector(".days");
 let prevNextIcon = document.querySelectorAll(".icons span");
-let daysInput = document.querySelector(".days ").children;
+
+
+//let daysInput = document.querySelector(".days").children;
+
 
 const months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September",
 				"Oktober", "November", "Dezember"]
@@ -22,8 +25,9 @@ function getMonatsname(monatNummer) {
   return formatter.format(date); // z. B. "März"
 }
 async function loadEventData() {
+  const lang = window.location.pathname.split("/")[2];
   try {
-    const response = await fetch('../data/cursos.json'); // Name deiner externen Datei
+    const response = await fetch(`../data/cursos-${lang}.json`); // Name deiner externen Datei
     if (!response.ok) throw new Error("JSON konnte nicht geladen werden");
      const jsonData = await response.json();
 	 eventData = Array.isArray(jsonData) ? jsonData : jsonData.eventData;
@@ -127,4 +131,52 @@ function showDropdownMenu() {
 
 loadEventData();
 
+/*languagePicker
+let languagePicker = document.querySelectorAll(".lang-btn span");
+let flagDe = document.getElementById("flagDe");
+let flagEs = document.getElementById("flagEs");
+let flagEn = document.getElementById("flagEn");
+
+
+languagePicker.forEach(button => {
+
+
+
+  button.addEventListener("click", (e) => {
+  
+    
+    if (button.id == "flagDe"){
+         window.location.href = "../de/index.html";
+
+
+    }else if (button.id == "flagEs"){
+
+        
+      window.location.href = "../es/index.html";
+
+      }else if (button.id){
+         window.location.href = "../en/index.html";
+      }
+
+    });
+});*/
+
+document.querySelectorAll("[data-lang]").forEach(button => {
+  button.addEventListener("click", () => {
+
+    const lang = button.dataset.lang;
+
+    let path = window.location.pathname;
+    let file = path.split("/").pop();
+
+    if (!file || !file.includes(".")) {
+      file = "index.html";
+    }
+
+    const basePath = window.location.pathname.split("/")[1];
+
+window.location.href = `/${basePath}/${lang}/${file}`
+   
+  });
+});
 
