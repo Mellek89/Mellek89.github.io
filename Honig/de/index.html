@@ -18,35 +18,45 @@
    <header class="header">
  
       <div class="lang-picker">
-<!--button id="langBtn" class="lang-btn" aria-haspopup="menu" aria-expanded="false">
 
-<span class="flagEn" id="flagEn">English
-  <svg viewBox="0 0 640 480" width="20" height="14">
-    <rect width="640" height="160" fill="#AA151B"/> 
-    <rect y="160" width="640" height="160" fill="#F1BF00"/> >
-    <rect y="320" width="640" height="160" fill="#AA151B"/>
-  </svg>
-</span>
-<span class="flagEs" id="flagEs">Espanol
-  <svg viewBox="0 0 640 480" width="20" height="14">
-    <rect width="640" height="160" fill="#AA151B"/> 
-    <rect y="160" width="640" height="160" fill="#F1BF00"/> 
-    <rect y="320" width="640" height="160" fill="#AA151B"/> 
-  </svg>
-</span>
-<span class="flagDe" id="flagDe">Deutsch
-  <svg viewBox="0 0 640 480" width="20" height="14">
-    <rect width="640" height="160" fill="#AA151B"/> 
-    <rect y="160" width="640" height="160" fill="#F1BF00"/> 
-    <rect y="320" width="640" height="160" fill="#AA151B"/> 
-  </svg>
-</span>
-<svg class="chev" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 8l4 4 4-4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
-</button-->
 
-<button data-lang="de">🇩🇪</button>
-<button data-lang="en">🇬🇧</button>
-<button data-lang="es">🇪🇸</button>
+<a data-lang="de" href="#">
+  <svg viewBox="0 0 640 480" width="20" height="14">
+  <rect width="640" height="160" fill="#000000"/> <!-- schwarz oben -->
+  <rect y="160" width="640" height="160" fill="#DD0000"/> <!-- rot Mitte -->
+  <rect y="320" width="640" height="160" fill="#FFCE00"/> <!-- gold unten -->
+</svg>
+</a>
+<a data-lang="en" href="#">
+  <svg viewBox="0 0 60 30" width="20" height="14">
+  <rect width="60" height="30" fill="#012169"/>
+  
+  <!-- weiße diagonalen -->
+  <polygon points="0,0 25,0 60,20 60,30 35,30 0,10" fill="#FFFFFF"/>
+  <polygon points="60,0 35,0 0,20 0,30 25,30 60,10" fill="#FFFFFF"/>
+
+  <!-- rote diagonalen -->
+  <polygon points="0,0 10,0 60,25 60,30 50,30 0,5" fill="#C8102E"/>
+  <polygon points="60,0 50,0 0,25 0,30 10,30 60,5" fill="#C8102E"/>
+
+  <!-- weißes Kreuz -->
+  <rect x="25" width="10" height="30" fill="#FFFFFF"/>
+  <rect y="10" width="60" height="10" fill="#FFFFFF"/>
+
+  <!-- rotes Kreuz -->
+  <rect x="27" width="6" height="30" fill="#C8102E"/>
+  <rect y="12" width="60" height="6" fill="#C8102E"/>
+</svg>
+</a>
+<a data-lang="en" href="#">
+
+  <svg viewBox="0 0 640 480" width="20" height="14">
+    <rect width="640" height="160" fill="#AA151B"/> <!-- rot oben -->
+    <rect y="160" width="640" height="160" fill="#F1BF00"/> <!-- gelb Mitte -->
+    <rect y="320" width="640" height="160" fill="#AA151B"/> <!-- rot unten -->
+  </svg>
+
+</a>
 
 <div id="langDropdown" class="langDropdown" role="menu" aria-label="Sprachen">
 <div class="option" role="menuitem" data-lang="de" tabindex="0">

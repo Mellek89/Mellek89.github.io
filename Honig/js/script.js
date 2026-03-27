@@ -161,10 +161,12 @@ languagePicker.forEach(button => {
     });
 });*/
 
-document.querySelectorAll("[data-lang]").forEach(button => {
-  button.addEventListener("click", () => {
+document.querySelectorAll("[data-lang]").forEach(el => {
+  el.addEventListener("click", (e) => {
 
-    const lang = button.dataset.lang;
+    e.preventDefault(); // verhindert normales Link-Verhalten
+
+    const lang = el.dataset.lang;
 
     let path = window.location.pathname;
     let file = path.split("/").pop();
@@ -173,10 +175,9 @@ document.querySelectorAll("[data-lang]").forEach(button => {
       file = "index.html";
     }
 
-    const basePath = window.location.pathname.split("/")[1];
+    const basePath = path.split("/")[1];
 
-window.location.href = `/${basePath}/${lang}/${file}`
-   
+    window.location.href = `/${basePath}/${lang}/${file}`;
   });
 });
 
