@@ -185,11 +185,44 @@ body {
           display: none;
         }
 
-.lang-picker{
+.lang-picker {
+position: relative;
+  grid-area: lang;
+   justify-self: end;   
+  align-self: start;   
+}
+
+.selected-lang {
+  font-size: 20px;
+}
+
+.langDropdown {
+  display: none;
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+
+.langDropdown .option {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.langDropdown .option:hover {
+  background: #eee;
+}
+
+/* sichtbar wenn aktiv */
+.langDropdown.active {
+  display: block;
+}
+
+/*.lang-picker{
   position: relative;
   grid-area: lang;
-   justify-self: end;   /* rechts */
-  align-self: start;   /* oben */
+   justify-self: end;   
+  align-self: start;   
 
   
 }

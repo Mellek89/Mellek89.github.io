@@ -17,17 +17,21 @@
   <div class="container">
    <header class="header">
  
-      <div class="lang-picker">
-
-
-<a data-lang="de" href="#">
-  <svg viewBox="0 0 640 480" width="20" height="14">
+<div class="lang-picker">
+  <div class="selected-lang" id="selectedLang">
+<svg viewBox="0 0 640 480" width="20" height="14">
   <rect width="640" height="160" fill="#000000"/> <!-- schwarz oben -->
   <rect y="160" width="640" height="160" fill="#DD0000"/> <!-- rot Mitte -->
   <rect y="320" width="640" height="160" fill="#FFCE00"/> <!-- gold unten -->
 </svg>
-</a>
-<a data-lang="en" href="#">
+
+
+</div>
+
+<div class="langDropdown" id="langDropdown">
+ 
+  <div class="option" data-lang="en">
+  
   <svg viewBox="0 0 60 30" width="20" height="14">
   <rect width="60" height="30" fill="#012169"/>
   
@@ -47,38 +51,14 @@
   <rect x="27" width="6" height="30" fill="#C8102E"/>
   <rect y="12" width="60" height="6" fill="#C8102E"/>
 </svg>
-</a>
-<a data-lang="en" href="#">
 
-  <svg viewBox="0 0 640 480" width="20" height="14">
+  </div>
+  <div class="option" data-lang="es">
+    <svg viewBox="0 0 640 480" width="20" height="14">
     <rect width="640" height="160" fill="#AA151B"/> <!-- rot oben -->
     <rect y="160" width="640" height="160" fill="#F1BF00"/> <!-- gelb Mitte -->
     <rect y="320" width="640" height="160" fill="#AA151B"/> <!-- rot unten -->
   </svg>
-
-</a>
-
-<div id="langDropdown" class="langDropdown" role="menu" aria-label="Sprachen">
-<div class="option" role="menuitem" data-lang="de" tabindex="0">
-<span class="flag">🇩🇪</span>
-<div>
-
-
-</div>
-</div>
-<div class="option" role="menuitem" data-lang="es" tabindex="0">
-<span class="flag">🇪🇸</span>
-<div>
-<div class="name">Español</div>
-
-</div>
-</div>
-<div class="option" role="menuitem" data-lang="en" tabindex="0">
-<span class="flag">🇬🇧</span>
-<div>
-<div class="name">English</div>
-
-</div>
 </div>
 </div>
 </div>

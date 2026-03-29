@@ -131,43 +131,25 @@ function showDropdownMenu() {
 
 loadEventData();
 
-/*languagePicker
-let languagePicker = document.querySelectorAll(".lang-btn span");
-let flagDe = document.getElementById("flagDe");
-let flagEs = document.getElementById("flagEs");
-let flagEn = document.getElementById("flagEn");
+/*languagePicker*/
+const selected = document.getElementById("selectedLang");
+const dropdown = document.getElementById("langDropdown");
 
+// Dropdown öffnen/schließen
+selected.addEventListener("click", () => {
+  dropdown.classList.toggle("active");
+});
 
-languagePicker.forEach(button => {
-
-
-
-  button.addEventListener("click", (e) => {
-  
-    
-    if (button.id == "flagDe"){
-         window.location.href = "../de/index.html";
-
-
-    }else if (button.id == "flagEs"){
-
-        
-      window.location.href = "../es/index.html";
-
-      }else if (button.id){
-         window.location.href = "../en/index.html";
-      }
-
-    });
-});*/
-
-document.querySelectorAll("[data-lang]").forEach(el => {
-  el.addEventListener("click", (e) => {
-
-    e.preventDefault(); // verhindert normales Link-Verhalten
+// Auswahl
+document.querySelectorAll(".option").forEach(el => {
+  el.addEventListener("click", () => {
 
     const lang = el.dataset.lang;
 
+    // Flagge oben ändern
+    selected.textContent = el.textContent.split(" ")[0];
+
+    // aktuelle Seite bestimmen
     let path = window.location.pathname;
     let file = path.split("/").pop();
 
@@ -177,7 +159,10 @@ document.querySelectorAll("[data-lang]").forEach(el => {
 
     const basePath = path.split("/")[1];
 
+    // Weiterleitung
     window.location.href = `/${basePath}/${lang}/${file}`;
   });
 });
+
+
 

@@ -17,48 +17,49 @@
   <div class="container">
    <header class="header">
  
-      <div class="lang-picker">
-<button id="langBtn" class="lang-btn" aria-haspopup="menu" aria-expanded="false">
-<!--span id="currentFlag" class="flag">
-      <svg viewBox="0 0 640 480" width="20" height="14">
-    <rect width="640" height="160" fill="#000"/>
-    <rect y="160" width="640" height="160" fill="#D00"/>
-    <rect y="320" width="640" height="160" fill="#FFCE00"/>
-  </svg>
-</span-->
-<span class="flag">
-  <svg viewBox="0 0 640 480" width="20" height="14">
+    
+<div class="lang-picker">
+  <div class="selected-lang" id="selectedLang">
+<svg viewBox="0 0 640 480" width="20" height="14">
+  <rect width="640" height="160" fill="#000000"/> <!-- schwarz oben -->
+  <rect y="160" width="640" height="160" fill="#DD0000"/> <!-- rot Mitte -->
+  <rect y="320" width="640" height="160" fill="#FFCE00"/> <!-- gold unten -->
+</svg>
+
+
+</div>
+
+<div class="langDropdown" id="langDropdown">
+ 
+  <div class="option" data-lang="en">
+  
+  <svg viewBox="0 0 60 30" width="20" height="14">
+  <rect width="60" height="30" fill="#012169"/>
+  
+  <!-- weiße diagonalen -->
+  <polygon points="0,0 25,0 60,20 60,30 35,30 0,10" fill="#FFFFFF"/>
+  <polygon points="60,0 35,0 0,20 0,30 25,30 60,10" fill="#FFFFFF"/>
+
+  <!-- rote diagonalen -->
+  <polygon points="0,0 10,0 60,25 60,30 50,30 0,5" fill="#C8102E"/>
+  <polygon points="60,0 50,0 0,25 0,30 10,30 60,5" fill="#C8102E"/>
+
+  <!-- weißes Kreuz -->
+  <rect x="25" width="10" height="30" fill="#FFFFFF"/>
+  <rect y="10" width="60" height="10" fill="#FFFFFF"/>
+
+  <!-- rotes Kreuz -->
+  <rect x="27" width="6" height="30" fill="#C8102E"/>
+  <rect y="12" width="60" height="6" fill="#C8102E"/>
+</svg>
+
+  </div>
+  <div class="option" data-lang="es">
+    <svg viewBox="0 0 640 480" width="20" height="14">
     <rect width="640" height="160" fill="#AA151B"/> <!-- rot oben -->
     <rect y="160" width="640" height="160" fill="#F1BF00"/> <!-- gelb Mitte -->
     <rect y="320" width="640" height="160" fill="#AA151B"/> <!-- rot unten -->
   </svg>
-</span>
-
-<svg class="chev" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 8l4 4 4-4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
-</button>
-
-
-<div id="langDropdown" class="langDropdown" role="menu" aria-label="Sprachen">
-<div class="option" role="menuitem" data-lang="de" tabindex="0">
-<span class="flag">🇩🇪</span>
-<div>
-
-
-</div>
-</div>
-<div class="option" role="menuitem" data-lang="es" tabindex="0">
-<span class="flag">🇪🇸</span>
-<div>
-<div class="name">Español</div>
-
-</div>
-</div>
-<div class="option" role="menuitem" data-lang="en" tabindex="0">
-<span class="flag">🇬🇧</span>
-<div>
-<div class="name">English</div>
-
-</div>
 </div>
 </div>
 </div>
@@ -208,7 +209,7 @@
        transform="scale(0.94664554,1.0563616)">
        <a href="contacto.html"><tspan
          id="tspan148-1"
-         x="317.10254"
+         x="319.10254"
          y="244.96178"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.3062px;font-family:Outfit;-inkscape-font-specification:'Calibri, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#eeb834;fill-opacity:1;stroke-width:0.404796">Kontakt</tspan>
         </a></text>
@@ -224,7 +225,7 @@
        id="text148"
        transform="scale(0.97086398,1.0300104)"><tspan
          id="tspan148"
-         x="213.025"
+         x="215.525"
          y="334.84991"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.99553px;font-family:Outfit;-inkscape-font-specification:'Calibri, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke-width:0.476794">Produkte</tspan></text>
          </a>
@@ -236,14 +237,20 @@
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.3062px;font-family:Outfit;-inkscape-font-specification:'Calibri, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#eeb834;fill-opacity:1;stroke:none;stroke-width:0.449801;stroke-miterlimit:3.4;stroke-dasharray:none;stroke-opacity:1"
        x="186.53087"
-       y="298.10251"
+       y="295.10251"
        id="text148-80-4-7"
        transform="scale(1.0081352,0.99193045)">
        <a href="sobre.html"><tspan
          id="tspan148-1-7-4"
          x="186.53087"
-         y="298.10251"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.3062px;font-family:Outfit;-inkscape-font-specification:'Calibri, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#eeb834;fill-opacity:1;stroke-width:0.449801">Über Uns</tspan>
+         y="295.10251"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.3062px;font-family:Outfit;-inkscape-font-specification:'Calibri, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#eeb834;fill-opacity:1;stroke-width:0.449801">Über</tspan>
+          <tspan
+      x="173.53087"
+      y="306"  
+      style="fill:#eeb834; font-size:10.3062px; font-family:Outfit;">
+      Uns
+    </tspan>
        </a></text><text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.3062px;font-family:Outfit;-inkscape-font-specification:'Calibri, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#eeb834;fill-opacity:1;stroke:none;stroke-width:0.491613;stroke-miterlimit:3.4;stroke-dasharray:none;stroke-opacity:1"
