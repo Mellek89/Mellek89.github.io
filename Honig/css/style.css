@@ -39,7 +39,7 @@ body {
   grid-template-areas:
     "hamb lang"
     "logo logo";
- padding: 0.5em;
+   padding: 0.5em 0;
   align-items: center;
   background-color: black;
 
@@ -382,6 +382,10 @@ top: 10px;
   flex-direction: column;
   align-items: center;
   gap: 1em;
+}
+
+h2 {
+  text-align: center;
 }
 .indexContainer h2{
   padding: 2em;
