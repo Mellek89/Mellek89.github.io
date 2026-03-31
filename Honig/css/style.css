@@ -397,7 +397,7 @@ h2 {
   position: relative;
   overflow: hidden;
   padding: 2em;
-  
+  max-height: 250px;
 }
 
 
@@ -406,7 +406,7 @@ h2 {
 .hero img {
 
    width: 100%;
-  height: 50vh; /* Höhe des Hero-Bereichs */
+
   object-fit: cover;
 position: relative;
   top: 30%;
@@ -431,7 +431,7 @@ position: relative;
 /* Text */
 .hero-text {
   position: absolute;
-  top: 310px;
+  top: 160px;
   left: 50%;
   transform: translate(-50%, -50%);
   text-shadow: 0 3px 8px rgba(0,0,0,0.8),
@@ -439,11 +439,11 @@ position: relative;
   color: white;
   text-align: center;
   z-index: 3;
-  width: 300px;
+
 }
 .hero-text h1,
 h1 {
-     font-size: clamp(25px, 3vw, 34px);
+     font-size: clamp(20px, 3vw, 34px);
   
 }
 
