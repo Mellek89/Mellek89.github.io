@@ -216,65 +216,6 @@ position: relative;
   display: block;
 }
 
-/*.lang-picker{
-  position: relative;
-  grid-area: lang;
-   justify-self: end;   
-  align-self: start;   
-
-  
-}
-
-
-.lang-btn{
-  width: 50px;
-  display:inline-flex;
-  gap:8px;align-items:center;
-  padding:8px 10px;border-radius:10px;
-  background:rgba(255,255,255,0.02);
-  border:none;
-  cursor:pointer;
-}
-.lang-btn span{
-  color:rgba(10,99,157);;
-}
-
-
-.lang-btn:focus{outline:3px solid rgba(59,130,246,0.2)}
-.flag{width:20px;height:14px;display:inline-block}
-.chev{width:14px;height:14px;opacity:0.8;color: #E6F0FF;}
-
-.langDropdown{position:absolute;
-  right:0;margin-top:15px;
-  min-width:120px;
-  background-color:#141414;
-  border-radius:12px;
-  padding:8px;
-  border:1px 
-  solid rgba(255,255,255,0.03);
-  box-shadow:0 8px 30px rgba(2,6,23,0.6);
-  display:none}
-
-
-
-.langDropdown.show{display:block}
-.option,
-.optionItem{display:flex;gap:10px;align-items:center;padding:8px;border-radius:8px;cursor:pointer}
-.option:hover,
-.optionItem{background:rgba(255,255,255,0.02)}
-.option.active,
-.optionItem.option.active{background:linear-gradient(90deg, rgba(59,130,246,0.12), rgba(99,102,241,0.08));border:1px solid rgba(59,130,246,0.12)}
-
-.option .name,
-.optionItem .namePa,
-.optionItem .nameDoc{
-  position: relative; 
-  font-weight:600;
-   z-index: 1;
-  }
-
-.option .meta{font-size:12px;color:var(--muted)}
-/*****main****/
 
 .main .buttons {
   display: flex;
@@ -303,6 +244,12 @@ gap: 3em;
   margin-top: 10px;
 }
 
+/*index.html*/
+
+.buzzing{
+
+  text-align: center;
+}
 .cursoContainer{
   display: flex;
   flex-direction: row;
