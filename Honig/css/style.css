@@ -187,7 +187,8 @@ body {
 position: relative;
   grid-area: lang;
    justify-self: end;   
-  align-self: start;   
+  align-self: start;  
+  padding: 1.5em; 
 }
 
 .selected-lang {
@@ -610,8 +611,15 @@ footer.en{
   flex-direction: row-reverse;
   gap: 3em;
  }
-.wabe{
-  max-width: 300px;
+
+.wabe,
+.sobre,
+.productos,
+.contacto,
+.curso,
+.index{
+  width: 300px;
+
 }
 
 .svgHoneyCup{
