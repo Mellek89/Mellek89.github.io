@@ -615,10 +615,13 @@ footer.en{
   margin-top: 10px;
 }
 
-
+.hero{
+  max-height: 800px;
+  width: 900px;
+}
 .hero-text {
 
-  top: 190px; 
+  top: 433px; 
 
 }
 .hero-text h1 {
