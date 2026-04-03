@@ -247,8 +247,9 @@ gap: 3em;
 /*index.html*/
 
 .buzzing{
-
+font-size: small;
   text-align: center;
+  padding: 0.5em;
 }
 .cursoContainer{
   display: flex;
@@ -388,15 +389,16 @@ h2 {
   text-align: center;
 }
 .indexContainer h2{
-  padding: 2em;
+  padding: 0.5em;
   text-align: center;
   color: #42413fff;
+  font-size:large;
 }
 
 .hero {
   position: relative;
   overflow: hidden;
-  padding: 2em;
+ 
   max-height: 250px;
 }
 
@@ -406,10 +408,9 @@ h2 {
 .hero img {
 
    width: 100%;
-
   object-fit: cover;
 position: relative;
-  top: 30%;
+  top: 10%;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -431,7 +432,7 @@ position: relative;
 /* Text */
 .hero-text {
   position: absolute;
-  top: 160px;
+  top: 140px;
   left: 50%;
   transform: translate(-50%, -50%);
   text-shadow: 0 3px 8px rgba(0,0,0,0.8),
