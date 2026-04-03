@@ -386,7 +386,10 @@ top: 10px;
 }
 
 h2 {
+    padding: 0.5em;
   text-align: center;
+  color: #42413fff;
+  font-size:large;
 }
 .indexContainer h2{
   padding: 0.5em;
@@ -622,11 +625,11 @@ footer.en{
 }
 .hero-text {
 
-  top: 433px; 
+  top: 350px; 
 
 }
 .hero-text h1 {
-  font-size: 1.7vw;
+  font-size: 2.0vw;
 }
 
 .hero-text h2 {
