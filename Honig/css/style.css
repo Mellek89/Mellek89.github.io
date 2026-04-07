@@ -182,7 +182,14 @@ padding: 0;
         .side-menu:checked ~ .logoDiv {
           display: none;
         }
-
+.bg-honeycomb {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.08;
+  z-index: 0;
+}
 .lang-picker {
 position: relative;
   grid-area: lang;
@@ -193,6 +200,25 @@ position: relative;
 
 .selected-lang {
   font-size: 20px;
+}
+
+.lang-picker > svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+   z-index: 0;              /* nach hinten */
+  pointer-events: none;    /* GANZ wichtig → blockiert keine Klicks */
+}
+
+.selected-lang {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .langDropdown {
