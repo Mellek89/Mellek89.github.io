@@ -236,13 +236,13 @@ padding: 0;
 
 /* Positionen */
 .lang-pickerEn .left {
-  transform: translate(38%, -63%) translateX(-70px);
+  transform: translate(143%, -63%) translateX(-70px);
   opacity: 0;
   pointer-events: none;
 }
 
 .lang-pickerEn .right {
-  transform: translate(-137%, -162%) translateX(70px);
+  transform: translate(-88%, -250%) translateX(70px);
   opacity: 0;
   pointer-events: none;
 }
