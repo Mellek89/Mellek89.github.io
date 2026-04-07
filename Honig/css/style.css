@@ -207,8 +207,9 @@ position: relative;
   inset: 0;
   width: 100%;
   height: 100%;
-   z-index: 0;              /* nach hinten */
-  pointer-events: none;    /* GANZ wichtig → blockiert keine Klicks */
+  z-index: 0;              /* nach hinten */
+  pointer-events: none; /*blockiert keine Klicks*/
+   opacity: 0.95;   
 }
 
 .selected-lang {
@@ -671,6 +672,7 @@ footer.en{
 .curso,
 .index{
   width: 300px;
+   opacity: 0.95;
 
 }
 
