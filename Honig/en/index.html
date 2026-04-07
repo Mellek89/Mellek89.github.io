@@ -15,14 +15,16 @@
   <div class="container">
    <header class="header">
  
-      <div class="lang-picker">
+<div class="lang-pickerEn">
 
-<svg
+  <!-- CENTER (aktive Sprache) -->
+  <div class="hex center" id="selectedLang">
+<svg class="bg"
    width="9.8319273mm"
    height="11.0577mm"
    viewBox="0 0 9.8319273 11.0577"
    version="1.1"
-   id="svg1"
+  
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <defs
@@ -37,55 +39,85 @@
   </g>
 </svg>
 
-  <div class="selected-lang" id="selectedLang">
- <svg viewBox="0 0 60 30" width="20" height="14">
-  <rect width="60" height="30" fill="#012169"/>
-  
-  <!-- weiße diagonalen -->
-  <polygon points="0,0 25,0 60,20 60,30 35,30 0,10" fill="#FFFFFF"/>
-  <polygon points="60,0 35,0 0,20 0,30 25,30 60,10" fill="#FFFFFF"/>
-
-  <!-- rote diagonalen -->
-  <polygon points="0,0 10,0 60,25 60,30 50,30 0,5" fill="#C8102E"/>
-  <polygon points="60,0 50,0 0,25 0,30 10,30 60,5" fill="#C8102E"/>
-
-  <!-- weißes Kreuz -->
-  <rect x="25" width="10" height="30" fill="#FFFFFF"/>
-  <rect y="10" width="60" height="10" fill="#FFFFFF"/>
-
-  <!-- rotes Kreuz -->
-  <rect x="27" width="6" height="30" fill="#C8102E"/>
-  <rect y="12" width="60" height="6" fill="#C8102E"/>
-</svg>
-
-
-</div>
-
-<div class="langDropdown" id="langDropdown">
- 
-  <div class="option" data-lang="de">
-  
- 
-<svg viewBox="0 0 640 480" width="20" height="14">
-  <rect width="640" height="160" fill="#000000"/> <!-- schwarz oben -->
-  <rect y="160" width="640" height="160" fill="#DD0000"/> <!-- rot Mitte -->
-  <rect y="320" width="640" height="160" fill="#FFCE00"/> <!-- gold unten -->
-</svg>
+    <!-- Flag (aktuell) -->
+    <svg class="flag" viewBox="0 0 60 30">
+      <rect width="60" height="30" fill="#012169"/>
+      <polygon points="0,0 25,0 60,20 60,30 35,30 0,10" fill="#fff"/>
+      <polygon points="60,0 35,0 0,20 0,30 25,30 60,10" fill="#fff"/>
+      <polygon points="0,0 10,0 60,25 60,30 50,30 0,5" fill="#C8102E"/>
+      <polygon points="60,0 50,0 0,25 0,30 10,30 60,5" fill="#C8102E"/>
+      <rect x="25" width="10" height="30" fill="#fff"/>
+      <rect y="10" width="60" height="10" fill="#fff"/>
+      <rect x="27" width="6" height="30" fill="#C8102E"/>
+      <rect y="12" width="60" height="6" fill="#C8102E"/>
+    </svg>
   </div>
-  <div class="option" data-lang="es">
-    <svg viewBox="0 0 640 480" width="20" height="14">
-    <rect width="640" height="160" fill="#AA151B"/> <!-- rot oben -->
-    <rect y="160" width="640" height="160" fill="#F1BF00"/> <!-- gelb Mitte -->
-    <rect y="320" width="640" height="160" fill="#AA151B"/> <!-- rot unten -->
-  </svg>
-</div>
-</div>
+
+  <!-- LEFT (Deutsch) -->
+  <div class="hex left option" data-lang="de">
+ <svg class="bg"
+   width="9.8319273mm"
+   height="11.0577mm"
+   viewBox="0 0 9.8319273 11.0577"
+   version="1.1"
+
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <g
+     id="layer1"
+     transform="translate(-86.518746,-141.02292)">
+    <path
+       d="m 86.573836,146.63523 -0.05509,-2.77321 0.929955,-0.58316 c 0.511482,-0.32074 1.608595,-0.95954 2.438032,-1.41956 l 1.508067,-0.83638 2.308545,1.267 c 1.269693,0.69685 2.360105,1.3492 2.423134,1.44968 0.06313,0.10042 0.139253,1.38432 0.169394,2.85298 l 0.0548,2.67028 -2.176738,1.36272 c -1.197253,0.74943 -2.304293,1.40183 -2.460172,1.44963 -0.186968,0.0573 -1.078669,-0.34106 -2.620063,-1.17057 -1.28515,-0.69161 -2.365468,-1.31119 -2.400705,-1.37683 -0.03524,-0.0656 -0.08885,-1.3673 -0.11915,-2.89257 z m 1.587045,2.94961 c 0.38908,0.23697 1.319297,0.73848 2.06716,1.11445 l 1.359747,0.68359 1.29762,-0.69553 c 0.713684,-0.38254 1.615421,-0.92837 2.00385,-1.21296 0.844738,-0.61891 0.845307,-0.62155 0.731327,-3.42117 l -0.0794,-1.95038 -0.453429,-0.2763 c -0.249381,-0.15196 -1.200362,-0.68379 -2.113296,-1.18184 l -1.659882,-0.90554 -1.982962,1.1519 c -1.924707,1.11807 -1.984201,1.16331 -2.025224,1.54015 -0.04008,0.36816 0.07067,4.60097 0.122541,4.68367 0.01349,0.0215 0.342866,0.233 0.731944,0.46997 z"
+       style="fill:#eeb834;fill-opacity:1;stroke-width:0.142009"
+       id="path1-7-2-5" />
+  </g>
+</svg>
+
+    <svg class="flag" viewBox="0 0 640 480">
+      <rect width="640" height="160" fill="#000"/>
+      <rect y="160" width="640" height="160" fill="#DD0000"/>
+      <rect y="320" width="640" height="160" fill="#FFCE00"/>
+    </svg>
+  </div>
+
+  <!-- RIGHT (Spanisch) -->
+  <div class="hex right option" data-lang="es">
+<svg class="bg"
+   width="9.8319273mm"
+   height="11.0577mm"
+   viewBox="0 0 9.8319273 11.0577"
+   version="1.1"
+  
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <g
+     id="layer1"
+     transform="translate(-86.518746,-141.02292)">
+    <path
+       d="m 86.573836,146.63523 -0.05509,-2.77321 0.929955,-0.58316 c 0.511482,-0.32074 1.608595,-0.95954 2.438032,-1.41956 l 1.508067,-0.83638 2.308545,1.267 c 1.269693,0.69685 2.360105,1.3492 2.423134,1.44968 0.06313,0.10042 0.139253,1.38432 0.169394,2.85298 l 0.0548,2.67028 -2.176738,1.36272 c -1.197253,0.74943 -2.304293,1.40183 -2.460172,1.44963 -0.186968,0.0573 -1.078669,-0.34106 -2.620063,-1.17057 -1.28515,-0.69161 -2.365468,-1.31119 -2.400705,-1.37683 -0.03524,-0.0656 -0.08885,-1.3673 -0.11915,-2.89257 z m 1.587045,2.94961 c 0.38908,0.23697 1.319297,0.73848 2.06716,1.11445 l 1.359747,0.68359 1.29762,-0.69553 c 0.713684,-0.38254 1.615421,-0.92837 2.00385,-1.21296 0.844738,-0.61891 0.845307,-0.62155 0.731327,-3.42117 l -0.0794,-1.95038 -0.453429,-0.2763 c -0.249381,-0.15196 -1.200362,-0.68379 -2.113296,-1.18184 l -1.659882,-0.90554 -1.982962,1.1519 c -1.924707,1.11807 -1.984201,1.16331 -2.025224,1.54015 -0.04008,0.36816 0.07067,4.60097 0.122541,4.68367 0.01349,0.0215 0.342866,0.233 0.731944,0.46997 z"
+       style="fill:#eeb834;fill-opacity:1;stroke-width:0.142009"
+       id="path1-7-2-5" />
+  </g>
+</svg>
+
+    <svg class="flag" viewBox="0 0 640 480">
+      <rect width="640" height="160" fill="#AA151B"/>
+      <rect y="160" width="640" height="160" fill="#F1BF00"/>
+      <rect y="320" width="640" height="160" fill="#AA151B"/>
+    </svg>
+  </div>
+
 </div>
 
 <svg
    class="curso"
    version="1.1"
-   id="svg1"
+  
+
    viewBox="0 0 187.32273 248.55424"
    xml:space="preserve"
    sodipodi:docname="indexWabe.svg"
@@ -375,6 +407,13 @@
       <p>© 2025 Melle Piribebuy</p>
     </footer>
   </div>
+  <script>
+const picker = document.querySelector(".lang-pickerEn");
+
+picker.addEventListener("click", () => {
+  picker.classList.toggle("active");
+});
+</script>
 <script type= "module" src="../js/script.js"></script>
 </body>
 </html>

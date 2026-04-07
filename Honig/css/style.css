@@ -182,6 +182,8 @@ padding: 0;
         .side-menu:checked ~ .logoDiv {
           display: none;
         }
+
+
 .bg-honeycomb {
   position: absolute;
   inset: 0;
@@ -190,11 +192,77 @@ padding: 0;
   opacity: 0.08;
   z-index: 0;
 }
-.lang-picker {
+
+
+.lang-pickerEn .hex {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+.lang-pickerEn .hex.left {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+/* alle Waben */
+.hex {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+}
+
+/* Hintergrund */
+.lang-pickerEn .bg {
+  width: 100%;
+  height: 100%;
+  opacity: 0.12;
+}
+
+/* Flaggen */
+.lang-pickerEn .flag {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  transform: translate(-50%, -50%);
+}
+
+/* Positionen */
+.lang-pickerEn .left {
+  transform: translate(38%, -63%) translateX(-70px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.lang-pickerEn .right {
+  transform: translate(-137%, -162%) translateX(70px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* aktiv */
+.lang-pickerEn.active .left,
+.lang-pickerEn.active .right {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+
+.lang-picker,
+.lang-pickerEn {
 position: relative;
   grid-area: lang;
    justify-self: end;   
   align-self: start;  
+  margin-right: 35px;
   padding: 1.5em; 
 }
 
@@ -202,15 +270,6 @@ position: relative;
   font-size: 20px;
 }
 
-.lang-picker > svg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;              /* nach hinten */
-  pointer-events: none; /*blockiert keine Klicks*/
-   opacity: 0.95;   
-}
 
 .selected-lang {
   position: absolute;
@@ -221,7 +280,11 @@ position: relative;
   align-items: center;
   justify-content: center;
 }
-
+.lang-picker.active .left,
+.lang-picker.active .right {
+  opacity: 1;
+  pointer-events: auto;
+}
 .langDropdown {
   display: none;
   position: absolute;
