@@ -117,7 +117,7 @@ prevNextIcon.forEach(icon => {
 
 function showEvents() {
   const eventList = document.getElementById("eventList");
- 
+  if (!eventList) return; 
   eventList.addEventListener("click", (e) => {
 
     const item = e.target.closest(".event-item");
@@ -167,6 +167,7 @@ function showEvents() {
     }
   });
 }
+
 
  showEvents();
 
