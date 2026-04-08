@@ -17,7 +17,31 @@
         }
 
     ] },
-    { "month": "April", "events": [] },
+    { "month": "April", "events":[
+ {
+          "name": "Erster Bienenstock – und jetzt?",
+          "dates": [
+            {"day": 1, "month": 3, "year": 2026}
+          ],
+          "isWeekly": false
+        },
+         {
+          "name": "Noch ein Event",
+          "dates": [
+            {"day": 15, "month": 3, "year": 2026}
+          ],
+          "isWeekly": false
+        },
+         {
+          "name": "Und noch eins...",
+          "dates": [
+            {"day": 25, "month": 3, "year": 2026}
+          ],
+          "isWeekly": false
+        }
+
+
+    ] },
     { "month": "Mai", "events": [] },
     { "month": "Juni", "events": [] },
     { "month": "Juli", "events": [] },

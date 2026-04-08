@@ -368,6 +368,13 @@ iframe{
   border:0;
  
 }
+
+/*Cursos*/
+.eventList{
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
 .cursoContainer{
   display: flex;
   flex-direction: row;
@@ -455,22 +462,17 @@ grid-column: 3/4;
   
 }
 
-.days li.circle{
-  color: #F0FFFF;
-  }
-  .days li.circleInactive{
-    color:  #5c5b5b;
-    
-    }
-.days li.active{
-color: #141414;
+.selected-day::before {
+  border: 3px solid #ff9800;
+  border-radius: 50%;
 }
+
 
 .days li.active::before{
 	/*background: #e94417;*/
   border: 3px solid;
   border-radius: 50%;
-  border-color: rgba(238,184,52);
+  border-color: rgb(238, 86, 52);
 	
 }
 .calendar ul li,

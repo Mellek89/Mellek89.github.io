@@ -43,7 +43,8 @@ const renderCalender = () => {
 	lastDateOfMonth = new Date(currYear, currMonth + 1, 0).getDate(), //get last Date of Month
 	lastDayOfMonth = new Date(currYear, currMonth, lastDateOfMonth ).getDay(),//get last days of previous Month
 	lasttDateOfLastMonth = new Date(currYear, currMonth, 0).getDate();//get last days of previous Month
-	
+	const monthName = months[currMonth];
+    const monthObj = eventData.find(m => m.month && m.month.trim().toLowerCase() === monthName.toLowerCase());
 	let liTag = "";
 
 	for (let i = firstDateOfMonth; i > 0; i--){ // creating li of last days of prev month
@@ -52,10 +53,10 @@ const renderCalender = () => {
 	}
 	
 	
-	for (let i = 1; i<=lastDateOfMonth; i++){ //creating li of actual days of current month
+	for (let i = 1; i<=lastDateOfMonth; i++){ 
 		//adding active class to list if the current day , month and year matched
 		let isToday = i === date.getDate() && currMonth === new Date().getMonth() && currYear === new Date().getFullYear() ? "active" : "";
-		
+		 
 	
 		// ISO-Datum für jedes li erzeugen
 			let isoDate = `${currYear}-${String(currMonth + 1).padStart(2,'0')}-${String(i).padStart(2,'0')}`;
@@ -64,8 +65,8 @@ const renderCalender = () => {
 
 
 
-			liTag += `<li id="${i}" class="${isToday}" data-iso-date="${isoDate}">
-            ${i}${dropdownHTML}
+			liTag += `<li id="${i}" class="${isToday} " data-iso-date="${isoDate}">
+            ${i}
           </li>`;
 		
 	}
@@ -76,9 +77,7 @@ const renderCalender = () => {
 	
 	currentDate.innerText = `${months[currMonth]} ${currYear}`;
 	daysTag.innerHTML = liTag;
-	// 2️⃣ Hier kommt der Event-Sidebar-Code hin
-    const monthName = months[currMonth];
-    const monthObj = eventData.find(m => m.month && m.month.trim().toLowerCase() === monthName.toLowerCase());
+  
 
     const eventListDiv = document.getElementById("eventList");
     eventListDiv.innerHTML = ""; // vorher leeren
@@ -89,7 +88,9 @@ const renderCalender = () => {
             const div = document.createElement("div");
             div.className = "event-item";
             div.innerHTML = `<strong>${ev.name}</strong>`;
-            eventListDiv.appendChild(div);
+            console.log("EV:", ev);
+            div.dataset.event = JSON.stringify(ev);
+            eventListDiv.appendChild(div); 
         });
     }
 
@@ -114,8 +115,39 @@ prevNextIcon.forEach(icon => {
     });
 });
 
+function showEvents() {
+  const eventList = document.getElementById("eventList");
+
+  eventList.addEventListener("click", (e) => {
+    const item = e.target.closest(".event-item");
+
+    if (item) {
+      const ev = JSON.parse(item.dataset.event);
+
+      // 👉 alte Markierungen entfernen
+      document.querySelectorAll(".selected-day").forEach(el => {
+        el.classList.remove("selected-day");
+      });
+
+      // 👉 neue Tage markieren
+      ev.dates.forEach(d => {
+        const iso = `${d.year}-${String(d.month + 1).padStart(2,'0')}-${String(d.day).padStart(2,'0')}`;
+
+        const dayEl = document.querySelector(`[data-iso-date="${iso}"]`);
+        
+        if (dayEl) {
+          dayEl.classList.add("selected-day");
+        }
+      });
+    }
+  });
+}
+
+ showEvents();
+
 function showDropdownMenu() {
   const dropdown = document.getElementById("monthDropdown");
+  const eventItem = 
   
   // Alle Monate aus JSON hinzufügen
   eventData.forEach(monthObj => {
