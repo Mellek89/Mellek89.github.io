@@ -375,6 +375,10 @@ iframe{
   flex-direction: column;
   gap: 1em;
 }
+.event-item.active {
+ border-bottom: 1px solid rgba(238,184,52);
+
+}
 .cursoContainer{
   display: flex;
   flex-direction: row;
@@ -412,7 +416,7 @@ iframe{
   color: #1f1f1f;
 
 }
-/* gefüllter „Rand“ unten */
+
 .calendar header::after
  {
   content: "";

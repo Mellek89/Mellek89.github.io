@@ -22,7 +22,7 @@
           "name": "Erster Bienenstock – und jetzt?",
           "dates": [
             {"day": 1, "month": 3, "year": 2026},
-             {"day": 3, "month": 3, "year": 2026}
+            {"day": 3, "month": 3, "year": 2026}
           ],
           "isWeekly": false
         },

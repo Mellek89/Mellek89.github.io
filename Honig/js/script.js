@@ -124,10 +124,16 @@ function showEvents() {
   
     if (item) {
      const ev = JSON.parse(item.dataset.event);
-// 👉 alte Markierungen entfernen
+
       document.querySelectorAll(".selected-day").forEach(el => {
         el.classList.remove("selected-day");
+         el.classList.remove("active");
       });
+       document.querySelectorAll(".event-item").forEach(el => {
+         el.classList.remove("active");
+      });
+
+       item.classList.add("active");
 
      const start = new Date(ev.dates[0].year, ev.dates[0].month, ev.dates[0].day);
      const end   = new Date(ev.dates[ev.dates.length - 1].year, ev.dates[ev.dates.length - 1].month, ev.dates[ev.dates.length - 1].day);
