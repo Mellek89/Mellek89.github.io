@@ -117,17 +117,36 @@ prevNextIcon.forEach(icon => {
 
 function showEvents() {
   const eventList = document.getElementById("eventList");
-
+ 
   eventList.addEventListener("click", (e) => {
+
     const item = e.target.closest(".event-item");
-
+  
     if (item) {
-      const ev = JSON.parse(item.dataset.event);
-
-      // 👉 alte Markierungen entfernen
+     const ev = JSON.parse(item.dataset.event);
+// 👉 alte Markierungen entfernen
       document.querySelectorAll(".selected-day").forEach(el => {
         el.classList.remove("selected-day");
       });
+
+     const start = new Date(ev.dates[0].year, ev.dates[0].month, ev.dates[0].day);
+     const end   = new Date(ev.dates[ev.dates.length - 1].year, ev.dates[ev.dates.length - 1].month, ev.dates[ev.dates.length - 1].day);
+    let current = new Date(start);
+
+ while (current <= end) {
+    const iso = `${current.getFullYear()}-${String(current.getMonth() + 1).padStart(2,'0')}-${String(current.getDate()).padStart(2,'0')}`;
+
+    const dayEl = document.querySelector(`[data-iso-date="${iso}"]`);
+
+    if (dayEl) {
+      dayEl.classList.add("selected-day");
+    }
+
+    // 👉 nächsten Tag
+    current.setDate(current.getDate() + 1);
+  }
+
+      
 
       // 👉 neue Tage markieren
       ev.dates.forEach(d => {
