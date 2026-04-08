@@ -8,7 +8,7 @@
     },
     { "month": "Februar", "events": [] },
     { "month": "März", "events": [
- {
+      {
           "name": "First hive – what now?",
           "dates": [
             {"day": 1, "month": 2, "year": 2026}
@@ -17,7 +17,24 @@
         }
 
     ] },
-    { "month": "April", "events": [] },
+    { "month": "April", "events": [
+      {
+          "name": "First hive – what now?",
+          "dates": [
+            {"day": 1, "month": 3, "year": 2026},
+             {"day": 10, "month": 3, "year": 2026}
+          ],
+          "isWeekly": false
+        },
+        {
+          "name": "next Event",
+          "dates": [
+            {"day": 15, "month": 3, "year": 2026}
+          
+          ],
+          "isWeekly": false
+        }
+    ] },
     { "month": "Mai", "events": [] },
     { "month": "Juni", "events": [] },
     { "month": "Juli", "events": [] },
