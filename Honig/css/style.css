@@ -36,10 +36,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
-  grid-template-areas:
-    "hamb lang"
-    "logo logo";
-   padding: 0.5em 0;
+  padding: 0.5em 0;
   align-items: center;
   background-color: black;
 
@@ -72,7 +69,7 @@ padding: 0;
   width: 250px;
   max-width: 400px;
   height: auto;
-  grid-area: hamb;
+
 
 }
 .svgsobre,
@@ -259,23 +256,18 @@ padding: 0;
 .lang-picker,
 .lang-pickerEn {
 position: relative;
-  grid-area: lang;
-   justify-self: end;   
-  align-self: start;  
-  margin-right: 45px;
-  padding: 1.5em; 
+grid-column: -1;
+max-width: 100%;
+  justify-self: end;   /* rechts */
+  align-self: center;  
+ padding-right: 1em;
+ 
 }
+
+
 
 .selected-lang {
   font-size: 20px;
-}
-
-
-.selected-lang {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -287,14 +279,16 @@ position: relative;
 }
 .langDropdown {
   display: none;
+  margin-top: 1em;
+  top: 100%; 
   position: absolute;
-  background: white;
-  border: 1px solid #ccc;
-  padding: 5px;
+  left: 0;
+  padding-right: 1em;
+ 
 }
 
 .langDropdown .option {
-  padding: 5px;
+
   cursor: pointer;
 }
 
@@ -665,9 +659,7 @@ footer.en{
   .header {
     
   display: grid;
-  grid-template-columns: auto ;
   text-align: left;
-  grid-template-columns: auto 1fr auto auto;
   background-color: black;
   }
     .nav{
@@ -716,12 +708,12 @@ footer.en{
   height: 0;
  } 
 .lang-picker{
-  grid-column: 3;
+  grid-column: -1;  
   position: relative;
-  
+   justify-self: end;
 }
   .logoContainer{
-    display: flex;
+  display: flex;
  flex-direction: row;
  grid-area: hamb;
  
@@ -741,7 +733,8 @@ footer.en{
 .curso,
 .index{
   width: 300px;
-   opacity: 0.95;
+  opacity: 0.95;
+  grid-column: 1;
 
 }
 
