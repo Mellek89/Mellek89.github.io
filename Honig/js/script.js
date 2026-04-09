@@ -115,11 +115,20 @@ prevNextIcon.forEach(icon => {
     });
 });
 
-function showEvents() {
+
+
+/*function showEvents() {
   const eventList = document.getElementById("eventList");
   if (!eventList) return; 
-  eventList.addEventListener("click", (e) => {
 
+  const firstItem = eventList.querySelector(".event-item");
+
+  if (firstItem){
+    firstItem.classList.add("active");
+  }
+
+  eventList.addEventListener("click", (e) => {
+     //firstItem.classList.remove("active");
     const item = e.target.closest(".event-item");
   
     if (item) {
@@ -166,10 +175,61 @@ function showEvents() {
       });
     }
   });
+}*/
+
+function selectEvent(item) {
+  const ev = JSON.parse(item.dataset.event);
+
+  document.querySelectorAll(".selected-day").forEach(el => {
+    el.classList.remove("selected-day");
+    el.classList.remove("active");
+  });
+
+  document.querySelectorAll(".event-item").forEach(el => {
+    el.classList.remove("active");
+  });
+
+  item.classList.add("active");
+
+  const start = new Date(ev.dates[0].year, ev.dates[0].month, ev.dates[0].day);
+  const end   = new Date(
+    ev.dates[ev.dates.length - 1].year,
+    ev.dates[ev.dates.length - 1].month,
+    ev.dates[ev.dates.length - 1].day
+  );
+
+  let current = new Date(start);
+
+  while (current <= end) {
+    const iso = `${current.getFullYear()}-${String(current.getMonth() + 1).padStart(2,'0')}-${String(current.getDate()).padStart(2,'0')}`;
+    const dayEl = document.querySelector(`[data-iso-date="${iso}"]`);
+
+    if (dayEl) {
+      dayEl.classList.add("selected-day");
+    }
+
+    current.setDate(current.getDate() + 1);
+  }
+}
+
+function showEvents() {
+  const eventList = document.getElementById("eventList");
+  if (!eventList) return;
+
+  eventList.addEventListener("click", (e) => {
+    const item = e.target.closest(".event-item");
+    if (item) selectEvent(item);
+  });
+
+  // 👉 DEFAULT: erstes Event auswählen
+  const firstItem = eventList.querySelector(".event-item");
+  if (firstItem) {
+    selectEvent(firstItem);
+  }
 }
 
 
- showEvents();
+
 
 function showDropdownMenu() {
   const dropdown = document.getElementById("monthDropdown");
@@ -184,10 +244,10 @@ function showDropdownMenu() {
   });
 }
 
-// Dropdown beim Laden der Seite anzeigen
-//showDropdownMenu();
+
 
 loadEventData();
+showEvents();
 
 /*languagePicker*/
 const selected = document.getElementById("selectedLang");
