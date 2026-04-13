@@ -3,7 +3,7 @@
     "username": "admin",
     "password": "$2b$12$2NEsikHtPsrHAphVeMptg.kkiGPi44MqH56YKOoi.C4i2Tk.mrOVS",
     "role": "admin",
-    "mustChangePassword": false
+    "mustChangePassword": true
   },
   {
     "username": "Gernot",

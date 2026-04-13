@@ -260,9 +260,15 @@ let renderCount = 0;
 const renderCalendar = () => {
 
    console.log(daysTag);
-    const firstDateOfMonth = new Date(currYear, currMonth, 1).getDay();
+let firstDateOfMonth = new Date(currYear, currMonth, 1).getDay();
+    firstDateOfMonth = (firstDateOfMonth === 0) ? 6 : firstDateOfMonth - 1;
+
+    
     const lastDateOfMonth = new Date(currYear, currMonth + 1, 0).getDate();
-    const lastDayOfMonth = new Date(currYear, currMonth, lastDateOfMonth).getDay();
+    
+    let lastDayOfMonth = new Date(currYear, currMonth, lastDateOfMonth).getDay();
+    lastDayOfMonth = (lastDayOfMonth === 0) ? 6 : lastDayOfMonth - 1;
+
     const lastDateOfLastMonth = new Date(currYear, currMonth, 0).getDate();
 
     const currMonthName = months[currMonth];
@@ -1956,17 +1962,16 @@ actualEvents.forEach(marktName => {
 
     // Admin Buttons (falls erlaubt)
     if (window.location.pathname.endsWith("admin.html") && isOwner) {
-        const btnBox = document.createElement("div");
-        btnBox.style.display = "flex";
-        btnBox.style.gap = "6px";
-        btnBox.innerHTML = `
-            <button type="button" class="update-btn" title="Bearbeiten"
-                style="background:#4CAF50; border:none; color:white; padding:4px 6px; border-radius:4px; cursor:pointer;">✎</button>
-            <button type="button" class="delete-btn" title="Löschen"
-                style="background:#f44336; border:none; color:white; padding:4px 6px; border-radius:4px; cursor:pointer;">🗑</button>
-        `;
-        singleEvent.appendChild(btnBox);
-    }
+    const btnBox = document.createElement("div");
+    btnBox.classList.add("btn-box");
+
+    btnBox.innerHTML = `
+        <button type="button" class="btn update-btn" title="Bearbeiten">✎</button>
+        <button type="button" class="btn delete-btn" title="Löschen">🗑</button>
+    `;
+
+    singleEvent.appendChild(btnBox);
+}
 
  if (isActive || !eventId && monthObj.events[0]=== marktName ) {
 

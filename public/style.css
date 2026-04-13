@@ -1,11 +1,15 @@
-
+/* import Google Fonts Poppins
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+ /**{
+    outline: 1px solid red;
+  }*/
 /* Outfit Light lokal einbinden */
 @font-face {
   font-family: 'Outfit';
   font-style: normal;
   font-weight: 300; /* Light = 300 */
   font-display: swap; /* sorgt dafür, dass Text sofort sichtbar ist */
-  src: url('../Outfit/static/Outfit-Light.woff') format('woff');
+  src: url('./Outfit/static/Outfit-Light.woff') format('woff');
 }
 html, body {
   overflow: auto;
@@ -33,8 +37,42 @@ body{
  /* font-family: 'Poppins', 'san-serifs'*/}
 
  
+input, button, textarea, select { 
+  width: 100%; 
+  margin: 6px 0; 
+  padding: 8px; 
+}
 
+fieldset { 
+  margin-top: 20px; 
+}
+.flex-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.flex-end {
+  display: flex;
+  gap: 1em;
+  justify-content: flex-end;
+  margin-top: 1em;
+}
+.userTable{
+  width:100%; 
+  border-collapse:collapse; 
+  border:1"
+}
+.primary-btn {
+  background: #37a2ed;
+  border: none;
+  color: white;
+  padding: 4px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 2rem;
+}
 
+.adminButtons {display: flex; gap: 20px; align-items: center;}
 .hidden {
   display: none !important;
 }
@@ -615,10 +653,14 @@ align-items: center;
   margin-bottom: 10%;
  }
  .error{
+
+  color:red;
   position: relative;
   text-align: center;
   margin-bottom: 2em;
  }
+
+
  .dropdown-underline {
   display: flex;
   align-items: center;
@@ -877,6 +919,7 @@ p,
   text-align: right;
   border-bottom: 1px solid #ffeb3b;
   text-decoration: none;
+color:white;
 }
 
 .emailGelb,
@@ -1021,7 +1064,8 @@ p,
 
 /*Admin stuff*/
 .zeitraumForm {
-  text-align: left;
+  text-align: center;
+  margin-top:3em;
 }
 
 .zeitraumForm label,
@@ -1069,6 +1113,33 @@ p,
     background-color: #f44336; color: white;
   }
 
+.btn-box {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+}
+
+.btn {
+  border: none;
+  color: white;
+  padding: 4px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.update-btn {
+  background: #4CAF50;
+width: 2em;
+
+
+}
+
+.delete-btn {
+  background: #f44336;
+width: 2em;
+
+
+}
   .saveBtn,
    .delBtn{
     padding: 0.5em 1em;
@@ -1109,7 +1180,8 @@ p,
   .hAdmin {
     grid-column: 1 / -1 !important;
     width: 90% !important;      /* etwas kleiner als 100%, wirkt harmonischer */
-    margin: 0 auto 1em auto;    /* Abstand und zentriert */
+    margin: 0 auto 1em auto; 
+       /* Abstand und zentriert */
   }
 
 .calendar {

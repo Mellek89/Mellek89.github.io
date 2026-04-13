@@ -3,10 +3,10 @@
     {
       "month": "Januar",
       "events": [
-        "halloWochenmarkt",
-        "pppp"
+        "Wochenmarkt Ehrenbreitstein<br/>",
+        "Wochenmarkt Selters "
       ],
-      "halloWochenmarkt": {
+      "Wochenmarkt Ehrenbreitstein<br/>": {
         "dates": [
           {
             "day": 7,
@@ -29,33 +29,38 @@
             "year": 2026
           }
         ],
-        "owner": "Uwe",
+        "owner": "Jan",
         "isWeekly": true
       },
-      "pppp": {
+      "Wochenmarkt Selters ": {
         "dates": [
           {
-            "day": 5,
+            "day": 1,
             "month": 0,
             "year": 2026
           },
           {
-            "day": 12,
+            "day": 8,
             "month": 0,
             "year": 2026
           },
           {
-            "day": 19,
+            "day": 15,
             "month": 0,
             "year": 2026
           },
           {
-            "day": 26,
+            "day": 22,
+            "month": 0,
+            "year": 2026
+          },
+          {
+            "day": 29,
             "month": 0,
             "year": 2026
           }
         ],
-        "owner": "Uwe",
+        "owner": "Jan",
         "isWeekly": true
       }
     },
@@ -63,8 +68,8 @@
       "month": "Februar",
       "events": [
         "Durlacher Fastnachtsumzug<br/>",
-        "halloWochenmarkt",
-        "pppp"
+        "Wochenmarkt Ehrenbreitstein<br/>",
+        "Wochenmarkt Selters "
       ],
       "Durlacher Fastnachtsumzug<br/>": {
         "dates": [
@@ -77,7 +82,7 @@
         "owner": "Uwe",
         "isWeekly": false
       },
-      "halloWochenmarkt": {
+      "Wochenmarkt Ehrenbreitstein<br/>": {
         "dates": [
           {
             "day": 4,
@@ -100,33 +105,33 @@
             "year": 2026
           }
         ],
-        "owner": "Uwe",
+        "owner": "Jan",
         "isWeekly": true
       },
-      "pppp": {
+      "Wochenmarkt Selters ": {
         "dates": [
           {
-            "day": 2,
+            "day": 5,
             "month": 1,
             "year": 2026
           },
           {
-            "day": 9,
+            "day": 12,
             "month": 1,
             "year": 2026
           },
           {
-            "day": 16,
+            "day": 19,
             "month": 1,
             "year": 2026
           },
           {
-            "day": 23,
+            "day": 26,
             "month": 1,
             "year": 2026
           }
         ],
-        "owner": "Uwe",
+        "owner": "Jan",
         "isWeekly": true
       }
     },
@@ -136,9 +141,11 @@
         "Schriesheim Mathaisemarkt<br/><br/><br/><br/><br/>",
         "Schriesheim Mathaisemarkt<br/>2",
         "Karlsruher Frühlingsfest<br/>",
-        "halloWochenmarkt",
-        "pppp",
-        "UweEvent"
+        "Wochenmarkt Ehrenbreitstein<br/>",
+        "Wochenmarkt Selters ",
+        "Abendmarkt Mülheim-Kärlich<br/>",
+        "Frühling Neuwied ",
+        "Idsteiner Frühling "
       ],
       "Schriesheim Mathaisemarkt<br/><br/><br/><br/><br/>": {
         "dates": [
@@ -308,7 +315,7 @@
         "owner": "Uwe",
         "isWeekly": false
       },
-      "halloWochenmarkt": {
+      "Wochenmarkt Ehrenbreitstein<br/>": {
         "dates": [
           {
             "day": 4,
@@ -331,94 +338,76 @@
             "year": 2026
           }
         ],
-        "owner": "Uwe",
+        "owner": "Jan",
         "isWeekly": true
       },
-      "pppp": {
+      "Wochenmarkt Selters ": {
         "dates": [
-          {
-            "day": 2,
-            "month": 2,
-            "year": 2026
-          },
-          {
-            "day": 9,
-            "month": 2,
-            "year": 2026
-          },
-          {
-            "day": 16,
-            "month": 2,
-            "year": 2026
-          },
-          {
-            "day": 23,
-            "month": 2,
-            "year": 2026
-          },
-          {
-            "day": 30,
-            "month": 2,
-            "year": 2026
-          }
-        ],
-        "owner": "Uwe",
-        "isWeekly": true
-      },
-      "UweEvent": {
-        "dates": [
-          {
-            "day": 30,
-            "month": 2,
-            "year": 2026
-          },
-          {
-            "day": 31,
-            "month": 2,
-            "year": 2026
-          },
-          {
-            "day": 1,
-            "month": 3,
-            "year": 2026
-          },
-          {
-            "day": 2,
-            "month": 3,
-            "year": 2026
-          },
-          {
-            "day": 3,
-            "month": 3,
-            "year": 2026
-          },
-          {
-            "day": 4,
-            "month": 3,
-            "year": 2026
-          },
           {
             "day": 5,
-            "month": 3,
+            "month": 2,
             "year": 2026
           },
           {
-            "day": 6,
-            "month": 3,
+            "day": 12,
+            "month": 2,
             "year": 2026
           },
           {
-            "day": 7,
-            "month": 3,
+            "day": 19,
+            "month": 2,
             "year": 2026
           },
           {
-            "day": 8,
-            "month": 3,
+            "day": 26,
+            "month": 2,
             "year": 2026
           }
         ],
-        "owner": "Uwe",
+        "owner": "Jan",
+        "isWeekly": true
+      },
+      "Abendmarkt Mülheim-Kärlich<br/>": {
+        "dates": [
+          {
+            "day": 13,
+            "month": 2,
+            "year": 2026
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": false
+      },
+      "Frühling Neuwied ": {
+        "dates": [
+          {
+            "day": 14,
+            "month": 2,
+            "year": 2026
+          },
+          {
+            "day": 15,
+            "month": 2,
+            "year": 2026
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": false
+      },
+      "Idsteiner Frühling ": {
+        "dates": [
+          {
+            "day": 21,
+            "month": 2,
+            "year": 2026
+          },
+          {
+            "day": 22,
+            "month": 2,
+            "year": 2026
+          }
+        ],
+        "owner": "Jan",
         "isWeekly": false
       }
     },
@@ -428,9 +417,12 @@
         " Frühjahrsjahrmarkt Rastatt<br/>",
         "Großflohmarkt auf dem<br/>Messplatz Karlsruhe",
         "Karlsruher Frühlingsfest<br/>",
-        "halloWochenmarkt",
-        "pppp",
-        "UweEvent"
+        "Wochenmarkt Ehrenbreitstein<br/>",
+        "Wochenmarkt Selters ",
+        "Deutsches Eck Gartenkultur<br/>",
+        "Blütenfest Koblenz-Güls<br/>",
+        "Speyerer Frühjahrsmesse<br/>",
+        "Mannheimer Maimess"
       ],
       " Frühjahrsjahrmarkt Rastatt<br/>": {
         "dates": [
@@ -600,7 +592,7 @@
         "owner": "Uwe",
         "isWeekly": false
       },
-      "halloWochenmarkt": {
+      "Wochenmarkt Ehrenbreitstein<br/>": {
         "dates": [
           {
             "day": 1,
@@ -628,52 +620,79 @@
             "year": 2026
           }
         ],
-        "owner": "Uwe",
+        "owner": "Jan",
         "isWeekly": true
       },
-      "pppp": {
+      "Wochenmarkt Selters ": {
         "dates": [
           {
-            "day": 6,
+            "day": 2,
             "month": 3,
             "year": 2026
           },
           {
-            "day": 13,
+            "day": 9,
             "month": 3,
             "year": 2026
           },
           {
-            "day": 20,
+            "day": 16,
             "month": 3,
             "year": 2026
           },
           {
-            "day": 27,
+            "day": 23,
+            "month": 3,
+            "year": 2026
+          },
+          {
+            "day": 30,
             "month": 3,
             "year": 2026
           }
         ],
-        "owner": "Uwe",
+        "owner": "Jan",
         "isWeekly": true
       },
-      "UweEvent": {
+      "Deutsches Eck Gartenkultur<br/>": {
+        "dates": [
+          {
+            "day": 26,
+            "month": 3,
+            "year": 2026
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": false
+      },
+      "Blütenfest Koblenz-Güls<br/>": {
         "dates": [
           {
             "day": 30,
-            "month": 2,
-            "year": 2026
-          },
-          {
-            "day": 31,
-            "month": 2,
+            "month": 3,
             "year": 2026
           },
           {
             "day": 1,
-            "month": 3,
+            "month": 4,
             "year": 2026
           },
+          {
+            "day": 2,
+            "month": 4,
+            "year": 2026
+          },
+          {
+            "day": 3,
+            "month": 4,
+            "year": 2026
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": false
+      },
+      "Speyerer Frühjahrsmesse<br/>": {
+        "dates": [
           {
             "day": 2,
             "month": 3,
@@ -708,9 +727,150 @@
             "day": 8,
             "month": 3,
             "year": 2026
+          },
+          {
+            "day": 9,
+            "month": 3,
+            "year": 2026
+          },
+          {
+            "day": 10,
+            "month": 3,
+            "year": 2026
+          },
+          {
+            "day": 11,
+            "month": 3,
+            "year": 2026
+          },
+          {
+            "day": 12,
+            "month": 3,
+            "year": 2026
+          },
+          {
+            "day": 13,
+            "month": 3,
+            "year": 2026
+          },
+          {
+            "day": 14,
+            "month": 3,
+            "year": 2026
+          },
+          {
+            "day": 15,
+            "month": 3,
+            "year": 2026
+          },
+          {
+            "day": 16,
+            "month": 3,
+            "year": 2026
+          },
+          {
+            "day": 17,
+            "month": 3,
+            "year": 2026
+          },
+          {
+            "day": 18,
+            "month": 3,
+            "year": 2026
+          },
+          {
+            "day": 19,
+            "month": 3,
+            "year": 2026
           }
         ],
-        "owner": "Uwe",
+        "owner": "Gernot",
+        "isWeekly": false
+      },
+      "Mannheimer Maimess": {
+        "dates": [
+          {
+            "day": 25,
+            "month": 3,
+            "year": 2026
+          },
+          {
+            "day": 26,
+            "month": 3,
+            "year": 2026
+          },
+          {
+            "day": 27,
+            "month": 3,
+            "year": 2026
+          },
+          {
+            "day": 28,
+            "month": 3,
+            "year": 2026
+          },
+          {
+            "day": 29,
+            "month": 3,
+            "year": 2026
+          },
+          {
+            "day": 30,
+            "month": 3,
+            "year": 2026
+          },
+          {
+            "day": 1,
+            "month": 4,
+            "year": 2026
+          },
+          {
+            "day": 2,
+            "month": 4,
+            "year": 2026
+          },
+          {
+            "day": 3,
+            "month": 4,
+            "year": 2026
+          },
+          {
+            "day": 4,
+            "month": 4,
+            "year": 2026
+          },
+          {
+            "day": 5,
+            "month": 4,
+            "year": 2026
+          },
+          {
+            "day": 6,
+            "month": 4,
+            "year": 2026
+          },
+          {
+            "day": 7,
+            "month": 4,
+            "year": 2026
+          },
+          {
+            "day": 8,
+            "month": 4,
+            "year": 2026
+          },
+          {
+            "day": 9,
+            "month": 4,
+            "year": 2026
+          },
+          {
+            "day": 10,
+            "month": 4,
+            "year": 2026
+          }
+        ],
+        "owner": "Gernot",
         "isWeekly": false
       }
     },
@@ -718,8 +878,11 @@
       "month": "Mai",
       "events": [
         "Maimarkt Gaggenau",
-        "halloWochenmarkt",
-        "pppp"
+        "Wochenmarkt Ehrenbreitstein<br/>",
+        "Wochenmarkt Selters ",
+        "Blütenfest Koblenz-Güls<br/>",
+        "Lahneck Live (Lahnstein)<br/>",
+        "Mannheimer Maimess"
       ],
       "Maimarkt Gaggenau": {
         "dates": [
@@ -777,7 +940,7 @@
         "owner": "Uwe",
         "isWeekly": false
       },
-      "halloWochenmarkt": {
+      "Wochenmarkt Ehrenbreitstein<br/>": {
         "dates": [
           {
             "day": 6,
@@ -800,42 +963,178 @@
             "year": 2026
           }
         ],
-        "owner": "Uwe",
+        "owner": "Jan",
         "isWeekly": true
       },
-      "pppp": {
+      "Wochenmarkt Selters ": {
         "dates": [
+          {
+            "day": 7,
+            "month": 4,
+            "year": 2026
+          },
+          {
+            "day": 14,
+            "month": 4,
+            "year": 2026
+          },
+          {
+            "day": 21,
+            "month": 4,
+            "year": 2026
+          },
+          {
+            "day": 28,
+            "month": 4,
+            "year": 2026
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": true
+      },
+      "Blütenfest Koblenz-Güls<br/>": {
+        "dates": [
+          {
+            "day": 30,
+            "month": 3,
+            "year": 2026
+          },
+          {
+            "day": 1,
+            "month": 4,
+            "year": 2026
+          },
+          {
+            "day": 2,
+            "month": 4,
+            "year": 2026
+          },
+          {
+            "day": 3,
+            "month": 4,
+            "year": 2026
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": false
+      },
+      "Lahneck Live (Lahnstein)<br/>": {
+        "dates": [
+          {
+            "day": 29,
+            "month": 4,
+            "year": 2026
+          },
+          {
+            "day": 30,
+            "month": 4,
+            "year": 2026
+          },
+          {
+            "day": 31,
+            "month": 4,
+            "year": 2026
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": false
+      },
+      "Mannheimer Maimess": {
+        "dates": [
+          {
+            "day": 25,
+            "month": 3,
+            "year": 2026
+          },
+          {
+            "day": 26,
+            "month": 3,
+            "year": 2026
+          },
+          {
+            "day": 27,
+            "month": 3,
+            "year": 2026
+          },
+          {
+            "day": 28,
+            "month": 3,
+            "year": 2026
+          },
+          {
+            "day": 29,
+            "month": 3,
+            "year": 2026
+          },
+          {
+            "day": 30,
+            "month": 3,
+            "year": 2026
+          },
+          {
+            "day": 1,
+            "month": 4,
+            "year": 2026
+          },
+          {
+            "day": 2,
+            "month": 4,
+            "year": 2026
+          },
+          {
+            "day": 3,
+            "month": 4,
+            "year": 2026
+          },
           {
             "day": 4,
             "month": 4,
             "year": 2026
           },
           {
-            "day": 11,
+            "day": 5,
             "month": 4,
             "year": 2026
           },
           {
-            "day": 18,
+            "day": 6,
             "month": 4,
             "year": 2026
           },
           {
-            "day": 25,
+            "day": 7,
+            "month": 4,
+            "year": 2026
+          },
+          {
+            "day": 8,
+            "month": 4,
+            "year": 2026
+          },
+          {
+            "day": 9,
+            "month": 4,
+            "year": 2026
+          },
+          {
+            "day": 10,
             "month": 4,
             "year": 2026
           }
         ],
-        "owner": "Uwe",
-        "isWeekly": true
+        "owner": "Gernot",
+        "isWeekly": false
       }
     },
     {
       "month": "Juni",
       "events": [
         "Grossflohmarkt auf dem<br/>Messplatz Karlsruhe",
-        "halloWochenmarkt",
-        "pppp"
+        "Wochenmarkt Ehrenbreitstein<br/>",
+        "Wochenmarkt Selters ",
+        "Keramikmarkt (Höhr-Grenzhausen)<br/>",
+        "Ballonfestival (Bonn)<br/><br/><br/>",
+        "Jedem Sayn Tal (Selters)<br/>"
       ],
       "Grossflohmarkt auf dem<br/>Messplatz Karlsruhe": {
         "dates": [
@@ -848,7 +1147,7 @@
         "owner": "Uwe",
         "isWeekly": false
       },
-      "halloWochenmarkt": {
+      "Wochenmarkt Ehrenbreitstein<br/>": {
         "dates": [
           {
             "day": 3,
@@ -871,47 +1170,96 @@
             "year": 2026
           }
         ],
-        "owner": "Uwe",
+        "owner": "Jan",
         "isWeekly": true
       },
-      "pppp": {
+      "Wochenmarkt Selters ": {
         "dates": [
           {
-            "day": 1,
+            "day": 4,
             "month": 5,
             "year": 2026
           },
           {
-            "day": 8,
+            "day": 11,
             "month": 5,
             "year": 2026
           },
           {
-            "day": 15,
+            "day": 18,
             "month": 5,
             "year": 2026
           },
           {
-            "day": 22,
-            "month": 5,
-            "year": 2026
-          },
-          {
-            "day": 29,
+            "day": 25,
             "month": 5,
             "year": 2026
           }
         ],
-        "owner": "Uwe",
+        "owner": "Jan",
         "isWeekly": true
+      },
+      "Keramikmarkt (Höhr-Grenzhausen)<br/>": {
+        "dates": [
+          {
+            "day": 6,
+            "month": 5,
+            "year": 2026
+          },
+          {
+            "day": 7,
+            "month": 5,
+            "year": 2026
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": false
+      },
+      "Jedem Sayn Tal (Selters)<br/>": {
+        "dates": [
+          {
+            "day": 21,
+            "month": 5,
+            "year": 2026
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": false
+      },
+      "Ballonfestival (Bonn)<br/><br/><br/>": {
+        "dates": [
+          {
+            "day": 12,
+            "month": 5,
+            "year": 2026
+          },
+          {
+            "day": 13,
+            "month": 5,
+            "year": 2026
+          },
+          {
+            "day": 14,
+            "month": 5,
+            "year": 2026
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": false
       }
     },
     {
       "month": "Juli",
       "events": [
         "Grossflohmarkt auf dem<br/>Messplatz Karlsruhe",
-        "halloWochenmarkt",
-        "pppp"
+        "Wochenmarkt Ehrenbreitstein<br/>",
+        "Wochenmarkt Selters ",
+        "Andernach Schmeckt ",
+        "Weinfest (Löf) ",
+        "Gauklerfest (Festungen<br/>- Ehrenbreitstein)",
+        "Bretten Peter und Paul<br/>Fest ",
+        "Speyerer Brezelfest",
+        "Karlsruhe DAS FEST"
       ],
       "Grossflohmarkt auf dem<br/>Messplatz Karlsruhe": {
         "dates": [
@@ -924,7 +1272,7 @@
         "owner": "Uwe",
         "isWeekly": false
       },
-      "halloWochenmarkt": {
+      "Wochenmarkt Ehrenbreitstein<br/>": {
         "dates": [
           {
             "day": 1,
@@ -952,13 +1300,143 @@
             "year": 2026
           }
         ],
-        "owner": "Uwe",
+        "owner": "Jan",
         "isWeekly": true
       },
-      "pppp": {
+      "Wochenmarkt Selters ": {
         "dates": [
           {
+            "day": 2,
+            "month": 6,
+            "year": 2026
+          },
+          {
+            "day": 9,
+            "month": 6,
+            "year": 2026
+          },
+          {
+            "day": 16,
+            "month": 6,
+            "year": 2026
+          },
+          {
+            "day": 23,
+            "month": 6,
+            "year": 2026
+          },
+          {
+            "day": 30,
+            "month": 6,
+            "year": 2026
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": true
+      },
+      "Andernach Schmeckt ": {
+        "dates": [
+          {
+            "day": 5,
+            "month": 6,
+            "year": 2026
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": false
+      },
+      "Weinfest (Löf) ": {
+        "dates": [
+          {
+            "day": 10,
+            "month": 6,
+            "year": 2026
+          },
+          {
+            "day": 11,
+            "month": 6,
+            "year": 2026
+          },
+          {
+            "day": 12,
+            "month": 6,
+            "year": 2026
+          },
+          {
+            "day": 13,
+            "month": 6,
+            "year": 2026
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": false
+      },
+      "Gauklerfest (Festungen<br/>- Ehrenbreitstein)": {
+        "dates": [
+          {
+            "day": 31,
+            "month": 6,
+            "year": 2026
+          },
+          {
+            "day": 1,
+            "month": 7,
+            "year": 2026
+          },
+          {
+            "day": 2,
+            "month": 7,
+            "year": 2026
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": false
+      },
+      "Bretten Peter und Paul<br/>Fest ": {
+        "dates": [
+          {
+            "day": 3,
+            "month": 6,
+            "year": 2026
+          },
+          {
+            "day": 4,
+            "month": 6,
+            "year": 2026
+          },
+          {
+            "day": 5,
+            "month": 6,
+            "year": 2026
+          },
+          {
             "day": 6,
+            "month": 6,
+            "year": 2026
+          }
+        ],
+        "owner": "Gernot",
+        "isWeekly": false
+      },
+      "Speyerer Brezelfest": {
+        "dates": [
+          {
+            "day": 9,
+            "month": 6,
+            "year": 2026
+          },
+          {
+            "day": 10,
+            "month": 6,
+            "year": 2026
+          },
+          {
+            "day": 11,
+            "month": 6,
+            "year": 2026
+          },
+          {
+            "day": 12,
             "month": 6,
             "year": 2026
           },
@@ -968,27 +1446,85 @@
             "year": 2026
           },
           {
-            "day": 20,
-            "month": 6,
-            "year": 2026
-          },
-          {
-            "day": 27,
+            "day": 14,
             "month": 6,
             "year": 2026
           }
         ],
-        "owner": "Uwe",
-        "isWeekly": true
+        "owner": "Gernot",
+        "isWeekly": false
+      },
+      "Karlsruhe DAS FEST": {
+        "dates": [
+          {
+            "day": 23,
+            "month": 6,
+            "year": 2026
+          },
+          {
+            "day": 24,
+            "month": 6,
+            "year": 2026
+          },
+          {
+            "day": 25,
+            "month": 6,
+            "year": 2026
+          },
+          {
+            "day": 26,
+            "month": 6,
+            "year": 2026
+          }
+        ],
+        "owner": "Gernot",
+        "isWeekly": false
       }
     },
     {
       "month": "August",
       "events": [
-        "halloWochenmarkt",
-        "pppp"
+        "Eberbacher Kuckucksmarkt<br/>",
+        "Wochenmarkt Ehrenbreitstein<br/>",
+        "Wochenmarkt Selters ",
+        "Gauklerfest (Festungen<br/>- Ehrenbreitstein)",
+        "Rhein in Flammen (Koblenz<br/>Deutsches Eck)",
+        "Weinfest (Dieblich)",
+        "Moselfest (Winningen)<br/>",
+        "Karlsruhe Neureuter Kerwe<br/>"
       ],
-      "halloWochenmarkt": {
+      "Eberbacher Kuckucksmarkt<br/>": {
+        "dates": [
+          {
+            "day": 28,
+            "month": 7,
+            "year": 2026
+          },
+          {
+            "day": 29,
+            "month": 7,
+            "year": 2026
+          },
+          {
+            "day": 30,
+            "month": 7,
+            "year": 2026
+          },
+          {
+            "day": 31,
+            "month": 7,
+            "year": 2026
+          },
+          {
+            "day": 1,
+            "month": 8,
+            "year": 2026
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": false
+      },
+      "Wochenmarkt Ehrenbreitstein<br/>": {
         "dates": [
           {
             "day": 5,
@@ -1011,28 +1547,112 @@
             "year": 2026
           }
         ],
-        "owner": "Uwe",
+        "owner": "Jan",
         "isWeekly": true
       },
-      "pppp": {
+      "Wochenmarkt Selters ": {
         "dates": [
           {
-            "day": 3,
+            "day": 6,
             "month": 7,
             "year": 2026
           },
           {
-            "day": 10,
+            "day": 13,
             "month": 7,
             "year": 2026
           },
           {
-            "day": 17,
+            "day": 20,
             "month": 7,
             "year": 2026
           },
           {
-            "day": 24,
+            "day": 27,
+            "month": 7,
+            "year": 2026
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": true
+      },
+      "Gauklerfest (Festungen<br/>- Ehrenbreitstein)": {
+        "dates": [
+          {
+            "day": 31,
+            "month": 6,
+            "year": 2026
+          },
+          {
+            "day": 1,
+            "month": 7,
+            "year": 2026
+          },
+          {
+            "day": 2,
+            "month": 7,
+            "year": 2026
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": false
+      },
+      "Rhein in Flammen (Koblenz<br/>Deutsches Eck)": {
+        "dates": [
+          {
+            "day": 7,
+            "month": 7,
+            "year": 2026
+          },
+          {
+            "day": 8,
+            "month": 7,
+            "year": 2026
+          },
+          {
+            "day": 9,
+            "month": 7,
+            "year": 2026
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": false
+      },
+      "Weinfest (Dieblich)": {
+        "dates": [
+          {
+            "day": 21,
+            "month": 7,
+            "year": 2026
+          },
+          {
+            "day": 22,
+            "month": 7,
+            "year": 2026
+          },
+          {
+            "day": 23,
+            "month": 7,
+            "year": 2026
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": false
+      },
+      "Moselfest (Winningen)<br/>": {
+        "dates": [
+          {
+            "day": 28,
+            "month": 7,
+            "year": 2026
+          },
+          {
+            "day": 29,
+            "month": 7,
+            "year": 2026
+          },
+          {
+            "day": 30,
             "month": 7,
             "year": 2026
           },
@@ -1040,18 +1660,79 @@
             "day": 31,
             "month": 7,
             "year": 2026
+          },
+          {
+            "day": 1,
+            "month": 8,
+            "year": 2026
+          },
+          {
+            "day": 2,
+            "month": 8,
+            "year": 2026
+          },
+          {
+            "day": 3,
+            "month": 8,
+            "year": 2026
+          },
+          {
+            "day": 4,
+            "month": 8,
+            "year": 2026
+          },
+          {
+            "day": 5,
+            "month": 8,
+            "year": 2026
+          },
+          {
+            "day": 6,
+            "month": 8,
+            "year": 2026
           }
         ],
-        "owner": "Uwe",
-        "isWeekly": true
+        "owner": "Jan",
+        "isWeekly": false
+      },
+      "Karlsruhe Neureuter Kerwe<br/>": {
+        "dates": [
+          {
+            "day": 14,
+            "month": 7,
+            "year": 2026
+          },
+          {
+            "day": 15,
+            "month": 7,
+            "year": 2026
+          },
+          {
+            "day": 16,
+            "month": 7,
+            "year": 2026
+          },
+          {
+            "day": 17,
+            "month": 7,
+            "year": 2026
+          }
+        ],
+        "owner": "Gernot",
+        "isWeekly": false
       }
     },
     {
       "month": "September",
       "events": [
         "Grossflohmarkt auf dem<br/>Messplatz Karlsruhe",
-        "halloWochenmarkt",
-        "pppp"
+        "Eberbacher Kuckucksmarkt<br/>",
+        "Wochenmarkt Ehrenbreitstein<br/>",
+        "Wochenmarkt Selters ",
+        "Moselfest (Winningen)<br/>",
+        "Kunsthandwerker Markt<br/>(Koblenz-Schlossstraße)",
+        "Michelsmarkt (Andernach)<br/>",
+        "Mannheimer Oktobermess<br/>"
       ],
       "Grossflohmarkt auf dem<br/>Messplatz Karlsruhe": {
         "dates": [
@@ -1064,7 +1745,38 @@
         "owner": "Uwe",
         "isWeekly": false
       },
-      "halloWochenmarkt": {
+      "Eberbacher Kuckucksmarkt<br/>": {
+        "dates": [
+          {
+            "day": 28,
+            "month": 7,
+            "year": 2026
+          },
+          {
+            "day": 29,
+            "month": 7,
+            "year": 2026
+          },
+          {
+            "day": 30,
+            "month": 7,
+            "year": 2026
+          },
+          {
+            "day": 31,
+            "month": 7,
+            "year": 2026
+          },
+          {
+            "day": 1,
+            "month": 8,
+            "year": 2026
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": false
+      },
+      "Wochenmarkt Ehrenbreitstein<br/>": {
         "dates": [
           {
             "day": 2,
@@ -1092,23 +1804,126 @@
             "year": 2026
           }
         ],
-        "owner": "Uwe",
+        "owner": "Jan",
         "isWeekly": true
       },
-      "pppp": {
+      "Wochenmarkt Selters ": {
         "dates": [
           {
-            "day": 7,
+            "day": 3,
             "month": 8,
             "year": 2026
           },
           {
-            "day": 14,
+            "day": 10,
             "month": 8,
             "year": 2026
           },
           {
-            "day": 21,
+            "day": 17,
+            "month": 8,
+            "year": 2026
+          },
+          {
+            "day": 24,
+            "month": 8,
+            "year": 2026
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": true
+      },
+      "Moselfest (Winningen)<br/>": {
+        "dates": [
+          {
+            "day": 28,
+            "month": 7,
+            "year": 2026
+          },
+          {
+            "day": 29,
+            "month": 7,
+            "year": 2026
+          },
+          {
+            "day": 30,
+            "month": 7,
+            "year": 2026
+          },
+          {
+            "day": 31,
+            "month": 7,
+            "year": 2026
+          },
+          {
+            "day": 1,
+            "month": 8,
+            "year": 2026
+          },
+          {
+            "day": 2,
+            "month": 8,
+            "year": 2026
+          },
+          {
+            "day": 3,
+            "month": 8,
+            "year": 2026
+          },
+          {
+            "day": 4,
+            "month": 8,
+            "year": 2026
+          },
+          {
+            "day": 5,
+            "month": 8,
+            "year": 2026
+          },
+          {
+            "day": 6,
+            "month": 8,
+            "year": 2026
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": false
+      },
+      "Kunsthandwerker Markt<br/>(Koblenz-Schlossstraße)": {
+        "dates": [
+          {
+            "day": 18,
+            "month": 8,
+            "year": 2026
+          },
+          {
+            "day": 19,
+            "month": 8,
+            "year": 2026
+          },
+          {
+            "day": 20,
+            "month": 8,
+            "year": 2026
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": false
+      },
+      "Michelsmarkt (Andernach)<br/>": {
+        "dates": [
+          {
+            "day": 25,
+            "month": 8,
+            "year": 2026
+          },
+          {
+            "day": 26,
+            "month": 8,
+            "year": 2026
+          },
+          {
+            "day": 27,
             "month": 8,
             "year": 2026
           },
@@ -1116,53 +1931,314 @@
             "day": 28,
             "month": 8,
             "year": 2026
+          },
+          {
+            "day": 29,
+            "month": 8,
+            "year": 2026
           }
         ],
-        "owner": "Uwe",
-        "isWeekly": true
-      }
-    },
-    {
-      "month": "Oktober",
-      "events": [
-        "halloWochenmarkt",
-        "pppp"
-      ],
-      "halloWochenmarkt": {
+        "owner": "Jan",
+        "isWeekly": false
+      },
+      "Mannheimer Oktobermess<br/>": {
         "dates": [
           {
-            "day": 7,
-            "month": 9,
+            "day": 26,
+            "month": 8,
             "year": 2026
           },
           {
-            "day": 14,
-            "month": 9,
-            "year": 2026
-          },
-          {
-            "day": 21,
-            "month": 9,
+            "day": 27,
+            "month": 8,
             "year": 2026
           },
           {
             "day": 28,
+            "month": 8,
+            "year": 2026
+          },
+          {
+            "day": 29,
+            "month": 8,
+            "year": 2026
+          },
+          {
+            "day": 30,
+            "month": 8,
+            "year": 2026
+          },
+          {
+            "day": 1,
             "month": 9,
             "year": 2026
-          }
-        ],
-        "owner": "Uwe",
-        "isWeekly": true
-      },
-      "pppp": {
-        "dates": [
+          },
+          {
+            "day": 2,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 3,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 4,
+            "month": 9,
+            "year": 2026
+          },
           {
             "day": 5,
             "month": 9,
             "year": 2026
           },
           {
-            "day": 12,
+            "day": 6,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 7,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 8,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 9,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 10,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 11,
+            "month": 9,
+            "year": 2026
+          }
+        ],
+        "owner": "Gernot",
+        "isWeekly": false
+      }
+    },
+    {
+      "month": "Oktober",
+      "events": [
+        "Wochenmarkt Ehrenbreitstein<br/>",
+        "Wochenmarkt Selters ",
+        "Herbert Markt (Idstein)<br/>",
+        "Simon Juda Markt (Altenkirchen)<br/>",
+        "Mannheimer Oktobermess<br/>",
+        "Mannheim Feudenheimer<br/>Kerwe",
+        "Speyerer Hebstmesse"
+      ],
+      "Wochenmarkt Ehrenbreitstein<br/>": {
+        "dates": [
+          {
+            "day": 7,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 14,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 21,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 28,
+            "month": 9,
+            "year": 2026
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": true
+      },
+      "Wochenmarkt Selters ": {
+        "dates": [
+          {
+            "day": 1,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 8,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 15,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 22,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 29,
+            "month": 9,
+            "year": 2026
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": true
+      },
+      "Herbert Markt (Idstein)<br/>": {
+        "dates": [
+          {
+            "day": 10,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 11,
+            "month": 9,
+            "year": 2026
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": false
+      },
+      "Simon Juda Markt (Altenkirchen)<br/>": {
+        "dates": [
+          {
+            "day": 30,
+            "month": 9,
+            "year": 2026
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": false
+      },
+      "Mannheimer Oktobermess<br/>": {
+        "dates": [
+          {
+            "day": 26,
+            "month": 8,
+            "year": 2026
+          },
+          {
+            "day": 27,
+            "month": 8,
+            "year": 2026
+          },
+          {
+            "day": 28,
+            "month": 8,
+            "year": 2026
+          },
+          {
+            "day": 29,
+            "month": 8,
+            "year": 2026
+          },
+          {
+            "day": 30,
+            "month": 8,
+            "year": 2026
+          },
+          {
+            "day": 1,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 2,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 3,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 4,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 5,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 6,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 7,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 8,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 9,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 10,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 11,
+            "month": 9,
+            "year": 2026
+          }
+        ],
+        "owner": "Gernot",
+        "isWeekly": false
+      },
+      "Mannheim Feudenheimer<br/>Kerwe": {
+        "dates": [
+          {
+            "day": 17,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 18,
+            "month": 9,
+            "year": 2026
+          }
+        ],
+        "owner": "Gernot",
+        "isWeekly": false
+      },
+      "Speyerer Hebstmesse": {
+        "dates": [
+          {
+            "day": 16,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 17,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 18,
             "month": 9,
             "year": 2026
           },
@@ -1172,20 +2248,47 @@
             "year": 2026
           },
           {
-            "day": 26,
+            "day": 20,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 21,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 22,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 23,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 24,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 25,
             "month": 9,
             "year": 2026
           }
         ],
-        "owner": "Uwe",
-        "isWeekly": true
+        "owner": "Gernot",
+        "isWeekly": false
       }
     },
     {
       "month": "November",
       "events": [
-        "halloWochenmarkt",
-        "pppp"
+        "Wochenmarkt Ehrenbreitstein<br/>",
+        "Wochenmarkt Selters ",
+        "Katharinenmarkt (Hachenburg)<br/>",
+        "Karlsruher Christkindlesmarkt<br/>"
       ],
       "Mittelalterlicher Weihnachtsmarkt<br/>Durlach": {
         "dates": [
@@ -1677,7 +2780,7 @@
         "owner": "Jan",
         "isWeekly": false
       },
-      "halloWochenmarkt": {
+      "Wochenmarkt Ehrenbreitstein<br/>": {
         "dates": [
           {
             "day": 4,
@@ -1700,39 +2803,45 @@
             "year": 2026
           }
         ],
-        "owner": "Uwe",
+        "owner": "Jan",
         "isWeekly": true
       },
-      "pppp": {
+      "Wochenmarkt Selters ": {
         "dates": [
           {
-            "day": 2,
+            "day": 5,
             "month": 10,
             "year": 2026
           },
           {
-            "day": 9,
+            "day": 12,
             "month": 10,
             "year": 2026
           },
           {
-            "day": 16,
+            "day": 19,
             "month": 10,
             "year": 2026
           },
           {
-            "day": 23,
-            "month": 10,
-            "year": 2026
-          },
-          {
-            "day": 30,
+            "day": 26,
             "month": 10,
             "year": 2026
           }
         ],
-        "owner": "Uwe",
+        "owner": "Jan",
         "isWeekly": true
+      },
+      "Katharinenmarkt (Hachenburg)<br/>": {
+        "dates": [
+          {
+            "day": 7,
+            "month": 10,
+            "year": 2026
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": false
       }
     },
     {
@@ -1743,8 +2852,8 @@
         "Ettlinger Sternlesmarkt<br/>",
         "Weihnachtsmarkt Rastatt<br/><br/><br/>",
         "Mannheimer Weihnachtsmarkt<br/>",
-        "halloWochenmarkt",
-        "pppp"
+        "Wochenmarkt Ehrenbreitstein<br/>",
+        "Wochenmarkt Selters "
       ],
       "Mittelalterlicher Weihnachtsmarkt<br/>Durlach": {
         "dates": [
@@ -3671,7 +4780,7 @@
         "owner": "Jan",
         "isWeekly": false
       },
-      "halloWochenmarkt": {
+      "Wochenmarkt Ehrenbreitstein<br/>": {
         "dates": [
           {
             "day": 2,
@@ -3699,33 +4808,38 @@
             "year": 2026
           }
         ],
-        "owner": "Uwe",
+        "owner": "Jan",
         "isWeekly": true
       },
-      "pppp": {
+      "Wochenmarkt Selters ": {
         "dates": [
           {
-            "day": 7,
+            "day": 3,
             "month": 11,
             "year": 2026
           },
           {
-            "day": 14,
+            "day": 10,
             "month": 11,
             "year": 2026
           },
           {
-            "day": 21,
+            "day": 17,
             "month": 11,
             "year": 2026
           },
           {
-            "day": 28,
+            "day": 24,
+            "month": 11,
+            "year": 2026
+          },
+          {
+            "day": 31,
             "month": 11,
             "year": 2026
           }
         ],
-        "owner": "Uwe",
+        "owner": "Jan",
         "isWeekly": true
       }
     }
@@ -3748,13 +4862,42 @@
         "Schriesheim Mathaisemarkt<br/><br/><br/><br/><br/>",
         "Schriesheim Mathaisemarkt<br/>2",
         "Karlsruher Frühlingsfest<br/>",
-        "halloWochenmarkt",
-        "pppp"
+        "Eberbacher Kuckucksmarkt<br/>",
+        "Speyerer Frühjahrsmesse<br/>",
+        "Bretten Peter und Paul<br/>Fest ",
+        "Speyerer Brezelfest",
+        "Karlsruhe DAS FEST",
+        "Karlsruhe Neureuter Kerwe<br/>",
+        "Mannheimer Oktobermess<br/>",
+        "Mannheim Feudenheimer<br/>Kerwe",
+        "Speyerer Hebstmesse",
+        "Mannheimer Maimess"
       ]
     },
     "Mittelrhein": {
       "regions": [
-        "UweEvent"
+        "Wochenmarkt Ehrenbreitstein<br/>",
+        "Wochenmarkt Selters ",
+        "Abendmarkt Mülheim-Kärlich<br/>",
+        "Frühling Neuwied ",
+        "Idsteiner Frühling ",
+        "Deutsches Eck Gartenkultur<br/>",
+        "Blütenfest Koblenz-Güls<br/>",
+        "Lahneck Live (Lahnstein)<br/>",
+        "Keramikmarkt (Höhr-Grenzhausen)<br/>",
+        "Ballonfestival (Bonn)<br/><br/><br/>",
+        "Jedem Sayn Tal (Selters)<br/>",
+        "Andernach Schmeckt ",
+        "Weinfest (Löf) ",
+        "Gauklerfest (Festungen<br/>- Ehrenbreitstein)",
+        "Rhein in Flammen (Koblenz<br/>Deutsches Eck)",
+        "Weinfest (Dieblich)",
+        "Moselfest (Winningen)<br/>",
+        "Kunsthandwerker Markt<br/>(Koblenz-Schlossstraße)",
+        "Michelsmarkt (Andernach)<br/>",
+        "Herbert Markt (Idstein)<br/>",
+        "Simon Juda Markt (Altenkirchen)<br/>",
+        "Katharinenmarkt (Hachenburg)<br/>"
       ]
     }
   }
