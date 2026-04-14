@@ -87,7 +87,7 @@ const renderCalender = () => {
             const eventDates = ev.dates.map(d => `${d.day}.${d.month+1}.${d.year}`).join(", ");
             const div = document.createElement("div");
             div.className = "event-item";
-            div.innerHTML = `<strong>${ev.name}</strong>`;
+            div.innerHTML = `<span><strong>${ev.name}</strong></span>`;
             console.log("EV:", ev);
             div.dataset.event = JSON.stringify(ev);
             eventListDiv.appendChild(div); 
@@ -117,65 +117,6 @@ prevNextIcon.forEach(icon => {
 
 
 
-/*function showEvents() {
-  const eventList = document.getElementById("eventList");
-  if (!eventList) return; 
-
-  const firstItem = eventList.querySelector(".event-item");
-
-  if (firstItem){
-    firstItem.classList.add("active");
-  }
-
-  eventList.addEventListener("click", (e) => {
-     //firstItem.classList.remove("active");
-    const item = e.target.closest(".event-item");
-  
-    if (item) {
-     const ev = JSON.parse(item.dataset.event);
-
-      document.querySelectorAll(".selected-day").forEach(el => {
-        el.classList.remove("selected-day");
-         el.classList.remove("active");
-      });
-       document.querySelectorAll(".event-item").forEach(el => {
-         el.classList.remove("active");
-      });
-
-       item.classList.add("active");
-
-     const start = new Date(ev.dates[0].year, ev.dates[0].month, ev.dates[0].day);
-     const end   = new Date(ev.dates[ev.dates.length - 1].year, ev.dates[ev.dates.length - 1].month, ev.dates[ev.dates.length - 1].day);
-    let current = new Date(start);
-
- while (current <= end) {
-    const iso = `${current.getFullYear()}-${String(current.getMonth() + 1).padStart(2,'0')}-${String(current.getDate()).padStart(2,'0')}`;
-
-    const dayEl = document.querySelector(`[data-iso-date="${iso}"]`);
-
-    if (dayEl) {
-      dayEl.classList.add("selected-day");
-    }
-
-    // 👉 nächsten Tag
-    current.setDate(current.getDate() + 1);
-  }
-
-      
-
-      // 👉 neue Tage markieren
-      ev.dates.forEach(d => {
-        const iso = `${d.year}-${String(d.month + 1).padStart(2,'0')}-${String(d.day).padStart(2,'0')}`;
-
-        const dayEl = document.querySelector(`[data-iso-date="${iso}"]`);
-        
-        if (dayEl) {
-          dayEl.classList.add("selected-day");
-        }
-      });
-    }
-  });
-}*/
 
 function selectEvent(item) {
   const ev = JSON.parse(item.dataset.event);

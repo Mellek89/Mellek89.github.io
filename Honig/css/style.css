@@ -358,7 +358,7 @@ font-size: medium;
 }
 iframe{
 
-   width:100%;
+  width:100%;
   height:300px;
   border:0;
  
@@ -370,9 +370,64 @@ iframe{
   flex-direction: column;
   gap: 1em;
 }
-.event-item.active {
- border-bottom: 1px solid rgba(238,184,52);
 
+/*.event-item {
+  outline: 2px solid red;
+}
+
+.event-item span {
+  outline: 2px solid blue;
+}
+
+.event-item.active span::after {
+  outline: 2px solid green;
+}*/
+.event-item {
+  position: relative;
+  padding-bottom: 18px;
+  text-align: center;
+}
+
+/* Linien links + rechts */
+.event-item.active::before,
+.event-item.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 40%;
+  height: 1px;
+  background: rgba(238,184,52);
+}
+
+/* linke Linie */
+.event-item.active::before {
+  left: 0;
+}
+
+/* rechte Linie */
+.event-item.active::after {
+  right: 0;
+}
+
+/* Wrapper für Text */
+.event-item span {
+  position: relative;
+  display: inline-block;
+}
+
+/* SVG in der Mitte */
+.event-item.active span::after {
+  content: "";
+  position: absolute;
+  bottom: -33px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 25px;
+  height: 25px;
+
+  background: url(../images/graduationHat.svg) no-repeat center;
+  background-size: contain;
 }
 .cursoContainer{
   display: flex;
