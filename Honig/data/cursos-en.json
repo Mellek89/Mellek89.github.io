@@ -11,7 +11,15 @@
       {
           "name": "First hive – what now?",
           "dates": [
-            {"day": 1, "month": 2, "year": 2026}
+           {"day": 1, "month": 2, "year": 2026},
+            {"day": 3, "month": 3, "year": 2026}
+          ],
+          "isWeekly": false
+        },
+        {
+          "name": "another Event",
+          "dates": [
+            {"day": 15, "month": 3, "year": 2026}
           ],
           "isWeekly": false
         }
@@ -33,7 +41,16 @@
           
           ],
           "isWeekly": false
+        }, {
+          "name": "What the hell, let's do another",
+          "dates": [
+            {"day": 15, "month": 3, "year": 2026},
+              {"day": 5, "month": 4, "year": 2026}
+          
+          ],
+          "isWeekly": false
         }
+
     ] },
     { "month": "Mai", "events": [] },
     { "month": "Juni", "events": [] },

@@ -17,7 +17,23 @@
         }
 
     ] },
-    { "month": "April", "events": [] },
+    { "month": "April", "events": [
+      {
+          "name": "Primera colmena. ¿Y ahora qué?",
+          "dates": [
+            {"day": 1, "month": 3, "year": 2026}
+          ],
+          "isWeekly": false
+        },{
+          "name": "un otra actividad",
+          "dates": [
+            {"day": 1, "month": 3, "year": 2026},
+             {"day": 10, "month": 3, "year": 2026}
+          ],
+          "isWeekly": false
+        }
+
+    ] },
     { "month": "Mai", "events": [] },
     { "month": "Juni", "events": [] },
     { "month": "Juli", "events": [] },
