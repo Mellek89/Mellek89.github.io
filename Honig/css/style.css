@@ -314,16 +314,57 @@ max-width: 100%;
   ;
 padding: 2em;
 }
+
+
+.intro-premium {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .intro-text h2 {
+    font-size: 32px;
+  }
+
+  .lead {
+    font-size: 18px;
+  }
+
+  .sub {
+    max-width: 100%;
+  }
+
+.premium {
+  padding: 80px 20px;
+  background: #f9f9f7;
+}
+
+
+.intro-visual {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  
+}
+
+.intro-visual img {
+  max-width: 260px;
+  height: auto;
+  opacity: 0.95;
+}
 .headlineProdAndHoneyCup{
-display: flex;
-flex-direction: column;
-align-items: center;
-gap: 3em;
-margin-top: 1em;
+ max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
 }
 .svgHoneyCup{
   width: 200px;
-  margin-top: 10px;
+  max-width: 260px;
+
 }
 
 /*index.html*/
@@ -333,8 +374,8 @@ font-size: medium;
   text-align: center;
   padding: 0.5em;
 }
-.location,
-.productos {
+.location
+ {
   max-width: 800px;
   margin: 40px auto;
   padding: 20px;
@@ -351,6 +392,7 @@ font-size: medium;
 }
 .productos {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   padding: 40px;
   gap: 2em;
@@ -365,9 +407,6 @@ font-size: medium;
   transition: transform 0.2s ease;
 }
 
-.produkt-card:hover {
-  transform: translateY(-5px);
-}
 
 .produkt-card a {
   text-decoration: none;
@@ -854,11 +893,36 @@ footer.en{
 
 }
 
-.svgHoneyCup{
-  width: 300px;
-  margin-top: 10px;
+
+
+.intro-text h2 {
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  margin-bottom: 20px;
+  color: #1a1a1a;
 }
 
+.headlineProdAndHoneyCup{
+  flex-direction: row;
+}
+.lead {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 15px;
+  color: #2e2e2e;
+}
+
+.sub {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #666;
+  max-width: 480px;
+}
+.productos {
+
+  flex-direction: row;
+}
 .hero{
   max-height: 800px;
   width: 900px;
