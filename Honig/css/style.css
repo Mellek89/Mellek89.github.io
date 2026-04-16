@@ -394,7 +394,7 @@ font-size: medium;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 40px;
+  padding: 10px;
   gap: 2em;
 }
 
@@ -922,6 +922,7 @@ footer.en{
 .productos {
 
   flex-direction: row;
+  padding: 40px;
 }
 .hero{
   max-height: 800px;
