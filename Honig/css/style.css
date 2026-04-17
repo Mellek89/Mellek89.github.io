@@ -945,6 +945,10 @@ footer.en{
   padding: 40px;
   align-items: center;  
 }
+.produkt-list{
+
+justify-content: left;
+}
 .hero{
   max-height: 800px;
   width: 900px;
