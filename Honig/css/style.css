@@ -405,6 +405,7 @@ font-size: medium;
   flex-wrap: wrap;  
   gap: 2em;
    align-items: stretch;
+   justify-content: center;
 }
 .produkt-card {
  
