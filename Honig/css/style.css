@@ -288,9 +288,7 @@ max-width: 100%;
   cursor: pointer;
 }
 
-.langDropdown .option:hover {
-  background: #eee;
-}
+
 
 /* sichtbar wenn aktiv */
 .langDropdown.active {
