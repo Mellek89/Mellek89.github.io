@@ -873,7 +873,11 @@ position:fixed;
   grid-column: 1;
 
 }
-
+.gMaps{
+  display: flex;
+  flex-direction: row;
+  gap:5em
+}
 
 
 .intro-text h2 {
