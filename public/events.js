@@ -54,7 +54,7 @@ const months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "A
 				"Oktober", "November", "Dezember"]
 
 		async function getData() {
-					 const url = `/events.json`; 
+					 const url = `../daten/events.json`; 
 					try {
             console.time("fetch");
 					  const response = await fetch(url);
