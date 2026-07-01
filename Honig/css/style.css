@@ -315,7 +315,7 @@ font-size: medium;
   margin-top: 1rem;
   display: flex;
   flex-direction: row-reverse;
- width: 160px;
+   width: 165px;
   align-items: center;
   gap: 1.5rem;
 }
@@ -809,14 +809,12 @@ h1 {
 
 /* Footer */
 .footer{
+  position: relative;
   background-color: #000000;
   text-align: center;
   padding: 1rem;
   color: #fff;
   
-}
-footer.en{
- background-color: #F3C7D1;
 }
 
 @media (min-width: 676px) {
@@ -835,8 +833,9 @@ footer.en{
   }
 
   .header {
+    position: fixed;
   display: block;
-    background-color: #F5F5F5;
+  background-color: #F5F5F5;
 
   }
     .nav{
