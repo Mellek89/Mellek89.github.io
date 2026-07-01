@@ -187,16 +187,10 @@ padding: 0;
 }
 
 
-
-
-
-
-
 .lang-picker {
 position: relative;
 grid-column: -1;
 max-width: 100%;
-
 align-self: center;  
  padding-right: 1em;
  z-index: 300;
@@ -339,6 +333,24 @@ width: 50px;
   background: #f9f9f9;
 
 }
+
+.map {
+  width: 100%;
+  height: 300px;
+  border: 0;
+  margin-top: 15px;
+  border-radius: 8px;
+}
+iframe{
+
+  width:100%;
+  height:300px;
+  border:0;
+ 
+}
+
+
+/*productos*/
 .produkt-link {
   display: flex;
   flex-direction: column;
@@ -445,21 +457,6 @@ width: 50px;
 }
 .location h3 {
   margin-bottom: 10px;
-}
-
-.map {
-  width: 100%;
-  height: 300px;
-  border: 0;
-  margin-top: 15px;
-  border-radius: 8px;
-}
-iframe{
-
-  width:100%;
-  height:300px;
-  border:0;
- 
 }
 
 /*Cursos*/
@@ -679,7 +676,8 @@ h2 {
 
 
 /* Container für die Bilder */
-.hero img
+.hero img,
+.sobreStefan img
  {
  width: 100%;
 object-fit: cover;
@@ -762,6 +760,50 @@ h1 {
     left: -60px;
 }
 
+/*sobre.html*/
+.sobreContainer{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.timeline{
+    
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1em;
+
+}
+
+.timeline-item{
+    display:flex;
+    flex-direction:column;
+    gap:.5rem;
+    width:min(100%,700px);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    padding: 18px 0;
+}
+.content{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+.content p
+{
+  font-size: 1.1em;
+  line-height: 1.5em;
+}
+.content p,
+.content small,
+.timeline-item .year{
+  color: #eeb834;
+  font-size: 1.2em;
+}
+.content h3{
+  font-size: 1.3em;
+}
 
 
 
@@ -935,7 +977,8 @@ justify-content: left;
   top: 250px; 
 
 }
-.hero img{
+.hero img,
+.sobreStefan img{
    width: 100%;
     height: 450px;   /* kleinere Höhe */
     object-fit: cover;
@@ -951,4 +994,11 @@ justify-content: left;
 .hero-text h2 {
   font-size: 1vw;
 }
+
+.sobreContainer{
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+}
+
 }
