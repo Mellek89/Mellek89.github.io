@@ -681,8 +681,8 @@ h2 {
  width: 100%;
 object-fit: cover;
 position: relative;
-border-radius: 10px;
-
+border-radius: 30px;
+padding: 1em;
   left: 50%;
   transform: translateX(-50%);
 
@@ -877,7 +877,7 @@ h1 {
   display: grid;
   padding-top: 3rem;  
   color: #141414;
-  gap: 1rem !important;
+  gap: 5rem;
       margin-left:280px;
     width:calc(100% - 280px);
 }
