@@ -316,6 +316,20 @@ font-size: medium;
   text-align: center;
   padding: 0.5em;
 }
+
+.timeContainer{
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row-reverse;
+ width: 200px;
+  align-items: center;
+  gap: 1.5rem;
+}
+.altosClock{
+
+width: 50px;
+
+}
 .location
  {
   max-width: 800px;
@@ -753,7 +767,7 @@ h1 {
 
 /* Footer */
 .footer{
-  background-color: #141414;
+  background-color: #000000;
   text-align: center;
   padding: 1rem;
   color: #fff;
@@ -918,7 +932,7 @@ justify-content: left;
 }
 .hero-text {
 
-  top: 350px; 
+  top: 250px; 
 
 }
 .hero img{
