@@ -196,7 +196,7 @@ padding: 0;
 position: relative;
 grid-column: -1;
 max-width: 100%;
-justify-self: end;   /* rechts */
+
 align-self: center;  
  padding-right: 1em;
  z-index: 300;
@@ -861,7 +861,7 @@ position:fixed;
 .lang-picker{
   grid-column: -1;  
   position: relative;
-   justify-self: end;
+  /* justify-self: end;*/
    margin-left: 10px;
 }
   .logoContainer{
