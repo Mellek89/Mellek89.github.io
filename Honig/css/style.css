@@ -682,7 +682,7 @@ h2 {
 object-fit: cover;
 position: relative;
 border-radius: 10px;
-  top: 10%;
+
   left: 50%;
   transform: translateX(-50%);
 
