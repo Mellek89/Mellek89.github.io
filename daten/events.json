@@ -414,7 +414,7 @@
     {
       "month": "April",
       "events": [
-        " Frühjahrsjahrmarkt Rastatt<br/>",
+        "Jahrmarkt in Rastatt<br/>Zur Ludwigsfeste",
         "Großflohmarkt auf dem<br/>Messplatz Karlsruhe",
         "Karlsruher Frühlingsfest<br/>",
         "Wochenmarkt Ehrenbreitstein<br/>",
@@ -424,77 +424,6 @@
         "Speyerer Frühjahrsmesse<br/>",
         "Mannheimer Maimess"
       ],
-      " Frühjahrsjahrmarkt Rastatt<br/>": {
-        "dates": [
-          {
-            "day": 24,
-            "month": 3,
-            "year": 2026
-          },
-          {
-            "day": 25,
-            "month": 3,
-            "year": 2026,
-            "start": {
-              "year": 2026,
-              "month": 3,
-              "day": 24
-            },
-            "end": {
-              "year": 2026,
-              "month": 3,
-              "day": 28
-            }
-          },
-          {
-            "day": 26,
-            "month": 3,
-            "year": 2026,
-            "start": {
-              "year": 2026,
-              "month": 3,
-              "day": 24
-            },
-            "end": {
-              "year": 2026,
-              "month": 3,
-              "day": 28
-            }
-          },
-          {
-            "day": 27,
-            "month": 3,
-            "year": 2026,
-            "start": {
-              "year": 2026,
-              "month": 3,
-              "day": 24
-            },
-            "end": {
-              "year": 2026,
-              "month": 3,
-              "day": 28
-            }
-          },
-          {
-            "day": 28,
-            "month": 3,
-            "year": 2026,
-            "start": {
-              "year": 2026,
-              "month": 3,
-              "day": 24
-            },
-            "end": {
-              "year": 2026,
-              "month": 3,
-              "day": 28
-            }
-          }
-        ],
-        "owner": "Uwe",
-        "isWeekly": false
-      },
       "Großflohmarkt auf dem<br/>Messplatz Karlsruhe": {
         "dates": [
           {
@@ -872,6 +801,37 @@
         ],
         "owner": "Gernot",
         "isWeekly": false
+      },
+      "Jahrmarkt in Rastatt<br/>Zur Ludwigsfeste": {
+        "dates": [
+          {
+            "day": 24,
+            "month": 3,
+            "year": 2026
+          },
+          {
+            "day": 25,
+            "month": 3,
+            "year": 2026
+          },
+          {
+            "day": 26,
+            "month": 3,
+            "year": 2026
+          },
+          {
+            "day": 27,
+            "month": 3,
+            "year": 2026
+          },
+          {
+            "day": 28,
+            "month": 3,
+            "year": 2026
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": false
       }
     },
     {
@@ -882,7 +842,8 @@
         "Wochenmarkt Selters ",
         "Blütenfest Koblenz-Güls<br/>",
         "Lahneck Live (Lahnstein)<br/>",
-        "Mannheimer Maimess"
+        "Mannheimer Maimess",
+        "Karlsruher Frühjahrsmess<br/>"
       ],
       "Maimarkt Gaggenau": {
         "dates": [
@@ -1124,6 +1085,67 @@
         ],
         "owner": "Gernot",
         "isWeekly": false
+      },
+      "Karlsruher Frühjahrsmess<br/>": {
+        "dates": [
+          {
+            "day": 29,
+            "month": 4,
+            "year": 2026
+          },
+          {
+            "day": 30,
+            "month": 4,
+            "year": 2026
+          },
+          {
+            "day": 31,
+            "month": 4,
+            "year": 2026
+          },
+          {
+            "day": 1,
+            "month": 5,
+            "year": 2026
+          },
+          {
+            "day": 2,
+            "month": 5,
+            "year": 2026
+          },
+          {
+            "day": 3,
+            "month": 5,
+            "year": 2026
+          },
+          {
+            "day": 4,
+            "month": 5,
+            "year": 2026
+          },
+          {
+            "day": 5,
+            "month": 5,
+            "year": 2026
+          },
+          {
+            "day": 6,
+            "month": 5,
+            "year": 2026
+          },
+          {
+            "day": 7,
+            "month": 5,
+            "year": 2026
+          },
+          {
+            "day": 8,
+            "month": 5,
+            "year": 2026
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": false
       }
     },
     {
@@ -1134,7 +1156,9 @@
         "Wochenmarkt Selters ",
         "Keramikmarkt (Höhr-Grenzhausen)<br/>",
         "Ballonfestival (Bonn)<br/><br/><br/>",
-        "Jedem Sayn Tal (Selters)<br/>"
+        "Karlsruher Frühjahrsmess<br/>",
+        "Pforzeimer Mess",
+        "Electronic Wine Koblenz<br/><br/>"
       ],
       "Grossflohmarkt auf dem<br/>Messplatz Karlsruhe": {
         "dates": [
@@ -1215,17 +1239,6 @@
         "owner": "Jan",
         "isWeekly": false
       },
-      "Jedem Sayn Tal (Selters)<br/>": {
-        "dates": [
-          {
-            "day": 21,
-            "month": 5,
-            "year": 2026
-          }
-        ],
-        "owner": "Jan",
-        "isWeekly": false
-      },
       "Ballonfestival (Bonn)<br/><br/><br/>": {
         "dates": [
           {
@@ -1246,6 +1259,144 @@
         ],
         "owner": "Jan",
         "isWeekly": false
+      },
+      "Karlsruher Frühjahrsmess<br/>": {
+        "dates": [
+          {
+            "day": 29,
+            "month": 4,
+            "year": 2026
+          },
+          {
+            "day": 30,
+            "month": 4,
+            "year": 2026
+          },
+          {
+            "day": 31,
+            "month": 4,
+            "year": 2026
+          },
+          {
+            "day": 1,
+            "month": 5,
+            "year": 2026
+          },
+          {
+            "day": 2,
+            "month": 5,
+            "year": 2026
+          },
+          {
+            "day": 3,
+            "month": 5,
+            "year": 2026
+          },
+          {
+            "day": 4,
+            "month": 5,
+            "year": 2026
+          },
+          {
+            "day": 5,
+            "month": 5,
+            "year": 2026
+          },
+          {
+            "day": 6,
+            "month": 5,
+            "year": 2026
+          },
+          {
+            "day": 7,
+            "month": 5,
+            "year": 2026
+          },
+          {
+            "day": 8,
+            "month": 5,
+            "year": 2026
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": false
+      },
+      "Pforzeimer Mess": {
+        "dates": [
+          {
+            "day": 12,
+            "month": 5,
+            "year": 2026
+          },
+          {
+            "day": 13,
+            "month": 5,
+            "year": 2026
+          },
+          {
+            "day": 14,
+            "month": 5,
+            "year": 2026
+          },
+          {
+            "day": 15,
+            "month": 5,
+            "year": 2026
+          },
+          {
+            "day": 16,
+            "month": 5,
+            "year": 2026
+          },
+          {
+            "day": 17,
+            "month": 5,
+            "year": 2026
+          },
+          {
+            "day": 18,
+            "month": 5,
+            "year": 2026
+          },
+          {
+            "day": 19,
+            "month": 5,
+            "year": 2026
+          },
+          {
+            "day": 20,
+            "month": 5,
+            "year": 2026
+          },
+          {
+            "day": 21,
+            "month": 5,
+            "year": 2026
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": false
+      },
+      "Electronic Wine Koblenz<br/><br/>": {
+        "dates": [
+          {
+            "day": 18,
+            "month": 5,
+            "year": 2026
+          },
+          {
+            "day": 19,
+            "month": 5,
+            "year": 2026
+          },
+          {
+            "day": 20,
+            "month": 5,
+            "year": 2026
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": false
       }
     },
     {
@@ -1259,7 +1410,11 @@
         "Gauklerfest (Festungen<br/>- Ehrenbreitstein)",
         "Bretten Peter und Paul<br/>Fest ",
         "Speyerer Brezelfest",
-        "Karlsruhe DAS FEST"
+        "Karlsruhe DAS FEST",
+        "Durlacher Altstadtfest<br/>",
+        "Strassenfest Daxlanden<br/>",
+        "Karlsdorfer Straßenfest<br/>",
+        "Wochenmarkt (Güls)"
       ],
       "Grossflohmarkt auf dem<br/>Messplatz Karlsruhe": {
         "dates": [
@@ -1479,6 +1634,75 @@
         ],
         "owner": "Gernot",
         "isWeekly": false
+      },
+      "Durlacher Altstadtfest<br/>": {
+        "dates": [
+          {
+            "day": 2,
+            "month": 6,
+            "year": 2026
+          },
+          {
+            "day": 3,
+            "month": 6,
+            "year": 2026
+          },
+          {
+            "day": 4,
+            "month": 6,
+            "year": 2026
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": false
+      },
+      "Strassenfest Daxlanden<br/>": {
+        "dates": [
+          {
+            "day": 10,
+            "month": 6,
+            "year": 2026
+          },
+          {
+            "day": 11,
+            "month": 6,
+            "year": 2026
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": false
+      },
+      "Karlsdorfer Straßenfest<br/>": {
+        "dates": [
+          {
+            "day": 25,
+            "month": 6,
+            "year": 2026
+          },
+          {
+            "day": 26,
+            "month": 6,
+            "year": 2026
+          },
+          {
+            "day": 27,
+            "month": 6,
+            "year": 2026
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": false
+      },
+      "Wochenmarkt (Güls)": {
+        "dates": [
+          {
+            "day": 3,
+            "month": 6,
+            "year": 2026
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": false
       }
     },
     {
@@ -1488,7 +1712,6 @@
         "Wochenmarkt Ehrenbreitstein<br/>",
         "Wochenmarkt Selters ",
         "Gauklerfest (Festungen<br/>- Ehrenbreitstein)",
-        "Rhein in Flammen (Koblenz<br/>Deutsches Eck)",
         "Weinfest (Dieblich)",
         "Moselfest (Winningen)<br/>",
         "Karlsruhe Neureuter Kerwe<br/>"
@@ -1590,27 +1813,6 @@
           },
           {
             "day": 2,
-            "month": 7,
-            "year": 2026
-          }
-        ],
-        "owner": "Jan",
-        "isWeekly": false
-      },
-      "Rhein in Flammen (Koblenz<br/>Deutsches Eck)": {
-        "dates": [
-          {
-            "day": 7,
-            "month": 7,
-            "year": 2026
-          },
-          {
-            "day": 8,
-            "month": 7,
-            "year": 2026
-          },
-          {
-            "day": 9,
             "month": 7,
             "year": 2026
           }
@@ -1732,7 +1934,10 @@
         "Moselfest (Winningen)<br/>",
         "Kunsthandwerker Markt<br/>(Koblenz-Schlossstraße)",
         "Michelsmarkt (Andernach)<br/>",
-        "Mannheimer Oktobermess<br/>"
+        "Mannheimer Oktobermess<br/>",
+        "Rastatter Herbstjahrmarkt<br/>",
+        "Bühler Zwetschgenfest<br/>",
+        "Durlacher Kerwe"
       ],
       "Grossflohmarkt auf dem<br/>Messplatz Karlsruhe": {
         "dates": [
@@ -2026,6 +2231,94 @@
         ],
         "owner": "Gernot",
         "isWeekly": false
+      },
+      "Rastatter Herbstjahrmarkt<br/>": {
+        "dates": [
+          {
+            "day": 4,
+            "month": 8,
+            "year": 2026
+          },
+          {
+            "day": 5,
+            "month": 8,
+            "year": 2026
+          },
+          {
+            "day": 6,
+            "month": 8,
+            "year": 2026
+          },
+          {
+            "day": 7,
+            "month": 8,
+            "year": 2026
+          },
+          {
+            "day": 8,
+            "month": 8,
+            "year": 2026
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": false
+      },
+      "Bühler Zwetschgenfest<br/>": {
+        "dates": [
+          {
+            "day": 10,
+            "month": 8,
+            "year": 2026
+          },
+          {
+            "day": 11,
+            "month": 8,
+            "year": 2026
+          },
+          {
+            "day": 12,
+            "month": 8,
+            "year": 2026
+          },
+          {
+            "day": 13,
+            "month": 8,
+            "year": 2026
+          },
+          {
+            "day": 14,
+            "month": 8,
+            "year": 2026
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": false
+      },
+      "Durlacher Kerwe": {
+        "dates": [
+          {
+            "day": 18,
+            "month": 8,
+            "year": 2026
+          },
+          {
+            "day": 19,
+            "month": 8,
+            "year": 2026
+          },
+          {
+            "day": 20,
+            "month": 8,
+            "year": 2026
+          },
+          {
+            "day": 21,
+            "month": 8,
+            "year": 2026
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": false
       }
     },
     {
@@ -2033,11 +2326,12 @@
       "events": [
         "Wochenmarkt Ehrenbreitstein<br/>",
         "Wochenmarkt Selters ",
-        "Herbert Markt (Idstein)<br/>",
+        "Herbst Markt (Idstein)<br/><br/>",
         "Simon Juda Markt (Altenkirchen)<br/>",
         "Mannheimer Oktobermess<br/>",
         "Mannheim Feudenheimer<br/>Kerwe",
-        "Speyerer Hebstmesse"
+        "Speyerer Hebstmesse",
+        "Karlsruher Herbstmess'<br/>"
       ],
       "Wochenmarkt Ehrenbreitstein<br/>": {
         "dates": [
@@ -2095,22 +2389,6 @@
         ],
         "owner": "Jan",
         "isWeekly": true
-      },
-      "Herbert Markt (Idstein)<br/>": {
-        "dates": [
-          {
-            "day": 10,
-            "month": 9,
-            "year": 2026
-          },
-          {
-            "day": 11,
-            "month": 9,
-            "year": 2026
-          }
-        ],
-        "owner": "Jan",
-        "isWeekly": false
       },
       "Simon Juda Markt (Altenkirchen)<br/>": {
         "dates": [
@@ -2280,6 +2558,83 @@
         ],
         "owner": "Gernot",
         "isWeekly": false
+      },
+      "Karlsruher Herbstmess'<br/>": {
+        "dates": [
+          {
+            "day": 30,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 31,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 1,
+            "month": 10,
+            "year": 2026
+          },
+          {
+            "day": 2,
+            "month": 10,
+            "year": 2026
+          },
+          {
+            "day": 3,
+            "month": 10,
+            "year": 2026
+          },
+          {
+            "day": 4,
+            "month": 10,
+            "year": 2026
+          },
+          {
+            "day": 5,
+            "month": 10,
+            "year": 2026
+          },
+          {
+            "day": 6,
+            "month": 10,
+            "year": 2026
+          },
+          {
+            "day": 7,
+            "month": 10,
+            "year": 2026
+          },
+          {
+            "day": 8,
+            "month": 10,
+            "year": 2026
+          },
+          {
+            "day": 9,
+            "month": 10,
+            "year": 2026
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": false
+      },
+      "Herbst Markt (Idstein)<br/><br/>": {
+        "dates": [
+          {
+            "day": 10,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 11,
+            "month": 9,
+            "year": 2026
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": false
       }
     },
     {
@@ -2288,498 +2643,9 @@
         "Wochenmarkt Ehrenbreitstein<br/>",
         "Wochenmarkt Selters ",
         "Katharinenmarkt (Hachenburg)<br/>",
-        "Karlsruher Christkindlesmarkt<br/>"
+        "Karlsruher Herbstmess'<br/>",
+        "Wochenmarkt (Güls)"
       ],
-      "Mittelalterlicher Weihnachtsmarkt<br/>Durlach": {
-        "dates": [
-          {
-            "day": 26,
-            "month": 10,
-            "year": 2025
-          },
-          {
-            "day": 27,
-            "month": 10,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 26
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 22
-            }
-          },
-          {
-            "day": 28,
-            "month": 10,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 26
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 22
-            }
-          },
-          {
-            "day": 29,
-            "month": 10,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 26
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 22
-            }
-          },
-          {
-            "day": 30,
-            "month": 10,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 26
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 22
-            }
-          }
-        ],
-        "owner": "Uwe",
-        "isWeekly": false
-      },
-      "Karlsruher Christkindlesmarkt<br/>": {
-        "dates": [
-          {
-            "day": 24,
-            "month": 10,
-            "year": 2025
-          },
-          {
-            "day": 25,
-            "month": 10,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 23
-            }
-          },
-          {
-            "day": 26,
-            "month": 10,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 23
-            }
-          },
-          {
-            "day": 27,
-            "month": 10,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 23
-            }
-          },
-          {
-            "day": 28,
-            "month": 10,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 23
-            }
-          },
-          {
-            "day": 29,
-            "month": 10,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 23
-            }
-          },
-          {
-            "day": 30,
-            "month": 10,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 23
-            }
-          }
-        ],
-        "owner": "Gernot",
-        "isWeekly": false
-      },
-      "Ettlinger Sternlesmarkt<br/>": {
-        "dates": [
-          {
-            "day": 27,
-            "month": 10,
-            "year": 2025
-          },
-          {
-            "day": 28,
-            "month": 10,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 27
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 29,
-            "month": 10,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 27
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 30,
-            "month": 10,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 27
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          }
-        ],
-        "owner": "Gernot",
-        "isWeekly": false
-      },
-      "Weihnachtsmarkt Rastatt<br/><br/><br/>": {
-        "dates": [
-          {
-            "day": 20,
-            "month": 10,
-            "year": 2025
-          },
-          {
-            "day": 21,
-            "month": 10,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 20
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 22,
-            "month": 10,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 20
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 23,
-            "month": 10,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 20
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 24,
-            "month": 10,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 20
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 25,
-            "month": 10,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 20
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 26,
-            "month": 10,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 20
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 27,
-            "month": 10,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 20
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 28,
-            "month": 10,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 20
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 29,
-            "month": 10,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 20
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 30,
-            "month": 10,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 20
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          }
-        ],
-        "owner": "Uwe",
-        "isWeekly": false
-      },
-      "Mannheimer Weihnachtsmarkt<br/>": {
-        "dates": [
-          {
-            "day": 24,
-            "month": 10,
-            "year": 2025
-          },
-          {
-            "day": 25,
-            "month": 10,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 26,
-            "month": 10,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 27,
-            "month": 10,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 28,
-            "month": 10,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 29,
-            "month": 10,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 30,
-            "month": 10,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          }
-        ],
-        "owner": "Jan",
-        "isWeekly": false
-      },
       "Wochenmarkt Ehrenbreitstein<br/>": {
         "dates": [
           {
@@ -2842,1944 +2708,86 @@
         ],
         "owner": "Jan",
         "isWeekly": false
+      },
+      "Karlsruher Herbstmess'<br/>": {
+        "dates": [
+          {
+            "day": 30,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 31,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 1,
+            "month": 10,
+            "year": 2026
+          },
+          {
+            "day": 2,
+            "month": 10,
+            "year": 2026
+          },
+          {
+            "day": 3,
+            "month": 10,
+            "year": 2026
+          },
+          {
+            "day": 4,
+            "month": 10,
+            "year": 2026
+          },
+          {
+            "day": 5,
+            "month": 10,
+            "year": 2026
+          },
+          {
+            "day": 6,
+            "month": 10,
+            "year": 2026
+          },
+          {
+            "day": 7,
+            "month": 10,
+            "year": 2026
+          },
+          {
+            "day": 8,
+            "month": 10,
+            "year": 2026
+          },
+          {
+            "day": 9,
+            "month": 10,
+            "year": 2026
+          }
+        ],
+        "owner": "Uwe",
+        "isWeekly": false
+      },
+      "Wochenmarkt (Güls)": {
+        "dates": [
+          {
+            "day": 6,
+            "month": 10,
+            "year": 2026
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": false
       }
     },
     {
       "month": "Dezember",
       "events": [
-        "Mittelalterlicher Weihnachtsmarkt<br/>Durlach",
-        "Karlsruher Christkindlesmarkt<br/>",
-        "Ettlinger Sternlesmarkt<br/>",
-        "Weihnachtsmarkt Rastatt<br/><br/><br/>",
-        "Mannheimer Weihnachtsmarkt<br/>",
         "Wochenmarkt Ehrenbreitstein<br/>",
         "Wochenmarkt Selters "
       ],
-      "Mittelalterlicher Weihnachtsmarkt<br/>Durlach": {
-        "dates": [
-          {
-            "day": 1,
-            "month": 11,
-            "year": 2025
-          },
-          {
-            "day": 2,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 26
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 22
-            }
-          },
-          {
-            "day": 3,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 26
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 22
-            }
-          },
-          {
-            "day": 4,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 26
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 22
-            }
-          },
-          {
-            "day": 5,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 26
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 22
-            }
-          },
-          {
-            "day": 6,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 26
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 22
-            }
-          },
-          {
-            "day": 7,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 26
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 22
-            }
-          },
-          {
-            "day": 8,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 26
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 22
-            }
-          },
-          {
-            "day": 9,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 26
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 22
-            }
-          },
-          {
-            "day": 10,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 26
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 22
-            }
-          },
-          {
-            "day": 11,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 26
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 22
-            }
-          },
-          {
-            "day": 12,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 26
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 22
-            }
-          },
-          {
-            "day": 13,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 26
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 22
-            }
-          },
-          {
-            "day": 14,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 26
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 22
-            }
-          },
-          {
-            "day": 15,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 26
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 22
-            }
-          },
-          {
-            "day": 16,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 26
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 22
-            }
-          },
-          {
-            "day": 17,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 26
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 22
-            }
-          },
-          {
-            "day": 18,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 26
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 22
-            }
-          },
-          {
-            "day": 19,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 26
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 22
-            }
-          },
-          {
-            "day": 20,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 26
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 22
-            }
-          },
-          {
-            "day": 21,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 26
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 22
-            }
-          },
-          {
-            "day": 22,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 26
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 22
-            }
-          }
-        ],
-        "owner": "Uwe",
-        "isWeekly": false
-      },
-      "Karlsruher Christkindlesmarkt<br/>": {
-        "dates": [
-          {
-            "day": 1,
-            "month": 11,
-            "year": 2025
-          },
-          {
-            "day": 2,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 23
-            }
-          },
-          {
-            "day": 3,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 23
-            }
-          },
-          {
-            "day": 4,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 23
-            }
-          },
-          {
-            "day": 5,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 23
-            }
-          },
-          {
-            "day": 6,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 23
-            }
-          },
-          {
-            "day": 7,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 23
-            }
-          },
-          {
-            "day": 8,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 23
-            }
-          },
-          {
-            "day": 9,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 23
-            }
-          },
-          {
-            "day": 10,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 23
-            }
-          },
-          {
-            "day": 11,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 23
-            }
-          },
-          {
-            "day": 12,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 23
-            }
-          },
-          {
-            "day": 13,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 23
-            }
-          },
-          {
-            "day": 14,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 23
-            }
-          },
-          {
-            "day": 15,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 23
-            }
-          },
-          {
-            "day": 16,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 23
-            }
-          },
-          {
-            "day": 17,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 23
-            }
-          },
-          {
-            "day": 18,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 23
-            }
-          },
-          {
-            "day": 19,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 23
-            }
-          },
-          {
-            "day": 20,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 23
-            }
-          },
-          {
-            "day": 21,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 23
-            }
-          },
-          {
-            "day": 22,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 23
-            }
-          },
-          {
-            "day": 23,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 23
-            }
-          }
-        ],
-        "owner": "Gernot",
-        "isWeekly": false
-      },
-      "Ettlinger Sternlesmarkt<br/>": {
-        "dates": [
-          {
-            "day": 1,
-            "month": 11,
-            "year": 2025
-          },
-          {
-            "day": 2,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 27
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 3,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 27
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 4,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 27
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 5,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 27
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 6,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 27
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 7,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 27
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 8,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 27
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 9,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 27
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 10,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 27
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 11,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 27
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 12,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 27
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 13,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 27
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 14,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 27
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 15,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 27
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 16,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 27
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 17,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 27
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 18,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 27
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 19,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 27
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 20,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 27
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 21,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 27
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 22,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 27
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 23,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 27
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 24,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 27
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 25,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 27
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 26,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 27
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 27,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 27
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 28,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 27
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          }
-        ],
-        "owner": "Gernot",
-        "isWeekly": false
-      },
-      "Weihnachtsmarkt Rastatt<br/><br/><br/>": {
-        "dates": [
-          {
-            "day": 1,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 20
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 2,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 20
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 3,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 20
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 4,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 20
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 5,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 20
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 6,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 20
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 7,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 20
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 8,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 20
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 9,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 20
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 10,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 20
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 11,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 20
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 12,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 20
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 13,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 20
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 14,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 20
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 15,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 20
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 16,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 20
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 17,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 20
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 18,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 20
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 19,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 20
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 20,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 20
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 21,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 20
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 22,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 20
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 23,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 20
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 24,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 20
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 25,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 20
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 26,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 20
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 27,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 20
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 28,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 20
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          }
-        ],
-        "owner": "Uwe",
-        "isWeekly": false
-      },
-      "Mannheimer Weihnachtsmarkt<br/>": {
-        "dates": [
-          {
-            "day": 1,
-            "month": 11,
-            "year": 2025
-          },
-          {
-            "day": 2,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 3,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 4,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 5,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 6,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 7,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 8,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 9,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 10,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 11,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 12,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 13,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 14,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 15,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 16,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 17,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 18,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 19,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 20,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 21,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 22,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 23,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 24,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 25,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 26,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 27,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          },
-          {
-            "day": 28,
-            "month": 11,
-            "year": 2025,
-            "start": {
-              "year": 2025,
-              "month": 10,
-              "day": 24
-            },
-            "end": {
-              "year": 2025,
-              "month": 11,
-              "day": 28
-            }
-          }
-        ],
-        "owner": "Jan",
-        "isWeekly": false
-      },
       "Wochenmarkt Ehrenbreitstein<br/>": {
         "dates": [
           {
@@ -4847,15 +2855,10 @@
   "listofRegion": {
     "Oberrhein": {
       "regions": [
-        "Mittelalterlicher Weihnachtsmarkt<br/>Durlach",
-        "Karlsruher Christkindlesmarkt<br/>",
-        "Ettlinger Sternlesmarkt<br/>",
-        "Weihnachtsmarkt Rastatt<br/><br/><br/>",
-        "Mannheimer Weihnachtsmarkt<br/>",
         "Durlacher Fastnachtsumzug<br/>",
         "Flohmarkt auf dem Messplatz<br/>Karlsruhe",
         "Flohmarkt Karlsruhe",
-        " Frühjahrsjahrmarkt Rastatt<br/>",
+        "Jahrmarkt in Rastatt<br/>Zur Ludwigsfeste",
         "Großflohmarkt auf dem<br/>Messplatz Karlsruhe",
         "Grossflohmarkt auf dem<br/>Messplatz Karlsruhe",
         "Maimarkt Gaggenau",
@@ -4871,7 +2874,16 @@
         "Mannheimer Oktobermess<br/>",
         "Mannheim Feudenheimer<br/>Kerwe",
         "Speyerer Hebstmesse",
-        "Mannheimer Maimess"
+        "Mannheimer Maimess",
+        "Karlsruher Frühjahrsmess<br/>",
+        "Pforzeimer Mess",
+        "Durlacher Altstadtfest<br/>",
+        "Strassenfest Daxlanden<br/>",
+        "Karlsdorfer Straßenfest<br/>",
+        "Rastatter Herbstjahrmarkt<br/>",
+        "Bühler Zwetschgenfest<br/>",
+        "Durlacher Kerwe",
+        "Karlsruher Herbstmess'<br/>"
       ]
     },
     "Mittelrhein": {
@@ -4886,18 +2898,18 @@
         "Lahneck Live (Lahnstein)<br/>",
         "Keramikmarkt (Höhr-Grenzhausen)<br/>",
         "Ballonfestival (Bonn)<br/><br/><br/>",
-        "Jedem Sayn Tal (Selters)<br/>",
         "Andernach Schmeckt ",
         "Weinfest (Löf) ",
         "Gauklerfest (Festungen<br/>- Ehrenbreitstein)",
-        "Rhein in Flammen (Koblenz<br/>Deutsches Eck)",
         "Weinfest (Dieblich)",
         "Moselfest (Winningen)<br/>",
         "Kunsthandwerker Markt<br/>(Koblenz-Schlossstraße)",
         "Michelsmarkt (Andernach)<br/>",
-        "Herbert Markt (Idstein)<br/>",
+        "Herbst Markt (Idstein)<br/><br/>",
         "Simon Juda Markt (Altenkirchen)<br/>",
-        "Katharinenmarkt (Hachenburg)<br/>"
+        "Katharinenmarkt (Hachenburg)<br/>",
+        "Electronic Wine Koblenz<br/><br/>",
+        "Wochenmarkt (Güls)"
       ]
     }
   }

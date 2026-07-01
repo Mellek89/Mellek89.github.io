@@ -1,6 +1,6 @@
 
 // getting new date, current year and month
-
+console.log("events.js gestartet", performance.now());
 let date = new Date(),
 currYear = date.getFullYear(),
 currMonth = date.getMonth(),
@@ -53,20 +53,27 @@ var endOfEvent= null;
 const months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September",
 				"Oktober", "November", "Dezember"]
 
+//noneFormAttributes();
+let eventDataGlobal = [];
+let eventDataRaw = null;
 		async function getData() {
-					 const url = `../daten/events.json`; 
+      if (eventDataRaw) {
+        return eventDataRaw;
+    }
+					 const url = `/events.json`; 
 					try {
-            console.time("fetch");
+            
+            
 					  const response = await fetch(url);
-					 console.timeEnd("fetch");
+					
 					  if (!response.ok) {
 						throw new Error(`Response status: ${response.status}`);
 					  }
 				   console.time("json");
-					  const jsontest = await response.json();
-				 console.timeEnd("json");
+					  eventDataRaw = await response.json();
+				
 					  
-					  return jsontest; 
+					  return eventDataRaw; 
 					  
 					} catch (error) {
 					  console.error(error.message);
@@ -75,12 +82,13 @@ const months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "A
 				  }
  
 
-noneFormAttributes();
-let eventDataGlobal = [];
+
 
 async function loadEvents() {
   const a = await getData();
+    console.time("normalizeEventData");
   eventDataGlobal = normalizeEventData(a.eventData, currYear);
+    console.timeEnd("normalizeEventData");
 }
 function noneFormAttributes(){
 
@@ -257,9 +265,12 @@ function findRange(dates){
 }
 
 let renderCount = 0;
+let renderEventsCount = 0;
+let loadRegionDataCount = 0;
+let getDataCount = 0; 
 const renderCalendar = () => {
 
-   console.log(daysTag);
+   console.log("renderCalendar", ++renderCount);
 let firstDateOfMonth = new Date(currYear, currMonth, 1).getDay();
     firstDateOfMonth = (firstDateOfMonth === 0) ? 6 : firstDateOfMonth - 1;
 
@@ -496,13 +507,13 @@ function handleWeekmarkets(){
 	}
 
 async function ladeDatenFürRegion(region) {
+
   if (!region) {
     console.warn("⚠️ Keine Region angegeben für ladeDatenFürRegion");
     return;
   }
-
   await loadRegionData();
-
+   
   if (!listofRegionGlobal) {
     console.warn(`Region "${region}" nicht gefunden.`);
     return;
@@ -518,89 +529,16 @@ async function ladeDatenFürRegion(region) {
     return;
   } 
 
- 
+  console.time("renderEvents");
   await renderEvents();
-   
+    console.timeEnd("renderEvents");
+     console.time("showDropdownMenu");
     showDropdownMenu({ [region]: regionData }, region);
+    console.timeEnd("showDropdownMenu");
+     console.timeEnd("ladeDatenFürRegion");
 }
 
-/*oberrhein.addEventListener('change', async () => {
-  
-  datesOfEvents.length= 0;
-    let createBtn = document.getElementById("create");
-      if (createBtn) {
-        createBtn.style.display = "block";
-      }
-          if(createButtonActive == false){
-            let prevView = document.getElementById("prevView");
-              if (prevView) {
-                prevView.style.display = "none";
-              }
-              let eventName = document.getElementById("eventName");
-              if (eventName) {
-                eventName.style.display = "none";
-              }
-            let  weekmarket = document.getElementById("Weekmarket");
-              if (weekmarket) {
-                weekmarket.style.display = "none";
-              }
-            }
-        
-       
-  if (oberrhein.checked ) {
-    if(createButtonActive == false){  resetEventState(); }
-   
-    region = oberrhein.value;
 
-      try {
-        await ladeDatenFürRegion(region);  // lädt Daten + baut Dropdown
-        
-      } catch (err) {
-        console.error("❌ Fehler beim Laden der Oberrhein-Daten:", err);
-      }
-    }
-});
-
-mittelrhein.addEventListener('change', async () => {
-
-  
-    let createBtn = document.getElementById("create");
-      if (createBtn) {
-        createBtn.style.display = "block";
-      }
-
-      if(createButtonActive == false){
-   let prevView = document.getElementById("prevView");
-      if (prevView) {
-        prevView.style.display = "none";
-      }
-       let eventName = document.getElementById("eventName");
-      if (eventName) {
-        eventName.style.display = "none";
-      }
-      let weekmarket = document.getElementById("Weekmarket");
-      if (weekmarket) {
-        weekmarket.style.display = "none";
-      }
-    }
-   datesOfEvents.length= 0;
-  
-
-     
-      if (mittelrhein.checked ) {
-         if(createButtonActive == false){  resetEventState(); }
-    
-   
-          region = mittelrhein.value;
-
-          try {
-            await ladeDatenFürRegion(region);  // lädt Daten + baut Dropdown
-         
-          } catch (err) {
-            console.error("❌ Fehler beim Laden der Mittelrhein-Daten:", err);
-          }
-      }
-});*/
 
 console.log(document.querySelectorAll('input[name="region"]'));
 document.querySelectorAll('input[name="region"]').forEach(radio => {
@@ -797,7 +735,7 @@ saveBtn.addEventListener("click", saveHandler);
 
 async function showDeleteConfirmation(region, eventName, zeitraum, currYear, isWeekly) {
    
- await loadEvents();
+ //await loadEvents();
 
   recurringDaysOfEvents.length = 0;
   datesOfEvents.length = 0;
@@ -1634,8 +1572,8 @@ console.log("startDate"+startDate);
       period.style.display = "block";
       }
 
-    const a = await getData();
-    eventDataGlobal = a.eventData;
+    //const a = await getData();
+   // eventDataGlobal = a.eventData;
 
     const monatName = getMonatsname(currMonth + 1);
     const monatObj = eventDataGlobal.find(m => m.month === monatName);
@@ -1669,7 +1607,7 @@ console.log("startDate"+startDate);
 
 
 const renderEvents = async () => {
- 
+ console.log("renderEvents", ++renderEventsCount);
     let found = false;
     let isInEvents = false;
     actualEvents = [];
@@ -1702,17 +1640,6 @@ if (!monthObj) {
     }
 const hasEvents = actualEvents.length > 0;
     
-  /*  if (!found || !hasEvents){
-
-     //if(mittelrhein && oberrhein && (mittelrhein.checked || oberrhein.checked)){
-     if(currentRegion){
-      showError("Für diesen Monat gibt es noch keine Veranstaltungen.");
-   } 
-}else{
-    
-     showError("");
-  }*/
-
 
 
     // 4️⃣ Rendern
@@ -1742,9 +1669,9 @@ async function getRegions(){
 	const params = new URLSearchParams(window.location.search);
 	   currentRegion = params.get('region');
 	  
- 
+
 	   if (currentRegion ) {
-     
+      await getData();
 			await loadRegionData();
      
 		 if (!listofRegionGlobal[currentRegion]) {
@@ -1756,10 +1683,7 @@ async function getRegions(){
 			// ✅ Sicherstellen, dass Events erst dann geladen und angezeigt werden
 			renderEvents();
 				showDropdownMenu(listofRegionGlobal,currentRegion); 
-
-		
-
-		
+	
 	} else{
 		console.warn("Keine Region angegeben.");
 		 navigateToRegionDisplay();
@@ -1768,12 +1692,13 @@ async function getRegions(){
 	}
 }
 async function loadRegionData(){ 
+   
 	try {
 	 
-    const data = await getData();  
-    listofRegionGlobal  = data.listofRegion; // komplette Liste speichern
-    eventDataGlobal  = data.eventData;
-    return data; 
+    //const data = await getData();  
+    listofRegionGlobal  = eventDataRaw.listofRegion; // komplette Liste speichern
+    eventDataGlobal  = eventDataRaw.eventData;
+    return eventDataGlobal; 
 	 } catch (err) {
         console.error("Fehler beim Laden der JSON-Daten:", err);
     }
@@ -1825,12 +1750,6 @@ function normalizeEventData(eventData, year) {
     return copy;
   });
 }
-
-
-
-		
-	
-
 	getRegions(); 
 
 if(window.location.pathname.endsWith("admin.html")){
@@ -1868,7 +1787,7 @@ function regionExistsInList(eventName,regionObj) {
  
 }
 async function showDropdownMenu(listofRegion, regionName) {
-
+ 
      const dropdownList = document.querySelector(".dropdown-menu");
     dropdownList.innerHTML = ""; // immer leeren
     if (typeof listofRegion !== 'object' || listofRegion === null || Array.isArray(listofRegion)) {
@@ -1928,7 +1847,8 @@ async function showDropdownMenu(listofRegion, regionName) {
       //datesOfEvents.length = 0;
       selectedEnd= null;
       selectedStart = null;
-      renderCalendar();   
+      renderCalendar();  
+      calendar.classList.remove("loading"); 
   }
 }
 
@@ -2100,7 +2020,7 @@ actualEvents.forEach(marktName => {
             if (period) period.style.display = "block";
 
             document.getElementById("eventname").value = eventId;
-            await loadEvents();
+           // await loadEvents();
             renderEventTimeRange(eventId);
             getFormAttributes();
         } else if (e.target.closest(".delete-btn")) {
@@ -2131,6 +2051,7 @@ actualEvents.forEach(marktName => {
             calendar.style.setProperty("top", newTop + "%", "important");
         }
     });
+  
 }
 
 // 🔹 Hilfsfunktion: Zeitraum berechnen & anzeigen
@@ -2252,7 +2173,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 								}
 					
 						try {
-     // await loadRegionData();
+      //await loadRegionData();
    
       if (!listofRegionGlobal[region]) {
         console.warn(`Region "${region}" nicht gefunden.`);
@@ -2270,17 +2191,17 @@ document.addEventListener("DOMContentLoaded", async function () {
 });
   
 	
-renderEvents();
+//renderEvents(); 
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  
+   console.time("sideMenuChaek");
   const checkbox = document.getElementById('side-menu');
   const main = document.getElementById('main');
   const footer = document.getElementById('footer');
 
   checkbox.addEventListener('change', () => {
-    console.log("toggle");
+    
     // Body overflow toggeln
     document.body.style.overflow = checkbox.checked ? 'hidden' : 'auto';
 
@@ -2291,7 +2212,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Footer ausblenden
     footer.classList.toggle('hidden', checkbox.checked);
     footer.classList.remove('open');
-  });
+  });console.timeEnd("sideMenuChaek");
 });
 
 
@@ -2475,4 +2396,4 @@ if(window.location.pathname.endsWith("/admin.html")){
   document.addEventListener("DOMContentLoaded", renderUserList);
 }
 
-renderCalendar();
+//renderCalendar();

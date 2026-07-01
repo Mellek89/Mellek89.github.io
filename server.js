@@ -580,8 +580,18 @@ server.listen(PORT, () => console.log("Server läuft auf http://localhost:3000")
 
 
 app.get('/events.json', (req, res) => {
-  res.json(loadEvents());
+ 
+  const data = loadEvents();
+  
+  
+  res.json(data);
+ 
 });
+/*app.get('/events.json', (req, res) => {
+   console.log("GET /events.json");
+  res.json(loadEvents());
+});*/
+
 
 // -------------------
 

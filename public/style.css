@@ -42,6 +42,21 @@ input, button, textarea, select {
   margin: 6px 0; 
   padding: 8px; 
 }
+.mellewebContainer{
+  display: flex;
+    align-items: center;
+    gap: 0.4rem; 
+}
+
+
+.svgLogoMelleWeb{
+    position: relative;
+    width: 50px;
+  /*  transform: translateY(2px);
+    order:1;*/
+    z-index: 4;
+
+}
 
 fieldset { 
   margin-top: 20px; 
@@ -436,7 +451,13 @@ footer.footer .impressum a,
 }
 
 
-        
+ /*#calendar {
+    visibility: hidden;
+}   */
+
+.calendar.loading {
+    opacity: 0;
+}
 .calendar{
 position: relative;
 padding: 10px;
@@ -1386,6 +1407,9 @@ footer.footer .social-icon:hover {
 /* Copyright */
 footer.footer .rechte-vorbehalten {
   font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
  
