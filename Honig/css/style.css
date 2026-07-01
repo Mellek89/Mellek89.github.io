@@ -321,7 +321,7 @@ font-size: medium;
   margin-top: 1rem;
   display: flex;
   flex-direction: row-reverse;
- width: 200px;
+ width: 160px;
   align-items: center;
   gap: 1.5rem;
 }
