@@ -772,7 +772,7 @@ h1 {
 }
 .timeline{
     
-    max-width: 900px;
+    max-width: 500px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -784,10 +784,10 @@ h1 {
 .timeline-item{
     display:flex;
     flex-direction:column;
-    gap:.5rem;
+    
     width:min(100%,700px);
     border-bottom: 1px solid rgba(0,0,0,0.08);
-    padding: 18px 0;
+   
 }
 .content{
   display: flex;
@@ -877,7 +877,7 @@ h1 {
   display: grid;
   padding-top: 3rem;  
   color: #141414;
-  gap: 5rem !important;
+  gap: 1rem !important;
       margin-left:280px;
     width:calc(100% - 280px);
 }
