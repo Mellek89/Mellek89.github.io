@@ -764,7 +764,12 @@ h1 {
 .sobreContainer{
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  
+}
+.sobreStefan{
+  display: flex;
+  flex-direction: column;
+  gap: 2.0rem;
 }
 .timeline{
     
@@ -805,6 +810,21 @@ h1 {
   font-size: 1.3em;
 }
 
+    .wayToParaguay{
+      padding: 1em;
+       max-width:800px;
+    }
+      .wayToParaguay p{
+    line-height:1.8;
+    margin-bottom:1rem;
+    color: #666;
+    }
+    .wayToParaguay h2{
+      font-size: 20px;
+    }
+    .wayToParaguay h3{
+      font-size: 18px;
+    }
 
 
 /* Footer */
@@ -998,6 +1018,12 @@ justify-content: left;
   display: flex;
   flex-direction: row;
   gap: 3rem;
+}
+
+.sobreStefan{
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
 }
 
 }
