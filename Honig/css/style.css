@@ -318,11 +318,13 @@ font-size: medium;
   align-items: center;
   gap: 1.5rem;
 }
-.altosClock{
 
-width: 50px;
-
+.altosClock,
+.EightToTwo
+{
+width:50px; 
 }
+
 .location
  {
   max-width: 800px;
