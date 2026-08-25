@@ -324,9 +324,7 @@ const renderCalendar = () => {
     }
 
 
-    /*if (isBetween(datePrev, startDate, endDate)) {
-      className += " circleInactive";
-    }*/
+   
 
     liTag += `<li class="${className}" data-day="${inactiveLastDays}" data-prev="1">${inactiveLastDays}</li>`;
   }
@@ -424,10 +422,8 @@ const renderCalendar = () => {
     }
 }
 
-
-
     liTag += `<li class="${className}" data-day="${nextDay}" data-next="1">${nextDay}</li>`;
-  }
+}
 
 
   currentDate.innerText = `${months[currMonth]} ${currYear}`;
