@@ -58,13 +58,16 @@ padding: 0;
 }
 
 
-.index
+.index_de,
+.index_es,
+.index_en
 {
  position: relative;
   width: 250px;
   max-width: 400px;
   height: auto;
 z-index: 100;
+
 
 }
 .svgsobre,
@@ -949,7 +952,9 @@ position:fixed;
  }
 
 
-.index{
+.index_de,
+.index_es,
+.index_en{
   width: 300px;
   opacity: 0.95;
   grid-column: 1;
