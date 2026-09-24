@@ -54,6 +54,7 @@ body {
 padding: 0;
   color: #141414;
   justify-items: center; /* horizontal zentrieren */
+
  
 }
 
@@ -711,6 +712,7 @@ padding: 1em;
 .hero-text h1,
 h1 {
      font-size: clamp(20px, 3vw, 34px);
+     margin-top: 1em;
   
 }
 
@@ -1029,6 +1031,7 @@ justify-content: left;
   display: flex;
   flex-direction: row;
   gap: 3rem;
+  margin-left: 2rem;
 }
 
 .sobreStefan{
