@@ -465,23 +465,15 @@ iframe{
 }
 
 /*Cursos*/
+
+
 .eventList{
   display: flex;
   flex-direction: column;
   gap: 1em;
 }
 
-/*.event-item {
-  outline: 2px solid red;
-}
 
-.event-item span {
-  outline: 2px solid blue;
-}
-
-.event-item.active span::after {
-  outline: 2px solid green;
-}*/
 .event-item {
   position: relative;
   padding-bottom: 18px;
@@ -529,13 +521,7 @@ iframe{
   background: url(../images/graduationHat.svg) no-repeat center;
   background-size: contain;
 }
-.cursoContainer{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 2em;
 
-}
 .calendarContainer{
  
   display: flex;
@@ -650,6 +636,7 @@ grid-column: 3/4;
   position: relative;
 width: 60px;
 top: 10px;
+
 }
 .indexContainer{
   display: flex;
@@ -868,7 +855,7 @@ h1 {
     position: fixed;
   display: block;
   background-color: #F5F5F5;
-
+  z-index: 1;
   }
     .nav{
       overflow:inherit;
@@ -888,7 +875,7 @@ h1 {
   .main {
   background-color: #F5F5F5;
   display: grid;
-  padding-top: 3rem;  
+    
   color: #141414;
   gap: 5rem;
       margin-left:280px;
@@ -1040,4 +1027,45 @@ justify-content: left;
   gap: 5rem;
 }
 
+/*Cursos**/
+.cursoContainer {
+    width: 100%;
+    min-height: 300px;
+    max-height: 350px;
+    overflow: hidden;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 4em;
+
+    background-image: url("../images/avif/bees.avif");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    box-sizing: border-box;
+  
+}
+
+
+.cursoContainer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    
+    width: 100%;
+    height: 100%;
+
+    background: rgba(128, 128, 128, 0.18);
+    z-index: 0;
+}
+
+.cursoContainer > * {
+    position: relative;
+    z-index: 1;
+}
 }
