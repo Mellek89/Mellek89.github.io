@@ -353,7 +353,7 @@ iframe{
   border:0;
  
 }
-/*cursos*/
+/*cursos
 .cursoContainer {
     width: 100%;
     min-height: 100px;
@@ -392,7 +392,7 @@ iframe{
     position: relative;
     z-index: 1;
 }
-
+*/
 /*productos*/
 .produkt-link {
   display: flex;
@@ -738,8 +738,8 @@ padding: 1em;
 h1 {
      font-size: clamp(30px, 3vw, 34px);
      margin-top: 1em;
-     font-weight: 700;
-     color: #f4ca61;
+    
+     color: #1f1f1f;
 }
 
 
