@@ -366,7 +366,7 @@ iframe{
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 4em;
+    gap: 1em;
 
     background-image: url("../images/avif/bees.avif");
     background-repeat: no-repeat;
@@ -673,7 +673,7 @@ grid-column: 3/4;
 .graduationHat{
   position: relative;
 width: 60px;
-top: 10px;
+top: 28px;
 
 }
 .indexContainer{
@@ -736,9 +736,10 @@ padding: 1em;
 }
 .hero-text h1,
 h1 {
-     font-size: clamp(20px, 3vw, 34px);
+     font-size: clamp(30px, 3vw, 34px);
      margin-top: 1em;
-  
+     font-weight: 700;
+     color: #f4ca61;
 }
 
 
@@ -1078,7 +1079,7 @@ justify-content: left;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 4em;
+    gap: 2em;
 
     background-image: url("../images/avif/bees.avif");
     background-repeat: no-repeat;
