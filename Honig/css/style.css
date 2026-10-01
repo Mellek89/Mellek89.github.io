@@ -262,7 +262,9 @@ padding: 2em;
   }
 
   .intro-text h2 {
+    font-family: "Segoe UI", Arial, sans-serif;
     font-size: 30px;
+    font-weight: 400;
   }
 
   .lead {
@@ -664,7 +666,9 @@ top: 28px;
 }
 
 h2 {
-    padding: 0.5em;
+      font-family: "Segoe UI", Arial, sans-serif;
+      font-weight: 400;
+  padding: 0.5em;
   text-align: center;
   color: #42413fff;
   font-size:large;
@@ -718,7 +722,9 @@ padding: 1em;
   color: floralwhite;
 }
 h1 {
+      font-family: "Segoe UI", Arial, sans-serif;
      font-size: clamp(25px, 3vw, 34px);
+     font-weight: 400;
      margin-top: 1em;
     
      color: #1f1f1f;
