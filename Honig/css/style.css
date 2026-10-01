@@ -265,10 +265,12 @@ padding: 2em;
     font-family: "Segoe UI", Arial, sans-serif;
     font-size: 30px;
     font-weight: 400;
+    margin-bottom: 0.8em;
   }
 
   .lead {
     font-size: 18px;
+    margin-bottom: 0.5em;
   }
 
   .sub {
