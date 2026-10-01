@@ -367,10 +367,6 @@ iframe{
     align-items: center;
     justify-content: center;
     gap: 1em;
-
-  
-
-  
   
 }
 
@@ -722,7 +718,7 @@ padding: 1em;
   color: floralwhite;
 }
 h1 {
-     font-size: clamp(30px, 3vw, 34px);
+     font-size: clamp(25px, 3vw, 34px);
      margin-top: 1em;
     
      color: #1f1f1f;
