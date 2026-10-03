@@ -309,6 +309,23 @@ padding: 2em;
   max-width: 260px;
 
 }
+.manyCupsContainer{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  align-items: center;
+  padding: 16px;
+
+}
+.manyCupsContainer .produkt-titel{
+
+  text-align: center;
+}
+.manyCups{
+  width: 200px;
+ 
+}
 
 /*index.html*/
 
