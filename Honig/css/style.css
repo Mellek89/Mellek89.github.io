@@ -323,10 +323,10 @@ padding: 2em;
   z-index: 1;
 }
 .wabenFürSections{
-  width: 133px;
+  width: 124px;
   z-index: 0;
   position: absolute;
-  margin-top: 70px;
+ top: 0;
   left: 0;
 opacity: 0.3;
 }
