@@ -324,6 +324,7 @@ padding: 2em;
 }
 .manyCups{
   width: 200px;
+  margin-bottom: 2em;
  
 }
 
@@ -478,8 +479,12 @@ iframe{
   color: #2e7d32;
 }
 
-.menge {
+.menge{
   color: #555;
+
+}
+.manyCupsContainer p {
+  font-size: 14px;
 }
 
 .info-texto {
