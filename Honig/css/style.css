@@ -319,12 +319,21 @@ padding: 2em;
 
 }
 .manyCupsContainer .produkt-titel{
-
   text-align: center;
+  z-index: 1;
+}
+.wabenFürSections{
+  width: 200px;
+  z-index: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+opacity: 0.5;
 }
 .manyCups{
-  width: 200px;
+  width: 160px;
   margin-bottom: 1em;
+ z-index: 1;
  
 }
 
@@ -485,6 +494,7 @@ iframe{
 }
 .manyCupsContainer p {
   font-size: 14px;
+  z-index: 1;
 }
 
 .info-texto {
