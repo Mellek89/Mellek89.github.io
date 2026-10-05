@@ -497,16 +497,19 @@ iframe{
 }
 .services{
   display: flex;
-  flex-direction: row;
-  gap: 2em;
+  justify-content: space-between;
+  font-size: 14px;
+  padding: 4px 0;
 }
 .manyCupsContainer p {
   font-size: 14px;
   z-index: 1;
 }
 
-.beeAndFlour{
+.beeAndFlour,
+.lohnschleuder{
   width: 30px;
+  height: 25px;
 }
 
 .info-texto {
