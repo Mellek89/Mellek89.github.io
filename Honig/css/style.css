@@ -430,6 +430,9 @@ iframe{
    align-items: stretch;
    justify-content: center;
 }
+.produkt-list p{
+  font-size: 14px;
+}
 .produkt-card {
  
   border-radius: 12px;
@@ -495,6 +498,10 @@ iframe{
 .manyCupsContainer p {
   font-size: 14px;
   z-index: 1;
+}
+
+.beeAndFlour{
+  width: 30px;
 }
 
 .info-texto {
@@ -1011,7 +1018,7 @@ position:fixed;
 .gMaps{
   display: flex;
   flex-direction: row;
-  gap:5em
+  gap:3em
 }
 
 
