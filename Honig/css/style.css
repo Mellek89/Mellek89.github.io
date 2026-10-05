@@ -506,10 +506,16 @@ iframe{
   z-index: 1;
 }
 
+
 .beeAndFlour,
-.lohnschleuder{
+.lohnschleuder,
+.bienenvoelker{
   width: 30px;
   height: 25px;
+}
+.beeAndFlourContainer{
+  position: relative;
+  right: -3px;
 }
 
 .info-texto {
