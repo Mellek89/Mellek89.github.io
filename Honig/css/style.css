@@ -412,7 +412,8 @@ iframe{
    text-decoration: none; 
   color: inherit;    
 }
-.productos {
+.productos,
+.servicios {
   display: flex;
   flex-direction: column;
   padding: 10px;
@@ -433,7 +434,8 @@ iframe{
 .produkt-list p{
   font-size: 14px;
 }
-.produkt-card {
+.produkt-card,
+.service-produkt-card  {
  
   border-radius: 12px;
   overflow: hidden;
@@ -842,6 +844,11 @@ h1 {
   flex-direction: column;
   
 }
+
+.sobrePicture{
+
+  width: 300px;
+}
 .sobreStefan{
   display: flex;
   flex-direction: column;
@@ -1060,15 +1067,22 @@ position:fixed;
   color: #666;
   max-width: 480px;
 }
-.productos {
+.productos,
+.servicios {
 
   flex-direction: row;
-  padding: 40px;
+  padding: 20px;
   align-items: center;  
 }
-.produkt-list{
+.servicios {
+  gap: 2rem;
+  
+}
 
-justify-content: left;
+
+.service-produkt-card {
+  width: 260px;
+  max-width: 400px;
 }
 .hero{
   max-height: 800px;
