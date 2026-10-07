@@ -855,15 +855,11 @@ h1 {
   gap: 2.0rem;
 }
 
+
 .sobrePicture img{
-  width: 300px;
+  width: 200px;
 }
-.timelineContainer{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1em;
-}
+
 .timeline{
     
     max-width: 500px;
@@ -1103,8 +1099,7 @@ position:fixed;
   top: 250px; 
 
 }
-.hero img,
-.sobreStefan img{
+.hero img{
   width: 100%;
   height: 450px;   /* kleinere Höhe */
   object-fit: cover;
@@ -1131,6 +1126,16 @@ position:fixed;
   display: flex;
   flex-direction: column;
   gap: 5rem;
+}
+
+.timelineContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+.sobrePicture img{
+  width: 300px;
 }
 
 /*Cursos**/
