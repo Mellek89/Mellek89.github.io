@@ -854,6 +854,16 @@ h1 {
   flex-direction: column;
   gap: 2.0rem;
 }
+
+.sobrePicture img{
+  width: 300px;
+}
+.timelineContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
 .timeline{
     
     max-width: 500px;
