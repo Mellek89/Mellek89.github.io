@@ -28,7 +28,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  
+  background-color: #F5F5F5;
 }
 
 /* Header */
@@ -44,7 +44,7 @@ body {
 
 
 .main {
-  background-color: #F5F5F5;
+ 
   display: grid;
   grid-template-columns: 1fr;   /* nur EINE Spalte auf Mobil */
   grid-template-rows: auto auto auto auto auto; 
@@ -419,6 +419,7 @@ iframe{
   padding: 10px;
   gap: 2em;
   background: #f9f9f7;
+  width: 100%;
 }
 .allProductos p{
   margin-left: 40px;
@@ -972,13 +973,14 @@ h1 {
   flex-direction: row;
 }
   .main {
-  background-color: #F5F5F5;
+ 
   display: grid;
     
   color: #141414;
   gap: 5rem;
       margin-left:280px;
     width:calc(100% - 280px);
+    justify-items: left;
 }
 
 
@@ -1004,6 +1006,7 @@ h1 {
 position:fixed;
     left:0;
     top:0;
+    width: 280px;
     height:100vh;
 
     background:#000000;
@@ -1077,15 +1080,14 @@ position:fixed;
   color: #666;
   max-width: 480px;
 }
-.productos,
-.servicios {
-
+.productos,.servicios{
   flex-direction: row;
   padding: 20px;
   align-items: center;  
 }
 .servicios {
-  gap: 2rem;
+
+  align-items: flex-start;  
   
 }
 
