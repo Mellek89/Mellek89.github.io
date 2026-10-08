@@ -842,13 +842,11 @@ h1 {
 .sobreContainer{
   display: flex;
   flex-direction: column;
+  align-items: center;
   
 }
 
-.sobrePicture{
 
-  width: 300px;
-}
 .sobreStefan{
   display: flex;
   flex-direction: column;
@@ -857,7 +855,13 @@ h1 {
 
 
 .sobrePicture img{
-  width: 200px;
+  width: 240px;
+}
+.timelineContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
 }
 
 .timeline{
@@ -1128,12 +1132,7 @@ position:fixed;
   gap: 5rem;
 }
 
-.timelineContainer{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1em;
-}
+
 .sobrePicture img{
   width: 300px;
 }
