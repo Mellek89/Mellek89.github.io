@@ -738,18 +738,20 @@ h2 {
   font-size:large;
 }
 
-.hero {
+.hero,
+.contactHero {
   position: relative;
   overflow: hidden;
  width: 100%;
-  max-height: 250px;
+
 }
 
 
 
 /* Container für die Bilder */
 .hero img,
-.sobreStefan img
+.sobreStefan img,
+.contactHero img
  {
  width: 100%;
 object-fit: cover;
@@ -764,21 +766,42 @@ padding: 1em;
 
 
 /* Text */
-.hero-text {
+.hero-text,
+.contactHero-text {
   position: absolute;
-  top: 120px;
+  top: 290px;
   left: 50%;
   transform: translate(-50%, -50%);
   text-shadow: 0 3px 8px rgba(0,0,0,0.8),
                0 6px 20px rgba(0,0,0,0.7);
-  color: white;
   text-align: center;
   z-index: 3;
 
 }
-.hero-text h1{
+.contactHero-text{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1em;
+  top: 335px;
+}
+
+.hero-text h1,
+.contactHero-text h1{
   color: floralwhite;
 }
+.contactHero-text h1{
+  
+  font-size: 1.7em;
+}
+
+.contact-whatsapp,
+.contact-email {
+    display: flex;
+    align-items: center; /* vertikal zentrieren */
+   grid-row: 4;
+    
+}
+
 h1 {
       font-family: "Segoe UI", Arial, sans-serif;
      font-size: clamp(25px, 3vw, 34px);
@@ -1000,7 +1023,7 @@ footer.footer .rechte-vorbehalten {
   gap: 5rem;
       margin-left:280px;
     width:calc(100% - 280px);
-    justify-items: left;
+    /*justify-items: left;*/
 }
 
 
@@ -1116,9 +1139,15 @@ position:fixed;
   width: 260px;
   max-width: 400px;
 }
-.hero{
+.hero,
+.contactHero{
   max-height: 800px;
   width: 900px;
+}
+.contactHero{
+
+ width: 400px;
+ max-height: 800px;
 }
 .hero-text {
 
@@ -1132,6 +1161,10 @@ position:fixed;
   transform: translateX(0%);
   top: 0;
   left: 0;
+}
+
+.contactHero img{
+width: 400px;
 }
 .hero-text h1 {
   font-size: 2.0vw;
