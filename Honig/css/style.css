@@ -1149,6 +1149,9 @@ position:fixed;
  width: 400px;
  max-height: 800px;
 }
+.contactHero-text{
+  top: 400px;
+}
 .hero-text {
 
   top: 250px; 
@@ -1162,7 +1165,9 @@ position:fixed;
   top: 0;
   left: 0;
 }
-
+.w{
+  width: 60px;
+}
 .contactHero img{
 width: 400px;
 }
