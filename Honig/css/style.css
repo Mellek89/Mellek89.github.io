@@ -268,8 +268,9 @@ padding: 2em;
     margin-bottom: 0.8em;
   }
 
-  .lead {
-    font-size: 18px;
+  .lead,
+  .hContact {
+    font-size: 22px;
     margin-bottom: 0.5em;
   }
 
@@ -729,7 +730,7 @@ h2 {
   padding: 0.5em;
   text-align: center;
   color: #42413fff;
-  font-size:large;
+  font-size:x-large;
 }
 .indexContainer h2{
   padding: 0.5em;
@@ -745,7 +746,11 @@ h2 {
  width: 100%;
 
 }
-
+.contactHero{
+display: flex;
+ flex-direction: column;
+ align-items: center;
+}
 
 
 /* Container für die Bilder */
@@ -762,6 +767,9 @@ padding: 1em;
   transform: translateX(-50%);
 
   z-index: 2;
+}
+.w{
+  width: 300px;
 }
 
 
@@ -1123,14 +1131,14 @@ position:fixed;
   color: #666;
   max-width: 480px;
 }
-.productos,.servicios{
-  flex-direction: row;
+.productos{
+
   padding: 20px;
   align-items: center;  
 }
 .servicios {
 
-  align-items: flex-start;  
+align-items: center;  
   
 }
 
@@ -1138,6 +1146,9 @@ position:fixed;
 .service-produkt-card {
   width: 260px;
   max-width: 400px;
+}
+.produkt-list{
+  justify-content:flex-start;
 }
 .hero,
 .contactHero{
@@ -1149,6 +1160,7 @@ position:fixed;
  width: 400px;
  max-height: 800px;
 }
+
 .contactHero-text{
   top: 400px;
 }
@@ -1166,7 +1178,7 @@ position:fixed;
   left: 0;
 }
 .w{
-  width: 300px;
+  width: 400px;
 }
 .contactHero img{
 width: 400px;
