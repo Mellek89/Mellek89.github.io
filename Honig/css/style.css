@@ -1152,15 +1152,17 @@ align-items: center;
 .produkt-list{
   justify-content:flex-start;
 }
-.hero,
-.contactHero{
+.hero
+{
   max-height: 800px;
   width: 900px;
 }
 .contactHero{
+flex-direction: row;
 
- width: 400px;
- max-height: 800px;
+}
+.hContact{
+  padding: 2em;
 }
 
 .contactHero-text{
