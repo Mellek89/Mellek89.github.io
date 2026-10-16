@@ -888,6 +888,7 @@ h1 {
 
 .sobrePicture img{
   width: 240px;
+ 
 }
 .timelineContainer{
   display: flex;
@@ -901,9 +902,10 @@ h1 {
     max-width: 500px;
     margin: 0 auto;
     display: flex;
-    flex-direction: column;
+    flex-direction:column;
     gap: 2rem;
     padding: 1em;
+    
 
 }
 
