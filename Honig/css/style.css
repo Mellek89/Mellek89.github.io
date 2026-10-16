@@ -750,8 +750,12 @@ h2 {
 display: flex;
  flex-direction: column;
  align-items: center;
+ gap: 2em;
 }
-
+.hContact{
+  padding: 2em;
+  font-size: 17px;
+}
 
 /* Container für die Bilder */
 .hero img,
@@ -1161,9 +1165,7 @@ align-items: center;
 flex-direction: row;
 
 }
-.hContact{
-  padding: 2em;
-}
+
 
 .contactHero-text{
   top: 400px;
@@ -1182,11 +1184,13 @@ flex-direction: row;
   left: 0;
 }
 .w{
-  width: 400px;
+  width: 500px;
 }
 .contactHero img{
 width: 400px;
 }
+.hContact{font-size: 20px;}
+
 .hero-text h1 {
   font-size: 2.0vw;
 }
