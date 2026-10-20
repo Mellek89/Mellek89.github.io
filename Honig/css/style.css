@@ -387,20 +387,10 @@ iframe{
 }
 /*cursos*/
 .cursoContainer {
-    width: 100%;
-    min-height: 100px;
-   
-    overflow: hidden;
-
-    position: relative;
-
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 1em;
-  
+  display: none;
 }
+
+
 
 
 
@@ -752,9 +742,27 @@ display: flex;
  align-items: center;
  gap: 2em;
 }
-.hContact{
+.hContact,
+.hContact_2{
   padding: 2em;
   font-size: 17px;
+ 
+}
+.hContact_2{
+  padding: 0;
+  padding-left: 2em;
+}
+.hContact,
+.hContact_2{font-size: 20px;
+  border-bottom: none;
+  
+}
+.hContact::after {
+    content: "";
+    display: block;
+    width: 100%;
+    border-bottom: 2px solid rgba(238, 184, 52, 0.5);
+    margin-top: 30px;
 }
 
 /* Container für die Bilder */
@@ -765,7 +773,7 @@ display: flex;
  width: 100%;
 object-fit: cover;
 position: relative;
-border-radius: 30px;
+border-radius: 70px;
 padding: 1em;
   left: 50%;
   transform: translateX(-50%);
@@ -1189,7 +1197,7 @@ flex-direction: row;
 .contactHero img{
 width: 400px;
 }
-.hContact{font-size: 20px;}
+
 
 .hero-text h1 {
   font-size: 2.0vw;
@@ -1219,6 +1227,7 @@ width: 400px;
 
 /*Cursos**/
 .cursoContainer {
+  display: block;
     width: 100%;
     min-height: 300px;
     max-height: 350px;
