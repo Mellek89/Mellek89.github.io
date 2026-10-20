@@ -737,10 +737,11 @@ h2 {
 
 }
 .contactHero{
+  width: 80%;
 display: flex;
  flex-direction: column;
  align-items: center;
- gap: 2em;
+ gap: 1em;
 }
 .hContact,
 .hContact_2{
@@ -748,6 +749,7 @@ display: flex;
   font-size: 17px;
  
 }
+
 .hContact_2{
   padding: 0;
   padding-left: 2em;
@@ -755,6 +757,7 @@ display: flex;
 .hContact,
 .hContact_2{font-size: 20px;
   border-bottom: none;
+  text-align: center;
   
 }
 .hContact::after {
@@ -766,14 +769,12 @@ display: flex;
 }
 
 /* Container für die Bilder */
-.hero img,
-.sobreStefan img,
-.contactHero img
+.hero img
  {
  width: 100%;
 object-fit: cover;
 position: relative;
-border-radius: 70px;
+
 padding: 1em;
   left: 50%;
   transform: translateX(-50%);
@@ -789,7 +790,7 @@ padding: 1em;
 .hero-text,
 .contactHero-text {
   position: absolute;
-  top: 290px;
+  top: 120px;
   left: 50%;
   transform: translate(-50%, -50%);
   text-shadow: 0 3px 8px rgba(0,0,0,0.8),
@@ -1166,15 +1167,13 @@ align-items: center;
 }
 .hero
 {
-  max-height: 800px;
+  max-height: 550px;
   width: 900px;
 }
 .contactHero{
 flex-direction: row;
 
 }
-
-
 .contactHero-text{
   top: 400px;
 }
@@ -1183,16 +1182,21 @@ flex-direction: row;
   top: 250px; 
 
 }
+
+.hContact,
+.hContact_2{
+  text-align: left;
+}
 .hero img{
   width: 100%;
-  height: 450px;   /* kleinere Höhe */
+  
   object-fit: cover;
   transform: translateX(0%);
   top: 0;
   left: 0;
 }
 .w{
-  width: 500px;
+  width: 650px;
 }
 .contactHero img{
 width: 400px;
