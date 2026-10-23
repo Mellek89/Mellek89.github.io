@@ -1413,8 +1413,7 @@
         "Karlsruhe DAS FEST",
         "Durlacher Altstadtfest<br/>",
         "Strassenfest Daxlanden<br/>",
-        "Karlsdorfer Straßenfest<br/>",
-        "Wochenmarkt (Güls)"
+        "Karlsdorfer Straßenfest<br/>"
       ],
       "Grossflohmarkt auf dem<br/>Messplatz Karlsruhe": {
         "dates": [
@@ -1691,17 +1690,6 @@
           }
         ],
         "owner": "Uwe",
-        "isWeekly": false
-      },
-      "Wochenmarkt (Güls)": {
-        "dates": [
-          {
-            "day": 3,
-            "month": 6,
-            "year": 2026
-          }
-        ],
-        "owner": "Jan",
         "isWeekly": false
       }
     },
@@ -2331,7 +2319,10 @@
         "Mannheimer Oktobermess<br/>",
         "Mannheim Feudenheimer<br/>Kerwe",
         "Speyerer Hebstmesse",
-        "Karlsruher Herbstmess'<br/>"
+        "Karlsruher Herbstmess'<br/>",
+        "Winzerfest Braubach ",
+        "Wochenmarkt Winningen<br/>",
+        "Wochenmarkt Güls "
       ],
       "Wochenmarkt Ehrenbreitstein<br/>": {
         "dates": [
@@ -2635,6 +2626,54 @@
         ],
         "owner": "Jan",
         "isWeekly": false
+      },
+      "Winzerfest Braubach ": {
+        "dates": [
+          {
+            "day": 2,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 3,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 4,
+            "month": 9,
+            "year": 2026
+          },
+          {
+            "day": 5,
+            "month": 9,
+            "year": 2026
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": false
+      },
+      "Wochenmarkt Winningen<br/>": {
+        "dates": [
+          {
+            "day": 27,
+            "month": 9,
+            "year": 2026
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": false
+      },
+      "Wochenmarkt Güls ": {
+        "dates": [
+          {
+            "day": 23,
+            "month": 9,
+            "year": 2026
+          }
+        ],
+        "owner": "Jan",
+        "isWeekly": false
       }
     },
     {
@@ -2643,8 +2682,7 @@
         "Wochenmarkt Ehrenbreitstein<br/>",
         "Wochenmarkt Selters ",
         "Katharinenmarkt (Hachenburg)<br/>",
-        "Karlsruher Herbstmess'<br/>",
-        "Wochenmarkt (Güls)"
+        "Karlsruher Herbstmess'<br/>"
       ],
       "Wochenmarkt Ehrenbreitstein<br/>": {
         "dates": [
@@ -2768,17 +2806,6 @@
           }
         ],
         "owner": "Uwe",
-        "isWeekly": false
-      },
-      "Wochenmarkt (Güls)": {
-        "dates": [
-          {
-            "day": 6,
-            "month": 10,
-            "year": 2026
-          }
-        ],
-        "owner": "Jan",
         "isWeekly": false
       }
     },
@@ -2909,7 +2936,9 @@
         "Simon Juda Markt (Altenkirchen)<br/>",
         "Katharinenmarkt (Hachenburg)<br/>",
         "Electronic Wine Koblenz<br/><br/>",
-        "Wochenmarkt (Güls)"
+        "Winzerfest Braubach ",
+        "Wochenmarkt Winningen<br/>",
+        "Wochenmarkt Güls "
       ]
     }
   }
