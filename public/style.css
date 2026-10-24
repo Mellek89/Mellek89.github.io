@@ -15,21 +15,25 @@ html, body {
   overflow: auto;
   min-height: 100%;
 }
-body{
-   font-family: 'Outfit', sans-serif;
-  font-weight: 300; /* Light */
-   background-image: 
-    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
-    url('./imagesOptimized/images/Lango_laenge_HomeMobile.png');
-   background-image: image-set(
-    url('./imagesOptimized/images/avif/Lango_laenge_HomeMobile.avif') type("image/avif"),
-    url('./imagesOptimized/images/webp/Lango_laenge_HomeMobile.webp') type("image/webp"),
-    url('./imagesOptimized/images/Lango_laenge_HomeMobile.png') type("image/png")
-  );
-  background-size: cover;       /* Bild auf gesamte Fläche anpassen */
-  background-repeat: no-repeat; /* Kein Wiederholen des Bildes */
-  background-position: center;  /* Bild zentrieren */
-   background-attachment: fixed; 
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+
+  background-image:
+   
+    image-set(
+      url('./imagesOptimized/images/avif/Lango_laenge_HomeMobile.avif') type("image/avif"),
+      url('./imagesOptimized/images/webp/Lango_laenge_HomeMobile.webp') type("image/webp"),
+      url('./imagesOptimized/images/Lango_laenge_HomeMobile.png') type("image/png")
+    );
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 *{margin: 0;
   padding:0;
@@ -918,8 +922,20 @@ p,
     grid-column: span 2;
     display: grid;
   }
+/* Mobile: Alle sichtbar */
+@media (max-width: 1024px) {
+  .Geschichte .slide {
+    display: block !important;
+  }
 
-  /* Mobile: Alle sichtbar */ @media (max-width: 1024px) { .Geschichte .slide { display: block !important; } .Geschichte .uns_prev { display: none !important; } .Geschichte .uns_next { display: none !important; } }
+  .Geschichte .uns_prev {
+    display: none !important;
+  }
+
+  .Geschichte .uns_next {
+    display: none !important;
+  }
+}
 
 
 
@@ -930,7 +946,6 @@ p,
 
 
 /* E-Mail-Text */
-
 
 .emailGrün a,
 .emailRot a,
@@ -1187,6 +1202,8 @@ width: 2em;
 
 @media (max-width: 767px) {
 
+ 
+
   .container .main {
     display: grid;
     grid-template-columns: 1fr; /* alles untereinander */
@@ -1240,6 +1257,9 @@ width: 2em;
 
 
 @media (min-width: 769px) and (max-width: 1024px) {
+   body::before {
+     background-image: url('./imagesOptimized/images/Lango_laenge_HomeMobile.png');
+  }
   .footer.footer{
     max-height: 200px;
     text-align: center;
@@ -1337,9 +1357,9 @@ dialog.modal::backdrop {
 
 @media (min-width: 1025px) {
 
-body{
+ body::before {
  background-image: url('./imagesOptimized/images/webp/Lango_laenge_Home.webp');
-   background-attachment: fixed; 
+  
 }
 
 .container .header {
