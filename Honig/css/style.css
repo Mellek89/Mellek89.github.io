@@ -831,11 +831,11 @@ padding: 1em;
 }
 
 h1 {
-      font-family: "Segoe UI", Arial, sans-serif;
+    font-family: "Segoe UI", Arial, sans-serif;
      font-size: clamp(25px, 3vw, 34px);
      font-weight: 400;
      margin-top: 1em;
-    
+    padding: 1em;
      color: #1f1f1f;
 }
 
