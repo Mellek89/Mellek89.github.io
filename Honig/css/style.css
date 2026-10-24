@@ -269,7 +269,8 @@ padding: 2em;
   }
 
   .lead,
-  .hContact {
+  .hContact,
+  .contactLead {
     font-size: 22px;
     margin-bottom: 0.5em;
   }
@@ -737,29 +738,28 @@ h2 {
 
 }
 .contactHero{
-  width: 80%;
+  padding: 1em;
+  
 display: flex;
  flex-direction: column;
  align-items: center;
  gap: 1em;
 }
-.hContact,
-.hContact_2{
-  padding: 2em;
-  font-size: 17px;
- 
+.contactContainer{
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
 
-.hContact_2{
-  padding: 0;
-  padding-left: 2em;
-}
 .hContact,
-.hContact_2{font-size: 20px;
-  border-bottom: none;
-  text-align: center;
-  
+.hContact_2{
+ 
+  font-size: 17px;
+   border-bottom: none;
 }
+
+
+
 .hContact::after {
     content: "";
     display: block;
@@ -1133,11 +1133,15 @@ position:fixed;
 .headlineProdAndHoneyCup{
   flex-direction: row;
 }
-.lead {
+.lead,
+.contactLead {
   font-size: 20px;
   font-weight: 500;
-  margin-bottom: 15px;
+ 
   color: #2e2e2e;
+}
+.contactLead{
+  font-size: 30px;
 }
 
 .sub {
@@ -1172,6 +1176,7 @@ align-items: center;
 }
 .contactHero{
 flex-direction: row;
+width: 80%;
 
 }
 .contactHero-text{
@@ -1186,6 +1191,8 @@ flex-direction: row;
 .hContact,
 .hContact_2{
   text-align: left;
+  padding: 0;
+  padding-top: 2em;
 }
 .hero img{
   width: 100%;
