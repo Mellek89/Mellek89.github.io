@@ -750,6 +750,12 @@ display: flex;
   flex-direction: column;
   gap: 1em;
 }
+.contactContainer a{
+  color: #2e7d32;
+    text-decoration: none;
+  font-weight: 600;
+
+}
 
 .hContact,
 .hContact_2{
