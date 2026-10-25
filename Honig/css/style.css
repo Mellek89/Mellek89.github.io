@@ -390,7 +390,22 @@ iframe{
 .cursoContainer {
   display: none;
 }
-
+.cursoHeadline{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  text-align: center;
+  align-items: center;
+}
+.cursoHeadline h1{
+  padding: 0.5em;
+  font-size: clamp(18px, 3vw, 30px);;
+}
+.graduationHat{
+  position: relative;
+width: 35px;
+}
 
 
 
@@ -702,12 +717,7 @@ grid-column: 3/4;
 	border-radius: 50%;
 	transform: translate(-50%, -50%);
 }
-.graduationHat{
-  position: relative;
-width: 55px;
-top: 28px;
 
-}
 .indexContainer{
   display: flex;
   flex-direction: column;
@@ -1284,5 +1294,19 @@ width: 400px;
 .cursoContainer > * {
     position: relative;
     z-index: 1;
+}
+.cursoHeadline{
+  flex-direction: row;
+  width: 70%;
+}
+.cursoHeadline h1{
+  padding: 0;
+  font-size: clamp(25px, 3vw, 30px);;
+}
+.graduationHat{
+  position: relative;
+width: 95px;
+gap: 1em;
+top: 25px;
 }
 }
