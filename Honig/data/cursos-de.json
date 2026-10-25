@@ -1,55 +1,152 @@
 {
   "eventData": [
-    { 
-      "month": "Januar", 
+    {
+      "month": "Januar",
+      "events": []
+    },
+    {
+      "month": "Februar",
+      "events": []
+    },
+    {
+      "month": "März",
       "events": [
-       
+        {
+          "name": "Erster Bienenstock – und jetzt?",
+          "dates": [
+            {
+              "day": 1,
+              "month": 2,
+              "year": 2026
+            }
+          ],
+          "isWeekly": false
+        }
       ]
     },
-    { "month": "Februar", "events": [] },
-    { "month": "März", "events": [
- {
+    {
+      "month": "April",
+      "events": [
+        {
           "name": "Erster Bienenstock – und jetzt?",
           "dates": [
-            {"day": 1, "month": 2, "year": 2026}
-          ],
-          "isWeekly": false
-        }
-
-    ] },
-    { "month": "April", "events":[
- {
-          "name": "Erster Bienenstock – und jetzt?",
-          "dates": [
-            {"day": 1, "month": 3, "year": 2026},
-            {"day": 3, "month": 3, "year": 2026}
+            {
+              "day": 1,
+              "month": 3,
+              "year": 2026
+            },
+            {
+              "day": 3,
+              "month": 3,
+              "year": 2026
+            }
           ],
           "isWeekly": false
         },
-         {
+        {
           "name": "Noch ein Event",
           "dates": [
-            {"day": 15, "month": 3, "year": 2026}
+            {
+              "day": 15,
+              "month": 3,
+              "year": 2026
+            }
           ],
           "isWeekly": false
         },
-         {
+        {
           "name": "Und noch eins...",
           "dates": [
-            {"day": 25, "month": 3, "year": 2026}
+            {
+              "day": 25,
+              "month": 3,
+              "year": 2026
+            }
           ],
           "isWeekly": false
         }
-
-
-    ] },
-    { "month": "Mai", "events": [] },
-    { "month": "Juni", "events": [] },
-    { "month": "Juli", "events": [] },
-    { "month": "August", "events": [] },
-    { "month": "September", "events": [] },
-    { "month": "Oktober", "events": [] },
-    { "month": "November", "events": [] },
-    { "month": "Dezember", "events": [] }
+      ]
+    },
+    {
+      "month": "Mai",
+      "events": []
+    },
+    {
+      "month": "Juni",
+      "events": []
+    },
+    {
+      "month": "Juli",
+      "events": []
+    },
+    {
+      "month": "August",
+      "events": []
+    },
+    {
+      "month": "September",
+      "events": []
+    },
+    {
+      "month": "Oktober",
+      "events": [
+        {
+          "name": "Erster Bienenstock – und jetzt?",
+          "dates": [
+            {
+              "day": 1,
+              "month": 9,
+              "year": 2026
+            },
+            {
+              "day": 3,
+              "month": 9,
+              "year": 2026
+            }
+          ],
+          "isWeekly": false
+        },
+            {
+          "name": "Hummel Brummel Bummel",
+          "dates": [
+             {
+              "day": 12,
+              "month": 9,
+              "year": 2026
+            },
+            {
+              "day": 31,
+              "month": 9,
+              "year": 2026
+            }
+          ],
+          "isWeekly": false
+        }
+      ]
+    },
+    {
+      "month": "November",
+      "events": [
+        {
+          "name": "Hummel Brummel Bummel",
+          "dates": [
+             {
+              "day": 1,
+              "month": 10,
+              "year": 2026
+            },
+             {
+              "day": 10,
+              "month": 10,
+              "year": 2026
+            }
+      ]
+    }
+     ]
+},
+    {
+      "month": "Dezember",
+      "events": []
+    }
   ]
 }

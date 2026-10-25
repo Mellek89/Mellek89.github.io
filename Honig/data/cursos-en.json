@@ -58,7 +58,26 @@
     { "month": "August", "events": [] },
     { "month": "September", "events": [] },
     { "month": "Oktober", "events": [] },
-    { "month": "November", "events": [] },
+     {
+      "month": "November",
+      "events": [
+        {
+          "name": "Hummy Bzzzzz Bzzzz",
+          "dates": [
+             {
+              "day": 1,
+              "month": 10,
+              "year": 2026
+            },
+             {
+              "day": 10,
+              "month": 10,
+              "year": 2026
+            }
+      ]
+    }
+     ]
+},
     { "month": "Dezember", "events": [] }
   ]
 }

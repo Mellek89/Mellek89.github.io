@@ -1,6 +1,8 @@
 Hallo, ich würde das vom Design und Inhalt so lassen. Alle Punkte, die du mir genannt hast, habe ich umgesetzt. Im November 
 könnten wir die Seite online stellen. 
 
+Kontakt: gibt es bereits eine email adresse? sonst würde ich eine "info@pirimiel" beim einrichten des Servers erstellen und sie auf der Seite zur Verfügung stellen.
+
 Kurse: gibt es ein fertiges Kursangebot oder ist das noch in der Phase der Ausreifung? Gibt es bereits Termine?  
 
 soll Sanber wieder als Markt eingefügt warden? 
