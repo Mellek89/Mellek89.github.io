@@ -39,8 +39,63 @@
     { "month": "Juli", "events": [] },
     { "month": "August", "events": [] },
     { "month": "September", "events": [] },
-    { "month": "Oktober", "events": [] },
-    { "month": "November", "events": [] },
+    {
+      "month": "Oktober",
+      "events": [
+        {
+          "name": "¿Tu primera colmena… y ahora qué?",
+          "dates": [
+            {
+              "day": 1,
+              "month": 9,
+              "year": 2026
+            },
+            {
+              "day": 3,
+              "month": 9,
+              "year": 2026
+            }
+          ],
+          "isWeekly": false
+        },
+            {
+          "name": "Hummel Brummel Bummel",
+          "dates": [
+             {
+              "day": 12,
+              "month": 9,
+              "year": 2026
+            },
+            {
+              "day": 31,
+              "month": 9,
+              "year": 2026
+            }
+          ],
+          "isWeekly": false
+        }
+      ]
+    },
+       {
+      "month": "November",
+      "events": [
+        {
+          "name": "Hummy Bzzzzz Bzzzz",
+          "dates": [
+             {
+              "day": 1,
+              "month": 10,
+              "year": 2026
+            },
+             {
+              "day": 10,
+              "month": 10,
+              "year": 2026
+            }
+      ]
+    }
+     ]
+},
     { "month": "Dezember", "events": [] }
   ]
 }
