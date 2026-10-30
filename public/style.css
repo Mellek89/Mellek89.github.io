@@ -838,8 +838,8 @@ p,
   .HexenhausSpan img,
   .HängerSpan img,
   .WagenJanSpan img,
-  .BerndFirstTry img,
-  .Bernd img{
+  .BerndFirstTry img
+  {
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
@@ -1631,6 +1631,16 @@ header .icons span:hover{
 }
   .slide-bild {
     max-width: 200px;
+  }
+
+    .Bernd img{
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    display: block;  
+    margin-top: 1em;
+   margin-bottom: 1em;
+
   }
 
 
