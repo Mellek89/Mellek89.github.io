@@ -15,6 +15,11 @@ html, body {
   overflow: auto;
   min-height: 100%;
 }
+body{
+   font-family: 'Outfit', sans-serif;
+  font-weight: 300; 
+}
+
 body::before {
   content: "";
   position: fixed;
@@ -35,6 +40,7 @@ body::before {
   background-repeat: no-repeat;
   background-position: center;
 }
+
 *{margin: 0;
   padding:0;
   box-sizing: border-box;
@@ -45,21 +51,6 @@ input, button, textarea, select {
   width: 100%; 
   margin: 6px 0; 
   padding: 8px; 
-}
-.mellewebContainer{
-  display: flex;
-    align-items: center;
-    gap: 0.4rem; 
-}
-
-
-.svgLogoMelleWeb{
-    position: relative;
-    width: 50px;
-  /*  transform: translateY(2px);
-    order:1;*/
-    z-index: 4;
-
 }
 
 fieldset { 
@@ -207,6 +198,29 @@ footer.footer .impressum a,
   color: inherit;       /* nimmt die Textfarbe des Umfelds */
   text-decoration: none; /* keine Unterstreichung */
 
+}
+
+.mellewebContainer{
+  display: flex;
+    align-items: center;
+    gap: 0.4rem; 
+}
+
+
+.svgLogoMelleWeb{
+    position: relative;
+    width: 50px;
+  /*  transform: translateY(2px);
+    order:1;*/
+    z-index: 4;
+
+}
+/* Copyright */
+footer.footer .rechte-vorbehalten {
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .kontaktImpressum{
@@ -455,13 +469,10 @@ footer.footer .impressum a,
 }
 
 
- /*#calendar {
-    visibility: hidden;
-}   */
-
 .calendar.loading {
     opacity: 0;
-}
+}     
+   
 .calendar{
 position: relative;
 padding: 10px;
@@ -826,7 +837,9 @@ p,
   .KarlsruheWeihnachtsmarktSpan img,
   .HexenhausSpan img,
   .HängerSpan img,
-  .WagenJanSpan img {
+  .WagenJanSpan img,
+  .BerndFirstTry img,
+  .Bernd img{
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
@@ -922,20 +935,8 @@ p,
     grid-column: span 2;
     display: grid;
   }
-/* Mobile: Alle sichtbar */
-@media (max-width: 1024px) {
-  .Geschichte .slide {
-    display: block !important;
-  }
 
-  .Geschichte .uns_prev {
-    display: none !important;
-  }
-
-  .Geschichte .uns_next {
-    display: none !important;
-  }
-}
+  /* Mobile: Alle sichtbar */ @media (max-width: 1024px) { .Geschichte .slide { display: block !important; } .Geschichte .uns_prev { display: none !important; } .Geschichte .uns_next { display: none !important; } }
 
 
 
@@ -946,6 +947,7 @@ p,
 
 
 /* E-Mail-Text */
+
 
 .emailGrün a,
 .emailRot a,
@@ -1202,8 +1204,6 @@ width: 2em;
 
 @media (max-width: 767px) {
 
- 
-
   .container .main {
     display: grid;
     grid-template-columns: 1fr; /* alles untereinander */
@@ -1257,6 +1257,7 @@ width: 2em;
 
 
 @media (min-width: 769px) and (max-width: 1024px) {
+
    body::before {
      background-image: url('./imagesOptimized/images/Lango_laenge_HomeMobile.png');
   }
@@ -1357,9 +1358,9 @@ dialog.modal::backdrop {
 
 @media (min-width: 1025px) {
 
- body::before {
+body::before {
  background-image: url('./imagesOptimized/images/webp/Lango_laenge_Home.webp');
-  
+   background-attachment: fixed; 
 }
 
 .container .header {
@@ -1427,9 +1428,6 @@ footer.footer .social-icon:hover {
 /* Copyright */
 footer.footer .rechte-vorbehalten {
   font-size: 0.9rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
  
