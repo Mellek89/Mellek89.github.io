@@ -1096,7 +1096,7 @@ footer.footer .rechte-vorbehalten {
   display: grid;
     
   color: #141414;
-  gap: 5rem;
+ 
       margin-left:280px;
     width:calc(100% - 280px);
     /*justify-items: left;*/
