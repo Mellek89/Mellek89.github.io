@@ -1099,7 +1099,7 @@ footer.footer .rechte-vorbehalten {
  
       margin-left:280px;
     width:calc(100% - 280px);
-    /*justify-items: left;*/
+    gap:2em;
 }
 
   .side-menu { 
